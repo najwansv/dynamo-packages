@@ -1,0 +1,507 @@
+Dynamo log started 2024-01-17 13:25:15Z
+2024-01-17 13:25:15Z : Python template set to default.
+2024-01-17 13:25:16Z : launch darkly initalized
+2024-01-17 13:25:16Z : LD startup time: 1193 
+2024-01-17 13:25:16Z : <<<<<InitDone>>>>>
+2024-01-17 13:25:16Z : feature flag exe starting
+2024-01-17 13:25:16Z : <<<<<Sod>>>>>
+2024-01-17 13:25:16Z : {"graphics-primitive-instancing":false,"testFlag":false,"EasterEggIcon1":false,"EasterEggMessage1":"NA","CER":false,"NodeAutocompleteMachineLearningIsBeta":true,"CER_v2":true}
+2024-01-17 13:25:16Z : <<<<<Eod>>>>>
+2024-01-17 13:25:16Z : EasterEggIcon1 is false FROM MODEL
+2024-01-17 13:25:16Z : EasterEggMessage1 is disabled FROM MODEL
+2024-01-17 13:25:17Z : Dynamo -- Build 2.18.1.5096
+2024-01-17 13:25:17Z : System.InvalidOperationException:
+2024-01-17 13:25:17Z : There already exists an AlsoKnownAs mapping for DSCoreNodesUI.Logic.If.
+2024-01-17 13:25:17Z : 
+2024-01-17 13:25:17Z : System.InvalidOperationException:
+2024-01-17 13:25:17Z : There already exists an AlsoKnownAs mapping for If.
+2024-01-17 13:25:17Z : 
+2024-01-17 13:25:17Z : Duplicate migration type registered for SunPathDirection
+2024-01-17 13:25:18Z : AnalyticalAutomation.dll,M:AnalyticalAutomation.AnalyticalElements.AnalyticalPanel.BySurface(Autodesk.DesignScript.Geometry.Surface,System.Boolean) {0} is missing some XML documentation tags.
+2024-01-17 13:25:18Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-01-17 13:25:18Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\definitions' does not exist
+2024-01-17 13:25:18Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\definitions' does not exist
+2024-01-17 13:25:18Z : Dynamo will use the package manager server at : https://www.dynamopackages.com
+2024-01-17 13:25:18Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-01-17 13:25:19Z : A package called DynamoPlayerExtension found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension includes dll files but none are defined in node libraries in the package manifest.  Ignoring it.
+2024-01-17 13:25:19Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\packages' does not exist
+2024-01-17 13:25:19Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\packages' does not exist
+2024-01-17 13:25:20Z : System.InvalidOperationException:
+2024-01-17 13:25:20Z : There already exists an AlsoKnownAs mapping for Select Rule Type.
+2024-01-17 13:25:20Z : 
+2024-01-17 13:25:27Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is added
+2024-01-17 13:25:28Z : Modelical contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-01-17 13:25:29Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is added
+2024-01-17 13:25:31Z : System.InvalidOperationException:
+2024-01-17 13:25:31Z : There already exists an AlsoKnownAs mapping for Roof Types.
+2024-01-17 13:25:31Z : 
+2024-01-17 13:25:31Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension\dyf' does not exist
+2024-01-17 13:25:31Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is added
+2024-01-17 13:25:31Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign\dyf' does not exist
+2024-01-17 13:25:32Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Extension\dyf' does not exist
+2024-01-17 13:25:32Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is added
+2024-01-17 13:25:32Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Revit\dyf' does not exist
+2024-01-17 13:25:32Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is added
+2024-01-17 13:25:32Z : Backup files timer is started with an interval of 60000 milliseconds
+2024-01-17 13:25:32Z : SYSTEM:Environment Path:C:\Program Files\Autodesk\Revit 2024\AddIns\SteelConnections;C:\Program Files\Autodesk\Revit 2024\en-US;C:\Program Files\Autodesk\Revit 2024;C:\Program Files\Common Files\Autodesk Shared\RealDWG Shared 2024;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\ngrok\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\dotnet\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\;C:\Users\Najwan S\AppData\Local\Microsoft\WindowsApps;;C:\Users\Najwan S\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Najwan S\AppData\Roaming\npm;C:\Users\Najwan S\AppData\Local\spicetify;C:\Users\Najwan S\.dotnet\tools;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit
+2024-01-17 13:25:32Z : RENDER : Rendering Tier: 2
+2024-01-17 13:25:32Z : RENDER : Pixel Shader 3 Supported: True
+2024-01-17 13:25:32Z : RENDER : Pixel Shader 4 Supported: False
+2024-01-17 13:25:32Z : RENDER : Software Effect Rendering Supported: True
+2024-01-17 13:25:32Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-01-17 13:25:34Z : RENDER : Rendering Tier: 2
+2024-01-17 13:25:34Z : RENDER : Pixel Shader 3 Supported: True
+2024-01-17 13:25:34Z : RENDER : Pixel Shader 4 Supported: False
+2024-01-17 13:25:34Z : RENDER : Software Effect Rendering Supported: True
+2024-01-17 13:25:34Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-01-17 13:25:34Z : Documentation Browser (id: 68B45FC0-0BD1-435C-BF28-B97CB03C71C8) view extension is added
+2024-01-17 13:25:34Z : DynamoManipulationExtension (id: 58B0496A-E3F8-43D9-86D2-94823D1D0F98) view extension is added
+2024-01-17 13:25:34Z : Properties (id: 28992e1d-abb9-417f-8b1b-05e053bee670) view extension is added
+2024-01-17 13:25:34Z : Graph Node Manager (id: F76F4274-537D-4782-B1E9-27E8FDE2186F) view extension is added
+2024-01-17 13:25:34Z : LibraryUI - WebView2 (id: 8b093acd-5656-4914-b6b0-c54b26ca6d0e) view extension is added
+2024-01-17 13:25:34Z : Graph Status (id: 3467481b-d20d-4918-a454-bf19fc5c25d7) view extension is added
+2024-01-17 13:25:34Z : Notifications (id: ef6cd025-514f-44cd-b6b1-69d9f5cce004) view extension is added
+2024-01-17 13:25:34Z : Package Details (id: C71CA1B9-BF9F-425A-A12C-53DF56770406) view extension is added
+2024-01-17 13:25:34Z : Data Shapes (id: 9d4300be-172b-4e81-beb1-0d06e7e3abf0) view extension is added
+2024-01-17 13:25:34Z : Inconsistent UniqueId for Data Shapes view extension. This may result in unexpected Dynamo behavior.
+2024-01-17 13:25:34Z : Rhythm View Extension (id: 5435824A-A3A1-4FC1-AF42-E5139041740F) view extension is added
+2024-01-17 13:25:34Z : Generative Design Tools (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) view extension is added
+2024-01-17 13:25:34Z : PackageManagerViewExtension (id: 100f5ec3-fde7-4205-80a7-c968b3a5a27b) view extension is added
+2024-01-17 13:25:34Z : Python Migration (id: 1f8146d0-58b1-4b3c-82b7-34a3fab5ac5d) view extension is added
+2024-01-17 13:25:34Z : Workspace References (id: A6706BF5-11C2-458F-B7C8-B745A77EF7FD) view extension is added
+2024-01-17 13:25:35Z : 
+Welcome to Dynamo!
+2024-01-17 13:25:35Z : 00:00:01.2824871 elapsed for loading Dynamo main window.
+2024-01-17 13:25:37Z : notification:Package Host Error:
+ Package targets a different host than current host application.: archi-lab.net: 
+ The package or one of its dependencies targets a different environment, such as Revit, Civil 3D, Advance Steel, Alias or FormIt. This can cause instability and unexpected problems.: archi-lab.net
+2024-01-17 13:25:37Z : EasterEggIcon1 is false from view
+2024-01-17 13:25:37Z : EasterEggMessage1 is disabled from view
+2024-01-17 13:25:38Z : Browser Loaded
+2024-01-17 13:25:39Z : WPF Render Mode: SoftwareOnly
+2024-01-17 13:25:43Z : Clearing workspace...
+2024-01-17 13:26:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN ...
+2024-01-17 13:26:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN
+2024-01-17 13:26:48Z : ViewExtensionCommandExecutive ( UniqueId: fabe7fff-8668-4ea5-8774-0148eabd85d3, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:27:24Z : ViewExtensionCommandExecutive ( UniqueId: 676ff23b-57c4-48b6-b192-cda3c000901e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:27:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN ...
+2024-01-17 13:27:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN
+2024-01-17 13:27:41Z : ViewExtensionCommandExecutive ( UniqueId: a9326f3e-45cc-4a53-90bf-775e77d0c940, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:28:20Z : ViewExtensionCommandExecutive ( UniqueId: 740d1204-a130-4322-af07-5c2a915265f6, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:28:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN ...
+2024-01-17 13:28:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN
+2024-01-17 13:28:56Z : Saving E:\Revit\Dynamo\Mass safety net.dyn ...
+2024-01-17 13:32:58Z : ViewExtensionCommandExecutive ( UniqueId: 4837a1ae-7c3e-4916-8c21-a74a73680f18, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:33:21Z : ViewExtensionCommandExecutive ( UniqueId: a535fd9f-acdf-4360-ac65-c0d6e3df3b82, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:33:21Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\Element.MeshGeometry.dyf
+2024-01-17 13:33:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:33:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:33:36Z : ViewExtensionCommandExecutive ( UniqueId: 6c99fed3-ce0f-4bce-bac4-277877c74462, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:33:36Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Mesh.FaceVertices.dyf
+2024-01-17 13:34:15Z : ViewExtensionCommandExecutive ( UniqueId: 7e7aae0e-c526-4c02-8bbf-a8f2d84ec368, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:34:19Z : ViewExtensionCommandExecutive ( UniqueId: 6e1fe7e9-7edf-4b18-bfd5-de0323a06040, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:34:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:34:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:35:10Z : ViewExtensionCommandExecutive ( UniqueId: f5ddab33-751a-42ae-bec4-261456800065, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:35:22Z : Saving E:\Revit\Dynamo\Mass safety net.dyn ...
+2024-01-17 13:36:19Z : ViewExtensionCommandExecutive ( UniqueId: 758f1f40-3fd9-4af9-9061-11d5ae88d801, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:36:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:36:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:37:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:37:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:38:32Z : ViewExtensionCommandExecutive ( UniqueId: 4d196613-3921-4651-93b8-d30b77d92716, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:38:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:38:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:39:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:39:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:40:08Z : ViewExtensionCommandExecutive ( UniqueId: da59a4bc-4111-40cb-84ba-f65964392930, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:40:17Z : ViewExtensionCommandExecutive ( UniqueId: b7712101-e777-43db-86ac-342782c35658, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:40:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:40:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:40:33Z : ViewExtensionCommandExecutive ( UniqueId: 493a089b-3a09-488b-87e2-5d52def51acf, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:41:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:41:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:42:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:42:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:43:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:43:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:44:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:44:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:45:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:45:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:45:35Z : ViewExtensionCommandExecutive ( UniqueId: f9858b73-c87a-4fb5-a9ca-eb0d74598668, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:45:39Z : ViewExtensionCommandExecutive ( UniqueId: ec836a9f-8d25-47b9-a6aa-74fd859e5888, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:45:46Z : ViewExtensionCommandExecutive ( UniqueId: d5ffee38-0ab0-472b-8ab0-e39e8ef79e9f, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:45:51Z : ViewExtensionCommandExecutive ( UniqueId: 432e239a-f136-460e-9dbc-e0905b2e350b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:46:04Z : ViewExtensionCommandExecutive ( UniqueId: d3bd5aee-fb95-48c4-a37d-05cba1865bca, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:46:27Z : ViewExtensionCommandExecutive ( UniqueId: c106b0ad-56d2-4c4e-8d6b-680a9a29189d, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:46:31Z : ViewExtensionCommandExecutive ( UniqueId: 3b3c6ffe-b730-42a6-97aa-d43c0285602a, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:46:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:46:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:46:38Z : ViewExtensionCommandExecutive ( UniqueId: d71ec6ff-0036-4c1c-8ec5-dd2c131fe008, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:46:38Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\Select Model Elements of Category.dyf
+2024-01-17 13:47:01Z : ViewExtensionCommandExecutive ( UniqueId: 841ef388-7119-407a-99f0-99295e826026, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 13:47:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:47:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:48:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:48:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:49:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:49:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:50:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:50:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:51:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:51:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:52:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:52:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:53:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:53:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:54:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:54:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:55:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:55:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:56:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:56:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:57:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:57:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:58:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:58:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 13:59:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 13:59:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:00:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:00:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:01:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:01:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:02:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:02:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:03:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:03:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:04:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:04:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:05:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:05:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:06:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:06:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:06:49Z : ViewExtensionCommandExecutive ( UniqueId: ac5cb830-ba40-4856-9369-910b2f673b1a, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:06:52Z : ViewExtensionCommandExecutive ( UniqueId: 923a30f9-27b0-4af2-b35e-5537a753b057, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:07:11Z : ViewExtensionCommandExecutive ( UniqueId: 184364fd-50bc-43bc-9aaa-3e143ca6f6e1, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:07:11Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\Document.CentralPath.dyf
+2024-01-17 14:07:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:07:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:08:05Z : ViewExtensionCommandExecutive ( UniqueId: 0592205c-15c2-42e4-87ab-d38e62f92d0b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:08:13Z : ViewExtensionCommandExecutive ( UniqueId: 47be826b-447a-48f1-8880-c3903a257041, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:08:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:08:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:09:21Z : ViewExtensionCommandExecutive ( UniqueId: fcd15ac7-1512-430e-a69d-2fd344466744, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:09:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:09:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:09:35Z : ViewExtensionCommandExecutive ( UniqueId: 57b417fb-6e09-48bf-9270-785e99a37638, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:09:35Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\Opening.ShaftByCurves.dyf
+2024-01-17 14:09:45Z : ViewExtensionCommandExecutive ( UniqueId: 60a20798-786f-4c85-8c6f-fbaf8ad43dbb, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:10:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:10:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:11:15Z : ViewExtensionCommandExecutive ( UniqueId: 6db87768-ea0f-4443-9676-bb9a6449af92, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:11:25Z : ViewExtensionCommandExecutive ( UniqueId: dd76e4de-766b-4574-8303-d1b3b6ddc268, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:11:30Z : ViewExtensionCommandExecutive ( UniqueId: 6cfcd6a3-4575-4139-85ce-f1eab30f4770, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:11:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:11:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:11:34Z : ViewExtensionCommandExecutive ( UniqueId: a40a7543-3e1a-47c7-950f-1a28ed17eebc, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:12:02Z : ViewExtensionCommandExecutive ( UniqueId: e1ec3fbf-728c-403d-bac8-0fa323b79f5b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:12:02Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf\Floor.Area.dyf
+2024-01-17 14:12:14Z : ViewExtensionCommandExecutive ( UniqueId: cda0c47a-1f58-4aed-ab90-afd5cf266dee, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:12:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:12:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:12:34Z : ViewExtensionCommandExecutive ( UniqueId: 472969a2-7f54-4eec-a74b-e37246db817f, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:12:34Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Element.Area.dyf
+2024-01-17 14:12:34Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\InternalUnit.ToDisplayUnit.dyf
+2024-01-17 14:12:34Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Application.Version.dyf
+2024-01-17 14:12:34Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\UnitType.DisplayUnitType.dyf
+2024-01-17 14:12:52Z : ViewExtensionCommandExecutive ( UniqueId: 2874d3e0-16ef-437d-99a1-865d6f70aeea, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:13:07Z : ViewExtensionCommandExecutive ( UniqueId: 3b563b8f-4602-4b5d-8ae2-c11709f46043, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:13:17Z : ViewExtensionCommandExecutive ( UniqueId: 5724cf50-e23f-47a3-966b-d36f915b1c15, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:13:17Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Modelical\dyf\Stair.Area.dyf
+2024-01-17 14:13:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:13:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:13:43Z : ViewExtensionCommandExecutive ( UniqueId: 94a964e2-7d9a-4acd-9374-8b19e614cdeb, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:13:43Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\Polygon.2DArea.dyf
+2024-01-17 14:13:59Z : ViewExtensionCommandExecutive ( UniqueId: 9255a99d-2490-483a-970a-718cd97dc0b5, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:14:30Z : ViewExtensionCommandExecutive ( UniqueId: a84354de-8079-48bd-83f9-c6a4cc122733, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:14:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:14:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:15:00Z : ViewExtensionCommandExecutive ( UniqueId: 4c74cfdf-5d86-4bf8-8e6b-518730fdec1a, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:15:18Z : ViewExtensionCommandExecutive ( UniqueId: 1001db09-f643-4031-ad3f-9bbfdee0fabb, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:15:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Element.Geometry+.dyf
+2024-01-17 14:15:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\ReturnListOrSingleValue.dyf
+2024-01-17 14:15:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\TurnIntoList.dyf
+2024-01-17 14:15:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Element.Inserts.dyf
+2024-01-17 14:15:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:15:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:16:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:16:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:17:05Z : ViewExtensionCommandExecutive ( UniqueId: f82bc1b8-00ba-4fb7-9e04-b14c01d98f9e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:17:12Z : ViewExtensionCommandExecutive ( UniqueId: 7c78c285-dfea-42b0-b968-afadc1e19d01, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:17:20Z : ViewExtensionCommandExecutive ( UniqueId: 7d6c0e8d-928c-4c26-a7c4-81d8df64506b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:17:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:17:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:18:09Z : ViewExtensionCommandExecutive ( UniqueId: 14bd1ea6-f7a7-404c-8a76-2321e651d199, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:18:16Z : ViewExtensionCommandExecutive ( UniqueId: b0402ea9-3faf-4a48-94b1-6c0692ec4c3a, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:18:16Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Surface.FilterByOrientation.dyf
+2024-01-17 14:18:16Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\AlmostZero.dyf
+2024-01-17 14:18:16Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Vector.ZAxisNegative.dyf
+2024-01-17 14:18:28Z : ViewExtensionCommandExecutive ( UniqueId: 21387a13-635c-4cf5-95ad-4e4602702767, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:18:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:18:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:19:15Z : ViewExtensionCommandExecutive ( UniqueId: adf45951-719d-4a55-baa5-65b6b44f6e87, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:19:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:19:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:20:26Z : Saving E:\Revit\Dynamo\Mass safety net.dyn ...
+2024-01-17 14:20:40Z : Clearing workspace...
+2024-01-17 14:20:44Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\MultipleInputForm ++.dyf
+2024-01-17 14:20:44Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\Boolean Data.dyf
+2024-01-17 14:20:44Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\InputGroup Data.dyf
+2024-01-17 14:20:45Z : Active view is now Home
+2024-01-17 14:20:45Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-01-17 14:20:53Z : Saving E:\Revit\Dynamo\Railing.dyn ...
+2024-01-17 14:21:16Z : Clearing workspace...
+2024-01-17 14:21:23Z : Active view is now Home
+2024-01-17 14:21:23Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-01-17 14:21:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:21:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:21:49Z : ViewExtensionCommandExecutive ( UniqueId: 26acd77b-3692-4f92-92ac-463d4032a365, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:22:31Z : ViewExtensionCommandExecutive ( UniqueId: a6732978-8eee-4850-a3f0-084df786919b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:22:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:22:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:22:51Z : ViewExtensionCommandExecutive ( UniqueId: e270badf-a47c-4d73-9d47-fd0580c0952b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:22:51Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\BoundingBox.PerimeterCurvesOnPlane.dyf
+2024-01-17 14:23:05Z : ViewExtensionCommandExecutive ( UniqueId: 9cc53deb-a4f8-4867-9c95-d70f0bf86963, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:23:13Z : ViewExtensionCommandExecutive ( UniqueId: db1c5fee-4db4-4800-8c77-ff25085efc00, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:23:13Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf\Curve.Level.dyf
+2024-01-17 14:23:16Z : ViewExtensionCommandExecutive ( UniqueId: ae002053-76bd-4bdd-a5b5-c0376d60ffb4, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:23:19Z : ViewExtensionCommandExecutive ( UniqueId: 29596073-fb66-4c09-b80a-2db6b07b811b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:23:19Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Level.Plane.dyf
+2024-01-17 14:23:22Z : ViewExtensionCommandExecutive ( UniqueId: 67112181-fc42-40e2-b1df-1639cce3cb59, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:23:22Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Level.Views.dyf
+2024-01-17 14:23:22Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Element.Level.dyf
+2024-01-17 14:23:22Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Document.Views.dyf
+2024-01-17 14:23:22Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\ScopeIf+.dyf
+2024-01-17 14:23:24Z : ViewExtensionCommandExecutive ( UniqueId: 48a0da50-a6e5-4ccd-ac51-2462eb2550d4, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:23:24Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\AreaPlan.ByLevelName.dyf
+2024-01-17 14:23:30Z : Saving E:\Revit\Dynamo\Mass safety net.dyn ...
+2024-01-17 14:24:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:24:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:25:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:25:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:25:58Z : ViewExtensionCommandExecutive ( UniqueId: 9008cf3a-7929-4443-b1bc-f48723f8150e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:26:17Z : ViewExtensionCommandExecutive ( UniqueId: c9a7b05c-b06b-43f8-8cd9-a2c3cf6640d8, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:26:17Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\DirectShape.Translate.dyf
+2024-01-17 14:26:25Z : ViewExtensionCommandExecutive ( UniqueId: a90aa872-ad81-4c3f-ad59-0f96b7f4f37b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:26:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:26:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:26:33Z : ViewExtensionCommandExecutive ( UniqueId: ea739f6c-73bf-4d16-aa19-6a38713b9a23, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:26:41Z : ViewExtensionCommandExecutive ( UniqueId: 4bd39039-c724-458c-b7b7-61fb9d46992e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:26:47Z : ViewExtensionCommandExecutive ( UniqueId: 19188766-9fd9-4ccd-a671-aa6b08bdf16c, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:26:54Z : ViewExtensionCommandExecutive ( UniqueId: 9331ae95-7de9-4883-baa2-8cdd5c1859da, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:27:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:27:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:28:17Z : ViewExtensionCommandExecutive ( UniqueId: 19c7028d-7528-4359-9ec1-55e294318e06, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:28:25Z : ViewExtensionCommandExecutive ( UniqueId: ce42dd10-b45f-4b30-8b42-db6fe1fa091e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:28:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:28:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:28:52Z : ViewExtensionCommandExecutive ( UniqueId: 78d74593-4d35-4923-905f-54ea7bbe643b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:29:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:29:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:29:40Z : ViewExtensionCommandExecutive ( UniqueId: 8b4d4750-e7e7-4627-a8a1-5d714f2b1d34, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:30:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:30:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:31:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:31:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:32:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:32:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:33:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:33:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:34:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:34:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:35:20Z : ViewExtensionCommandExecutive ( UniqueId: e86fbe75-7b73-4f75-b2eb-a1e7f14a3bf3, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:35:20Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\FamilyParameter.GetValueByFamilyType.dyf
+2024-01-17 14:35:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:35:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:35:39Z : ViewExtensionCommandExecutive ( UniqueId: 70a8f238-45fd-4f9a-900a-4d8d1ee55728, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:36:11Z : ViewExtensionCommandExecutive ( UniqueId: 17b14efc-0ae1-43bd-b935-636637a91e92, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:36:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:36:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:36:42Z : ViewExtensionCommandExecutive ( UniqueId: d050d501-705b-4ac5-8472-ee51944ccafc, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:36:58Z : ViewExtensionCommandExecutive ( UniqueId: 28f97ba3-382d-471d-8195-e3de12dc7bf7, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:37:15Z : ViewExtensionCommandExecutive ( UniqueId: 71444281-6961-4c2b-86d5-665971a6fda7, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:37:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:37:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:38:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:38:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:39:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:39:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:40:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:40:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:41:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:41:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:42:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:42:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:42:36Z : ViewExtensionCommandExecutive ( UniqueId: ada58ea3-8749-430a-a08c-e2b5863ce81b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:42:44Z : ViewExtensionCommandExecutive ( UniqueId: 2ed19c79-f998-4bb4-94db-ce9d6d4fa20c, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:43:25Z : ViewExtensionCommandExecutive ( UniqueId: ed1b4835-efbd-446c-b182-832eb741d3fa, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:43:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:43:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:43:46Z : ViewExtensionCommandExecutive ( UniqueId: 1cb433a6-84c4-44ce-b3ad-6d049710da20, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:43:46Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf\Transform.ToPoint.dyf
+2024-01-17 14:44:15Z : ViewExtensionCommandExecutive ( UniqueId: 9170aec9-3181-453a-a150-3c5908ab33b3, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:44:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:44:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:44:33Z : ViewExtensionCommandExecutive ( UniqueId: e9b7013a-ebe3-4f52-b494-c7ab4d0f0940, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:44:36Z : ViewExtensionCommandExecutive ( UniqueId: 5575b7ac-5e09-4675-9cdd-4b9b28567457, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:44:46Z : ViewExtensionCommandExecutive ( UniqueId: 5fd56a1e-8e6b-4fde-9afc-19da9e0645fb, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:44:52Z : ViewExtensionCommandExecutive ( UniqueId: 7e69f5b9-21f0-4509-926c-042e15d1ea23, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:45:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:45:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:45:44Z : ViewExtensionCommandExecutive ( UniqueId: c0bc3e98-2f83-4480-a807-f25f710c901c, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:46:13Z : ViewExtensionCommandExecutive ( UniqueId: 5a680690-968c-41e0-a6ba-74b33aa14c0f, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:46:19Z : ViewExtensionCommandExecutive ( UniqueId: 7b51d60e-c1f5-4d4e-962c-1515cf15b8fd, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:46:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:46:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:47:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:47:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:47:42Z : ViewExtensionCommandExecutive ( UniqueId: 470be661-a95b-4c5f-923d-e333b2eb8e97, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:47:50Z : ViewExtensionCommandExecutive ( UniqueId: 25938c3a-7598-4d38-ad53-65ba9ed4712b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:48:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:48:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:48:36Z : ViewExtensionCommandExecutive ( UniqueId: 8256beb7-074b-4405-89d7-03e7da70cee8, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:48:36Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\ScopeBox.Geometry.dyf
+2024-01-17 14:48:50Z : ViewExtensionCommandExecutive ( UniqueId: 039bd057-7d8f-471d-81e6-975bdb3f71e4, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:48:50Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\Geometry.SplitRecursively.dyf
+2024-01-17 14:49:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:49:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:49:50Z : ViewExtensionCommandExecutive ( UniqueId: 165b0bb7-179e-4c7e-9d9e-06f99fe3693e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:50:04Z : ViewExtensionCommandExecutive ( UniqueId: d89f2043-a676-4a46-a258-d30ce381756c, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:50:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:50:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:50:36Z : ViewExtensionCommandExecutive ( UniqueId: f15d1c47-80b0-4ca7-8300-d8a54eaeec6d, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:51:03Z : ViewExtensionCommandExecutive ( UniqueId: 9de61f28-e519-49ae-86c5-1fce81c2c9ba, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:51:14Z : ViewExtensionCommandExecutive ( UniqueId: fe95e166-5fc7-45f4-add4-0a43babd837f, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:51:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:51:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:51:44Z : ViewExtensionCommandExecutive ( UniqueId: c17f4225-fb31-4827-a35b-b471d53224d3, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:52:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:52:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:52:56Z : ViewExtensionCommandExecutive ( UniqueId: e37400b9-6046-4d5d-bd20-910e73dfa9b9, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:53:02Z : ViewExtensionCommandExecutive ( UniqueId: 1443db99-85ee-4d92-b7c1-b9cbb6d89536, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:53:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:53:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:53:57Z : ViewExtensionCommandExecutive ( UniqueId: 80790c5b-409d-4401-83d0-1f25ee604549, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:54:27Z : ViewExtensionCommandExecutive ( UniqueId: e1366676-c295-48f1-93ee-480176fef6cf, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:54:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:54:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:55:12Z : ViewExtensionCommandExecutive ( UniqueId: f04c140e-3c23-4803-a49c-8e6ee97d70c1, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:55:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:55:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:55:59Z : ViewExtensionCommandExecutive ( UniqueId: df55bd53-cd45-496e-b024-d06c08337ff4, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:56:05Z : ViewExtensionCommandExecutive ( UniqueId: f6d79396-7021-46f9-849e-5d6d6dab9bdc, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:56:13Z : ViewExtensionCommandExecutive ( UniqueId: 9093e401-0d93-4fd5-8dba-e4f4b7b1ce0e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:56:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:56:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:57:26Z : ViewExtensionCommandExecutive ( UniqueId: 297a84b9-7894-4c71-ba39-5214fb6e8d48, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:57:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:57:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:57:42Z : ViewExtensionCommandExecutive ( UniqueId: 1486b0d6-2f61-4a04-b451-71514b93a190, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:58:07Z : ViewExtensionCommandExecutive ( UniqueId: 4aae687b-4a6c-4a6a-8cab-026f2436708e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:58:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:58:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:58:41Z : ViewExtensionCommandExecutive ( UniqueId: 5f919fe2-ea2a-49fc-8cfc-f1de296c10e5, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:58:49Z : ViewExtensionCommandExecutive ( UniqueId: 74e59481-94c6-4dbe-98dc-f5e150f6971b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:58:51Z : ViewExtensionCommandExecutive ( UniqueId: 56ba5bcd-2838-490d-9d21-88a65e3e64bf, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:58:55Z : ViewExtensionCommandExecutive ( UniqueId: 08d4964b-ea5c-45e0-9ea2-dd669e21688f, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:59:03Z : ViewExtensionCommandExecutive ( UniqueId: 3f1340da-931f-4b88-9263-b6f31febe3d0, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:59:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 14:59:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 14:59:34Z : ViewExtensionCommandExecutive ( UniqueId: 5bbe3564-d401-4aef-aa2a-7ec6cb5c4faf, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:59:34Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\Point.PullOntoPlane.dyf
+2024-01-17 14:59:54Z : ViewExtensionCommandExecutive ( UniqueId: 00392ddf-e4cf-4112-b784-8acffb0ea222, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 14:59:54Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\FamilyInstance.SetLevel.dyf
+2024-01-17 14:59:54Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\List.EqualSublistLengths.dyf
+2024-01-17 15:00:07Z : ViewExtensionCommandExecutive ( UniqueId: 66496e94-81e0-4924-bf2c-ad59372f1191, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:00:07Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Zebra\dyf\Rooms.SortByLevelAndParameter.dyf
+2024-01-17 15:00:07Z : Original file 'Rooms.SortByLevelAndParameter.dyf' gets backed up at 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Zebra\dyf\backup\Rooms.SortByLevelAndParameter.dyf.0.backup'
+2024-01-17 15:00:07Z : Failed to load library: BuiltIn
+2024-01-17 15:00:07Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: BuiltIn:
+ Failed to load library: BuiltIn: 
+ Invalid library format.
+2024-01-17 15:00:07Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-01-17 15:00:07Z : Failed to load library: BuiltIn
+2024-01-17 15:00:07Z : 
+2024-01-17 15:00:07Z : Failed to load library: BuiltIn
+2024-01-17 15:00:07Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: BuiltIn:
+ Failed to load library: BuiltIn: 
+ Invalid library format.
+2024-01-17 15:00:07Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-01-17 15:00:07Z : Failed to load library: BuiltIn
+2024-01-17 15:00:07Z : 
+2024-01-17 15:00:11Z : ViewExtensionCommandExecutive ( UniqueId: 5f5ee647-181e-4bd9-a34d-428c2f8d88c4, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:00:11Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\FamilyInstance.ByPointsLevelsBatch.dyf
+2024-01-17 15:00:19Z : ViewExtensionCommandExecutive ( UniqueId: d06ae629-7e07-4a6f-b463-31dea9b5804e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:00:19Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Zebra\dyf\Elements.SortByLevelAndParameter.dyf
+2024-01-17 15:00:19Z : Original file 'Elements.SortByLevelAndParameter.dyf' gets backed up at 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Zebra\dyf\backup\Elements.SortByLevelAndParameter.dyf.0.backup'
+2024-01-17 15:00:19Z : Failed to load library: BuiltIn
+2024-01-17 15:00:19Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: BuiltIn:
+ Failed to load library: BuiltIn: 
+ Invalid library format.
+2024-01-17 15:00:19Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-01-17 15:00:19Z : Failed to load library: BuiltIn
+2024-01-17 15:00:19Z : 
+2024-01-17 15:00:19Z : Failed to load library: BuiltIn
+2024-01-17 15:00:19Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: BuiltIn:
+ Failed to load library: BuiltIn: 
+ Invalid library format.
+2024-01-17 15:00:19Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-01-17 15:00:19Z : Failed to load library: BuiltIn
+2024-01-17 15:00:19Z : 
+2024-01-17 15:00:19Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Zebra\dyf\Element.GetInstanceOrTypeParameterValueByName.dyf
+2024-01-17 15:00:19Z : Original file 'Element.GetInstanceOrTypeParameterValueByName.dyf' gets backed up at 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Zebra\dyf\backup\Element.GetInstanceOrTypeParameterValueByName.dyf.0.backup'
+2024-01-17 15:00:19Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Zebra\dyf\String.RemoveAfterCharacters.dyf
+2024-01-17 15:00:19Z : Original file 'String.RemoveAfterCharacters.dyf' gets backed up at 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Zebra\dyf\backup\String.RemoveAfterCharacters.dyf.0.backup'
+2024-01-17 15:00:19Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Zebra\dyf\Logic.If.dyf
+2024-01-17 15:00:19Z : Original file 'Logic.If.dyf' gets backed up at 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Zebra\dyf\backup\Logic.If.dyf.0.backup'
+2024-01-17 15:00:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 15:00:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 15:00:43Z : ViewExtensionCommandExecutive ( UniqueId: 10241635-cf8b-4f03-968e-d6608b2c973a, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:00:57Z : ViewExtensionCommandExecutive ( UniqueId: 5e160617-615c-4036-bcda-c38a465ee925, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:01:18Z : ViewExtensionCommandExecutive ( UniqueId: a69928fb-ae82-4463-a6e9-2b60ec429a72, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:01:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\FilledRegion.ByCurves+.dyf
+2024-01-17 15:01:25Z : ViewExtensionCommandExecutive ( UniqueId: c2d142a7-ddf0-46f1-a2fc-843cbf3917af, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:01:25Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Element.Location+.dyf
+2024-01-17 15:01:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 15:01:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 15:02:04Z : Saving E:\Revit\Dynamo\Mass safety net.dyn ...
+2024-01-17 15:06:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 15:06:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 15:06:52Z : ViewExtensionCommandExecutive ( UniqueId: b0c98321-fb22-4971-ac19-853a8dca52bc, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:06:52Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\CurveLoop.Simplify.dyf
+2024-01-17 15:07:20Z : Saving E:\Revit\Dynamo\Mass safety net.dyn ...
+2024-01-17 15:08:19Z : ViewExtensionCommandExecutive ( UniqueId: 503a57e5-ff6a-4458-8a12-f15e63af708b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:08:30Z : ViewExtensionCommandExecutive ( UniqueId: 2411436a-5d91-405c-95b3-0b43d1abc994, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:08:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 15:08:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 15:08:39Z : ViewExtensionCommandExecutive ( UniqueId: 214619d6-bc76-4d6d-865d-f201bef0155a, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:08:50Z : ViewExtensionCommandExecutive ( UniqueId: 14115a3f-7809-4b57-95bb-9d1d1c9424da, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:08:55Z : ViewExtensionCommandExecutive ( UniqueId: 5350e9f4-2ff0-4c4a-9848-fea6627466e3, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:08:55Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Element.JoinGeometry.dyf
+2024-01-17 15:09:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 15:09:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 15:10:04Z : ViewExtensionCommandExecutive ( UniqueId: a73dfbbd-c8e9-4883-995c-9a5189691d6e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-17 15:10:32Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn ...
+2024-01-17 15:10:32Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Mass safety net.dyn
+2024-01-17 15:10:45Z : Saving E:\Revit\Dynamo\Mass safety net.dyn ...
+2024-01-17 15:10:47Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is removed
+2024-01-17 15:10:47Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is removed
+2024-01-17 15:10:47Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is removed
+2024-01-17 15:10:47Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is removed
+2024-01-17 15:10:47Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is removed
+2024-01-17 15:10:47Z : Goodbye

@@ -1,0 +1,1685 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orchid</name>
+    </assembly>
+    <members>
+        <member name="T:JsonEditLocal">
+            <summary>
+            All needed references must be present, also global usings!
+            </summary>
+        </member>
+        <member name="T:JsonEditNuGet">
+            <summary>
+            All needed references must be present, also global usings!
+            </summary>
+        </member>
+        <member name="T:Orchid.JsonItem">
+            <summary>
+            Idx: value in blocked list is divided into user (u) and domain (d)
+            Kind: value (k) in blocked list 1 is job application and 2 is employee harassment
+            </summary>
+        </member>
+        <member name="M:Orchid.Credential.VerifyAccess">
+            <summary>
+            Verify if usage of the package is valid!
+            This check is activated by ViewExtension.
+            </summary>
+        </member>
+        <member name="M:Orchid.Credential.IsWhiteListed">
+            <summary>
+            checking if user is white listed
+            </summary>
+        </member>
+        <member name="M:Orchid.Credential.IsBlockedUser">
+            <summary>
+            checking if user is blocked
+            </summary>
+        </member>
+        <member name="M:Orchid.Credential.IsBlockeDomain">
+            <summary>
+            checking if domain is blocked
+            </summary>
+        </member>
+        <member name="M:Orchid.ViewExtension.Startup(Dynamo.Wpf.Extensions.ViewStartupParams)">
+            <summary>
+            Method that is called when Dynamo starts, but is not yet ready to be used.
+            </summary>
+            <param name="vsp">Parameters that provide references to Dynamo settings, version and extension manager.</param>
+        </member>
+        <member name="M:Orchid.ViewExtension.Loaded(Dynamo.Wpf.Extensions.ViewLoadedParams)">
+            <summary>
+            Method that is called when Dynamo has finished loading and the UI is ready to be interacted with.
+            </summary>
+            <param name="vlp">
+            Parameters that provide references to Dynamo commands, settings, events and
+            Dynamo UI items like menus or the background preview. This object is supplied by Dynamo itself.
+            </param>
+        </member>
+        <member name="M:Orchid.ViewExtension.OnWorkspaceChange(Dynamo.Graph.Workspaces.IWorkspaceModel)">
+            <summary>
+            Method that is called when Dynamo workspace is opened
+            </summary>
+            <param name="workspace">Current work space model</param>
+        </member>
+        <member name="M:Orchid.ViewExtension.Dispose">
+            <summary>
+            Method that is called for freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Orchid.ViewExtension.Shutdown">
+            <summary>
+            Method that is called when the host Dynamo application is closed.
+            </summary>
+        </member>
+        <member name="T:Orchid.Notifications.DynamoBase">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.Adaptive_Component_Creation_Failed">
+            <summary>
+              Looks up a localized string similar to An adaptive component could not be found or created..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.AnalysisResultsDefaultDescription">
+            <summary>
+              Looks up a localized string similar to Analysis Results from Dynamo.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.AnalysisResultsDefaultName">
+            <summary>
+              Looks up a localized string similar to Dynamo Analysis Results.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.AppearanceAssetElementPropertyPathInvalid">
+            <summary>
+              Looks up a localized string similar to Input value for imageProperty {0} is invalid. There is no {1} in {2}..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.AppearanceAssetElementPropertyPathNoConnect">
+            <summary>
+              Looks up a localized string similar to Input value for imageProperty {0} is invalid. There is no texture connected to {1} in {2}..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.AreaSchemeArgumentException">
+            <summary>
+              Looks up a localized string similar to You must supply an Area Scheme..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.Array_Count_Mismatch">
+            <summary>
+              Looks up a localized string similar to The number of sample locations and samples is not equal..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.AttachedGroupLocation">
+            <summary>
+              Looks up a localized string similar to Cannot get location of attached group..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CannotGetBaseOrSurveyPoint">
+            <summary>
+              Looks up a localized string similar to Cannot get base or survey point from document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CantCloseLastOpenView">
+            <summary>
+              Looks up a localized string similar to This is the last opened view {0} , can&apos;t be delete.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CantModifyInView">
+            <summary>
+              Looks up a localized string similar to Can&apos;t modify {0} of this view.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CategoryArgumentException">
+            <summary>
+              Looks up a localized string similar to You must supply a Category..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CategoryVisibilityOverrideError">
+            <summary>
+              Looks up a localized string similar to Specified View Template is not valid for this View..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CeilingTypeNotFound">
+            <summary>
+              Looks up a localized string similar to A Revit CeilingType with that name could not be located in the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CellForPanelNotFound">
+            <summary>
+              Looks up a localized string similar to Could not find cell for panel.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ChildElementsNotSupported">
+            <summary>
+              Looks up a localized string similar to Getting child elements is not supported for this type of Element..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CloseInputPolyCurveError">
+            <summary>
+              Looks up a localized string similar to The input PolyCurve is closed..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CreateProjectParameterForAllCategoriesObsolete">
+            <summary>
+              Looks up a localized string similar to This node may be removed in future version. Use CreateProjectParameterForAllCategories(string, string, SpecType, GroupType, bool) instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CreateProjectParameterObsolete">
+            <summary>
+              Looks up a localized string similar to This node may be removed in future version. Use CreateProjectParameter(string, string, SpecType, GroupType, bool, IEnumerable&lt;Category&gt;) instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CreateSharedParameterForAllCategoriesObsolete">
+            <summary>
+              Looks up a localized string similar to This node may be removed in future version. Use CreateSharedParameterForAllCategories(string, string, SpecType, GroupType, bool) instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CreateSharedParameterObsolete">
+            <summary>
+              Looks up a localized string similar to This node may be removed in future version. Use CreateSharedParameter(string, string, SpecType, GroupType, bool, IEnumerable&lt;Category&gt;) instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurtainGridNotFound">
+            <summary>
+              Looks up a localized string similar to Element has no Curtain Grid..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurtainGridReferenceError">
+            <summary>
+              Looks up a localized string similar to Reference should be to Face of the Element..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurtainPanelInternalElementError">
+            <summary>
+              Looks up a localized string similar to InternalElement of Curtain Panel is not Panel..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurtainPanelIsNotPlanar">
+            <summary>
+              Looks up a localized string similar to Curtain Panel is not planar.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurtainPanelIsNotRectangular">
+            <summary>
+              Looks up a localized string similar to Curtain Panel is not rectangular.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurtainPanelShouldRepresentRevitPanel">
+            <summary>
+              Looks up a localized string similar to Curtain Panel should represent Revit panel.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurtainSystemTypeNotFound">
+            <summary>
+              Looks up a localized string similar to Curtain System Type not found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurveIsNotPlanar">
+            <summary>
+              Looks up a localized string similar to Curve ist not planar. Please supply a planar curve..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurveLoopNotClosed">
+            <summary>
+              Looks up a localized string similar to Curves do not form a closed loop..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurveNeedsTwoPoints">
+            <summary>
+              Looks up a localized string similar to Cannot create Curve By Points with less than two points..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurveReferenceExtractionDetail">
+            <summary>
+              Looks up a localized string similar to You supplied an {0}, but we could not extract a CurveReference from it!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurveReferenceExtractionFailure">
+            <summary>
+              Looks up a localized string similar to {0} requires a ElementCurveReference extracted from a Revit Element! .
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurveReferenceFailure">
+            <summary>
+              Looks up a localized string similar to A Curve Reference can only be obtained from an Element..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurveReferenceHint">
+            <summary>
+              Looks up a localized string similar to The input curves should come from a Revit Element. You can use the {0} or {1} to turn this Curve into a Revit Element..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.CurveRequired">
+            <summary>
+              Looks up a localized string similar to Please supply a curve geometry..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.DirectShapeInvalidArgument">
+            <summary>
+              Looks up a localized string similar to Can only create DirectShapes from Solids, Surfaces or Meshes..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.DocumentDoesNotSupportGlobalParams">
+            <summary>
+              Looks up a localized string similar to Document does not support global parameters..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.DocumentNotFamilyDocument">
+            <summary>
+              Looks up a localized string similar to Document is not a valid Family Document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.DocumentNotWorkshared">
+            <summary>
+              Looks up a localized string similar to Current Document is not workshared.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.DuplicateViewCantApplySheet">
+            <summary>
+              Looks up a localized string similar to Please use Sheet.Duplicate node to Duplicate sheets.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.Dynamo_AVF_Data_Name">
+            <summary>
+              Looks up a localized string similar to Dynamo Data.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.DynamoSolidToRevitBRepFailure">
+            <summary>
+              Looks up a localized string similar to An unexpected failure occurred when attempting to convert the solid into a Revit BRep.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.DynamoSurfaceToRevitBRepFailure">
+            <summary>
+              Looks up a localized string similar to An unexpected failure occurred when attempting to convert the surface into a Revit BRep.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ElementCannotBeAnnotatedError">
+            <summary>
+              Looks up a localized string similar to Element cannot be annotated.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ElementCantDelete">
+            <summary>
+              Looks up a localized string similar to This Element {0} {1} cannot be deleted.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ElementTypeNameNotFound">
+            <summary>
+              Looks up a localized string similar to There is no ElementType of the given name in the current Document.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.EmptySchedule">
+            <summary>
+              Looks up a localized string similar to Cannot place empty schedule on sheet..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.EmptyView">
+            <summary>
+              Looks up a localized string similar to Cannot place empty view on sheet..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.EndPointListEmpty">
+            <summary>
+              Looks up a localized string similar to End point list is empty.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.EndPointListHasNulls">
+            <summary>
+              Looks up a localized string similar to End point list contains null elements.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ExportOptionsArgumentException">
+            <summary>
+              Looks up a localized string similar to Invalid Schedule Export Options..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FaceReferenceExtractionDetail">
+            <summary>
+              Looks up a localized string similar to You supplied an {0}, but we could not extract a ElementFaceReference from it!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FaceReferenceExtractionFailure">
+            <summary>
+              Looks up a localized string similar to {0} requires a ElementFaceReference extracted from a Revit Element! .
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FaceReferenceFailure">
+            <summary>
+              Looks up a localized string similar to A Face Reference can only be obtained from an Element..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FaceReferenceHint">
+            <summary>
+              Looks up a localized string similar to The input surfaces should come from a Revit Element. You can use the {0} to turn this Surface into a Revit Element, then extract a ElementFaceReference from it..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FamilyDocumentAddParameterObsolete">
+            <summary>
+              Looks up a localized string similar to This node may be removed in future version. Use FamilyDocument.AddParameter(string, GroupType, SpecType, bool) instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FamilyInstanceCreationFailure">
+            <summary>
+              Looks up a localized string similar to Could not create the FamilyInstance.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FamilyNotFound">
+            <summary>
+              Looks up a localized string similar to A family with the specified name, {0}, could not be found in the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FamilySymbolNotFound1">
+            <summary>
+              Looks up a localized string similar to A FamilySymbol with the specified name does not exist in the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FamilySymbolNotFound2">
+            <summary>
+              Looks up a localized string similar to A FamilySymbol with the specified name, {0}, does not exist in the Family..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FamilySymbolNotFound3">
+            <summary>
+              Looks up a localized string similar to A FamilySymbol with the specified name, {0}, does not exist in the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FamilyTypeDoesNotExist">
+            <summary>
+              Looks up a localized string similar to Family type does not exist in the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FileNotFound">
+            <summary>
+              Looks up a localized string similar to The file could not be found at: {0}.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.FloorTypeNotFound">
+            <summary>
+              Looks up a localized string similar to A Revit FloorType with that name could not be located in the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.GeometryConversionFailure">
+            <summary>
+              Looks up a localized string similar to One or more geometries have failed to convert due to this error: .
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.GeometryObjectReferenceFailure">
+            <summary>
+              Looks up a localized string similar to Could not get a geometry object from the current document using the provided reference.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.GetTaggedLocalElements">
+            <summary>
+              Looks up a localized string similar to There are more than one Tagged Local Elements..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.GetTaggedReferences">
+            <summary>
+              Looks up a localized string similar to There are more than one Tagged References..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.GlobalParameterByNameObsolete">
+            <summary>
+              Looks up a localized string similar to This node may be removed in future version. Use GlobalParameter.ByName(string, SpecType).
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.GridCreationFailure">
+            <summary>
+              Looks up a localized string similar to A Grid Element can only be created in a Revit Project..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.GroupObsolete">
+            <summary>
+              Looks up a localized string similar to This property may be removed in future version. Use GroupType instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InputParamsMismatch">
+            <summary>
+              Looks up a localized string similar to The input list of parameters does not have the same number of values required by the adaptive component..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InputPointParamsMismatch">
+            <summary>
+              Looks up a localized string similar to The input list of points does not have the same number of values required by the adaptive component..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InputUVParamsMismatch">
+            <summary>
+              Looks up a localized string similar to The input list of UVs does not have the same number of values required by the adaptive component..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InstanceImportFailure">
+            <summary>
+              Looks up a localized string similar to Could not obtain ImportInstance from imported Element.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidCategory">
+            <summary>
+              Looks up a localized string similar to The selected category is not valid in this document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidColumnBaseLocation">
+            <summary>
+              Looks up a localized string similar to The end of the curve for creating a column should be above the start of the curve..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidElementId">
+            <summary>
+              Looks up a localized string similar to Id is not a valid ElementId, GUID, string or int..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidElementLocation">
+            <summary>
+              Looks up a localized string similar to The location of the structural element is not a valid curve..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidEndPointList">
+            <summary>
+              Looks up a localized string similar to Invalid end point list.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidFace">
+            <summary>
+              Looks up a localized string similar to The selected face cannot be used to create a wall. Please use a mass face instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidFilterType">
+            <summary>
+              Looks up a localized string similar to FilterType is not valid..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidForgeTypeId">
+            <summary>
+              Looks up a localized string similar to The id string is not valid for object of type {0}..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidGroupType">
+            <summary>
+              Looks up a localized string similar to {0} is not a valid GroupType..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidHost">
+            <summary>
+              Looks up a localized string similar to Element does not have a host..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidPathOfTravel">
+            <summary>
+              Looks up a localized string similar to Invalid PathOfTravel element..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidShapeEditor">
+            <summary>
+              Looks up a localized string similar to Floor Shape cannot be edited..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidStartPointList">
+            <summary>
+              Looks up a localized string similar to Invalid start point list..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidSwitchJoinOrder">
+            <summary>
+              Looks up a localized string similar to Geometry join order can only be switched when the elements are already joined..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidView">
+            <summary>
+              Looks up a localized string similar to Invalid view..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.InvalidWallHeight">
+            <summary>
+              Looks up a localized string similar to The height must be greater than 0 and less that 30000 ft.  You provided a height of {0} ft..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.MaterialNotFound">
+            <summary>
+              Looks up a localized string similar to A Material with the given name does not exist in the current Document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ModelTextCreationFailure">
+            <summary>
+              Looks up a localized string similar to ModelText Elements can only be created in a Family Document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ModelTextTypeNotFound">
+            <summary>
+              Looks up a localized string similar to There is no ModelTextType of the name, {0}, in the current Document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.MullionParseError">
+            <summary>
+              Looks up a localized string similar to Mullion should represent Revit&apos;s Mullion..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.MultipleCurvesIntroducedAfterConversion">
+            <summary>
+              Looks up a localized string similar to There are multiple curves converted from the input curve element..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.MultipleSurfacesIntroducedAfterConversion">
+            <summary>
+              Looks up a localized string similar to There are multiple surfaces converted from the input face..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NameAlreadyInUse">
+            <summary>
+              Looks up a localized string similar to Name already in use..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NameArgumentException">
+            <summary>
+              Looks up a localized string similar to You must supply a Name..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NoChildElements">
+            <summary>
+              Looks up a localized string similar to Element has no child Elements.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NoElementsToPurge">
+            <summary>
+              Looks up a localized string similar to No Elements to purge in the current document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NonIntersectingElements">
+            <summary>
+              Looks up a localized string similar to Elements are not intersecting.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NoParentElement">
+            <summary>
+              Looks up a localized string similar to Element has no parent component.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NoSharedParameterFileFound">
+            <summary>
+              Looks up a localized string similar to No shared parameter file found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NoStructuralMaterialAssigned">
+            <summary>
+              Looks up a localized string similar to FloorType has no structural material assigned.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NotAdaptiveComponentError">
+            <summary>
+              Looks up a localized string similar to The FamilyInstance is not an adaptive component..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NotBuiltInCategory">
+            <summary>
+              Looks up a localized string similar to Element not valid. Use an element from a BuiltInCategory..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NotEnoughDataError">
+            <summary>
+              Looks up a localized string similar to You need at least two {0} for a dimension..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NotHorizontalInputPolyCurveError">
+            <summary>
+              Looks up a localized string similar to Curves does not create closed horizontal loop..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NotHostElement">
+            <summary>
+              Looks up a localized string similar to Element is not a Host Element.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NotJoinedElements">
+            <summary>
+              Looks up a localized string similar to Cannot unjoin Elements that are not already joined..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NotPlanView">
+            <summary>
+              Looks up a localized string similar to The provided input view is not a plan view..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NotPositiveIntegerError">
+            <summary>
+              Looks up a localized string similar to {0} must be a positive integer.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NullInputCurvesError">
+            <summary>
+              Looks up a localized string similar to Some of the input curves are null..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.NumberOfDivisionsMustBeGreaterThan2">
+            <summary>
+              Looks up a localized string similar to The number of divisions must be greater than 2!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.OpenInputPolyCurveError">
+            <summary>
+              Looks up a localized string similar to The input PolyCurve is not closed..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ParameterGroupNotFound">
+            <summary>
+              Looks up a localized string similar to Invalid parameter group..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ParameterNotFound">
+            <summary>
+              Looks up a localized string similar to No parameter found by that name..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ParameterStorageNotElement">
+            <summary>
+              Looks up a localized string similar to The parameter&apos;s storage type is not an Element..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ParameterStorageNotInteger">
+            <summary>
+              Looks up a localized string similar to The parameter&apos;s storage type is not an integer..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ParameterStorageNotNumber">
+            <summary>
+              Looks up a localized string similar to The parameter&apos;s storage type is not a number..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ParameterStorageNotString">
+            <summary>
+              Looks up a localized string similar to The parameter&apos;s storage type is not a string..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ParameterTypeNotFound">
+            <summary>
+              Looks up a localized string similar to Invalid parameter type..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ParameterTypeObsolete">
+            <summary>
+              Looks up a localized string similar to This property may be removed in future version. Use SpecType instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ParameterWithoutStorageType">
+            <summary>
+              Looks up a localized string similar to Parameter {0} has no storage type..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.PointDataObsolete">
+            <summary>
+              Looks up a localized string similar to Use PointAnalysisDisplay.ByViewPointsAndValues instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.PointRequired">
+            <summary>
+              Looks up a localized string similar to Please supply a point geometry..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.PolyCurvesConversionError">
+            <summary>
+              Looks up a localized string similar to Revit does not support turning PolyCurves into ModelCurves. Try exploding your PolyCurve into multiple Curves..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ReferenceCurveCreationFailure">
+            <summary>
+              Looks up a localized string similar to Revit can only create a ReferenceCurve in a Family Document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ReferencePointCreationFailure">
+            <summary>
+              Looks up a localized string similar to ReferencePoint Elements can only be created in a Family Document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ReferenceSelectFailure">
+            <summary>
+              Looks up a localized string similar to Please select a surface or edge on an element..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.RoofTypeNotFound">
+            <summary>
+              Looks up a localized string similar to Roof type not found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.RoomsForLongestPathNotFound">
+            <summary>
+              Looks up a localized string similar to Rooms are required to compute longest Paths of Travel..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.SamplePointsMismatchError">
+            <summary>
+              Looks up a localized string similar to The number of sample points and number of samples must be the same..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ScheduleExportError">
+            <summary>
+              Looks up a localized string similar to There was an error exporting this schedule..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ScheduleTypeArgumentException">
+            <summary>
+              Looks up a localized string similar to Invalid Schedule Type..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.Sheet_NoLocationSet">
+            <summary>
+              Looks up a localized string similar to Must supply more than 0 locations..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.Sheet_NoViewsError">
+            <summary>
+              Looks up a localized string similar to Must supply more than 0 views.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.Sheet_ViewLocationMismatch">
+            <summary>
+              Looks up a localized string similar to View count should Equals location count..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.SheetDuplicateNeedFix">
+            <summary>
+              Looks up a localized string similar to You must set a prefix or suffix to avoid duplicate sheet number.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.SheetNumberExists">
+            <summary>
+              Looks up a localized string similar to The Sheet number {0} exists, please change your prefix or suffix.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.StartEndListSizeMismatch">
+            <summary>
+              Looks up a localized string similar to Size of start point array doesn&apos;t match size of end point array.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.StartPointListEmpty">
+            <summary>
+              Looks up a localized string similar to Start points list is empty.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.StartPointListHasNulls">
+            <summary>
+              Looks up a localized string similar to Start point list contains null elements.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.SurfaceDataObsolete">
+            <summary>
+              Looks up a localized string similar to Use FaceAnalysisDisplay.ByViewFacePointsAndValues instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.Tag_Lookup_Error">
+            <summary>
+              Looks up a localized string similar to A Revit face with the corresponding tag could not be found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.TopographyNeedsThreePoints">
+            <summary>
+              Looks up a localized string similar to A minimum of three points is required to create a topography surface..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.TypeNotFound">
+            <summary>
+              Looks up a localized string similar to Type not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.UnitTypeObsolete">
+            <summary>
+              Looks up a localized string similar to This property may be removed in future version. Use SpecType instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.VectorDataObsolete">
+            <summary>
+              Looks up a localized string similar to Use VectorAnalysisDisplay.ByViewPointsAndVectorValues instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.View_ExportAsImage_Path_Invalid">
+            <summary>
+              Looks up a localized string similar to The supplied path is invalid..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ViewAlreadyPlacedOnSheet">
+            <summary>
+              Looks up a localized string similar to Cannot place view on sheet as it is already on a sheet..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ViewCantBeDuplicated">
+            <summary>
+              Looks up a localized string similar to This View {0} can&apos;t be duplicated.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ViewCantPackOnSheet">
+            <summary>
+              Looks up a localized string similar to View {0} could not be packed on the Sheet.  The sheet is {1} x {2} and the view to be added is {3} x {4}.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ViewDoesNotSupportAnnotations">
+            <summary>
+              Looks up a localized string similar to View does not support annotations..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ViewDuplicateOptionOutofRange">
+            <summary>
+              Looks up a localized string similar to ViewDuplicateOption is invalid, please set input number should be 0, 1, 2.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ViewExportImageError">
+            <summary>
+              Looks up a localized string similar to There was an error exporting the image..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ViewExportImageLockedError">
+            <summary>
+              Looks up a localized string similar to Attempt to override existing image failed due to file lock. Please make sure that image is not currently open in another application..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ViewNameExists">
+            <summary>
+              Looks up a localized string similar to The View name {0} exists, please change your prefix or suffix.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ViewPlan_ViewFamilyNotFound">
+            <summary>
+              Looks up a localized string similar to Specified View Type could not be found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.ViewUnsupportedScheduleType">
+            <summary>
+              Looks up a localized string similar to Provided Schedule Type is not supported..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.WallTypeNotFound">
+            <summary>
+              Looks up a localized string similar to There is no WallType of the given name in the current Document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoBase.WrongStorageType">
+            <summary>
+              Looks up a localized string similar to Input value for this parameter needs to be of type {0}..
+            </summary>
+        </member>
+        <member name="T:Orchid.Notifications.DynamoExtensible">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.AllWarningsOfTypeDescription">
+            <summary>
+              Looks up a localized string similar to Returns a list of all instances of the selected warning type..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.BuiltInParameterGroupSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select a built-in parameter group. This node may be removed in future version. Use &apos;Group Types&apos; instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.CategoriesDescription">
+            <summary>
+              Looks up a localized string similar to All built-in categories..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.CeilingTypesDescription">
+            <summary>
+              Looks up a localized string similar to All ceiling types in current document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.DirectShapeRoomBoundingOptionSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select a Direct Shape Room Bounding Option..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.DropDownNoColumnType">
+            <summary>
+              Looks up a localized string similar to No structural column types available..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.DropDownNoFramingType">
+            <summary>
+              Looks up a localized string similar to No structural framing types available..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ElementById">
+            <summary>
+              Looks up a localized string similar to Gets the Element with the specified Id.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ElementsatLevelDescription">
+            <summary>
+              Looks up a localized string similar to Get all the elements at the specified Level from the model..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ElementsInActiveViewDescription">
+            <summary>
+              Looks up a localized string similar to Get all the elements which are visible in the active view..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ElementsofCategoryDescription">
+            <summary>
+              Looks up a localized string similar to Get all elements of the specified category from the model..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ElementsofCategoryInViewDescription">
+            <summary>
+              Looks up a localized string similar to Get all elements of the specified category in the specified view from the model..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ElementsofFamilyTypeDescription">
+            <summary>
+              Looks up a localized string similar to Get all elements of the specified family type from the model..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ElementsofTypeDescription">
+            <summary>
+              Looks up a localized string similar to All elements in the active document of a given class..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ElementTypesDescription">
+            <summary>
+              Looks up a localized string similar to All element subclasses..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ExportColumnHeadersDescription">
+            <summary>
+              Looks up a localized string similar to How to export column headers. Default is MultipleRows..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ExportTextQualifierDescription">
+            <summary>
+              Looks up a localized string similar to How to qualify text fields. Default is DoubleQuote..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.FamilyTypesDescription">
+            <summary>
+              Looks up a localized string similar to All family types in current document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.FilledRegionTypeSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select an existing Filled Region Type from the active document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.FillPatternsDescription">
+            <summary>
+              Looks up a localized string similar to All available fill patterns..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.FillPatternTargetDescription">
+            <summary>
+              Looks up a localized string similar to The type of the fill pattern..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.FilterTypeSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Filter Types for Revit Filters.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.FloorTypesDescription">
+            <summary>
+              Looks up a localized string similar to All floor types in current document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.GetFamilyParameterDescription">
+            <summary>
+              Looks up a localized string similar to Given a Family Instance or Type allows the user to select a parameter as a string..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.GroupTypeSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select a Group Type..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.HorizontalTextAlignmentStyleSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select the horizontal text alignment style..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.LeaderEndConditionDescription">
+            <summary>
+              Looks up a localized string similar to Tag LeaderEnd Condition.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.LevelsDescription">
+            <summary>
+              Looks up a localized string similar to Select a level in the active document.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.LinePatternsDescription">
+            <summary>
+              Looks up a localized string similar to All available line patterns..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.NoActiveDocumentFound">
+            <summary>
+              Looks up a localized string similar to No active Revit document found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.NoCeilingTypesAvailable">
+            <summary>
+              Looks up a localized string similar to No ceiling types available..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.NoFamilyInstancesInDividedSurfaceWarning">
+            <summary>
+              Looks up a localized string similar to No family instances found in the divided surface..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.NoFloorTypesAvailable">
+            <summary>
+              Looks up a localized string similar to No floor types available..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.None">
+            <summary>
+              Looks up a localized string similar to None.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.NoTypesFound">
+            <summary>
+              Looks up a localized string similar to No types found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.NoWallTypesAvailable">
+            <summary>
+              Looks up a localized string similar to No wall types available..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.NoWarningsInDocument">
+            <summary>
+              Looks up a localized string similar to No warnings in the current document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ParameterTypeSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select a parameter type. This node may be removed in future version. Use &apos;Spec Types&apos; instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PerformanceAdviserDescription">
+            <summary>
+              Looks up a localized string similar to All Performance Adviser rules..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PhaseSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select an existing Revit Phase from the active document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataALevelToolTip">
+            <summary>
+              Looks up a localized string similar to A Level.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataAllElementsInDocumentToolTip">
+            <summary>
+              Looks up a localized string similar to All elements in the active document of a given class..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataAllVisibleElementsToolTip">
+            <summary>
+              Looks up a localized string similar to All visible elements in the active view..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataByElementId">
+            <summary>
+              Looks up a localized string similar to Element Id as string, int or ElementId.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataCategoriesToolTip">
+            <summary>
+              Looks up a localized string similar to The selected Category..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataCategoryToolTip">
+            <summary>
+              Looks up a localized string similar to The Category.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataElementAtLevelToolTip">
+            <summary>
+              Looks up a localized string similar to Elements at the given level..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataElementsToolTip">
+            <summary>
+              Looks up a localized string similar to The list of elements matching the query..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataElementTypeToolTip">
+            <summary>
+              Looks up a localized string similar to An element class..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataFamilTypeToolTip">
+            <summary>
+              Looks up a localized string similar to The Family Type..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataFamilySymbolToolTip">
+            <summary>
+              Looks up a localized string similar to Family Type or Instance.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataLocationToolTip">
+            <summary>
+              Looks up a localized string similar to The location of the current Revit project..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataNotEnclosedRoomsToolTip">
+            <summary>
+              Looks up a localized string similar to Not Enclosed Rooms in the document.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataPlacedRoomsToolTip">
+            <summary>
+              Looks up a localized string similar to Placed Rooms in the document.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataRedundantRoomsToolTip">
+            <summary>
+              Looks up a localized string similar to Redundant Rooms in the document.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataSunSettingToolTip">
+            <summary>
+              Looks up a localized string similar to SunSettings element..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataUnplacedRoomsToolTip">
+            <summary>
+              Looks up a localized string similar to Unplaced Rooms in the document.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.PortDataViewToolTip">
+            <summary>
+              Looks up a localized string similar to The View.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.RevisionNumberingSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select an way to number the revisions..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.RevisionNumberTypeSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select a revision number type..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.RevisionSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select an existing Revit Revision from the active document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.RevisionVisibilitySelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select the revision visilibity type..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.RoofTypesDescription">
+            <summary>
+              Looks up a localized string similar to All roof types in the current document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.RoomsByStatusDescription">
+            <summary>
+              Looks up a localized string similar to Returns all rooms in the document grouped by status.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ScheduleFilterTypeDescription">
+            <summary>
+              Looks up a localized string similar to A View Schedule Filter Type..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ScheduleTypeSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select a Schedule Type..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectAnalysisResultsDescription">
+            <summary>
+              Looks up a localized string similar to Select analysis results from the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectDividedSurfaceFamiliesDescription">
+            <summary>
+              Looks up a localized string similar to Select a divided surface and get its family instances..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectEdgeDescription">
+            <summary>
+              Looks up a localized string similar to Select an edge..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectEdgesDescription">
+            <summary>
+              Looks up a localized string similar to Select multiple edges..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectEdgesPrefix">
+            <summary>
+              Looks up a localized string similar to Edges.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectFaceDescription">
+            <summary>
+              Looks up a localized string similar to Select a face..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectFacesDescription">
+            <summary>
+              Looks up a localized string similar to Select multiple faces from the Revit document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectionIsDisabledDescription">
+            <summary>
+              Looks up a localized string similar to Selection is disabled when Dynamo run is disabled..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectModelElementByCategoryDescription">
+            <summary>
+              Looks up a localized string similar to Select a model element from the Revit document filtered by Category..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectModelElementDescription">
+            <summary>
+              Looks up a localized string similar to Select a model element from the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectModelElementsByCategoryDescription">
+            <summary>
+              Looks up a localized string similar to Select multiple elements from the Revit document filtered by Category..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectModelElementsDescription">
+            <summary>
+              Looks up a localized string similar to Select multiple elements from the Revit document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectPointonFaceDescription">
+            <summary>
+              Looks up a localized string similar to Select a point on a face..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectReferenceOnElement">
+            <summary>
+              Looks up a localized string similar to Select a face or curve reference on an Element.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SelectUVonFaceDescription">
+            <summary>
+              Looks up a localized string similar to Select a UV on a face..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SheetsDescription">
+            <summary>
+              Looks up a localized string similar to All sheets available in the current document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SiteLocationDescription">
+            <summary>
+              Looks up a localized string similar to Returns the current Revit site location..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SiteLocationFamilyDocumentWarning">
+            <summary>
+              Looks up a localized string similar to Site Location is not available in a family document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SpacingRuleLayoutDescription">
+            <summary>
+              Looks up a localized string similar to A spacing rule layout for calculating divided paths..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SpecTypeSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select a Spec type..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.StructuralColumnTypesDescription">
+            <summary>
+              Looks up a localized string similar to Select a structural column type in the active document.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.StructuralFramingTypesDescription">
+            <summary>
+              Looks up a localized string similar to Select a structural framing type in the active document.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.SunSettingsCurrentDescription">
+            <summary>
+              Looks up a localized string similar to Returns the SunSettings of the current View..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.VerticalTextAlignmentStyleSelectorDescription">
+            <summary>
+              Looks up a localized string similar to Select the vertical text alignment style..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ViewDetailLevelDescription">
+            <summary>
+              Looks up a localized string similar to View Detail Level.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ViewDisciplinesDescription">
+            <summary>
+              Looks up a localized string similar to View Discipline..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ViewDisplayStylesDescription">
+            <summary>
+              Looks up a localized string similar to View DisplayStyle..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ViewDuplicateOptionsDescription">
+            <summary>
+              Looks up a localized string similar to View Duplicate Option..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ViewFamilyTypesDescription">
+            <summary>
+              Looks up a localized string similar to All view family types in the current document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ViewPartsVisibilitysDescription">
+            <summary>
+              Looks up a localized string similar to View PartsVisibility..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.ViewsDescription">
+            <summary>
+              Looks up a localized string similar to All views available in the current document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.WallLocationLineDescription">
+            <summary>
+              Looks up a localized string similar to Wall locations..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.DynamoExtensible.WallTypesDescription">
+            <summary>
+              Looks up a localized string similar to All wall types in current document..
+            </summary>
+        </member>
+        <member name="T:Orchid.Notifications.OrchidBase">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.CategoryNotFound">
+            <summary>
+              Looks up a localized string similar to Invalid category..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.DocumentNullError">
+            <summary>
+              Looks up a localized string similar to Both input documents cant be set to null.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.ElementExists">
+            <summary>
+              Looks up a localized string similar to Another element exists by this name, please provide a new name!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.ElementNotFound">
+            <summary>
+              Looks up a localized string similar to The element could not be found in the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.ElementNotFoundNamed">
+            <summary>
+              Looks up a localized string similar to An element with the specified name, {0}, could not be found in the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.ElementTypeAmbiguity">
+            <summary>
+              Looks up a localized string similar to Selection of ElementType is ambiguous!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.ElementTypeNotFound">
+            <summary>
+              Looks up a localized string similar to The element could not be found in the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.ElementTypeNotFoundNamed">
+            <summary>
+              Looks up a localized string similar to An element with the specified name, {0}, could not be found in the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.FamilyAmbiguity">
+            <summary>
+              Looks up a localized string similar to Selection of Family is ambiguous!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.FamilyNotFound">
+            <summary>
+              Looks up a localized string similar to The family could not be found in the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.FamilyTypeNotFound">
+            <summary>
+              Looks up a localized string similar to The family type could not be found in the document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.IFCBuiltInType">
+            <summary>
+              Looks up a localized string similar to The IFC setting is of built-in type and can not be changed.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.IndexListNotMatching">
+            <summary>
+              Looks up a localized string similar to Index or list containing index is not matching input!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.InvalidEnumType">
+            <summary>
+              Looks up a localized string similar to Input is not of the proper enummeration type!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.InvalidFileName">
+            <summary>
+              Looks up a localized string similar to &quot;{0}&quot; cannot contain any of the following characters: \ / : * ? &quot; &lt; &gt; |.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.InvalidInput">
+            <summary>
+              Looks up a localized string similar to Input is not valid or missing..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.InvalidKeysErrorMessage">
+            <summary>
+              Looks up a localized string similar to Looks up a localized string similar to One or more input types are not matching. Lists as keys are not supported..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.InvalidKeysLenghtErrorMessage">
+            <summary>
+              Looks up a localized string similar to Looks up a localized string similar to Number of items does not match the number of keys..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.InvalidType">
+            <summary>
+              Looks up a localized string similar to Type is not valid..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.JsonError">
+            <summary>
+              Looks up a localized string similar to Please verify that you have not installed any JSON API not supported by Dynamo!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.KindNotSupported">
+            <summary>
+              Looks up a localized string similar to This element kind is not supported.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.LinkNotFound">
+            <summary>
+              Looks up a localized string similar to &quot;{0}&quot; cannot be found, please reload..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.MarginNeedValue">
+            <summary>
+              Looks up a localized string similar to Margin need two double values as input!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.NameIsMissing">
+            <summary>
+              Looks up a localized string similar to The name is missing, please correct this!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.NoBoundaryFound">
+            <summary>
+              Looks up a localized string similar to No valid boundaries found.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.NoSharedParameterFound">
+            <summary>
+              Looks up a localized string similar to shared parameter not found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.NoSharedParameterGroupFound">
+            <summary>
+              Looks up a localized string similar to shared parameter group not found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.NoSigmaBranch">
+            <summary>
+              Looks up a localized string similar to No Sigma branch could be found.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.NoSigmaProject">
+            <summary>
+              Looks up a localized string similar to No Sigma project could be found.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.NotLightFamily">
+            <summary>
+              Looks up a localized string similar to Please run this command in a lighting fixtures document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.NotRevitFamily">
+            <summary>
+              Looks up a localized string similar to Please run this command in a family document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.NotRevitProject">
+            <summary>
+              Looks up a localized string similar to Please run this command in a project document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.NoViewFound">
+            <summary>
+              Looks up a localized string similar to No valid view found.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.NoViewSheetSet">
+            <summary>
+              Looks up a localized string similar to No ViewSheetSet could be found.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.NoWorksetFound">
+            <summary>
+              Looks up a localized string similar to The document is not including worksets.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.RootFilterRule">
+            <summary>
+              Looks up a localized string similar to Root FilteRule cannot be set using this node.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.SchemaNotSupported">
+            <summary>
+              Looks up a localized string similar to This schema do not support this function!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.SpatialElementNotSupported">
+            <summary>
+              Looks up a localized string similar to This kind of spatial element is not supported!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.StringToNumberInvalidNumberMessage">
+            <summary>
+              Looks up a localized string similar to Not a valid number..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.ToFewItems">
+            <summary>
+              Looks up a localized string similar to The list must contain at least two items!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.TransactionsDisabled">
+            <summary>
+              Looks up a localized string similar to DynamoRevit TransactionManager is disabled. This Node is disabled as new Revit transactions are not supported in this mode..
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.TypeNotSupported">
+            <summary>
+              Looks up a localized string similar to This element type is not supported.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.VersionNotSupported">
+            <summary>
+              Looks up a localized string similar to This function is not supported by your Revit version!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.ViewTemplateIsApplied">
+            <summary>
+              Looks up a localized string similar to View has a view template applied!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidBase.ViewTypeNotMoved">
+            <summary>
+              Looks up a localized string similar to This view type cannot be moved.
+            </summary>
+        </member>
+        <member name="T:Orchid.Notifications.OrchidExtensible">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidExtensible.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidExtensible.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.OrchidExtensible.None">
+            <summary>
+              Looks up a localized string similar to None.
+            </summary>
+        </member>
+    </members>
+</doc>

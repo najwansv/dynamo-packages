@@ -1,0 +1,80 @@
+<Workspace Version="1.2.0.2654" X="130.89163328147" Y="189.864689051658" zoom="1.62766375666706" Name="RH Polyline to DS Polycurve" Description="Converts Rhino polyline curve to Design Script polycurve." ID="72ad8c00-a0ef-4a3b-bf2f-1470f2e51e11" Category="Archi-lab_MantisShrimp.Rhinoceros.Geometry">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="063ac0ab-b8eb-4fca-a7eb-47a05a88a0e9" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="RhinoObject" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="22f31156-7707-4896-a772-6f390ecad75d" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="449" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+      <Symbol value="PolyCurve" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+    <PythonNodeModels.PythonNode guid="837d9427-b0c5-49a7-b5eb-693099040f0e" type="PythonNodeModels.PythonNode" nickname="Python Script" x="232.471235373584" y="0.253091901398662" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="1">
+      <PortInfo index="0" default="False" />
+      <Script># Copyright(c) 2016, Konrad Sobon
+# @arch_laboratory, http://archi-lab.net
+
+import clr
+import sys
+import System
+
+pyt_path = r'C:\Program Files (x86)\IronPython 2.7\Lib'
+sys.path.append(pyt_path)
+
+from os import path
+assemblies = System.AppDomain.CurrentDomain.GetAssemblies()
+msUIpath = [a.Location for a in assemblies if 'MantisShrimp,' in a.FullName][0]
+msPath = System.IO.Path.GetDirectoryName(msUIpath).rsplit('\\',1)[0]
+msPathExtra = '%s\\extra\\' %msPath
+msPathRh = '%s\\bin\\Rhino3dmIO.dll' %msPath
+sys.path.append(msPathExtra)
+clr.AddReferenceToFileAndPath(msPathRh)
+
+import Rhino as rc
+from mantisshrimp import rhCurveToPolyCurve
+
+#The inputs to this node will be stored as a list in the IN variable.
+dataEnteringNode = IN
+
+if isinstance(IN[0], list):
+	rhObjects = IN[0]
+else:
+	rhObjects = [IN[0]]
+
+def GetPolylineCurve(rhObj):
+	try:
+		geo = rhObj.Geometry
+		if geo.ToString() == "Rhino.Geometry.PolylineCurve":
+			return rhCurveToPolyCurve(geo)
+	except:
+		pass
+
+def ProcessList(_func, _list):
+	return map(lambda x: ProcessList(_func, x) if type(x) == list else _func(x) , _list)
+
+#convert rhino/gh geometry to ds geometry
+try:
+	errorReport = None
+	dsPolyCurves = ProcessList(GetPolylineCurve, rhObjects)
+except:
+	# if error accurs anywhere in the process catch it
+	import traceback
+	errorReport = traceback.format_exc()
+	
+#Assign your output to the OUT variable
+if errorReport == None:
+	OUT = dsPolyCurves
+else:
+	OUT = errorReport</Script>
+    </PythonNodeModels.PythonNode>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="063ac0ab-b8eb-4fca-a7eb-47a05a88a0e9" start_index="0" end="837d9427-b0c5-49a7-b5eb-693099040f0e" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="837d9427-b0c5-49a7-b5eb-693099040f0e" start_index="0" end="22f31156-7707-4896-a772-6f390ecad75d" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="81.55339787635" eyeY="80.8788878275877" eyeZ="10.39639161709" lookX="-65.0647895160595" lookY="-64.5634028269773" lookZ="-44.2003410923784" upX="-0.37553405640074" upY="0.891006514461771" upZ="-0.255110838473003" />
+  </Cameras>
+</Workspace>

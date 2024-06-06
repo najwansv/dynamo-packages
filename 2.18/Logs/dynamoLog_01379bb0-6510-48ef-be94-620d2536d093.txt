@@ -1,0 +1,244 @@
+Dynamo log started 2024-03-02 00:30:35Z
+2024-03-02 00:30:35Z : Python template set to default.
+2024-03-02 00:30:37Z : launch darkly initalized
+2024-03-02 00:30:37Z : LD startup time: 1023 
+2024-03-02 00:30:37Z : <<<<<InitDone>>>>>
+2024-03-02 00:30:37Z : feature flag exe starting
+2024-03-02 00:30:37Z : <<<<<Sod>>>>>
+2024-03-02 00:30:37Z : {"IsNewAppHomeEnabled":false,"graphics-primitive-instancing":false,"testFlag":false,"EasterEggIcon1":false,"EasterEggMessage1":"NA","IsTSplineNodesExperimentToggleVisible":false,"CER":false,"NodeAutocompleteMachineLearningIsBeta":true,"CER_v2":true}
+2024-03-02 00:30:37Z : <<<<<Eod>>>>>
+2024-03-02 00:30:37Z : EasterEggIcon1 is false FROM MODEL
+2024-03-02 00:30:37Z : EasterEggMessage1 is disabled FROM MODEL
+2024-03-02 00:30:37Z : Dynamo -- Build 2.18.1.5096
+2024-03-02 00:30:38Z : System.InvalidOperationException:
+2024-03-02 00:30:38Z : There already exists an AlsoKnownAs mapping for DSCoreNodesUI.Logic.If.
+2024-03-02 00:30:38Z : 
+2024-03-02 00:30:38Z : System.InvalidOperationException:
+2024-03-02 00:30:38Z : There already exists an AlsoKnownAs mapping for If.
+2024-03-02 00:30:38Z : 
+2024-03-02 00:30:38Z : Duplicate migration type registered for SunPathDirection
+2024-03-02 00:30:39Z : AnalyticalAutomation.dll,M:AnalyticalAutomation.AnalyticalElements.AnalyticalPanel.BySurface(Autodesk.DesignScript.Geometry.Surface,System.Boolean) {0} is missing some XML documentation tags.
+2024-03-02 00:30:39Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-03-02 00:30:39Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\definitions' does not exist
+2024-03-02 00:30:39Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\definitions' does not exist
+2024-03-02 00:30:39Z : Dynamo will use the package manager server at : https://www.dynamopackages.com
+2024-03-02 00:30:39Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-03-02 00:30:39Z : A package called DynamoPlayerExtension found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension includes dll files but none are defined in node libraries in the package manifest.  Ignoring it.
+2024-03-02 00:30:39Z : Exception encountered scanning the package directory at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+2024-03-02 00:30:39Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+   at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates):
+ Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension: 
+ "A package called Orchid found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension could not be verified to have signed dll files.  A dll file found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension\bin\OrchidRB.dll did not have a signed certificate.  Ignoring it."
+2024-03-02 00:30:39Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-03-02 00:30:39Z : Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+2024-03-02 00:30:39Z :    at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates)
+2024-03-02 00:30:39Z : Exception encountered scanning the package directory at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+2024-03-02 00:30:39Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+   at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates):
+ Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit: 
+ "A package called Orchid found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit could not be verified to have signed dll files.  A dll file found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit\bin\OrchidRB.dll did not have a signed certificate.  Ignoring it."
+2024-03-02 00:30:39Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-03-02 00:30:39Z : Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+2024-03-02 00:30:39Z :    at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates)
+2024-03-02 00:30:39Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\packages' does not exist
+2024-03-02 00:30:39Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\packages' does not exist
+2024-03-02 00:30:41Z : System.InvalidOperationException:
+2024-03-02 00:30:41Z : There already exists an AlsoKnownAs mapping for Select Rule Type.
+2024-03-02 00:30:41Z : 
+2024-03-02 00:30:49Z : Data-Shapes contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-03-02 00:30:50Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is added
+2024-03-02 00:30:52Z : Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf
+2024-03-02 00:30:52Z : notification:Dynamo.Exceptions.CustomNodePackageLoadException: Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf:
+ Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf: 
+ C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf cannot be loaded. 
+Installing it will conflict with one or more node definitions that already exist in C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf, which is currently loaded. 
+To install C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf, Dynamo needs to first uninstall C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf. 
+Restart Dynamo to complete the uninstall.
+2024-03-02 00:30:52Z : Dynamo.Exceptions.CustomNodePackageLoadException:
+2024-03-02 00:30:52Z : Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf
+2024-03-02 00:30:52Z : 
+2024-03-02 00:30:54Z : Modelical contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-03-02 00:30:55Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is added
+2024-03-02 00:31:01Z : System.InvalidOperationException:
+2024-03-02 00:31:01Z : There already exists an AlsoKnownAs mapping for Roof Types.
+2024-03-02 00:31:01Z : 
+2024-03-02 00:31:01Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension\dyf' does not exist
+2024-03-02 00:31:01Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is added
+2024-03-02 00:31:02Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign\dyf' does not exist
+2024-03-02 00:31:02Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Extension\dyf' does not exist
+2024-03-02 00:31:02Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is added
+2024-03-02 00:31:02Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Revit\dyf' does not exist
+2024-03-02 00:31:02Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is added
+2024-03-02 00:31:02Z : Backup files timer is started with an interval of 60000 milliseconds
+2024-03-02 00:31:02Z : SYSTEM:Environment Path:C:\Program Files\Autodesk\Revit 2024\AddIns\SteelConnections;C:\Program Files\Autodesk\Revit 2024\en-US;C:\Program Files\Autodesk\Revit 2024;C:\Program Files\Common Files\Autodesk Shared\RealDWG Shared 2024;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\ngrok\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\dotnet\;E:\OtherPrograms\pyRevit-Master\bin;E:\OtherPrograms\pyRevit-Master\bin;E:\OtherPrograms\pyRevit-Master\bin;E:\OtherPrograms\pyRevit-Master\bin;E:\OtherPrograms\pyRevit-Master\bin;E:\OtherPrograms\pyRevit-Master\bin;E:\OtherPrograms\pyRevit-Master\bin;E:\OtherPrograms\pyRevit-Master\bin;C:\Users\Najwan S\AppData\Roaming\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\;C:\Users\Najwan S\AppData\Local\Microsoft\WindowsApps;;C:\Users\Najwan S\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Najwan S\AppData\Roaming\npm;C:\Users\Najwan S\AppData\Local\spicetify;C:\Users\Najwan S\.dotnet\tools;C:\Users\Najwan S\AppData\Roaming\pyRevit-Master\bin;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit
+2024-03-02 00:31:02Z : RENDER : Rendering Tier: 2
+2024-03-02 00:31:02Z : RENDER : Pixel Shader 3 Supported: True
+2024-03-02 00:31:02Z : RENDER : Pixel Shader 4 Supported: False
+2024-03-02 00:31:02Z : RENDER : Software Effect Rendering Supported: True
+2024-03-02 00:31:02Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-03-02 00:31:04Z : RENDER : Rendering Tier: 2
+2024-03-02 00:31:04Z : RENDER : Pixel Shader 3 Supported: True
+2024-03-02 00:31:04Z : RENDER : Pixel Shader 4 Supported: False
+2024-03-02 00:31:04Z : RENDER : Software Effect Rendering Supported: True
+2024-03-02 00:31:04Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-03-02 00:31:04Z : Documentation Browser (id: 68B45FC0-0BD1-435C-BF28-B97CB03C71C8) view extension is added
+2024-03-02 00:31:04Z : DynamoManipulationExtension (id: 58B0496A-E3F8-43D9-86D2-94823D1D0F98) view extension is added
+2024-03-02 00:31:04Z : Properties (id: 28992e1d-abb9-417f-8b1b-05e053bee670) view extension is added
+2024-03-02 00:31:04Z : Graph Node Manager (id: F76F4274-537D-4782-B1E9-27E8FDE2186F) view extension is added
+2024-03-02 00:31:04Z : LibraryUI - WebView2 (id: 8b093acd-5656-4914-b6b0-c54b26ca6d0e) view extension is added
+2024-03-02 00:31:04Z : Graph Status (id: 3467481b-d20d-4918-a454-bf19fc5c25d7) view extension is added
+2024-03-02 00:31:04Z : Notifications (id: ef6cd025-514f-44cd-b6b1-69d9f5cce004) view extension is added
+2024-03-02 00:31:04Z : Package Details (id: C71CA1B9-BF9F-425A-A12C-53DF56770406) view extension is added
+2024-03-02 00:31:04Z : Data Shapes (id: 5022cdf1-65c0-4f3d-9c70-7a009873208d) view extension is added
+2024-03-02 00:31:04Z : Inconsistent UniqueId for Data Shapes view extension. This may result in unexpected Dynamo behavior.
+2024-03-02 00:31:04Z : Rhythm View Extension (id: 5435824A-A3A1-4FC1-AF42-E5139041740F) view extension is added
+2024-03-02 00:31:05Z : Generative Design Tools (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) view extension is added
+2024-03-02 00:31:05Z : PackageManagerViewExtension (id: 100f5ec3-fde7-4205-80a7-c968b3a5a27b) view extension is added
+2024-03-02 00:31:05Z : Python Migration (id: 1f8146d0-58b1-4b3c-82b7-34a3fab5ac5d) view extension is added
+2024-03-02 00:31:05Z : Workspace References (id: A6706BF5-11C2-458F-B7C8-B745A77EF7FD) view extension is added
+2024-03-02 00:31:05Z : 
+Welcome to Dynamo!
+2024-03-02 00:31:05Z : 00:00:01.2973110 elapsed for loading Dynamo main window.
+2024-03-02 00:31:07Z : notification:Package Host Error:
+ Package targets a different host than current host application.: archi-lab.net: 
+ The package or one of its dependencies targets a different environment, such as Revit, Civil 3D, Advance Steel, Alias or FormIt. This can cause instability and unexpected problems.: archi-lab.net
+2024-03-02 00:31:07Z : notification:Package Host Error:
+ Package targets a different host than current host application.: bimorphNodes: 
+ The package or one of its dependencies targets a different environment, such as Revit, Civil 3D, Advance Steel, Alias or FormIt. This can cause instability and unexpected problems.: bimorphNodes
+2024-03-02 00:31:07Z : notification:Package Host Error:
+ Package targets a different host than current host application.: Genius Loci: 
+ The package or one of its dependencies targets a different environment, such as Revit, Civil 3D, Advance Steel, Alias or FormIt. This can cause instability and unexpected problems.: Genius Loci
+2024-03-02 00:31:08Z : EasterEggIcon1 is false from view
+2024-03-02 00:31:08Z : EasterEggMessage1 is disabled from view
+2024-03-02 00:31:08Z : Browser Loaded
+2024-03-02 00:31:09Z : WPF Render Mode: SoftwareOnly
+2024-03-02 00:31:09Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DynamoUtilities, Version=2.18.1.5096, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-03-02 00:31:09Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DesignScriptBuiltin, Version=2.18.1.5096, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-03-02 00:31:09Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-03-02 00:31:11Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Document.LoadFamily.dyf
+2024-03-02 00:31:11Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\ReturnListOrSingleValue.dyf
+2024-03-02 00:31:11Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\TurnIntoList.dyf
+2024-03-02 00:31:11Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\UIMessenger.dyf
+2024-03-02 00:31:11Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\IfThenElse.dyf
+2024-03-02 00:31:12Z : Active view is now Home
+2024-03-02 00:31:12Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-03-02 00:37:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:37:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:38:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:38:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:39:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:39:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:40:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:40:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:41:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:41:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:42:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:42:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:43:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:43:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:44:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:44:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:45:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:45:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:45:58Z : ViewExtensionCommandExecutive ( UniqueId: 7540cc22-24bd-4e4c-adb9-ae741bdf846b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-02 00:46:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:46:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:47:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:47:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:48:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:48:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:49:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:49:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:50:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:50:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:51:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:51:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:52:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:52:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:53:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:53:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:54:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:54:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:55:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:55:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:56:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:56:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:57:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:57:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:58:02Z : ViewExtensionCommandExecutive ( UniqueId: f50c974f-25b9-41fe-9820-38866cf5cf3a, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-02 00:58:02Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Booleans.AnyTrue.dyf
+2024-03-02 00:58:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:58:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:58:24Z : ViewExtensionCommandExecutive ( UniqueId: 635f2895-79fe-45ce-948d-b8e6e8fe9e9e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-02 00:59:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 00:59:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 00:59:32Z : ViewExtensionCommandExecutive ( UniqueId: 7b985cc3-5802-4421-aec9-61c65df644d8, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-02 00:59:32Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\OldIf.dyf
+2024-03-02 00:59:58Z : ViewExtensionCommandExecutive ( UniqueId: b0b1d01f-d8bd-4e7b-b95f-c348bd7da4fa, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-02 01:00:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:00:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:01:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:01:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:02:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:02:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:03:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:03:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:04:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:04:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:05:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:05:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:05:56Z : Saving E:\Revit\Dynamo\ImportFamily.dyn ...
+2024-03-02 01:06:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:06:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:06:19Z : Saving E:\Revit\Dynamo\ImportFamily.dyn ...
+2024-03-02 01:06:20Z : Saving E:\Revit\Dynamo\ImportFamily.dyn ...
+2024-03-02 01:07:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:07:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:08:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:08:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:09:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:09:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:10:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:10:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:11:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:11:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:12:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:12:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:13:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:13:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:14:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:14:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:15:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:15:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:16:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:16:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:17:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:17:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:18:02Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn ...
+2024-03-02 01:18:02Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\ImportFamily.dyn
+2024-03-02 01:18:35Z : Saving E:\Revit\Dynamo\ImportFamily.dyn ...
+2024-03-02 03:43:20Z : Clearing workspace...
+2024-03-02 03:43:20Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is removed
+2024-03-02 03:43:20Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is removed
+2024-03-02 03:43:20Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is removed
+2024-03-02 03:43:20Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is removed
+2024-03-02 03:43:20Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is removed
+2024-03-02 03:43:20Z : Goodbye

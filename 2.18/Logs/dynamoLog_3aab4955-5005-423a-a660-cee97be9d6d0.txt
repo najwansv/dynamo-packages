@@ -1,0 +1,653 @@
+Dynamo log started 2024-01-14 05:40:38Z
+2024-01-14 05:40:38Z : Python template set to default.
+2024-01-14 05:40:38Z : Dynamo -- Build 2.18.1.5096
+2024-01-14 05:40:38Z : System.InvalidOperationException:
+2024-01-14 05:40:38Z : There already exists an AlsoKnownAs mapping for DSCoreNodesUI.Logic.If.
+2024-01-14 05:40:38Z : 
+2024-01-14 05:40:38Z : System.InvalidOperationException:
+2024-01-14 05:40:38Z : There already exists an AlsoKnownAs mapping for If.
+2024-01-14 05:40:38Z : 
+2024-01-14 05:40:38Z : Duplicate migration type registered for SunPathDirection
+2024-01-14 05:40:39Z : launch darkly initalized
+2024-01-14 05:40:39Z : LD startup time: 566 
+2024-01-14 05:40:39Z : <<<<<InitDone>>>>>
+2024-01-14 05:40:39Z : feature flag exe starting
+2024-01-14 05:40:39Z : <<<<<Sod>>>>>
+2024-01-14 05:40:39Z : {"graphics-primitive-instancing":false,"testFlag":false,"EasterEggIcon1":false,"EasterEggMessage1":"NA","CER":false,"NodeAutocompleteMachineLearningIsBeta":true,"CER_v2":true}
+2024-01-14 05:40:39Z : <<<<<Eod>>>>>
+2024-01-14 05:40:39Z : EasterEggIcon1 is false FROM MODEL
+2024-01-14 05:40:39Z : EasterEggMessage1 is disabled FROM MODEL
+2024-01-14 05:40:41Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-01-14 05:40:41Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\definitions' does not exist
+2024-01-14 05:40:41Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\definitions' does not exist
+2024-01-14 05:40:41Z : Dynamo will use the package manager server at : https://www.dynamopackages.com
+2024-01-14 05:40:41Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-01-14 05:40:41Z : A package called DynamoPlayerExtension found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension includes dll files but none are defined in node libraries in the package manifest.  Ignoring it.
+2024-01-14 05:40:41Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\packages' does not exist
+2024-01-14 05:40:41Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\packages' does not exist
+2024-01-14 05:40:41Z : System.InvalidOperationException:
+2024-01-14 05:40:41Z : There already exists an AlsoKnownAs mapping for Select Rule Type.
+2024-01-14 05:40:41Z : 
+2024-01-14 05:40:43Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is added
+2024-01-14 05:40:43Z : Modelical contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-01-14 05:40:44Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is added
+2024-01-14 05:40:44Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension\dyf' does not exist
+2024-01-14 05:40:44Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is added
+2024-01-14 05:40:45Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign\dyf' does not exist
+2024-01-14 05:40:45Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Extension\dyf' does not exist
+2024-01-14 05:40:45Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is added
+2024-01-14 05:40:45Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Revit\dyf' does not exist
+2024-01-14 05:40:45Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is added
+2024-01-14 05:40:45Z : Backup files timer is started with an interval of 60000 milliseconds
+2024-01-14 05:40:45Z : SYSTEM:Environment Path:C:\Program Files\Autodesk\Revit 2024\AddIns\SteelConnections;C:\Program Files\Autodesk\Revit 2024\en-US;C:\Program Files\Autodesk\Revit 2024;C:\Program Files\Common Files\Autodesk Shared\RealDWG Shared 2024;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\ngrok\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\dotnet\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\;C:\Users\Najwan S\AppData\Local\Microsoft\WindowsApps;;C:\Users\Najwan S\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Najwan S\AppData\Roaming\npm;C:\Users\Najwan S\AppData\Local\spicetify;C:\Users\Najwan S\.dotnet\tools;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit
+2024-01-14 05:40:45Z : RENDER : Rendering Tier: 2
+2024-01-14 05:40:45Z : RENDER : Pixel Shader 3 Supported: True
+2024-01-14 05:40:45Z : RENDER : Pixel Shader 4 Supported: False
+2024-01-14 05:40:45Z : RENDER : Software Effect Rendering Supported: True
+2024-01-14 05:40:45Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-01-14 05:40:46Z : RENDER : Rendering Tier: 2
+2024-01-14 05:40:46Z : RENDER : Pixel Shader 3 Supported: True
+2024-01-14 05:40:46Z : RENDER : Pixel Shader 4 Supported: False
+2024-01-14 05:40:46Z : RENDER : Software Effect Rendering Supported: True
+2024-01-14 05:40:46Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-01-14 05:40:46Z : Documentation Browser (id: 68B45FC0-0BD1-435C-BF28-B97CB03C71C8) view extension is added
+2024-01-14 05:40:46Z : DynamoManipulationExtension (id: 58B0496A-E3F8-43D9-86D2-94823D1D0F98) view extension is added
+2024-01-14 05:40:46Z : Properties (id: 28992e1d-abb9-417f-8b1b-05e053bee670) view extension is added
+2024-01-14 05:40:46Z : Graph Node Manager (id: F76F4274-537D-4782-B1E9-27E8FDE2186F) view extension is added
+2024-01-14 05:40:46Z : LibraryUI - WebView2 (id: 8b093acd-5656-4914-b6b0-c54b26ca6d0e) view extension is added
+2024-01-14 05:40:46Z : Graph Status (id: 3467481b-d20d-4918-a454-bf19fc5c25d7) view extension is added
+2024-01-14 05:40:46Z : Notifications (id: ef6cd025-514f-44cd-b6b1-69d9f5cce004) view extension is added
+2024-01-14 05:40:46Z : Package Details (id: C71CA1B9-BF9F-425A-A12C-53DF56770406) view extension is added
+2024-01-14 05:40:46Z : Data Shapes (id: bbc6853e-2a03-412e-857f-910e6462f810) view extension is added
+2024-01-14 05:40:46Z : Inconsistent UniqueId for Data Shapes view extension. This may result in unexpected Dynamo behavior.
+2024-01-14 05:40:46Z : Rhythm View Extension (id: 5435824A-A3A1-4FC1-AF42-E5139041740F) view extension is added
+2024-01-14 05:40:46Z : Generative Design Tools (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) view extension is added
+2024-01-14 05:40:46Z : PackageManagerViewExtension (id: 100f5ec3-fde7-4205-80a7-c968b3a5a27b) view extension is added
+2024-01-14 05:40:46Z : Python Migration (id: 1f8146d0-58b1-4b3c-82b7-34a3fab5ac5d) view extension is added
+2024-01-14 05:40:46Z : Workspace References (id: A6706BF5-11C2-458F-B7C8-B745A77EF7FD) view extension is added
+2024-01-14 05:40:46Z : 
+Welcome to Dynamo!
+2024-01-14 05:40:46Z : 00:00:00.4333093 elapsed for loading Dynamo main window.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:46Z : An item with the same key has already been added.
+2024-01-14 05:40:48Z : notification:Package Host Error:
+ Package targets a different host than current host application.: archi-lab.net: 
+ The package or one of its dependencies targets a different environment, such as Revit, Civil 3D, Advance Steel, Alias or FormIt. This can cause instability and unexpected problems.: archi-lab.net
+2024-01-14 05:40:48Z : EasterEggIcon1 is false from view
+2024-01-14 05:40:48Z : EasterEggMessage1 is disabled from view
+2024-01-14 05:40:48Z : Browser Loaded
+2024-01-14 05:40:48Z : WPF Render Mode: SoftwareOnly
+2024-01-14 05:40:50Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\MultipleInputForm ++.dyf
+2024-01-14 05:40:50Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\All Placed Family Types of Category.dyf
+2024-01-14 05:40:51Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Element.ElementType+.dyf
+2024-01-14 05:40:51Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\All Elements Of Category+.dyf
+2024-01-14 05:40:51Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\BuiltInCategory.FromInput.dyf
+2024-01-14 05:40:51Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\TreeView input.dyf
+2024-01-14 05:40:51Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\Slider Data.dyf
+2024-01-14 05:40:51Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\InputGroup Data.dyf
+2024-01-14 05:40:51Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\All Family Types Of Category.dyf
+2024-01-14 05:40:52Z : Active view is now {3D}
+2024-01-14 05:40:52Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-01-14 05:41:13Z : Saving E:\Revit\Dynamo\Borepile Gui.dyn ...
+2024-01-14 05:41:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:41:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:42:19Z : ViewExtensionCommandExecutive ( UniqueId: 53b68744-61ff-4c5b-ad61-d93442af0e3a, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-14 05:42:19Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\ConditionalInput Data.dyf
+2024-01-14 05:42:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:42:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:43:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:43:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:44:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:44:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:45:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:45:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:46:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:46:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:47:33Z : ViewExtensionCommandExecutive ( UniqueId: d3fe2231-1036-4248-96cc-489f6b147182, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-14 05:47:33Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\Categories list.dyf
+2024-01-14 05:47:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:47:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:48:07Z : ViewExtensionCommandExecutive ( UniqueId: 88134916-74db-431b-b2de-55d637fdda24, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-14 05:48:07Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\DropDown Data.dyf
+2024-01-14 05:48:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:48:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:49:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:49:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:50:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:50:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:51:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:51:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:52:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:52:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:53:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:53:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:53:52Z : ViewExtensionCommandExecutive ( UniqueId: b5da11fb-bacc-4380-bbaf-129853f7e135, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-01-14 05:54:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:54:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:55:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:55:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:55:59Z : Saving E:\Revit\Dynamo\Borepile Gui.dyn ...
+2024-01-14 05:56:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:56:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:56:48Z : Saving E:\Revit\Dynamo\Borepile Gui.dyn ...
+2024-01-14 05:57:12Z : Saving E:\Revit\Dynamo\Borepile Gui.dyn ...
+2024-01-14 05:57:19Z : Saving E:\Revit\Dynamo\Borepile Gui.dyn ...
+2024-01-14 05:57:31Z : Saving E:\Revit\Dynamo\Borepile Gui.dyn ...
+2024-01-14 05:57:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:57:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:58:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:58:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 05:59:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 05:59:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:00:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:00:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:01:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:01:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:02:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:02:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:03:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:03:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:04:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:04:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:05:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:05:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:05:59Z : Saving E:\Revit\Dynamo\Borepile Gui.dyn ...
+2024-01-14 06:06:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:06:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:07:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:07:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:08:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:08:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:09:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:09:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:10:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:10:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:11:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:11:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:12:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:12:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:13:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:13:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:13:53Z : Saving E:\Revit\Dynamo\Borepile Gui.dyn ...
+2024-01-14 06:15:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:15:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:16:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:16:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:17:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:17:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:18:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:18:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:19:13Z : Saving E:\Revit\Dynamo\Borepile Gui.dyn ...
+2024-01-14 06:19:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn ...
+2024-01-14 06:19:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Borepile Gui.dyn
+2024-01-14 06:20:10Z : Active view is now 01 - Entry Level
+2024-01-14 06:20:18Z : Saving E:\Revit\Dynamo\Borepile Gui.dyn ...
+2024-01-14 06:20:21Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is removed
+2024-01-14 06:20:21Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is removed
+2024-01-14 06:20:21Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is removed
+2024-01-14 06:20:21Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is removed
+2024-01-14 06:20:21Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is removed
+2024-01-14 06:20:21Z : Goodbye

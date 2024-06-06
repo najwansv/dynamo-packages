@@ -1,0 +1,190 @@
+<Workspace Category="Honeybee.04 :: Daylight :: Daylight" Description="Calculate spacial daylight autonomy (sDA).
+As per IES-LM-83-12 Spatial Daylight Autonomy (sDA) is a metric describing
+annual sufficiency of ambient daylight levels in interior environments.
+It is defined as the percent of an analysis area (the area where calcuations
+are performed -typically across an entire space) that meets a minimum
+daylight illuminance level for a specified fraction of the operating hours
+per year. The sDA value is expressed as a percentage of area." ID="695e3d7e-fe8e-46ec-b241-efc4d970ba2a" Name="Spatial Daylight Autonomy" Version="1.2.0.2690" X="400" Y="-100" zoom="0.5">
+  <NamespaceResolutionMap/>
+  <Elements>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel CodeText="&quot;Honeybee&quot;;&#xA;&quot;sda_node.py&quot;;" ShouldFocus="false" guid="00e9e574-dc1b-4d88-b79f-e328f7906152" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="input python script" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" x="-750" y="390"/>
+    <PythonNodeModels.PythonNode guid="a9d104a9-f0c3-4705-b748-5f2d124ba44a" inputcount="2" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="import and prepare py code" type="PythonNodeModels.PythonNode" x="-355" y="385">
+      <PortInfo default="false" index="0"/>
+      <PortInfo default="false" index="1"/>
+      <Script>
+        
+&quot;&quot;&quot;Find packages from Dynamo folder and prepare the code.&quot;&quot;&quot;
+import clr
+from System import AppDomain, Environment, IO
+
+def tryGetPluginPath(plugin):
+    &quot;&quot;&quot;Try to get path to plugin folder.&quot;&quot;&quot;
+    clr.AddReference('ProtoGeometry')
+    _loc = tuple(a.Location
+                 for a in AppDomain.CurrentDomain.GetAssemblies()
+                 if 'ProtoGeometry' in a.FullName)
+
+    try:
+        _ver = float(_loc[0].split('\\')[-2])
+    except:
+        _ver = float(_loc[0].split('\\')[-2].split(' ')[-1])
+
+    assert _ver &gt;= 1.2, 'You need Dynamo 1.2 or higher to use this plugin!'
+
+    _appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+    _dynamoPath = '%s\\%.1f' % (('\\').join(_loc[0].split('\\')[-4:-2]), float(_loc[0].split('\\')[-2]))
+    # if the assembly is cached put Revit folder first, and then try to load it from core
+    _dynamoPaths = (_dynamoPath.replace('Dynamo Core', 'Dynamo Revit'),
+                    _dynamoPath.replace('Dynamo Revit', 'Dynamo Core'))
+    _settingsFilename = 'DynamoSettings.xml'
+
+    pkf = []
+    for path in _dynamoPaths:
+        settingsFile = IO.Path.Combine(_appdata, path, _settingsFilename)
+        if IO.File.Exists(settingsFile):
+            with open(settingsFile, 'rb') as outf:
+                for line in outf:
+                    if line.strip().startswith('&lt;CustomPackageFolders&gt;'):
+                        for l in outf:
+                            if l.strip().startswith('&lt;/CustomPackageFolders&gt;'):
+                                break
+                            else:
+                                pkf.append(l.replace('&lt;/string&gt;', '').replace('&lt;string&gt;', '').strip())
+
+    for p in pkf:
+        pp = IO.Path.Combine(p, 'packages', plugin, 'extra')
+        # In case of custom folders user may put honeybee under the root folder
+        ppp = IO.Path.Combine(p, plugin, 'extra')
+        if IO.Directory.Exists(pp):
+            return pp
+        elif IO.Directory.Exists(ppp):
+            return ppp
+
+
+try:
+    plugin, filename = IN
+
+    p = tryGetPluginPath(plugin)
+
+    if not p:
+        raise ImportError('{} is not installed! Install it from package manager.'.format(plugin))
+
+	# import the file and wrap it into sys.append
+    f = IO.Path.Combine(p, 'nodesrc', filename)
+    with open(f, 'rb') as inf:
+        source = '    '.join(inf.readlines())
+
+    header = 'try:\n    import sys\n' + \
+        '    sys.path.append(r\'{}\')\n\n'.format(p) + \
+        '    sys.path.append(r\'C:\Program Files (x86)\IronPython 2.7\Lib\')\n\n' + \
+        '    '
+
+    footer = '\nexcept Exception, e:\n' + \
+        '    import traceback\n' + \
+        '    OUT = &quot;ERROR:\\n\\t{}&quot;.format(str(e)) + \\\n' + \
+        '    &quot;\\n\\nIf you think this is a bug submit an issue on github.\\n&quot; + \\\n' + \
+        '    &quot;https://github.com/ladybug-tools/honeybee-dynamo/issues\\n&quot; +  \\\n' + \
+        '    &quot;and include below error message:\\n\\n&quot; + \\\n' + \
+        '    &quot;{}&quot;.format(traceback.format_exc())\n'
+
+    OUT = header + source + footer
+
+except Exception, e:
+    import sys
+    sys.path.append(r'C:\Program Files (x86)\IronPython 2.7\Lib')
+    import traceback
+    OUT = &quot;ERROR:\n\t{}&quot;.format(str(e)) + \
+        &quot;\n\nIf you think this is a bug submit an issue on github.\n&quot; + \
+        &quot;https://github.com/ladybug-tools/honeybee-dynamo/issues\n&quot; +  \
+        &quot;and include below error message:\n\n&quot; + \
+        &quot;{}&quot;.format(traceback.format_exc())
+
+      </Script>
+    </PythonNodeModels.PythonNode>
+    <PythonNodeModels.PythonStringNode guid="1af427bd-46b2-433c-a41e-15bc55d9e7e5" inputcount="6" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="core" type="PythonNodeModels.PythonStringNode" x="-75" y="460">
+      <PortInfo default="false" index="0"/>
+      <PortInfo default="false" index="1"/>
+      <PortInfo default="false" index="2"/>
+      <PortInfo default="false" index="3"/>
+      <PortInfo default="false" index="4"/>
+      <PortInfo default="false" index="5"/>
+    </PythonNodeModels.PythonStringNode>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="71f124ca-cb5a-4831-9782-1852fbf9b34b" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="_analysisGrid" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" x="-750" y="475">
+      <Symbol value="// An analysis grid output from run Radiance analysis.&#xD;&#xA;_analysisGrid: var;"/>
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="b98ff100-6976-40d5-aba3-c9ee9fd729f6" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="blindStates_" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" x="-750" y="570">
+      <Symbol value="// List of state ids for all the sources for input hoys.&#xD;&#xA;// If you want a source to be removed set the state to -1. As per&#xD;&#xA;// IES-LM-83-12 the blinds must be closed at any point of time that&#xD;&#xA;// more than 2% of analysis points recieve direct sunlight.&#xD;&#xA;blindStates_: var[] = {};"/>
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="c0ec9047-726d-4f51-967a-e11ffb0c8516" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="_occSchedule_" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" x="-750" y="665">
+      <Symbol value="// An annual occupancy schedule. As per IES-LM-83 the&#xD;&#xA;// schedule should be 8am to 6pm (10 hours during the day).&#xD;&#xA;_occSchedule_: var = null;"/>
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="dcb93a33-3a1b-4561-9dfb-aed1002725fa" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="_threshold_" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" x="-750" y="760">
+      <Symbol value="// Threshhold for daylight autonomy in lux (default: 300).&#xD;&#xA;_threshold_: int = 300;"/>
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="ac8b75f7-45e2-4d36-85b9-49c9fb08c973" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="_targetDA_" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" x="-750" y="855">
+      <Symbol value="// Minimum target percentage for daylight autonomy (default: 50).&#xD;&#xA;_targetDA_: double = 50;"/>
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel CodeText="out[0];&#xA;out[1];&#xA;out[2];" ShouldFocus="false" guid="5018888f-c9b4-42d8-beaa-facb2b0134ff" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="decompose outputs" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" x="150" y="515"/>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="674c79c3-3b70-4c04-929b-6e59b0236e59" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="sDA" type="Dynamo.Graph.Nodes.CustomNodes.Output" x="380" y="475">
+      <Symbol value="// Spatial daylight autonomy as percentage of area for each analysis&#xD;&#xA;// grid.&#xD;&#xA;sDA;"/>
+      <PortInfo default="false" index="0"/>
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="efc6c8bd-4bdc-457f-a460-12932f393d95" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="DA" type="Dynamo.Graph.Nodes.CustomNodes.Output" x="380" y="570">
+      <Symbol value="// Daylight autonomy for each point in each analysis grid.&#xD;&#xA;DA;"/>
+      <PortInfo default="false" index="0"/>
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="71b46e48-cc56-4454-a619-ae4c414a2bfe" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="prblmPts" type="Dynamo.Graph.Nodes.CustomNodes.Output" x="380" y="665">
+      <Symbol value="// A list of problematic test points with spatial daylight autonomy&#xD;&#xA;// less then targetDA.&#xD;&#xA;prblmPts;"/>
+      <PortInfo default="false" index="0"/>
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+    <PythonNodeModels.PythonNode guid="77b32437-792e-48da-a2d9-18b3e5df5341" inputcount="2" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="Error report" type="PythonNodeModels.PythonNode" x="150" y="380">
+      <PortInfo default="false" index="0"/>
+      <PortInfo default="false" index="1"/>
+      <Script>
+        
+&quot;&quot;&quot;Report errors&quot;&quot;&quot;
+importErr, runErr = IN
+errors = []
+
+if importErr and str(importErr).startswith(&quot;ERROR:&quot;):
+    errors.append(importErr)
+
+if runErr and str(runErr).startswith(&quot;ERROR:&quot;):
+    errors.append(runErr)
+
+if len(errors)==0:
+    OUT = &quot;All good! Vvizzzz.&quot;
+else:
+    OUT = &quot;\n&quot;.join(errors)
+
+      </Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="ec3d06e0-e9a8-436d-8452-908f25889463" isFrozen="false" isPinned="false" isSelectedInput="true" isUpstreamVisible="true" isVisible="true" lacing="Disabled" nickname="ERRReport" type="Dynamo.Graph.Nodes.CustomNodes.Output" x="380" y="380">
+      <Symbol value="// Report&#xD;&#xA;ERRReport;"/>
+      <PortInfo default="false" index="0"/>
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel end="a9d104a9-f0c3-4705-b748-5f2d124ba44a" end_index="0" portType="0" start="00e9e574-dc1b-4d88-b79f-e328f7906152" start_index="0"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="a9d104a9-f0c3-4705-b748-5f2d124ba44a" end_index="1" portType="0" start="00e9e574-dc1b-4d88-b79f-e328f7906152" start_index="1"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="1af427bd-46b2-433c-a41e-15bc55d9e7e5" end_index="0" portType="0" start="a9d104a9-f0c3-4705-b748-5f2d124ba44a" start_index="0"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="1af427bd-46b2-433c-a41e-15bc55d9e7e5" end_index="1" portType="0" start="71f124ca-cb5a-4831-9782-1852fbf9b34b" start_index="0"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="1af427bd-46b2-433c-a41e-15bc55d9e7e5" end_index="2" portType="0" start="b98ff100-6976-40d5-aba3-c9ee9fd729f6" start_index="0"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="1af427bd-46b2-433c-a41e-15bc55d9e7e5" end_index="3" portType="0" start="c0ec9047-726d-4f51-967a-e11ffb0c8516" start_index="0"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="1af427bd-46b2-433c-a41e-15bc55d9e7e5" end_index="4" portType="0" start="dcb93a33-3a1b-4561-9dfb-aed1002725fa" start_index="0"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="1af427bd-46b2-433c-a41e-15bc55d9e7e5" end_index="5" portType="0" start="ac8b75f7-45e2-4d36-85b9-49c9fb08c973" start_index="0"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="5018888f-c9b4-42d8-beaa-facb2b0134ff" end_index="0" portType="0" start="1af427bd-46b2-433c-a41e-15bc55d9e7e5" start_index="0"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="674c79c3-3b70-4c04-929b-6e59b0236e59" end_index="0" portType="0" start="5018888f-c9b4-42d8-beaa-facb2b0134ff" start_index="0"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="efc6c8bd-4bdc-457f-a460-12932f393d95" end_index="0" portType="0" start="5018888f-c9b4-42d8-beaa-facb2b0134ff" start_index="1"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="71b46e48-cc56-4454-a619-ae4c414a2bfe" end_index="0" portType="0" start="5018888f-c9b4-42d8-beaa-facb2b0134ff" start_index="2"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="77b32437-792e-48da-a2d9-18b3e5df5341" end_index="0" portType="0" start="a9d104a9-f0c3-4705-b748-5f2d124ba44a" start_index="0"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="77b32437-792e-48da-a2d9-18b3e5df5341" end_index="1" portType="0" start="1af427bd-46b2-433c-a41e-15bc55d9e7e5" start_index="0"/>
+    <Dynamo.Graph.Connectors.ConnectorModel end="ec3d06e0-e9a8-436d-8452-908f25889463" end_index="0" portType="0" start="77b32437-792e-48da-a2d9-18b3e5df5341" start_index="0"/>
+  </Connectors>
+  <Notes/>
+  <Annotations/>
+  <Presets/>
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-34.00" eyeY="-34.00" eyeZ="21.19" lookX="-14.19" lookY="-43.06" lookZ="-41.65" upX="-0.17" upY="0.85" upZ="-0.50"/>
+  </Cameras>
+</Workspace>

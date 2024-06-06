@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        "TopologicEnergy"
+    </assembly>
+    <members>
+        <member name="M:TopologicEnergy.SimulationResult.#ctor(System.Collections.Generic.Dictionary`2{System.String,System.Collections.Generic.Dictionary`2{System.String,System.Object}})">
+            <summary />
+        </member>
+        <member name="M:TopologicEnergy.SimulationResult.RGB(System.Nullable`1{System.Double},System.Nullable`1{System.Double})">
+            <summary>
+Returns the colors associated to the values, with an optional input domain.
+</summary>
+            <param name="minDomain">The</param>
+            <param name="maxDomain" />
+            <returns name="int[][]" />
+        </member>
+        <member name="P:TopologicEnergy.SimulationResult.Domain">
+            <summary>
+Returns the domain of the data, represented by the minimum and maximum values.
+</summary>
+        </member>
+        <member name="P:TopologicEnergy.SimulationResult.Values">
+            <summary>
+Returns the values of the data.
+</summary>
+        </member>
+        <member name="P:TopologicEnergy.SimulationResult.Names">
+            <summary>
+Returns the names of the data.
+</summary>
+        </member>
+        <member name="M:TopologicEnergy.SimulationResult.LegendValues(System.Nullable`1{System.Double},System.Nullable`1{System.Double},System.Int32)">
+            <summary>
+Outputs the value range of the data.
+</summary>
+            <param name="minDomain">An optional minimum domain</param>
+            <param name="maxDomain">An optional maximum domain</param>
+            <param name="count">The number of sampled values</param>
+            <returns name="double[]">The sampled values</returns>
+        </member>
+        <member name="M:TopologicEnergy.SimulationResult.LegendRGB(System.Nullable`1{System.Double},System.Nullable`1{System.Double},System.Int32)">
+            <summary>
+Outputs the color range of the data. The first element is the colors, the second element is the normalised position within the spectrum. The colors are sorted by the values.
+</summary>
+            <param name="minDomain">An optional minimum domain</param>
+            <param name="maxDomain">An optional maximum domain</param>
+            <param name="count">The number of sampled colors</param>
+            <returns name="int[][]">The color range</returns>
+        </member>
+        <member name="M:TopologicEnergy.SimulationResult.Display(TopologicEnergy.EnergyModel,System.Collections.Generic.IList`1{DSCore.Color})">
+            <summary>
+Draws an EnergyModel using a list of colors
+</summary>
+            <param name="energyModel">An EnergyModel</param>
+            <param name="colors">A list of colors</param>
+            <returns name="GeometryColor[]">A list of colored geometries</returns>
+        </member>
+        <member name="M:TopologicEnergy.SimulationResult.ByEnergySimulation(TopologicEnergy.EnergySimulation,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+Retrieves the simulation result from an energy simulation object.
+</summary>
+            <param name="energySimulation">An energy simulation object</param>
+            <param name="EPReportName">An EPReportName label</param>
+            <param name="EPReportForString">An EPReportForString label</param>
+            <param name="EPTableName">An EPTableName label</param>
+            <param name="EPColumnName">An EPColumnName label</param>
+            <param name="EPUnits">An EPUnits label</param>
+            <returns name="SimulationResult">A simulation result object</returns>
+        </member>
+        <member name="M:TopologicEnergy.EnergyModel.SaveModel(OpenStudio.Model,System.String)">
+            <summary />
+            <param name="osModel" />
+            <param name="osmPathName" />
+            <returns name="bool" />
+        </member>
+        <member name="M:TopologicEnergy.EnergyModel.CreateIdfFile(OpenStudio.Model,System.String)">
+            <summary />
+            <param name="osModel" />
+            <param name="idfPathName" />
+            <returns name="bool" />
+        </member>
+        <member name="M:TopologicEnergy.EnergyModel.ByImportedgbXML(System.String,System.Double)">
+            <summary>
+Imports a .gbXML file into an EnergyModel
+</summary>
+            <param name="filePath">The file to import the EnergyModel from</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="EnergyModel">An EnergyModel</returns>
+        </member>
+        <member name="M:TopologicEnergy.EnergyModel.ExportTogbXML(TopologicEnergy.EnergyModel,System.String)">
+            <summary>
+Exports an EnergyModel to a gbXML file.
+</summary>
+            <param name="energyModel">An EnergyModel</param>
+            <param name="filePath">The file to export the EnergyModel to</param>
+            <returns name="bool">True if a .gbXML file can be created, otherwise False</returns>
+        </member>
+        <member name="P:TopologicEnergy.EnergyModel.Topology">
+            <summary>
+Returns the Topology of this EnergyModel.
+</summary>
+        </member>
+        <member name="M:TopologicEnergy.EnergyModel.ByImportedOSM(System.String,System.Double)">
+            <summary>
+Imports an .osm file into an EnergyModel
+</summary>
+            <param name="filePath">The file to import the EnergyModel from</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="EnergyModel">An EnergyModel</returns>
+        </member>
+        <member name="M:TopologicEnergy.EnergyModel.ExportToOSM(TopologicEnergy.EnergyModel,System.String)">
+            <summary>
+Exports an EnergyModel to a .osm file.
+</summary>
+            <param name="energyModel">An EnergyModel</param>
+            <param name="filePath">The file to export the EnergyModel to</param>
+            <returns name="bool">True if a .osm file can be created, otherwise False</returns>
+        </member>
+        <member name="M:TopologicEnergy.EnergyModel.ByCellComplex(Topologic.CellComplex,Topologic.Cluster,System.Collections.Generic.IList`1{System.Double},System.String,System.String,System.String,System.Double,System.Nullable`1{System.Double},System.Double,System.Double,System.String,System.String,System.String)">
+            <summary>
+Create an EnergyModel from a Topologic shape.
+</summary>
+            <param name="building">The building as a CellComplex</param>
+            <param name="shadingSurfaces">The shading surfaces as a Cluster of Faces</param>
+            <param name="floorLevels">The number of floor levels</param>
+            <param name="buildingName">The building's name</param>
+            <param name="buildingType">The building's type</param>
+            <param name="defaultSpaceType">The default space type</param>
+            <param name="northAxis">Specify the angle at the north axis in degrees, with 0 signifying positive Y-axis. Positive values indivate a counter-clockwise rotation.</param>
+            <param name="glazingRatio">The optional glazing ratio. If not provided, the Apertures on the Faces will be used.</param>
+            <param name="coolingTemp">The cooling temperature</param>
+            <param name="heatingTemp">The heating temperature</param>
+            <param name="weatherFilePath">Path to a .epw file</param>
+            <param name="designDayFilePath">Path to a .ddy file</param>
+            <param name="openStudioTemplatePath">Path to a template .osm file</param>
+            <returns name="energyModel">An EnergyModel</returns>
+        </member>
+        <member name="M:TopologicEnergy.EnergySimulation.#ctor(System.Collections.Generic.IList`1{Topologic.Cell},System.String,OpenStudio.Model,OpenStudio.SpaceVector)">
+            <summary />
+            <param name="cells" />
+            <param name="oswPath">Used to deduce the SQL path</param>
+        </member>
+        <member name="M:TopologicEnergy.EnergySimulation.ByEnergyModel(TopologicEnergy.EnergyModel,System.String,System.String,System.Boolean)">
+            <summary>
+Runs an energy simulation using an input EnergyModel.
+</summary>
+            <param name="energyModel">An EnergyModel</param>
+            <param name="openStudioExePath">The path to the OpenStudio executable file</param>
+            <param name="openStudioOutputDirectory">The output OpenStudio path</param>
+            <param name="run">Set to True to perform the analysis, otherwise the analysis is not run</param>
+            <returns name="EnergySimulation">An energy simulation object</returns>
+        </member>
+    </members>
+</doc>

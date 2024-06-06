@@ -1,0 +1,190 @@
+<Workspace Version="0.9.0.3067" X="-130.760512266395" Y="197.958338354446" zoom="0.631317243097573" Name="FillPattern.PresetFlemish" Description="Creates a string needed for the standard flemish bond pattern, with no mortar joints visible. Change the height and width of the brick to toggle the size of the pattern. Feed the output string into a FillPattern.ModelPatFile or FillPattern.DraftingPatFile node." ID="9c696cf7-1387-4da3-a261-94619bd91bfe" Category="Zebra.Revit">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="Autodesk.Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Autodesk.DesignScript.Geometry.Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Line" resolvedName="Autodesk.DesignScript.Geometry.Line" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Display" resolvedName="Display.Display" assemblyName="Display.dll" />
+    <ClassMap partialName="DSCore.Color" resolvedName="DSCore.Color" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="Vector" resolvedName="Autodesk.DesignScript.Geometry.Vector" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Math" resolvedName="DSCore.Math" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="List" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="Vector.ZAxis" resolvedName="Autodesk.DesignScript.Geometry.Vector" assemblyName="ProtoGeometry.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <DSCoreNodesUI.Input.DoubleSlider guid="e06bc39a-2839-4ab0-b64a-07b0e76235b2" type="DSCoreNodesUI.Input.DoubleSlider" nickname="Number" x="593.128623491998" y="0" isVisible="false" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double>0</System.Double>
+      <Range min="0" max="360" step="1" />
+    </DSCoreNodesUI.Input.DoubleSlider>
+    <DSCoreNodesUI.Input.DoubleSlider guid="c72ee141-588f-4ade-9de9-9dfef857e237" type="DSCoreNodesUI.Input.DoubleSlider" nickname="Number" x="595.473339297538" y="64.1601801567981" isVisible="false" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double>90</System.Double>
+      <Range min="0" max="360" step="1" />
+    </DSCoreNodesUI.Input.DoubleSlider>
+    <Dynamo.Nodes.CodeBlockNodeModel guid="ac3bea81-6b2e-48fc-b1e7-aa778d494f35" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="601.83285450334" y="163.108713689772" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" CodeText="(w/2)+((w/2)/2);" ShouldFocus="false" />
+    <Dynamo.Nodes.Function guid="c99dd843-c8cc-4e74-afef-cdfb10f8a40f" type="Dynamo.Nodes.Function" nickname="FillPattern.LinePatternCreation" x="1233.28833322993" y="4.47367277491594" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="fef364c8-e8c0-43f6-bd4c-3444c53cb278" />
+      <Name value="FillPattern.LinePatternCreation" />
+      <Description value="Creates and visualises the line pattern used in fill patterns. Part of the method of creating a Fill Pattern (.pat) file using the Zebra package." />
+      <Inputs>
+        <Input value="Angle" />
+        <Input value="Origin.X" />
+        <Input value="Origin.Y" />
+        <Input value="X Shift" />
+        <Input value="Y Shift" />
+        <Input value="Pen Down" />
+        <Input value="Pen Up" />
+      </Inputs>
+      <Outputs>
+        <Output value="LinePattern" />
+        <Output value="String" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.Function guid="89944a23-1e17-4c54-acbe-ae483f191ada" type="Dynamo.Nodes.Function" nickname="FillPattern.LinePatternCreation" x="1224.91721723329" y="264.878351287134" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="fef364c8-e8c0-43f6-bd4c-3444c53cb278" />
+      <Name value="FillPattern.LinePatternCreation" />
+      <Description value="Creates and visualises the line pattern used in fill patterns. Part of the method of creating a Fill Pattern (.pat) file using the Zebra package." />
+      <Inputs>
+        <Input value="Angle" />
+        <Input value="Origin.X" />
+        <Input value="Origin.Y" />
+        <Input value="X Shift" />
+        <Input value="Y Shift" />
+        <Input value="Pen Down" />
+        <Input value="Pen Up" />
+      </Inputs>
+      <Outputs>
+        <Output value="LinePattern" />
+        <Output value="String" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.Function guid="701c064d-4113-46d3-b2fd-cfea4757635c" type="Dynamo.Nodes.Function" nickname="FillPattern.LinePatternCreation" x="1226.43213170011" y="523.685293639206" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="fef364c8-e8c0-43f6-bd4c-3444c53cb278" />
+      <Name value="FillPattern.LinePatternCreation" />
+      <Description value="Creates and visualises the line pattern used in fill patterns. Part of the method of creating a Fill Pattern (.pat) file using the Zebra package." />
+      <Inputs>
+        <Input value="Angle" />
+        <Input value="Origin.X" />
+        <Input value="Origin.Y" />
+        <Input value="X Shift" />
+        <Input value="Y Shift" />
+        <Input value="Pen Down" />
+        <Input value="Pen Up" />
+      </Inputs>
+      <Outputs>
+        <Output value="LinePattern" />
+        <Output value="String" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.StringInput guid="23c0d227-4aea-433c-aa37-35b80cb3a720" type="Dynamo.Nodes.StringInput" nickname="String" x="1999.11196897537" y="593.41903489583" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.String>
+</System.String>
+      <System.String value="&#xD;&#xA;" />
+    </Dynamo.Nodes.StringInput>
+    <DSCoreNodesUI.CreateList guid="fe279951-bf9c-4f85-80bb-280becdfb69e" type="DSCoreNodesUI.CreateList" nickname="List.Create" x="1940.97299877277" y="258.827261584056" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" inputcount="5" />
+    <Dynamo.Nodes.Function guid="e3b6cb2d-8e0d-445b-8867-b4df22fff998" type="Dynamo.Nodes.Function" nickname="FillPattern.LinePatternCreation" x="1230.16859887558" y="780.755736935656" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="fef364c8-e8c0-43f6-bd4c-3444c53cb278" />
+      <Name value="FillPattern.LinePatternCreation" />
+      <Description value="Creates and visualises the line pattern used in fill patterns. Part of the method of creating a Fill Pattern (.pat) file using the Zebra package." />
+      <Inputs>
+        <Input value="Angle" />
+        <Input value="Origin.X" />
+        <Input value="Origin.Y" />
+        <Input value="X Shift" />
+        <Input value="Y Shift" />
+        <Input value="Pen Down" />
+        <Input value="Pen Up" />
+      </Inputs>
+      <Outputs>
+        <Output value="LinePattern" />
+        <Output value="String" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.DSVarArgFunction guid="e0aa052c-f841-40d0-81b2-339854fbf149" type="Dynamo.Nodes.DSVarArgFunction" nickname="String.Join" x="2101.66282987579" y="640.595953300349" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.String.Join@string,string[]" inputcount="6" />
+    <Dynamo.Nodes.Function guid="7682496d-dbaa-463e-8a37-93fae994389e" type="Dynamo.Nodes.Function" nickname="FillPattern.LinePatternCreation" x="1234.03641713796" y="1044.76110088154" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="fef364c8-e8c0-43f6-bd4c-3444c53cb278" />
+      <Name value="FillPattern.LinePatternCreation" />
+      <Description value="Creates and visualises the line pattern used in fill patterns. Part of the method of creating a Fill Pattern (.pat) file using the Zebra package." />
+      <Inputs>
+        <Input value="Angle" />
+        <Input value="Origin.X" />
+        <Input value="Origin.Y" />
+        <Input value="X Shift" />
+        <Input value="Y Shift" />
+        <Input value="Pen Down" />
+        <Input value="Pen Up" />
+      </Inputs>
+      <Outputs>
+        <Output value="LinePattern" />
+        <Output value="String" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.Output guid="2ba58d66-1aad-42c2-9420-f87470cbe86f" type="Dynamo.Nodes.Output" nickname="Output" x="2209.94190973746" y="214.58693230592" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="LinePattern" />
+    </Dynamo.Nodes.Output>
+    <Dynamo.Nodes.Output guid="736f6f73-9bab-492d-bc7e-f46f8ab233fb" type="Dynamo.Nodes.Output" nickname="Output" x="2354.61816726499" y="639.374723448796" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="String" />
+    </Dynamo.Nodes.Output>
+    <Dynamo.Nodes.Symbol guid="9e03f286-b330-462c-8db6-46ce6e7e9791" type="Dynamo.Nodes.Symbol" nickname="Input" x="317.79271357744" y="250.938442028638" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="Height" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Symbol guid="d2b8144b-abf5-4e43-9d25-7d017fe1ab96" type="Dynamo.Nodes.Symbol" nickname="Input" x="318.499371662478" y="323.18278890152" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="Width" />
+    </Dynamo.Nodes.Symbol>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="e06bc39a-2839-4ab0-b64a-07b0e76235b2" start_index="0" end="c99dd843-c8cc-4e74-afef-cdfb10f8a40f" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e06bc39a-2839-4ab0-b64a-07b0e76235b2" start_index="0" end="c99dd843-c8cc-4e74-afef-cdfb10f8a40f" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e06bc39a-2839-4ab0-b64a-07b0e76235b2" start_index="0" end="c99dd843-c8cc-4e74-afef-cdfb10f8a40f" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e06bc39a-2839-4ab0-b64a-07b0e76235b2" start_index="0" end="89944a23-1e17-4c54-acbe-ae483f191ada" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e06bc39a-2839-4ab0-b64a-07b0e76235b2" start_index="0" end="89944a23-1e17-4c54-acbe-ae483f191ada" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e06bc39a-2839-4ab0-b64a-07b0e76235b2" start_index="0" end="701c064d-4113-46d3-b2fd-cfea4757635c" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e06bc39a-2839-4ab0-b64a-07b0e76235b2" start_index="0" end="e3b6cb2d-8e0d-445b-8867-b4df22fff998" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e06bc39a-2839-4ab0-b64a-07b0e76235b2" start_index="0" end="7682496d-dbaa-463e-8a37-93fae994389e" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e06bc39a-2839-4ab0-b64a-07b0e76235b2" start_index="0" end="c99dd843-c8cc-4e74-afef-cdfb10f8a40f" end_index="5" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e06bc39a-2839-4ab0-b64a-07b0e76235b2" start_index="0" end="c99dd843-c8cc-4e74-afef-cdfb10f8a40f" end_index="6" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c72ee141-588f-4ade-9de9-9dfef857e237" start_index="0" end="89944a23-1e17-4c54-acbe-ae483f191ada" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c72ee141-588f-4ade-9de9-9dfef857e237" start_index="0" end="701c064d-4113-46d3-b2fd-cfea4757635c" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c72ee141-588f-4ade-9de9-9dfef857e237" start_index="0" end="e3b6cb2d-8e0d-445b-8867-b4df22fff998" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c72ee141-588f-4ade-9de9-9dfef857e237" start_index="0" end="7682496d-dbaa-463e-8a37-93fae994389e" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="ac3bea81-6b2e-48fc-b1e7-aa778d494f35" start_index="0" end="c99dd843-c8cc-4e74-afef-cdfb10f8a40f" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="ac3bea81-6b2e-48fc-b1e7-aa778d494f35" start_index="0" end="89944a23-1e17-4c54-acbe-ae483f191ada" end_index="4" portType="0" />
+    <Dynamo.Models.ConnectorModel start="ac3bea81-6b2e-48fc-b1e7-aa778d494f35" start_index="0" end="701c064d-4113-46d3-b2fd-cfea4757635c" end_index="4" portType="0" />
+    <Dynamo.Models.ConnectorModel start="ac3bea81-6b2e-48fc-b1e7-aa778d494f35" start_index="0" end="e3b6cb2d-8e0d-445b-8867-b4df22fff998" end_index="4" portType="0" />
+    <Dynamo.Models.ConnectorModel start="ac3bea81-6b2e-48fc-b1e7-aa778d494f35" start_index="0" end="7682496d-dbaa-463e-8a37-93fae994389e" end_index="4" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c99dd843-c8cc-4e74-afef-cdfb10f8a40f" start_index="0" end="fe279951-bf9c-4f85-80bb-280becdfb69e" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c99dd843-c8cc-4e74-afef-cdfb10f8a40f" start_index="1" end="e0aa052c-f841-40d0-81b2-339854fbf149" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="89944a23-1e17-4c54-acbe-ae483f191ada" start_index="0" end="fe279951-bf9c-4f85-80bb-280becdfb69e" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="89944a23-1e17-4c54-acbe-ae483f191ada" start_index="1" end="e0aa052c-f841-40d0-81b2-339854fbf149" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="701c064d-4113-46d3-b2fd-cfea4757635c" start_index="0" end="fe279951-bf9c-4f85-80bb-280becdfb69e" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="701c064d-4113-46d3-b2fd-cfea4757635c" start_index="1" end="e0aa052c-f841-40d0-81b2-339854fbf149" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="23c0d227-4aea-433c-aa37-35b80cb3a720" start_index="0" end="e0aa052c-f841-40d0-81b2-339854fbf149" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="fe279951-bf9c-4f85-80bb-280becdfb69e" start_index="0" end="2ba58d66-1aad-42c2-9420-f87470cbe86f" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e3b6cb2d-8e0d-445b-8867-b4df22fff998" start_index="0" end="fe279951-bf9c-4f85-80bb-280becdfb69e" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e3b6cb2d-8e0d-445b-8867-b4df22fff998" start_index="1" end="e0aa052c-f841-40d0-81b2-339854fbf149" end_index="4" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e0aa052c-f841-40d0-81b2-339854fbf149" start_index="0" end="736f6f73-9bab-492d-bc7e-f46f8ab233fb" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="7682496d-dbaa-463e-8a37-93fae994389e" start_index="0" end="fe279951-bf9c-4f85-80bb-280becdfb69e" end_index="4" portType="0" />
+    <Dynamo.Models.ConnectorModel start="7682496d-dbaa-463e-8a37-93fae994389e" start_index="1" end="e0aa052c-f841-40d0-81b2-339854fbf149" end_index="5" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="c99dd843-c8cc-4e74-afef-cdfb10f8a40f" end_index="4" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="89944a23-1e17-4c54-acbe-ae483f191ada" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="89944a23-1e17-4c54-acbe-ae483f191ada" end_index="5" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="89944a23-1e17-4c54-acbe-ae483f191ada" end_index="6" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="701c064d-4113-46d3-b2fd-cfea4757635c" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="701c064d-4113-46d3-b2fd-cfea4757635c" end_index="5" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="701c064d-4113-46d3-b2fd-cfea4757635c" end_index="6" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="e3b6cb2d-8e0d-445b-8867-b4df22fff998" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="e3b6cb2d-8e0d-445b-8867-b4df22fff998" end_index="5" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="e3b6cb2d-8e0d-445b-8867-b4df22fff998" end_index="6" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="7682496d-dbaa-463e-8a37-93fae994389e" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="7682496d-dbaa-463e-8a37-93fae994389e" end_index="5" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9e03f286-b330-462c-8db6-46ce6e7e9791" start_index="0" end="7682496d-dbaa-463e-8a37-93fae994389e" end_index="6" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d2b8144b-abf5-4e43-9d25-7d017fe1ab96" start_index="0" end="ac3bea81-6b2e-48fc-b1e7-aa778d494f35" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d2b8144b-abf5-4e43-9d25-7d017fe1ab96" start_index="0" end="701c064d-4113-46d3-b2fd-cfea4757635c" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d2b8144b-abf5-4e43-9d25-7d017fe1ab96" start_index="0" end="e3b6cb2d-8e0d-445b-8867-b4df22fff998" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d2b8144b-abf5-4e43-9d25-7d017fe1ab96" start_index="0" end="7682496d-dbaa-463e-8a37-93fae994389e" end_index="1" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-37.7082910073885" eyeY="576.084753879275" eyeZ="68.1996528877362" lookX="0.248503280986242" lookY="-255.564856418337" lookZ="-20.652747370158" upX="0.0115057593211532" upY="0.292371690273285" upZ="-0.956235527992249" />
+  </Cameras>
+</Workspace>

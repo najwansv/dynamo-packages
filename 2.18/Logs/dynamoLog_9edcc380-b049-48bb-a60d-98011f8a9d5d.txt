@@ -1,0 +1,541 @@
+Dynamo log started 2024-05-20 23:04:46Z
+2024-05-20 23:04:46Z : Python template set to default.
+2024-05-20 23:04:47Z : launch darkly initalized
+2024-05-20 23:04:47Z : LD startup time: 752 
+2024-05-20 23:04:47Z : <<<<<InitDone>>>>>
+2024-05-20 23:04:47Z : feature flag exe starting
+2024-05-20 23:04:47Z : <<<<<Sod>>>>>
+2024-05-20 23:04:47Z : {"IsNewAppHomeEnabled":false,"graphics-primitive-instancing":false,"EasterEggIcon1":false,"EasterEggMessage1":"NA","IsTSplineNodesExperimentToggleVisible":false,"CER":false,"NodeAutocompleteMachineLearningIsBeta":true,"CER_v2":true,"IsMLDataIngestionPipelineinBeta":false}
+2024-05-20 23:04:47Z : <<<<<Eod>>>>>
+2024-05-20 23:04:47Z : EasterEggIcon1 is false FROM MODEL
+2024-05-20 23:04:47Z : EasterEggMessage1 is disabled FROM MODEL
+2024-05-20 23:04:47Z : Dynamo -- Build 2.18.1.5096
+2024-05-20 23:04:48Z : System.InvalidOperationException:
+2024-05-20 23:04:48Z : There already exists an AlsoKnownAs mapping for DSCoreNodesUI.Logic.If.
+2024-05-20 23:04:48Z : 
+2024-05-20 23:04:48Z : System.InvalidOperationException:
+2024-05-20 23:04:48Z : There already exists an AlsoKnownAs mapping for If.
+2024-05-20 23:04:48Z : 
+2024-05-20 23:04:48Z : Duplicate migration type registered for SunPathDirection
+2024-05-20 23:04:49Z : AnalyticalAutomation.dll,M:AnalyticalAutomation.AnalyticalElements.AnalyticalPanel.BySurface(Autodesk.DesignScript.Geometry.Surface,System.Boolean) {0} is missing some XML documentation tags.
+2024-05-20 23:04:49Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-05-20 23:04:49Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\definitions' does not exist
+2024-05-20 23:04:49Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\definitions' does not exist
+2024-05-20 23:04:49Z : Dynamo will use the package manager server at : https://www.dynamopackages.com
+2024-05-20 23:04:49Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-05-20 23:04:49Z : A package called DynamoPlayerExtension found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension includes dll files but none are defined in node libraries in the package manifest.  Ignoring it.
+2024-05-20 23:04:49Z : Exception encountered scanning the package directory at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+2024-05-20 23:04:49Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+   at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates):
+ Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension: 
+ "A package called Orchid found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension could not be verified to have signed dll files.  A dll file found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension\bin\OrchidRB.dll did not have a signed certificate.  Ignoring it."
+2024-05-20 23:04:49Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-05-20 23:04:49Z : Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+2024-05-20 23:04:49Z :    at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates)
+2024-05-20 23:04:49Z : Exception encountered scanning the package directory at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+2024-05-20 23:04:49Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+   at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates):
+ Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit: 
+ "A package called Orchid found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit could not be verified to have signed dll files.  A dll file found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit\bin\OrchidRB.dll did not have a signed certificate.  Ignoring it."
+2024-05-20 23:04:49Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-05-20 23:04:49Z : Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+2024-05-20 23:04:49Z :    at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates)
+2024-05-20 23:04:49Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\packages' does not exist
+2024-05-20 23:04:49Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\packages' does not exist
+2024-05-20 23:04:49Z : System.InvalidOperationException:
+2024-05-20 23:04:49Z : There already exists an AlsoKnownAs mapping for Select Rule Type.
+2024-05-20 23:04:49Z : 
+2024-05-20 23:04:52Z : Data-Shapes contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-05-20 23:04:52Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is added
+2024-05-20 23:04:53Z : Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf
+2024-05-20 23:04:53Z : notification:Dynamo.Exceptions.CustomNodePackageLoadException: Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf:
+ Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf: 
+ C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf cannot be loaded. 
+Installing it will conflict with one or more node definitions that already exist in C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf, which is currently loaded. 
+To install C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf, Dynamo needs to first uninstall C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf. 
+Restart Dynamo to complete the uninstall.
+2024-05-20 23:04:53Z : Dynamo.Exceptions.CustomNodePackageLoadException:
+2024-05-20 23:04:53Z : Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf
+2024-05-20 23:04:53Z : 
+2024-05-20 23:04:56Z : Modelical contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-05-20 23:04:56Z : MonocleExtension (id: 53301BE8-BDA9-47CA-9EF0-2B70808B13A5) extension is added
+2024-05-20 23:04:56Z : System.InvalidOperationException:
+2024-05-20 23:04:56Z : There already exists an AlsoKnownAs mapping for View Family Types.
+2024-05-20 23:04:56Z : 
+2024-05-20 23:04:56Z : System.InvalidOperationException:
+2024-05-20 23:04:56Z : There already exists an AlsoKnownAs mapping for View Duplicate Options.
+2024-05-20 23:04:56Z : 
+2024-05-20 23:04:56Z : System.InvalidOperationException:
+2024-05-20 23:04:56Z : There already exists an AlsoKnownAs mapping for View Templates.
+2024-05-20 23:04:56Z : 
+2024-05-20 23:04:56Z : System.InvalidOperationException:
+2024-05-20 23:04:56Z : There already exists an AlsoKnownAs mapping for View Template Parameters.
+2024-05-20 23:04:56Z : 
+2024-05-20 23:04:56Z : System.InvalidOperationException:
+2024-05-20 23:04:56Z : There already exists an AlsoKnownAs mapping for Schedule Heading Orientations.
+2024-05-20 23:04:56Z : 
+2024-05-20 23:04:56Z : System.InvalidOperationException:
+2024-05-20 23:04:56Z : There already exists an AlsoKnownAs mapping for Schedule Sort Order.
+2024-05-20 23:04:56Z : 
+2024-05-20 23:04:56Z : System.InvalidOperationException:
+2024-05-20 23:04:56Z : There already exists an AlsoKnownAs mapping for Ceiling Types.
+2024-05-20 23:04:56Z : 
+2024-05-20 23:04:56Z : System.InvalidOperationException:
+2024-05-20 23:04:56Z : There already exists an AlsoKnownAs mapping for Group Types.
+2024-05-20 23:04:56Z : 
+2024-05-20 23:04:56Z : System.InvalidOperationException:
+2024-05-20 23:04:56Z : There already exists an AlsoKnownAs mapping for Roof Types.
+2024-05-20 23:04:56Z : 
+2024-05-20 23:04:56Z : System.InvalidOperationException:
+2024-05-20 23:04:56Z : There already exists an AlsoKnownAs mapping for Worksets.
+2024-05-20 23:04:56Z : 
+2024-05-20 23:04:56Z : System.InvalidOperationException:
+2024-05-20 23:04:56Z : There already exists an AlsoKnownAs mapping for Print Settings.
+2024-05-20 23:04:56Z : 
+2024-05-20 23:04:56Z : System.InvalidOperationException:
+2024-05-20 23:04:56Z : There already exists an AlsoKnownAs mapping for Print Range.
+2024-05-20 23:04:56Z : 
+2024-05-20 23:04:59Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is added
+2024-05-20 23:05:02Z : System.InvalidOperationException:
+2024-05-20 23:05:02Z : There already exists an AlsoKnownAs mapping for Roof Types.
+2024-05-20 23:05:02Z : 
+2024-05-20 23:05:02Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension\dyf' does not exist
+2024-05-20 23:05:02Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is added
+2024-05-20 23:05:02Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign\dyf' does not exist
+2024-05-20 23:05:03Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Extension\dyf' does not exist
+2024-05-20 23:05:03Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is added
+2024-05-20 23:05:03Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Revit\dyf' does not exist
+2024-05-20 23:05:03Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is added
+2024-05-20 23:05:03Z : Backup files timer is started with an interval of 60000 milliseconds
+2024-05-20 23:05:03Z : SYSTEM:Environment Path:C:\Program Files\Autodesk\Revit 2024\AddIns\SteelConnections;C:\Program Files\Autodesk\Revit 2024\en-US;C:\Program Files\Autodesk\Revit 2024;C:\Program Files\Common Files\Autodesk Shared\RealDWG Shared 2024;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\ngrok\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\pyRevit-Master\bin;E:\OtherPrograms\scrcpy-win64-v2.4;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files (x86)\PuTTY\;C:\Program Files\MySQL\MySQL Server 8.0\bin;;C:\Program Files\pyRevit-Master\bin;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\;C:\Users\Najwan S\AppData\Local\Microsoft\WindowsApps;C:\Users\Najwan S\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Najwan S\AppData\Roaming\npm;C:\Users\Najwan S\AppData\Local\spicetify;C:\Users\Najwan S\.dotnet\tools;C:\Users\Najwan S\AppData\Roaming\pyRevit-Master\bin;E:\OtherPrograms\scrcpy-win64-v2.4;C:\Program Files (x86)\Inno Setup 6;C:\gnu\global-6.6;C:\gnu\ctags-5.8;;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit
+2024-05-20 23:05:03Z : RENDER : Rendering Tier: 2
+2024-05-20 23:05:03Z : RENDER : Pixel Shader 3 Supported: True
+2024-05-20 23:05:03Z : RENDER : Pixel Shader 4 Supported: False
+2024-05-20 23:05:03Z : RENDER : Software Effect Rendering Supported: True
+2024-05-20 23:05:03Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-05-20 23:05:05Z : RENDER : Rendering Tier: 2
+2024-05-20 23:05:05Z : RENDER : Pixel Shader 3 Supported: True
+2024-05-20 23:05:05Z : RENDER : Pixel Shader 4 Supported: False
+2024-05-20 23:05:05Z : RENDER : Software Effect Rendering Supported: True
+2024-05-20 23:05:05Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-05-20 23:05:05Z : Documentation Browser (id: 68B45FC0-0BD1-435C-BF28-B97CB03C71C8) view extension is added
+2024-05-20 23:05:05Z : DynamoManipulationExtension (id: 58B0496A-E3F8-43D9-86D2-94823D1D0F98) view extension is added
+2024-05-20 23:05:05Z : Properties (id: 28992e1d-abb9-417f-8b1b-05e053bee670) view extension is added
+2024-05-20 23:05:05Z : Graph Node Manager (id: F76F4274-537D-4782-B1E9-27E8FDE2186F) view extension is added
+2024-05-20 23:05:05Z : LibraryUI - WebView2 (id: 8b093acd-5656-4914-b6b0-c54b26ca6d0e) view extension is added
+2024-05-20 23:05:05Z : Graph Status (id: 3467481b-d20d-4918-a454-bf19fc5c25d7) view extension is added
+2024-05-20 23:05:05Z : Notifications (id: ef6cd025-514f-44cd-b6b1-69d9f5cce004) view extension is added
+2024-05-20 23:05:05Z : Package Details (id: C71CA1B9-BF9F-425A-A12C-53DF56770406) view extension is added
+2024-05-20 23:05:05Z : Data Shapes (id: 330cab56-d127-4b61-9f94-edfde9c93d70) view extension is added
+2024-05-20 23:05:05Z : Inconsistent UniqueId for Data Shapes view extension. This may result in unexpected Dynamo behavior.
+2024-05-20 23:05:05Z : Monocle View Extension (id: 5A256B35-BD09-423C-82A1-372957143927) view extension is added
+2024-05-20 23:05:05Z : Orchid View Extension (id: CD774BBB-D871-4A27-8683-EE806204593C) view extension is added
+2024-05-20 23:05:05Z : Rhythm View Extension (id: 5435824A-A3A1-4FC1-AF42-E5139041740F) view extension is added
+2024-05-20 23:05:05Z : Generative Design Tools (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) view extension is added
+2024-05-20 23:05:05Z : PackageManagerViewExtension: Object reference not set to an instance of an object.
+2024-05-20 23:05:05Z : Python Migration (id: 1f8146d0-58b1-4b3c-82b7-34a3fab5ac5d) view extension is added
+2024-05-20 23:05:05Z : Workspace References (id: A6706BF5-11C2-458F-B7C8-B745A77EF7FD) view extension is added
+2024-05-20 23:05:06Z : 
+Welcome to Dynamo!
+2024-05-20 23:05:06Z : 00:00:01.0856623 elapsed for loading Dynamo main window.
+2024-05-20 23:05:07Z : EasterEggIcon1 is false from view
+2024-05-20 23:05:07Z : EasterEggMessage1 is disabled from view
+2024-05-20 23:05:08Z : Browser Loaded
+2024-05-20 23:05:09Z : WPF Render Mode: SoftwareOnly
+2024-05-20 23:05:09Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DynamoUtilities, Version=2.18.1.5096, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-05-20 23:05:09Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DesignScriptBuiltin, Version=2.18.1.5096, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-05-20 23:05:09Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly OrchidRB, Version=2.19.1.6225, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency ProtoGeometry, Version=3.0.0.3331, Culture=neutral, PublicKeyToken=null was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+DynamoRevitDS, DynamoCore, DynamoCoreWpf, ProtoGeometry, DSCoreNodes, Tessellation, Analysis, GeometryColor, RevitNodes, LibG.ProtoInterface, GeometryUI, DSRevitNodesUI, BimorphNodes.Core, BimorphNodes, BimorphNodes.Geometry
+2024-05-20 23:05:09Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly OrchidRB, Version=2.19.1.6225, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-05-20 23:05:09Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-05-20 23:06:03Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN ...
+2024-05-20 23:06:03Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN
+2024-05-20 23:11:17Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\All Placed Family Types of Category.dyf
+2024-05-20 23:11:17Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Element.ElementType+.dyf
+2024-05-20 23:11:17Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\All Elements Of Category+.dyf
+2024-05-20 23:11:17Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\BuiltInCategory.FromInput.dyf
+2024-05-20 23:11:17Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\MEPover\dyf\All categories in document.dyf
+2024-05-20 23:11:17Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\Point.PullOntoPlane.dyf
+2024-05-20 23:11:17Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Genius Loci\dyf\Level Plane.dyf
+2024-05-20 23:11:19Z : Active view is now {3D}
+2024-05-20 23:11:19Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-05-20 23:12:02Z : ViewExtensionCommandExecutive ( UniqueId: f9e2f650-c1c5-40c9-9eb0-da6913b21432, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-20 23:12:03Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:12:03Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:12:12Z : ViewExtensionCommandExecutive ( UniqueId: 4f004884-1716-42cd-a955-e8db8f8469f6, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-20 23:12:12Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\All Elements In View(s).dyf
+2024-05-20 23:12:28Z : ViewExtensionCommandExecutive ( UniqueId: 77dd5ddc-945e-49bd-a7b5-c2de4e375c61, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-20 23:12:37Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:21:02Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:28:03Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:28:03Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:28:36Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:28:47Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:28:57Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:35:23Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:35:23Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:36:03Z : ViewExtensionCommandExecutive ( UniqueId: 0b2e21f9-e2a3-463c-9275-644d661a6af1, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-20 23:36:04Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:36:04Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:36:08Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:40:14Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:40:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:41:14Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:41:14Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:42:14Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:42:14Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:43:14Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:43:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:44:14Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:44:14Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:45:14Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:45:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:45:26Z : ViewExtensionCommandExecutive ( UniqueId: b398a4e4-c32b-46e1-be58-896dfdde6ff0, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-20 23:46:14Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:46:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:47:14Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:47:14Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:48:08Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:50:14Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:50:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:51:14Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:51:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:52:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:52:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:53:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:53:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:54:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:54:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:54:17Z : ViewExtensionCommandExecutive ( UniqueId: bddb624c-cfd2-41e2-9cda-67e7b2afbf92, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-20 23:54:40Z : ViewExtensionCommandExecutive ( UniqueId: a3ec89a3-783f-4ad3-98c1-c8b6cfdf5e07, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-20 23:55:00Z : ViewExtensionCommandExecutive ( UniqueId: ae0ce24e-3b8a-4325-a245-39787b90c00e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-20 23:55:12Z : ViewExtensionCommandExecutive ( UniqueId: 83b92a57-f5f8-49be-bac6-987426303bdc, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-20 23:55:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:55:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:55:27Z : ViewExtensionCommandExecutive ( UniqueId: fd9b768a-bcfe-4115-8825-e1c6a3078732, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-20 23:56:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:56:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:57:11Z : ViewExtensionCommandExecutive ( UniqueId: 9807a5d5-6a11-4954-81d1-0c1490e963cc, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-20 23:57:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:57:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:58:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-20 23:58:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-20 23:58:57Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:00:01Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:00:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:00:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:00:15Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:00:22Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:01:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:01:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:02:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:02:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:03:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:03:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:04:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:04:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:05:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:05:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:06:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:06:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:07:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:07:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:08:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:08:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:09:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:09:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:10:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:10:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:11:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:11:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:12:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:12:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:13:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:13:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:14:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:14:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:15:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:15:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:16:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:16:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:17:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:17:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:18:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:18:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:19:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:19:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:20:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:20:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:21:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:21:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:22:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:22:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:23:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:23:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:24:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:24:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:25:11Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:25:42Z : ViewExtensionCommandExecutive ( UniqueId: 98eeb289-c60c-4df3-ab99-d4cf331f789d, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:25:57Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:34:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:34:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:34:51Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:35:06Z : ViewExtensionCommandExecutive ( UniqueId: 481ed2b2-044d-44de-a8be-35749216033b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:35:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:35:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:35:16Z : ViewExtensionCommandExecutive ( UniqueId: 3615ab0d-52cc-45d2-b4ed-4c0fb667821a, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:35:40Z : ViewExtensionCommandExecutive ( UniqueId: a38ab4f9-0bd7-475c-bdb7-74b9c6913104, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:35:52Z : ViewExtensionCommandExecutive ( UniqueId: eb149406-7e5f-4eac-96c4-d8efff347cfd, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:36:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:36:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:37:00Z : ViewExtensionCommandExecutive ( UniqueId: c2784f87-8df6-4b8d-9123-694db09b5765, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:37:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:37:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:37:44Z : ViewExtensionCommandExecutive ( UniqueId: a98af469-5e0e-42ea-adca-d3d941a0cdcb, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:38:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:38:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:39:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:39:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:40:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:40:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:40:29Z : ViewExtensionCommandExecutive ( UniqueId: 63754226-3b4f-47de-bc01-85751061c7a9, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:40:45Z : ViewExtensionCommandExecutive ( UniqueId: 3820b78b-35ec-453f-b387-90b86069b853, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:41:00Z : ViewExtensionCommandExecutive ( UniqueId: 46c6275a-af79-44a7-a7ca-d28bd0a4ce1d, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:43:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:43:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:43:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:43:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:43:45Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:43:45Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:44:00Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:44:45Z : ViewExtensionCommandExecutive ( UniqueId: 7988ac62-deac-4db9-9bd1-b63e3216ae5f, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:45:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:45:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:46:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:46:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:46:34Z : ViewExtensionCommandExecutive ( UniqueId: 6bad1731-35b6-46fd-98a8-9ceba240a887, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:47:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:47:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:47:16Z : ViewExtensionCommandExecutive ( UniqueId: f1934c54-0ebe-4a98-9e1c-23bc83290c50, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:47:57Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:48:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:48:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:49:01Z : ViewExtensionCommandExecutive ( UniqueId: c49faef9-aa2b-452b-9c43-94d0cc884129, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:49:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:49:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:49:38Z : ViewExtensionCommandExecutive ( UniqueId: 6c29dcfa-f526-42b4-b7d4-4893b05cffc2, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:50:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:50:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:50:16Z : ViewExtensionCommandExecutive ( UniqueId: c22c6a5a-b23e-4e1b-a372-56f0550c7fcd, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:50:32Z : ViewExtensionCommandExecutive ( UniqueId: ae4a82e1-672e-4c7c-8596-9d0dee4b6693, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:50:45Z : ViewExtensionCommandExecutive ( UniqueId: f1d81eb3-a24d-4b2a-87ac-badcd3ce449c, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:51:09Z : ViewExtensionCommandExecutive ( UniqueId: 17a221c4-7cd6-437d-a439-119bc08fb4d8, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:51:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:51:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:51:23Z : ViewExtensionCommandExecutive ( UniqueId: e968c7c9-d645-44f8-9171-8eb8d0d7476a, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:51:28Z : ViewExtensionCommandExecutive ( UniqueId: cf994222-6aa0-477a-8256-948680bc46ca, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:51:40Z : ViewExtensionCommandExecutive ( UniqueId: 45d8b86c-ae8f-486b-8aa3-c3a3f123ab63, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:51:40Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\List.MaxIndex.dyf
+2024-05-21 00:51:48Z : ViewExtensionCommandExecutive ( UniqueId: ea0074d2-fa97-42f8-9ea1-60d919eeeea5, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:52:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:52:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:52:54Z : ViewExtensionCommandExecutive ( UniqueId: dd0164fa-a6f6-4e9e-aa21-f5017d4e321f, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:52:54Z : ViewExtensionCommandExecutive ( UniqueId: ae68fc2b-ea3c-43bc-a7a9-9ac37cdbc51d, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:53:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:53:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:53:42Z : ViewExtensionCommandExecutive ( UniqueId: 15a7b2af-e0a5-47f8-bb92-51c3801674b4, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:54:08Z : ViewExtensionCommandExecutive ( UniqueId: abc79794-60b4-4c77-84a2-d3970206e464, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:54:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:54:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:54:19Z : ViewExtensionCommandExecutive ( UniqueId: 4e9aa940-fd46-449f-a7ac-76982c06b696, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:54:20Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Genius Loci\dyf\List SortNatural.dyf
+2024-05-21 00:55:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:55:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:56:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:56:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:56:39Z : ViewExtensionCommandExecutive ( UniqueId: 7266dc07-fbf5-479d-b552-c02640810c4d, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:57:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:57:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:58:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:58:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 00:58:16Z : ViewExtensionCommandExecutive ( UniqueId: ec77be4c-572d-49f1-b194-053c0f60b495, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 00:59:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 00:59:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:00:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:00:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:01:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:01:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:01:22Z : ViewExtensionCommandExecutive ( UniqueId: 4ec1bf11-2051-411a-b226-44fba41bc858, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:02:02Z : ViewExtensionCommandExecutive ( UniqueId: 2c1ef5cc-8b4a-451b-85b5-8c799a20d334, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:02:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:02:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:02:30Z : ViewExtensionCommandExecutive ( UniqueId: 4f9d684f-a2e2-4dc9-a37b-ccd29776d535, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:02:35Z : ViewExtensionCommandExecutive ( UniqueId: 44d69bf6-31af-474d-b230-b11e64b6b74c, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:02:50Z : ViewExtensionCommandExecutive ( UniqueId: 2c438708-6929-4846-8aea-8091515e4d09, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:03:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:03:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:03:36Z : ViewExtensionCommandExecutive ( UniqueId: 8cbe3f40-a252-45e9-abbd-98fec453dade, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:04:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:04:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:04:52Z : ViewExtensionCommandExecutive ( UniqueId: 476796dd-8f4f-4469-8a9f-9d2566612e9e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:05:13Z : ViewExtensionCommandExecutive ( UniqueId: caaf9d8a-b9d6-431a-bd3e-04e1381eb012, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:05:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:05:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:05:26Z : ViewExtensionCommandExecutive ( UniqueId: 4d225f36-257e-4356-9669-bfff4d9e8ec8, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:06:04Z : ViewExtensionCommandExecutive ( UniqueId: ef9618df-2f2e-42dc-8361-8e62f3dd12a6, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:06:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:06:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:06:19Z : ViewExtensionCommandExecutive ( UniqueId: fb3be620-267b-4f50-a658-a50106298608, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:06:51Z : ViewExtensionCommandExecutive ( UniqueId: b6618ed4-e10d-417b-9b0a-99c3529af87f, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:06:58Z : ViewExtensionCommandExecutive ( UniqueId: f339b638-674d-45d4-bdaf-f8e5b2515d52, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:07:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:07:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:07:18Z : ViewExtensionCommandExecutive ( UniqueId: 1dc5fa0b-e48e-40c3-a204-fd94f93c2018, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:07:47Z : ViewExtensionCommandExecutive ( UniqueId: 5f3adb36-6c4c-4b63-a557-a645b5b27a73, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:08:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:08:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:08:38Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:09:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:09:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:09:31Z : ViewExtensionCommandExecutive ( UniqueId: 6cf8ff2d-2435-477b-bcbd-290c0c8ca703, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:09:44Z : ViewExtensionCommandExecutive ( UniqueId: bd634259-cb64-4c61-a602-68033a63e323, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:10:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:10:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:10:32Z : ViewExtensionCommandExecutive ( UniqueId: 114ced94-a6e5-4c5e-b9f2-b8c464c4735f, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:11:01Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:12:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:12:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:13:24Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:13:24Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:14:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:14:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:15:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:15:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:16:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:16:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:16:22Z : ViewExtensionCommandExecutive ( UniqueId: b852488a-5fb6-4bdf-a637-074f36c53cd1, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:17:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:17:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:18:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:18:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:18:27Z : ViewExtensionCommandExecutive ( UniqueId: 0f5d3761-b6dd-4afa-9560-c2d400f89497, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:18:31Z : ViewExtensionCommandExecutive ( UniqueId: 2f4febbb-1a8b-4978-afbb-262a3fcd0f2a, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:19:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:19:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:20:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:20:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:20:24Z : ViewExtensionCommandExecutive ( UniqueId: 559dbd57-ec5f-47fe-ab65-6388a90a83aa, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:21:05Z : ViewExtensionCommandExecutive ( UniqueId: 7e178271-ed11-4059-81fb-3d7229adadc7, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:21:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:21:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:22:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:22:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:23:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:23:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:24:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:24:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:25:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:25:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:26:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:26:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:27:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:27:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:28:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:28:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:29:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:29:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:30:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:30:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:30:36Z : ViewExtensionCommandExecutive ( UniqueId: a9e94ea7-d69c-4aa4-a17e-1aaa83d4acab, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:31:03Z : ViewExtensionCommandExecutive ( UniqueId: f1b169c4-9488-4bfa-bf87-bf7b7f2ee141, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:31:03Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf\Transform.ToPoint.dyf
+2024-05-21 01:31:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:31:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:31:38Z : ViewExtensionCommandExecutive ( UniqueId: 3e1fe10e-5260-4979-ab0e-bb29bf162b57, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:31:38Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\PointsToRevitCoordinates.dyf
+2024-05-21 01:31:55Z : ViewExtensionCommandExecutive ( UniqueId: 5479b013-fe44-4a41-9fb2-27a090da9e29, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:32:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:32:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:33:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:33:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:34:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:34:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:34:20Z : ViewExtensionCommandExecutive ( UniqueId: 45aaeb3c-a642-42b7-95d3-5f417facaae5, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:34:44Z : ViewExtensionCommandExecutive ( UniqueId: 144af0d8-d05b-4076-ae17-e8ef5b5d0966, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:35:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:35:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:35:35Z : ViewExtensionCommandExecutive ( UniqueId: 632d5d68-1bda-4ba3-8893-6ab52eaf9b25, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:36:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:36:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:37:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:37:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:38:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:38:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:39:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:39:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:40:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:40:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:41:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:41:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:42:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:42:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:43:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:43:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:44:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:44:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:45:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:45:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:45:46Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:46:02Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:46:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:46:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:46:19Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:47:49Z : ViewExtensionCommandExecutive ( UniqueId: ced06196-6285-428b-8c29-a6e31b6ce700, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-21 01:48:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:48:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\02-VASA-Pathfinding-in-3D.dyn
+2024-05-21 01:48:46Z : Saving E:\Revit\Dynamo\02-VASA-Pathfinding-in-3D.dyn ...
+2024-05-21 01:48:47Z : Clearing workspace...
+2024-05-21 01:48:52Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf\Get Line Style by Name.dyf
+2024-05-21 01:48:52Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Genius Loci\dyf\List Clean.dyf
+2024-05-21 01:48:52Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Solid.ByUnion+.dyf
+2024-05-21 01:48:52Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\All Family Types Of Category.dyf
+2024-05-21 01:48:52Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\SpaceAnalysis\dyf\Utils.ApproximateCurvesWithLines.dyf
+2024-05-21 01:49:02Z : Active view is now {3D}
+2024-05-21 01:49:02Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-05-21 01:49:06Z : Dynamo Unhandled Exception
+2024-05-21 01:49:06Z : Value cannot be null.
+Parameter name: source
+2024-05-21 01:49:20Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is removed
+2024-05-21 01:49:20Z : MonocleExtension (id: 53301BE8-BDA9-47CA-9EF0-2B70808B13A5) extension is removed
+2024-05-21 01:49:20Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is removed
+2024-05-21 01:49:20Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is removed
+2024-05-21 01:49:20Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is removed
+2024-05-21 01:49:20Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is removed
+2024-05-21 01:49:20Z : Goodbye

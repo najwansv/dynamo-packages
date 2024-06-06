@@ -1,0 +1,659 @@
+Dynamo log started 2024-05-18 07:20:55Z
+2024-05-18 07:20:55Z : Python template set to default.
+2024-05-18 07:20:55Z : Dynamo -- Build 2.18.1.5096
+2024-05-18 07:20:55Z : System.InvalidOperationException:
+2024-05-18 07:20:55Z : There already exists an AlsoKnownAs mapping for DSCoreNodesUI.Logic.If.
+2024-05-18 07:20:55Z : 
+2024-05-18 07:20:55Z : System.InvalidOperationException:
+2024-05-18 07:20:55Z : There already exists an AlsoKnownAs mapping for If.
+2024-05-18 07:20:55Z : 
+2024-05-18 07:20:55Z : Duplicate migration type registered for SunPathDirection
+2024-05-18 07:20:55Z : launch darkly initalized
+2024-05-18 07:20:55Z : LD startup time: 490 
+2024-05-18 07:20:55Z : <<<<<InitDone>>>>>
+2024-05-18 07:20:55Z : feature flag exe starting
+2024-05-18 07:20:55Z : <<<<<Sod>>>>>
+2024-05-18 07:20:55Z : {"IsNewAppHomeEnabled":false,"graphics-primitive-instancing":false,"EasterEggIcon1":false,"EasterEggMessage1":"NA","IsTSplineNodesExperimentToggleVisible":false,"CER":false,"NodeAutocompleteMachineLearningIsBeta":true,"CER_v2":true,"IsMLDataIngestionPipelineinBeta":false}
+2024-05-18 07:20:55Z : <<<<<Eod>>>>>
+2024-05-18 07:20:55Z : EasterEggIcon1 is false FROM MODEL
+2024-05-18 07:20:55Z : EasterEggMessage1 is disabled FROM MODEL
+2024-05-18 07:20:57Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-05-18 07:20:57Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\definitions' does not exist
+2024-05-18 07:20:57Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\definitions' does not exist
+2024-05-18 07:20:57Z : Dynamo will use the package manager server at : https://www.dynamopackages.com
+2024-05-18 07:20:57Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-05-18 07:20:57Z : A package called DynamoPlayerExtension found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension includes dll files but none are defined in node libraries in the package manifest.  Ignoring it.
+2024-05-18 07:20:57Z : Exception encountered scanning the package directory at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+2024-05-18 07:20:57Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+   at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates):
+ Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension: 
+ "A package called Orchid found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension could not be verified to have signed dll files.  A dll file found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension\bin\OrchidRB.dll did not have a signed certificate.  Ignoring it."
+2024-05-18 07:20:57Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-05-18 07:20:57Z : Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+2024-05-18 07:20:57Z :    at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates)
+2024-05-18 07:20:57Z : Exception encountered scanning the package directory at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+2024-05-18 07:20:57Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+   at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates):
+ Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit: 
+ "A package called Orchid found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit could not be verified to have signed dll files.  A dll file found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit\bin\OrchidRB.dll did not have a signed certificate.  Ignoring it."
+2024-05-18 07:20:57Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-05-18 07:20:57Z : Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+2024-05-18 07:20:57Z :    at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates)
+2024-05-18 07:20:57Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\packages' does not exist
+2024-05-18 07:20:57Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\packages' does not exist
+2024-05-18 07:20:57Z : System.InvalidOperationException:
+2024-05-18 07:20:57Z : There already exists an AlsoKnownAs mapping for Select Rule Type.
+2024-05-18 07:20:57Z : 
+2024-05-18 07:20:59Z : Data-Shapes contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-05-18 07:20:59Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is added
+2024-05-18 07:21:01Z : Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf
+2024-05-18 07:21:01Z : notification:Dynamo.Exceptions.CustomNodePackageLoadException: Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf:
+ Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf: 
+ C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf cannot be loaded. 
+Installing it will conflict with one or more node definitions that already exist in C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf, which is currently loaded. 
+To install C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf, Dynamo needs to first uninstall C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf. 
+Restart Dynamo to complete the uninstall.
+2024-05-18 07:21:01Z : Dynamo.Exceptions.CustomNodePackageLoadException:
+2024-05-18 07:21:01Z : Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:01Z : Modelical contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-05-18 07:21:01Z : MonocleExtension (id: 53301BE8-BDA9-47CA-9EF0-2B70808B13A5) extension is added
+2024-05-18 07:21:01Z : System.InvalidOperationException:
+2024-05-18 07:21:01Z : There already exists an AlsoKnownAs mapping for View Family Types.
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:01Z : System.InvalidOperationException:
+2024-05-18 07:21:01Z : There already exists an AlsoKnownAs mapping for View Duplicate Options.
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:01Z : System.InvalidOperationException:
+2024-05-18 07:21:01Z : There already exists an AlsoKnownAs mapping for View Templates.
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:01Z : System.InvalidOperationException:
+2024-05-18 07:21:01Z : There already exists an AlsoKnownAs mapping for View Template Parameters.
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:01Z : System.InvalidOperationException:
+2024-05-18 07:21:01Z : There already exists an AlsoKnownAs mapping for Schedule Heading Orientations.
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:01Z : System.InvalidOperationException:
+2024-05-18 07:21:01Z : There already exists an AlsoKnownAs mapping for Schedule Sort Order.
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:01Z : System.InvalidOperationException:
+2024-05-18 07:21:01Z : There already exists an AlsoKnownAs mapping for Ceiling Types.
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:01Z : System.InvalidOperationException:
+2024-05-18 07:21:01Z : There already exists an AlsoKnownAs mapping for Group Types.
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:01Z : System.InvalidOperationException:
+2024-05-18 07:21:01Z : There already exists an AlsoKnownAs mapping for Roof Types.
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:01Z : System.InvalidOperationException:
+2024-05-18 07:21:01Z : There already exists an AlsoKnownAs mapping for Worksets.
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:01Z : System.InvalidOperationException:
+2024-05-18 07:21:01Z : There already exists an AlsoKnownAs mapping for Print Settings.
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:01Z : System.InvalidOperationException:
+2024-05-18 07:21:01Z : There already exists an AlsoKnownAs mapping for Print Range.
+2024-05-18 07:21:01Z : 
+2024-05-18 07:21:04Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is added
+2024-05-18 07:21:06Z : System.InvalidOperationException:
+2024-05-18 07:21:06Z : There already exists an AlsoKnownAs mapping for Roof Types.
+2024-05-18 07:21:06Z : 
+2024-05-18 07:21:06Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension\dyf' does not exist
+2024-05-18 07:21:06Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is added
+2024-05-18 07:21:06Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign\dyf' does not exist
+2024-05-18 07:21:06Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Extension\dyf' does not exist
+2024-05-18 07:21:06Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is added
+2024-05-18 07:21:07Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Revit\dyf' does not exist
+2024-05-18 07:21:07Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is added
+2024-05-18 07:21:07Z : Backup files timer is started with an interval of 60000 milliseconds
+2024-05-18 07:21:07Z : SYSTEM:Environment Path:C:\Users\Najwan S\AppData\Local\python-3.9.12-embed-amd64;C:\Program Files\Autodesk\Revit 2024\AddIns\SteelConnections;C:\Program Files\Autodesk\Revit 2024\en-US;C:\Program Files\Autodesk\Revit 2024;C:\Program Files\Common Files\Autodesk Shared\RealDWG Shared 2024;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\ngrok\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\pyRevit-Master\bin;E:\OtherPrograms\scrcpy-win64-v2.4;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files (x86)\PuTTY\;C:\Program Files\MySQL\MySQL Server 8.0\bin;;C:\Program Files\pyRevit-Master\bin;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\;C:\Users\Najwan S\AppData\Local\Microsoft\WindowsApps;C:\Users\Najwan S\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Najwan S\AppData\Roaming\npm;C:\Users\Najwan S\AppData\Local\spicetify;C:\Users\Najwan S\.dotnet\tools;C:\Users\Najwan S\AppData\Roaming\pyRevit-Master\bin;E:\OtherPrograms\scrcpy-win64-v2.4;C:\Program Files (x86)\Inno Setup 6;C:\gnu\global-6.6;C:\gnu\ctags-5.8;;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit
+2024-05-18 07:21:07Z : RENDER : Rendering Tier: 2
+2024-05-18 07:21:07Z : RENDER : Pixel Shader 3 Supported: True
+2024-05-18 07:21:07Z : RENDER : Pixel Shader 4 Supported: False
+2024-05-18 07:21:07Z : RENDER : Software Effect Rendering Supported: True
+2024-05-18 07:21:07Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-05-18 07:21:08Z : RENDER : Rendering Tier: 2
+2024-05-18 07:21:08Z : RENDER : Pixel Shader 3 Supported: True
+2024-05-18 07:21:08Z : RENDER : Pixel Shader 4 Supported: False
+2024-05-18 07:21:08Z : RENDER : Software Effect Rendering Supported: True
+2024-05-18 07:21:08Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-05-18 07:21:09Z : Documentation Browser (id: 68B45FC0-0BD1-435C-BF28-B97CB03C71C8) view extension is added
+2024-05-18 07:21:09Z : DynamoManipulationExtension (id: 58B0496A-E3F8-43D9-86D2-94823D1D0F98) view extension is added
+2024-05-18 07:21:09Z : Properties (id: 28992e1d-abb9-417f-8b1b-05e053bee670) view extension is added
+2024-05-18 07:21:09Z : Graph Node Manager (id: F76F4274-537D-4782-B1E9-27E8FDE2186F) view extension is added
+2024-05-18 07:21:09Z : LibraryUI - WebView2 (id: 8b093acd-5656-4914-b6b0-c54b26ca6d0e) view extension is added
+2024-05-18 07:21:09Z : Graph Status (id: 3467481b-d20d-4918-a454-bf19fc5c25d7) view extension is added
+2024-05-18 07:21:09Z : Notifications (id: ef6cd025-514f-44cd-b6b1-69d9f5cce004) view extension is added
+2024-05-18 07:21:09Z : Package Details (id: C71CA1B9-BF9F-425A-A12C-53DF56770406) view extension is added
+2024-05-18 07:21:09Z : Data Shapes (id: f9201494-03c3-48cf-8b65-5d589d0ee8f5) view extension is added
+2024-05-18 07:21:09Z : Inconsistent UniqueId for Data Shapes view extension. This may result in unexpected Dynamo behavior.
+2024-05-18 07:21:09Z : Monocle View Extension (id: 5A256B35-BD09-423C-82A1-372957143927) view extension is added
+2024-05-18 07:21:09Z : Orchid View Extension (id: CD774BBB-D871-4A27-8683-EE806204593C) view extension is added
+2024-05-18 07:21:09Z : Rhythm View Extension (id: 5435824A-A3A1-4FC1-AF42-E5139041740F) view extension is added
+2024-05-18 07:21:09Z : Generative Design Tools (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) view extension is added
+2024-05-18 07:21:09Z : PackageManagerViewExtension: Object reference not set to an instance of an object.
+2024-05-18 07:21:09Z : Python Migration (id: 1f8146d0-58b1-4b3c-82b7-34a3fab5ac5d) view extension is added
+2024-05-18 07:21:09Z : Workspace References (id: A6706BF5-11C2-458F-B7C8-B745A77EF7FD) view extension is added
+2024-05-18 07:21:10Z : 
+Welcome to Dynamo!
+2024-05-18 07:21:10Z : 00:00:01.6342961 elapsed for loading Dynamo main window.
+2024-05-18 07:21:12Z : EasterEggIcon1 is false from view
+2024-05-18 07:21:12Z : EasterEggMessage1 is disabled from view
+2024-05-18 07:21:12Z : Browser Loaded
+2024-05-18 07:21:13Z : WPF Render Mode: SoftwareOnly
+2024-05-18 07:21:13Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DynamoUtilities, Version=2.18.1.5096, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-05-18 07:21:13Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DesignScriptBuiltin, Version=2.18.1.5096, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-05-18 07:21:13Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly OrchidRB, Version=2.19.1.6225, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency ProtoGeometry, Version=3.0.0.3331, Culture=neutral, PublicKeyToken=null was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+DynamoRevitDS, DynamoCore, DynamoCoreWpf, ProtoGeometry, DSCoreNodes, Tessellation, Analysis, GeometryColor, RevitNodes, LibG.ProtoInterface, GeometryUI, DSRevitNodesUI, BimorphNodes.Core, BimorphNodes, BimorphNodes.Geometry
+2024-05-18 07:21:13Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly OrchidRB, Version=2.19.1.6225, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-05-18 07:21:24Z : Original file 'Fire Exit Risk Assessment.dyn' gets backed up at 'C:\Users\Najwan S\Downloads\20170103 - Fire Exit Risk Assessment\backup\Fire Exit Risk Assessment.dyn.0.backup'
+2024-05-18 07:21:24Z : Failed to load library: C:\Users\admin\AppData\Roaming\Dynamo\Dynamo Revit\1.1\packages\LunchBox for Dynamo\bin\LunchBox.dll
+2024-05-18 07:21:24Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\Users\admin\AppData\Roaming\Dynamo\Dynamo Revit\1.1\packages\LunchBox for Dynamo\bin\LunchBox.dll:
+ Failed to load library: C:\Users\admin\AppData\Roaming\Dynamo\Dynamo Revit\1.1\packages\LunchBox for Dynamo\bin\LunchBox.dll: 
+ Cannot find library path: C:\Users\admin\AppData\Roaming\Dynamo\Dynamo Revit\1.1\packages\LunchBox for Dynamo\bin\LunchBox.dll.
+2024-05-18 07:21:24Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-05-18 07:21:24Z : Failed to load library: C:\Users\admin\AppData\Roaming\Dynamo\Dynamo Revit\1.1\packages\LunchBox for Dynamo\bin\LunchBox.dll
+2024-05-18 07:21:24Z : 
+2024-05-18 07:21:24Z : Failed to load library: BuiltIn
+2024-05-18 07:21:24Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: BuiltIn:
+ Failed to load library: BuiltIn: 
+ Invalid library format.
+2024-05-18 07:21:24Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-05-18 07:21:24Z : Failed to load library: BuiltIn
+2024-05-18 07:21:24Z : 
+2024-05-18 07:21:24Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf\Get Line Style by Name.dyf
+2024-05-18 07:21:25Z : notification:Unable to save graph:
+ The graph has unresolved nodes and cannot be saved.: 
+ This may be caused by a missing package, incompatible package version, or missing host program. If you Save As, the unresolved nodes will be removed.
+
+Resolve or remove the unresolved nodes and try again.
+2024-05-18 07:21:31Z : Active view is now {3D}
+2024-05-18 07:21:31Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-05-18 07:22:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Fire Exit Risk Assessment.dyn ...
+2024-05-18 07:22:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Fire Exit Risk Assessment.dyn
+2024-05-18 07:23:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Fire Exit Risk Assessment.dyn ...
+2024-05-18 07:23:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Fire Exit Risk Assessment.dyn
+2024-05-18 07:24:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Fire Exit Risk Assessment.dyn ...
+2024-05-18 07:24:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Fire Exit Risk Assessment.dyn
+2024-05-18 07:25:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Fire Exit Risk Assessment.dyn ...
+2024-05-18 07:25:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Fire Exit Risk Assessment.dyn
+2024-05-18 07:26:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Fire Exit Risk Assessment.dyn ...
+2024-05-18 07:26:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Fire Exit Risk Assessment.dyn
+2024-05-18 07:27:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Fire Exit Risk Assessment.dyn ...
+2024-05-18 07:27:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Fire Exit Risk Assessment.dyn
+2024-05-18 07:27:57Z : Clearing workspace...
+2024-05-18 07:27:59Z : Clearing workspace...
+2024-05-18 07:28:08Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN ...
+2024-05-18 07:28:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN
+2024-05-18 07:29:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN ...
+2024-05-18 07:29:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN
+2024-05-18 07:30:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN ...
+2024-05-18 07:30:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN
+2024-05-18 07:31:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN ...
+2024-05-18 07:31:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN
+2024-05-18 07:31:51Z : Saving E:\Revit\Dynamo\LATEST\Pathtofireexit_script.dyn ...
+2024-05-18 07:31:59Z : Clearing workspace...
+2024-05-18 07:32:08Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\MultipleInputForm ++.dyf
+2024-05-18 07:32:08Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\UIMessenger.dyf
+2024-05-18 07:32:08Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\IfThenElse.dyf
+2024-05-18 07:32:08Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\SchedulesByType.dyf
+2024-05-18 07:32:08Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\GetDocument.dyf
+2024-05-18 07:32:08Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Element.Name+.dyf
+2024-05-18 07:32:08Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\DropDown Data.dyf
+2024-05-18 07:32:08Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\FilePath Data.dyf
+2024-05-18 07:32:08Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\TextBox Data.dyf
+2024-05-18 07:32:08Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\WaitFor.dyf
+2024-05-18 07:32:10Z : Active view is now {3D}
+2024-05-18 07:32:10Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-05-18 07:32:14Z : Clearing workspace...
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\TreeView input.dyf
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\ConditionalInput Data.dyf
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\Boolean Data.dyf
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\All Family Types Of Category.dyf
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\BuiltInCategory.FromInput.dyf
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Genius Loci\dyf\Level Plane.dyf
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\Surface.OuterPerimeterCurves.dyf
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Surface.FilterByOrientation.dyf
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\AlmostZero.dyf
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Vector.ZAxisNegative.dyf
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\Slider Data.dyf
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\SelectModelElements Data.dyf
+2024-05-18 07:32:18Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Genius Loci\dyf\List Clean.dyf
+2024-05-18 07:32:21Z : Active view is now {3D}
+2024-05-18 07:32:21Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-05-18 07:34:08Z : Clearing workspace...
+2024-05-18 07:34:10Z : Original file 'Fire Exit Risk Assessment.dyn' gets backed up at 'C:\Users\Najwan S\Downloads\20170103 - Fire Exit Risk Assessment\backup\Fire Exit Risk Assessment.dyn.1.backup'
+2024-05-18 07:34:10Z : Failed to load library: C:\Users\admin\AppData\Roaming\Dynamo\Dynamo Revit\1.1\packages\LunchBox for Dynamo\bin\LunchBox.dll
+2024-05-18 07:34:10Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\Users\admin\AppData\Roaming\Dynamo\Dynamo Revit\1.1\packages\LunchBox for Dynamo\bin\LunchBox.dll:
+ Failed to load library: C:\Users\admin\AppData\Roaming\Dynamo\Dynamo Revit\1.1\packages\LunchBox for Dynamo\bin\LunchBox.dll: 
+ Cannot find library path: C:\Users\admin\AppData\Roaming\Dynamo\Dynamo Revit\1.1\packages\LunchBox for Dynamo\bin\LunchBox.dll.
+2024-05-18 07:34:10Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-05-18 07:34:10Z : Failed to load library: C:\Users\admin\AppData\Roaming\Dynamo\Dynamo Revit\1.1\packages\LunchBox for Dynamo\bin\LunchBox.dll
+2024-05-18 07:34:10Z : 
+2024-05-18 07:34:10Z : Failed to load library: BuiltIn
+2024-05-18 07:34:10Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: BuiltIn:
+ Failed to load library: BuiltIn: 
+ Invalid library format.
+2024-05-18 07:34:10Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-05-18 07:34:10Z : Failed to load library: BuiltIn
+2024-05-18 07:34:10Z : 
+2024-05-18 07:34:11Z : notification:Unable to save graph:
+ The graph has unresolved nodes and cannot be saved.: 
+ This may be caused by a missing package, incompatible package version, or missing host program. If you Save As, the unresolved nodes will be removed.
+
+Resolve or remove the unresolved nodes and try again.
+2024-05-18 07:34:17Z : Active view is now {3D}
+2024-05-18 07:34:17Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-05-18 07:34:31Z : Clearing workspace...
+2024-05-18 07:34:43Z : connector a2c0ce81-b1c9-4b02-86a2-f55c7659ea98 could not be created, start or end port does not exist
+2024-05-18 07:34:43Z : connector a2c0ce81-b1c9-4b02-86a2-f55c7659ea98 could not be created, start or end port does not exist
+2024-05-18 07:34:43Z : connector e2e2e78c-4110-4055-a0a1-f5a93c0b50a8 could not be created, start or end port does not exist
+2024-05-18 07:34:43Z : connector e2e2e78c-4110-4055-a0a1-f5a93c0b50a8 could not be created, start or end port does not exist
+2024-05-18 07:34:43Z : connector 5cf41319-0753-4c36-a10c-a3633eb2aa80 could not be created, start or end port does not exist
+2024-05-18 07:34:43Z : connector 5cf41319-0753-4c36-a10c-a3633eb2aa80 could not be created, start or end port does not exist
+2024-05-18 07:34:43Z : connector fb8f8d95-10b5-4103-86f7-707a9bfaacd9 could not be created, start or end port does not exist
+2024-05-18 07:34:43Z : connector fb8f8d95-10b5-4103-86f7-707a9bfaacd9 could not be created, start or end port does not exist
+2024-05-18 07:34:46Z : Active view is now {3D}
+2024-05-18 07:34:46Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-05-18 07:34:46Z : This graph has a nodeview with id:0e55a513-9a83-4fc3-8b00-15dbeebf9cbd and name:Curves.ShortestWalk, but does not contain a matching nodeModel
+2024-05-18 07:35:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:35:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:36:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:36:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:37:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:37:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:38:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:38:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:39:02Z : Active view is now Level 2
+2024-05-18 07:39:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:39:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:39:58Z : Active view is now Level 5
+2024-05-18 07:40:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:40:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:41:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:41:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:41:10Z : Active view is now Level 4
+2024-05-18 07:41:15Z : Active view is now Level 5
+2024-05-18 07:41:16Z : Active view is now Level 4
+2024-05-18 07:41:31Z : Active view is now Level 3
+2024-05-18 07:41:53Z : Active view is now Level 2
+2024-05-18 07:41:56Z : Active view is now Level 3
+2024-05-18 07:42:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:42:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:43:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:43:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:44:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:44:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:45:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:45:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:46:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:46:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:47:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:47:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:48:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:48:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:48:48Z : Active view is now Level 4
+2024-05-18 07:48:49Z : Active view is now Level 5
+2024-05-18 07:48:50Z : Active view is now Level 2
+2024-05-18 07:48:51Z : Active view is now {3D}
+2024-05-18 07:49:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:49:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:50:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:50:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:51:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:51:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:52:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:52:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:53:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:53:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:54:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:54:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:55:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:55:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:56:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:56:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:57:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:57:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:58:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:58:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 07:58:14Z : ViewExtensionCommandExecutive ( UniqueId: 50f60924-ceae-4b76-b650-09e5bc975d21, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 07:59:04Z : ViewExtensionCommandExecutive ( UniqueId: 70f7d2b9-23c7-4896-b071-f38dc19d093c, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 07:59:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 07:59:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:00:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:00:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:01:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:01:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:02:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:02:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:02:15Z : ViewExtensionCommandExecutive ( UniqueId: acce4212-42e4-4dc1-9f71-01331961ae2f, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 08:03:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:03:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:04:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:04:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:05:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:05:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:06:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:06:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:07:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:07:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:08:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:08:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:09:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:09:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:10:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:10:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:11:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:11:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:12:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:12:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:13:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:13:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:14:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:14:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:15:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:15:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:16:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:16:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:16:40Z : Active view is now View 1
+2024-05-18 08:16:40Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:17:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:17:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:18:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:18:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:19:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:19:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:19:15Z : Active view is now {3D}
+2024-05-18 08:19:16Z : Active view is now {3D}
+2024-05-18 08:20:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:20:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:20:25Z : Active view is now View 1
+2024-05-18 08:20:25Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:20:37Z : Active view is now Ref. Level
+2024-05-18 08:20:37Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:20:43Z : Active view is now Front
+2024-05-18 08:20:43Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:21:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:21:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:21:37Z : Active view is now Ref. Level
+2024-05-18 08:21:37Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:21:38Z : Active view is now View 1
+2024-05-18 08:21:38Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:22:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:22:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:22:10Z : Active view is now Ref. Level
+2024-05-18 08:22:10Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:22:42Z : Active view is now View 1
+2024-05-18 08:22:42Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:23:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:23:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:24:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:24:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:25:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:25:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:26:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:26:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:27:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:27:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:28:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:28:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:29:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:29:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:30:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:30:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:30:16Z : Active view is now Left
+2024-05-18 08:30:16Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:30:24Z : Active view is now Ref. Level
+2024-05-18 08:30:24Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:30:29Z : Active view is now Left
+2024-05-18 08:30:29Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:30:30Z : Active view is now View 1
+2024-05-18 08:30:30Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:30:32Z : Active view is now Level 3
+2024-05-18 08:30:33Z : Active view is now View 1
+2024-05-18 08:30:33Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:30:34Z : Active view is now Front
+2024-05-18 08:30:34Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:31:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:31:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:32:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:32:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:32:40Z : Active view is now View 1
+2024-05-18 08:32:40Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:33:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:33:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:34:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:34:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:35:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:35:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:36:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:36:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:37:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:37:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:38:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:38:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:39:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:39:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:40:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:40:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:41:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:41:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:42:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:42:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:43:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:43:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:44:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:44:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:45:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:45:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:46:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:46:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:47:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:47:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:48:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:48:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:49:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:49:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:50:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:50:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:51:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:51:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:52:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:52:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:53:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:53:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:54:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:54:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:55:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:55:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:56:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:56:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:57:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:57:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:58:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:58:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:58:28Z : Active view is now Front
+2024-05-18 08:58:28Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:59:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 08:59:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 08:59:18Z : Active view is now Left
+2024-05-18 08:59:18Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 08:59:23Z : Active view is now Front
+2024-05-18 08:59:23Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 09:00:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:00:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:00:22Z : Active view is now View 1
+2024-05-18 09:00:22Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 09:01:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:01:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:02:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:02:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:02:32Z : Active view is now Ref. Level
+2024-05-18 09:02:32Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 09:02:59Z : Active view is now Front
+2024-05-18 09:02:59Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 09:03:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:03:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:03:09Z : Active view is now View 1
+2024-05-18 09:03:09Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 09:03:16Z : Active view is now Front
+2024-05-18 09:03:16Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 09:03:16Z : Active view is now Ref. Level
+2024-05-18 09:03:16Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-05-18 09:03:17Z : Active view is now Level 3
+2024-05-18 09:03:18Z : Active view is now Level 3
+2024-05-18 09:03:18Z : Active view is now Level 2
+2024-05-18 09:03:52Z : Active view is now {3D}
+2024-05-18 09:04:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:04:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:05:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:05:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:06:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:06:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:07:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:07:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:08:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:08:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:09:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:09:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:10:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:10:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:11:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:11:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:12:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:12:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:13:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:13:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:14:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:14:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:15:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:15:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:16:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:16:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:16:27Z : ViewExtensionCommandExecutive ( UniqueId: 8e10bcda-f99e-495d-bc36-b98ab78262ff, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:17:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:17:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:18:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:18:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:20:20Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:20:20Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:20:20Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:20:20Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:21:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:21:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:22:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:22:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:23:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:23:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:24:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:24:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:25:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:25:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:26:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:26:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:26:20Z : ViewExtensionCommandExecutive ( UniqueId: d0219221-98ae-415c-b067-2ecc39268aef, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:27:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:27:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:28:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:28:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:29:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:29:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:30:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:30:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:31:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:31:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:32:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:32:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:33:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:33:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:34:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:34:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:35:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:35:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:36:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:36:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:36:30Z : ViewExtensionCommandExecutive ( UniqueId: f87d5921-7f67-46d3-9c1f-370d8087e877, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:36:41Z : ViewExtensionCommandExecutive ( UniqueId: a997a282-c06f-4e88-b2ec-02dc45ed7458, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:36:52Z : ViewExtensionCommandExecutive ( UniqueId: b2608ff1-561c-4c88-9b63-2ef97c716339, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:37:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:37:07Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:37:11Z : ViewExtensionCommandExecutive ( UniqueId: c65cdfca-b488-49a4-b124-fa1151d4bd22, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:37:57Z : ViewExtensionCommandExecutive ( UniqueId: d7258f7b-1e7a-4aee-9dbd-7cdef84ed174, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:38:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:38:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:38:14Z : ViewExtensionCommandExecutive ( UniqueId: 2ca231af-8129-4a6d-b1a5-80b380bab537, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:38:18Z : ViewExtensionCommandExecutive ( UniqueId: 959a3a84-220b-4d74-8e4e-0e29fef92a32, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:38:24Z : ViewExtensionCommandExecutive ( UniqueId: fb33623c-d378-42f3-aefd-a833f0d0c764, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:38:31Z : ViewExtensionCommandExecutive ( UniqueId: c8233eae-24ab-4382-8661-5f8159b0c287, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:39:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:39:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:39:32Z : ViewExtensionCommandExecutive ( UniqueId: 2b5cc474-d392-4221-b02c-2b2419d28ad2, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:40:03Z : ViewExtensionCommandExecutive ( UniqueId: 517466c6-0eb9-4936-8389-e41c0e6dc6a3, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:40:03Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\Point.PullOntoPlane.dyf
+2024-05-18 09:40:04Z : ViewExtensionCommandExecutive ( UniqueId: 92ea515a-e8af-4b8e-888b-aed4396793c6, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:40:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:40:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:41:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:41:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:42:08Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:42:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:43:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:43:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:44:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:44:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:44:31Z : ViewExtensionCommandExecutive ( UniqueId: 9ba71cc1-d301-40b3-b9e3-3eb58895b735, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:45:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:45:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:45:27Z : ViewExtensionCommandExecutive ( UniqueId: bb641460-f669-4bb4-a1d4-7104d5fb526b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:45:48Z : ViewExtensionCommandExecutive ( UniqueId: 943d0322-c627-460e-9ebe-88d3609431b5, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:46:02Z : ViewExtensionCommandExecutive ( UniqueId: a59ca906-a60a-4a87-b418-dfb42aea9041, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:46:05Z : ViewExtensionCommandExecutive ( UniqueId: e7d618c8-e61c-4f33-9a32-c2998de5c09b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:46:08Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:46:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:46:19Z : ViewExtensionCommandExecutive ( UniqueId: 3b099540-8b06-4e93-89b2-934940694a6a, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:46:20Z : ViewExtensionCommandExecutive ( UniqueId: 8fceff6f-fc19-4059-8553-19ae2f8f4820, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:46:47Z : ViewExtensionCommandExecutive ( UniqueId: 47053e0b-ffd1-46be-af1d-432a12c6eec4, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:47:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:47:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:48:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:48:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:48:52Z : ViewExtensionCommandExecutive ( UniqueId: c265820e-627c-4c7f-9110-3a5b914c8ad6, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:49:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:49:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:50:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:50:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:51:07Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:51:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:51:21Z : ViewExtensionCommandExecutive ( UniqueId: e3e3ce79-fcc4-4762-bc59-ff8f9c1cc62d, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-05-18 09:52:08Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn ...
+2024-05-18 09:52:08Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\Pathtofireexit_script.dyn
+2024-05-18 09:52:34Z : ViewExtensionCommandExecutive ( UniqueId: d6d5bfe0-2f0c-4022-8c2a-77ce705da0f1, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )

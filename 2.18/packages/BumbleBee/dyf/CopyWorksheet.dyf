@@ -1,0 +1,315 @@
+{
+  "Uuid": "79444f83-706e-4363-88d3-36b9b50073ab",
+  "IsCustomNode": true,
+  "Category": "archilab_Bumblebee.Write",
+  "Description": "This node creates a copy of the existing Excel Worksheet.",
+  "Name": "CopyWorksheet",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Copyright(c) 2019, David Mans, Konrad Sobon\n# @arch_laboratory, http://archi-lab.net, http://neoarchaic.net\n\nimport clr\nimport sys\nimport System\nfrom System import Array\nfrom System.Collections.Generic import *\n\nclr.AddReferenceByName('Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c')\nfrom Microsoft.Office.Interop import Excel\nSystem.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo(\"en-US\")\nfrom System.Runtime.InteropServices import Marshal\n\npyt_path = r'C:\\Program Files (x86)\\IronPython 2.7\\Lib'\nsys.path.append(pyt_path)\nfrom os import path\n\nassemblies = System.AppDomain.CurrentDomain.GetAssemblies()\npath1 = [a.Location for a in assemblies if 'bumblebee,' in a.FullName][0]\npath2 = System.IO.Path.GetDirectoryName(path1).rsplit('\\\\',1)[0]\nbb_path = '%s\\\\extra\\\\' %path2\nsys.path.append(bb_path)\nimport bumblebee as bb\n\n#The inputs to this node will be stored as a list in the IN variable.\ndataEnteringNode = IN\n\nfilePath = IN[0]\nrunMe = IN[1]\nwsFromName = IN[2]\nwsToName = IN[3]\n\nif filePath != None:\n\tif filePath.GetType() == System.IO.FileInfo:\n\t\tfilePath = filePath.FullName\n\t\ndef SetUp(xlApp):\n\t# supress updates and warning pop ups\n\txlApp.Visible = False\n\txlApp.DisplayAlerts = False\n\txlApp.ScreenUpdating = False\n\treturn xlApp\n\ndef ExitExcel(filePath, xlApp, wb, ws):\n\tdef CleanUp(_list):\n\t\tif isinstance(_list, list):\n\t\t\tfor i in _list:\n\t\t\t\tMarshal.ReleaseComObject(i)\n\t\telse:\n\t\t\tMarshal.ReleaseComObject(_list)\n\t\treturn None\n\t\n\twb.SaveAs(unicode(filePath))\n\txlApp.ActiveWorkbook.Close(False)\n\txlApp.ScreenUpdating = True\n\tCleanUp([ws,wb,xlApp])\n\treturn None\n\ndef LiveStream():\n\ttry:\n\t\txlApp = Marshal.GetActiveObject(\"Excel.Application\")\n\t\txlApp.Visible = True\n\t\txlApp.DisplayAlerts = False\n\t\treturn xlApp\n\texcept:\n\t\treturn None\n\nif runMe:\n\ttry:\n\t\terrorReport = None\n\t\tif filePath == None:\n\t\t\t# run excel in a live mode\n\t\t\txlApp = LiveStream()\n\t\t\t# if excel is running and data is being written to single sheet\n\t\t\tif not isinstance(wsToName, list):\n\t\t\t\twb = xlApp.ActiveWorkbook\n\t\t\t\twsFrom = xlApp.Sheets(wsFromName)\n\t\t\t\tif wsFrom == None:\n\t\t\t\t\traise Exception(\"Worksheet to copy from could not be found.\")\n\t\t\t\twsTo = None\n\t\t\t\ttry:\n\t\t\t\t\twsTo = xlApp.Sheets(wsToName)\n\t\t\t\texcept:\n\t\t\t\t\tpass\n\t\t\t\tif wsTo == None:\n\t\t\t\t\twsFrom.Copy(After = wsFrom)\n\t\t\t\t\twb.ActiveSheet.Name = wsToName\n\t\t\t# if excel is running and data is being written to multiple sheets\n\t\t\telse:\n\t\t\t\twb = xlApp.ActiveWorkbook\n\t\t\t\twsFrom = xlApp.Sheets(wsFromName)\n\t\t\t\tif wsFrom == None:\n\t\t\t\t\traise Exception(\"Worksheet to copy from could not be found.\")\n\t\t\t\tcurrentWs = wsFrom\n\t\t\t\tfor i in wsToName:\n\t\t\t\t\twsTo = None\n\t\t\t\t\ttry:\n\t\t\t\t\t\twsTo = xlApp.Sheets(i)\n\t\t\t\t\texcept:\n\t\t\t\t\t\tpass\n\t\t\t\t\tif wsTo == None:\n\t\t\t\t\t\twsFrom.Copy(After = currentWs)\n\t\t\t\t\t\twb.ActiveSheet.Name = i\n\t\t\t\t\t\tcurrentWs = xlApp.Sheets(i)\n\t\telse:\n\t\t\ttry:\n\t\t\t\txlApp = SetUp(Excel.ApplicationClass())\n\t\t\t\t# if excel is closed and data is being written to single sheet\n\t\t\t\tif not isinstance(wsToName, list):\n\t\t\t\t\txlApp.Workbooks.open(unicode(filePath))\n\t\t\t\t\twb = xlApp.ActiveWorkbook\n\t\t\t\t\twsFrom = xlApp.Sheets(wsFromName)\n\t\t\t\t\tif wsFrom == None:\n\t\t\t\t\t\traise Exception(\"Worksheet to copy from could not be found.\")\n\t\t\t\t\twsTo = None\n\t\t\t\t\ttry:\n\t\t\t\t\t\twsTo = xlApp.Sheets(wsToName)\n\t\t\t\t\texcept:\n\t\t\t\t\t\tpass\n\t\t\t\t\tif wsTo == None:\n\t\t\t\t\t\twsFrom.Copy(After = wsFrom)\n\t\t\t\t\t\twb.ActiveSheet.Name = wsToName\n\t\t\t\t\tExitExcel(filePath, xlApp, wb, wsFrom)\n\t\t\t\t# if excel is closed and data is being written to multiple sheets\n\t\t\t\telse:\n\t\t\t\t\txlApp.Workbooks.open(unicode(filePath))\n\t\t\t\t\twb = xlApp.ActiveWorkbook\n\t\t\t\t\twsFrom = xlApp.Sheets(wsFromName)\n\t\t\t\t\tif wsFrom == None:\n\t\t\t\t\t\traise Exception(\"Worksheet to copy from could not be found.\")\n\t\t\t\t\tcurrentWs = wsFrom\n\t\t\t\t\tfor i in wsToName:\n\t\t\t\t\t\twsTo = None\n\t\t\t\t\t\ttry:\n\t\t\t\t\t\t\twsTo = xlApp.Sheets(i)\n\t\t\t\t\t\texcept:\n\t\t\t\t\t\t\tpass\n\t\t\t\t\t\tif wsTo == None:\n\t\t\t\t\t\t\twsFrom.Copy(After = currentWs)\n\t\t\t\t\t\t\twb.ActiveSheet.Name = i\n\t\t\t\t\t\t\tcurrentWs = xlApp.Sheets(i)\n\t\t\t\t\tExitExcel(filePath, xlApp, wb, wsFrom)\n\t\t\texcept:\n\t\t\t\txlApp.Quit()\n\t\t\t\tMarshal.ReleaseComObject(xlApp)\n\texcept:\n\t\t\t# if error accurs anywhere in the process catch it\n\t\t\timport traceback\n\t\t\terrorReport = traceback.format_exc()\nelse:\n\terrorReport = \"Run Me is set to False. Please set \\nto True if you wish to write data \\nto Excel.\"\n\nif errorReport == None:\n\tOUT = \"Success!\"\nelse:\n\tOUT = errorReport",
+      "VariableInputPorts": true,
+      "Id": "b692ae87f92d4bb38ff7de02a5f5ef8f",
+      "Inputs": [
+        {
+          "Id": "9f98b2a40da043cdb3493a0a1958e37f",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f21fb5cdcfca4da083373dde8a59b023",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4592b353a97e4d5cb0fa28afee6b1a9d",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ac50c7db7793429394c336449a30a878",
+          "Name": "IN[3]",
+          "Description": "Input #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "60369c019209438f877108fd28c897c8",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "",
+      "Id": "696ff4a0505f44c2a8bd5e8b573c9e7a",
+      "Inputs": [
+        {
+          "Id": "80a20a460f0e4ad1aafaf6e76f2792be",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "filePath",
+        "TypeName": "string",
+        "TypeRank": 0,
+        "DefaultValue": "null",
+        "Description": "FilePath to Excel file on drive.\nLeave empty to access Excel in \"live mode\"."
+      },
+      "Id": "554e1e1452274cad88289995d0e40642",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d4d9725db2ab44449a12ee93a1739b00",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "RunIt",
+        "TypeName": "bool",
+        "TypeRank": 0,
+        "DefaultValue": "false",
+        "Description": "Set to \"true\" to execute this node."
+      },
+      "Id": "c9120b319a704a9697358d10e451830d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e0e7ab622c874d2094097e9cab2f5903",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_from",
+        "TypeName": "string",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": "Sheet \"From\" is a name of the Worksheet to be copied."
+      },
+      "Id": "900d489d14cb4138a6c26ddd01efc0bb",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "40a279ad81874734b49b43636704bca9",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_to",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Sheets \"To\" is a single or a list of Sheets that will be created from the template sheet."
+      },
+      "Id": "033939070b8547c29ee95c7a034cdc14",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4d4989c3f9b04259bd994978113a0957",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "60369c019209438f877108fd28c897c8",
+      "End": "80a20a460f0e4ad1aafaf6e76f2792be",
+      "Id": "21e2219d723d48a7a9710b6c88936f26"
+    },
+    {
+      "Start": "d4d9725db2ab44449a12ee93a1739b00",
+      "End": "9f98b2a40da043cdb3493a0a1958e37f",
+      "Id": "9334b893b6ee40e699fe39430ddf4df1"
+    },
+    {
+      "Start": "e0e7ab622c874d2094097e9cab2f5903",
+      "End": "f21fb5cdcfca4da083373dde8a59b023",
+      "Id": "58470d458cc441f3b6db0cc15edb7129"
+    },
+    {
+      "Start": "40a279ad81874734b49b43636704bca9",
+      "End": "4592b353a97e4d5cb0fa28afee6b1a9d",
+      "Id": "c524aba98dc443dc96ef2eaa48f08f4f"
+    },
+    {
+      "Start": "4d4989c3f9b04259bd994978113a0957",
+      "End": "ac50c7db7793429394c336449a30a878",
+      "Id": "3ae493ba8daf4fcba10430d34f8a13d5"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "b692ae87f92d4bb38ff7de02a5f5ef8f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 505.50379407309424,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "696ff4a0505f44c2a8bd5e8b573c9e7a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 685.071894084726,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "554e1e1452274cad88289995d0e40642",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -320.06576603203632,
+        "Y": -92.706693083019729
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "c9120b319a704a9697358d10e451830d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -315.09396793221447,
+        "Y": -24.582786665346418
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "900d489d14cb4138a6c26ddd01efc0bb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -315.20847371649495,
+        "Y": 46.882286946820841
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "033939070b8547c29ee95c7a034cdc14",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -312.21082387484319,
+        "Y": 110.56697149415675
+      }
+    ],
+    "Annotations": [],
+    "X": 627.37501398071322,
+    "Y": 449.1543151769493,
+    "Zoom": 1.285282768853004
+  }
+}

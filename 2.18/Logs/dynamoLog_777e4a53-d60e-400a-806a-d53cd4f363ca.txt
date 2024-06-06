@@ -1,0 +1,991 @@
+Dynamo log started 2024-04-29 03:25:47Z
+2024-04-29 03:25:47Z : Python template set to default.
+2024-04-29 03:25:47Z : Dynamo -- Build 2.18.1.5096
+2024-04-29 03:25:47Z : System.InvalidOperationException:
+2024-04-29 03:25:47Z : There already exists an AlsoKnownAs mapping for DSCoreNodesUI.Logic.If.
+2024-04-29 03:25:47Z : 
+2024-04-29 03:25:47Z : System.InvalidOperationException:
+2024-04-29 03:25:47Z : There already exists an AlsoKnownAs mapping for If.
+2024-04-29 03:25:47Z : 
+2024-04-29 03:25:47Z : Duplicate migration type registered for SunPathDirection
+2024-04-29 03:25:47Z : launch darkly initalized
+2024-04-29 03:25:47Z : LD startup time: 518 
+2024-04-29 03:25:47Z : <<<<<InitDone>>>>>
+2024-04-29 03:25:47Z : feature flag exe starting
+2024-04-29 03:25:47Z : <<<<<Sod>>>>>
+2024-04-29 03:25:47Z : {"IsNewAppHomeEnabled":false,"graphics-primitive-instancing":false,"EasterEggIcon1":false,"EasterEggMessage1":"NA","IsTSplineNodesExperimentToggleVisible":false,"CER":false,"NodeAutocompleteMachineLearningIsBeta":true,"CER_v2":true,"IsMLDataIngestionPipelineinBeta":false}
+2024-04-29 03:25:47Z : <<<<<Eod>>>>>
+2024-04-29 03:25:47Z : EasterEggIcon1 is false FROM MODEL
+2024-04-29 03:25:47Z : EasterEggMessage1 is disabled FROM MODEL
+2024-04-29 03:25:49Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-04-29 03:25:49Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\definitions' does not exist
+2024-04-29 03:25:49Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\definitions' does not exist
+2024-04-29 03:25:49Z : Dynamo will use the package manager server at : https://www.dynamopackages.com
+2024-04-29 03:25:49Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-04-29 03:25:49Z : A package called DynamoPlayerExtension found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension includes dll files but none are defined in node libraries in the package manifest.  Ignoring it.
+2024-04-29 03:25:49Z : Exception encountered scanning the package directory at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+2024-04-29 03:25:49Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+   at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates):
+ Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension: 
+ "A package called Orchid found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension could not be verified to have signed dll files.  A dll file found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension\bin\OrchidRB.dll did not have a signed certificate.  Ignoring it."
+2024-04-29 03:25:49Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-04-29 03:25:49Z : Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+2024-04-29 03:25:49Z :    at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates)
+2024-04-29 03:25:49Z : Exception encountered scanning the package directory at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+2024-04-29 03:25:49Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+   at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates):
+ Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit: 
+ "A package called Orchid found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit could not be verified to have signed dll files.  A dll file found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit\bin\OrchidRB.dll did not have a signed certificate.  Ignoring it."
+2024-04-29 03:25:49Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-04-29 03:25:49Z : Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+2024-04-29 03:25:49Z :    at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates)
+2024-04-29 03:25:49Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\packages' does not exist
+2024-04-29 03:25:49Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\packages' does not exist
+2024-04-29 03:25:49Z : System.InvalidOperationException:
+2024-04-29 03:25:49Z : There already exists an AlsoKnownAs mapping for Select Rule Type.
+2024-04-29 03:25:49Z : 
+2024-04-29 03:25:52Z : Data-Shapes contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-04-29 03:25:52Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is added
+2024-04-29 03:25:52Z : Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf
+2024-04-29 03:25:52Z : notification:Dynamo.Exceptions.CustomNodePackageLoadException: Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf:
+ Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf: 
+ C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf cannot be loaded. 
+Installing it will conflict with one or more node definitions that already exist in C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf, which is currently loaded. 
+To install C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf, Dynamo needs to first uninstall C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf. 
+Restart Dynamo to complete the uninstall.
+2024-04-29 03:25:52Z : Dynamo.Exceptions.CustomNodePackageLoadException:
+2024-04-29 03:25:52Z : Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf
+2024-04-29 03:25:52Z : 
+2024-04-29 03:25:53Z : Modelical contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-04-29 03:25:53Z : MonocleExtension (id: 53301BE8-BDA9-47CA-9EF0-2B70808B13A5) extension is added
+2024-04-29 03:25:53Z : System.InvalidOperationException:
+2024-04-29 03:25:53Z : There already exists an AlsoKnownAs mapping for View Family Types.
+2024-04-29 03:25:53Z : 
+2024-04-29 03:25:53Z : System.InvalidOperationException:
+2024-04-29 03:25:53Z : There already exists an AlsoKnownAs mapping for View Duplicate Options.
+2024-04-29 03:25:53Z : 
+2024-04-29 03:25:53Z : System.InvalidOperationException:
+2024-04-29 03:25:53Z : There already exists an AlsoKnownAs mapping for View Templates.
+2024-04-29 03:25:53Z : 
+2024-04-29 03:25:53Z : System.InvalidOperationException:
+2024-04-29 03:25:53Z : There already exists an AlsoKnownAs mapping for View Template Parameters.
+2024-04-29 03:25:53Z : 
+2024-04-29 03:25:53Z : System.InvalidOperationException:
+2024-04-29 03:25:53Z : There already exists an AlsoKnownAs mapping for Schedule Heading Orientations.
+2024-04-29 03:25:53Z : 
+2024-04-29 03:25:53Z : System.InvalidOperationException:
+2024-04-29 03:25:53Z : There already exists an AlsoKnownAs mapping for Schedule Sort Order.
+2024-04-29 03:25:53Z : 
+2024-04-29 03:25:53Z : System.InvalidOperationException:
+2024-04-29 03:25:53Z : There already exists an AlsoKnownAs mapping for Ceiling Types.
+2024-04-29 03:25:53Z : 
+2024-04-29 03:25:53Z : System.InvalidOperationException:
+2024-04-29 03:25:53Z : There already exists an AlsoKnownAs mapping for Group Types.
+2024-04-29 03:25:53Z : 
+2024-04-29 03:25:53Z : System.InvalidOperationException:
+2024-04-29 03:25:53Z : There already exists an AlsoKnownAs mapping for Roof Types.
+2024-04-29 03:25:53Z : 
+2024-04-29 03:25:53Z : System.InvalidOperationException:
+2024-04-29 03:25:53Z : There already exists an AlsoKnownAs mapping for Worksets.
+2024-04-29 03:25:53Z : 
+2024-04-29 03:25:53Z : System.InvalidOperationException:
+2024-04-29 03:25:53Z : There already exists an AlsoKnownAs mapping for Print Settings.
+2024-04-29 03:25:53Z : 
+2024-04-29 03:25:53Z : System.InvalidOperationException:
+2024-04-29 03:25:53Z : There already exists an AlsoKnownAs mapping for Print Range.
+2024-04-29 03:25:53Z : 
+2024-04-29 03:25:56Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is added
+2024-04-29 03:25:57Z : System.InvalidOperationException:
+2024-04-29 03:25:57Z : There already exists an AlsoKnownAs mapping for Roof Types.
+2024-04-29 03:25:57Z : 
+2024-04-29 03:25:57Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension\dyf' does not exist
+2024-04-29 03:25:57Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is added
+2024-04-29 03:25:57Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign\dyf' does not exist
+2024-04-29 03:25:58Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Extension\dyf' does not exist
+2024-04-29 03:25:58Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is added
+2024-04-29 03:25:58Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Revit\dyf' does not exist
+2024-04-29 03:25:58Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is added
+2024-04-29 03:25:58Z : Backup files timer is started with an interval of 60000 milliseconds
+2024-04-29 03:25:58Z : SYSTEM:Environment Path:C:\Users\Najwan S\AppData\Local\python-3.9.12-embed-amd64;C:\Program Files\Autodesk\Revit 2024\AddIns\SteelConnections;C:\Program Files\Autodesk\Revit 2024\en-US;C:\Program Files\Autodesk\Revit 2024;C:\Program Files\Common Files\Autodesk Shared\RealDWG Shared 2024;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\ngrok\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\pyRevit-Master\bin;E:\OtherPrograms\scrcpy-win64-v2.4;C:\Program Files\pyRevit-Master\bin;;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files (x86)\PuTTY\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\;C:\Users\Najwan S\AppData\Local\Microsoft\WindowsApps;C:\Users\Najwan S\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Najwan S\AppData\Roaming\npm;C:\Users\Najwan S\AppData\Local\spicetify;C:\Users\Najwan S\.dotnet\tools;C:\Users\Najwan S\AppData\Roaming\pyRevit-Master\bin;E:\OtherPrograms\scrcpy-win64-v2.4;C:\Program Files (x86)\Inno Setup 6;C:\gnu\global-6.6;C:\gnu\ctags-5.8;;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit
+2024-04-29 03:25:58Z : RENDER : Rendering Tier: 2
+2024-04-29 03:25:58Z : RENDER : Pixel Shader 3 Supported: True
+2024-04-29 03:25:58Z : RENDER : Pixel Shader 4 Supported: False
+2024-04-29 03:25:58Z : RENDER : Software Effect Rendering Supported: True
+2024-04-29 03:25:58Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-04-29 03:25:59Z : RENDER : Rendering Tier: 2
+2024-04-29 03:25:59Z : RENDER : Pixel Shader 3 Supported: True
+2024-04-29 03:25:59Z : RENDER : Pixel Shader 4 Supported: False
+2024-04-29 03:25:59Z : RENDER : Software Effect Rendering Supported: True
+2024-04-29 03:25:59Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-04-29 03:26:00Z : Documentation Browser (id: 68B45FC0-0BD1-435C-BF28-B97CB03C71C8) view extension is added
+2024-04-29 03:26:00Z : DynamoManipulationExtension (id: 58B0496A-E3F8-43D9-86D2-94823D1D0F98) view extension is added
+2024-04-29 03:26:00Z : Properties (id: 28992e1d-abb9-417f-8b1b-05e053bee670) view extension is added
+2024-04-29 03:26:00Z : Graph Node Manager (id: F76F4274-537D-4782-B1E9-27E8FDE2186F) view extension is added
+2024-04-29 03:26:00Z : LibraryUI - WebView2 (id: 8b093acd-5656-4914-b6b0-c54b26ca6d0e) view extension is added
+2024-04-29 03:26:00Z : Graph Status (id: 3467481b-d20d-4918-a454-bf19fc5c25d7) view extension is added
+2024-04-29 03:26:00Z : Notifications (id: ef6cd025-514f-44cd-b6b1-69d9f5cce004) view extension is added
+2024-04-29 03:26:00Z : Package Details (id: C71CA1B9-BF9F-425A-A12C-53DF56770406) view extension is added
+2024-04-29 03:26:00Z : Data Shapes (id: e17d07e6-bf3d-4401-9668-47ca2433c6db) view extension is added
+2024-04-29 03:26:00Z : Inconsistent UniqueId for Data Shapes view extension. This may result in unexpected Dynamo behavior.
+2024-04-29 03:26:00Z : Monocle View Extension (id: 5A256B35-BD09-423C-82A1-372957143927) view extension is added
+2024-04-29 03:26:00Z : Orchid View Extension (id: CD774BBB-D871-4A27-8683-EE806204593C) view extension is added
+2024-04-29 03:26:00Z : Rhythm View Extension (id: 5435824A-A3A1-4FC1-AF42-E5139041740F) view extension is added
+2024-04-29 03:26:00Z : Generative Design Tools (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) view extension is added
+2024-04-29 03:26:00Z : PackageManagerViewExtension: Object reference not set to an instance of an object.
+2024-04-29 03:26:00Z : Python Migration (id: 1f8146d0-58b1-4b3c-82b7-34a3fab5ac5d) view extension is added
+2024-04-29 03:26:00Z : Workspace References (id: A6706BF5-11C2-458F-B7C8-B745A77EF7FD) view extension is added
+2024-04-29 03:26:01Z : 
+Welcome to Dynamo!
+2024-04-29 03:26:01Z : 00:00:01.5730433 elapsed for loading Dynamo main window.
+2024-04-29 03:26:03Z : EasterEggIcon1 is false from view
+2024-04-29 03:26:03Z : EasterEggMessage1 is disabled from view
+2024-04-29 03:26:03Z : Browser Loaded
+2024-04-29 03:26:04Z : WPF Render Mode: SoftwareOnly
+2024-04-29 03:26:04Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DynamoUtilities, Version=2.18.1.5096, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-04-29 03:26:04Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DesignScriptBuiltin, Version=2.18.1.5096, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-04-29 03:26:04Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly OrchidRB, Version=2.19.1.6225, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency ProtoGeometry, Version=3.0.0.3331, Culture=neutral, PublicKeyToken=null was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+DynamoRevitDS, DynamoCore, DynamoCoreWpf, ProtoGeometry, DSCoreNodes, Tessellation, Analysis, GeometryColor, RevitNodes, LibG.ProtoInterface, GeometryUI, DSRevitNodesUI, BimorphNodes.Core, BimorphNodes, BimorphNodes.Geometry
+2024-04-29 03:26:04Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly OrchidRB, Version=2.19.1.6225, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Genius Loci\dyf\Level Plane.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Genius Loci\dyf\List Clean.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\MultipleInputForm ++.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Surface.FilterByOrientation.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\AlmostZero.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Vector.ZAxisNegative.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\Surface.OuterPerimeterCurves.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\TreeView input.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\TextBox Data.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\All Family Types Of Category.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\BuiltInCategory.FromInput.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\DropDown Data.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\Boolean Data.dyf
+2024-04-29 03:26:10Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\ConditionalInput Data.dyf
+2024-04-29 03:26:14Z : Active view is now 3D - Structure
+2024-04-29 03:26:14Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:29:47Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:30:58Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:30:58Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:33:39Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:33:39Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:33:39Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:33:39Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:34:48Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:34:48Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:34:58Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:34:58Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:54Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 03:35:58Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:35:58Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:36:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:36:59Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:37:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:37:59Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:38:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:38:59Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:39:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:39:59Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:40:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:40:59Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:41:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:41:59Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:42:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:43:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:43:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:43:59Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:44:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:45:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:45:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:45:59Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:46:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:46:59Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:47:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:48:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:48:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:48:59Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:49:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:50:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:50:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:51:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:51:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:52:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:52:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:53:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:54:00Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:54:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:54:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:55:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:55:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:56:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:56:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:57:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:58:00Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:58:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:59:00Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 03:59:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 03:59:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:00:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:01:00Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:01:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:01:59Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:02:00Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:04:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:04:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:05:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:05:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:06:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:06:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:07:18Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:07:18Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:08:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:08:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:09:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:09:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:10:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:10:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:12:34Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:12:34Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:12:34Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:12:34Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:34Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:13:41Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:13:41Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:14:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:14:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:15:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:15:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:16:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:16:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:17:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:17:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:18:12Z : ViewExtensionCommandExecutive ( UniqueId: 8122d7c2-d594-4acc-9028-92dbd50c3ffe, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-04-29 04:18:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:18:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:18:39Z : ViewExtensionCommandExecutive ( UniqueId: 3fc9c3dd-42ef-4e2a-a26b-b4b4e1d888a1, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-04-29 04:19:10Z : ViewExtensionCommandExecutive ( UniqueId: 78823ba6-b92b-4341-aacc-ef113d53a508, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-04-29 04:19:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:19:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:20:29Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:20:29Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:21:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:21:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:22:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:22:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:23:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:23:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:24:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:24:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:25:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:25:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:26:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:26:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:27:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:27:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:28:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:28:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:29:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:29:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:30:30Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:30:30Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:31:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:31:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:31:59Z : ViewExtensionCommandExecutive ( UniqueId: 4ba24591-a3ab-44bd-8b26-e13950e7afdf, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-04-29 04:32:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:32:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:32:38Z : Saving E:\Revit\Dynamo\LATEST\New\UniversalScaffolding_script.dyn ...
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Base sketch for extrusion is invalid"
+Error Resolution: Delete Instance(s)
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Can't make Extrusion."
+Error Resolution: Delete Element(s)
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" and was automatically resolved, but may require review by the family creator.
+Error Information:
+"Line is too short."
+Error Resolution: Delete Element(s)
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:33:15Z : !! Warning: An error occurred in family "Safety_Deck_With_Net" that cannot be automatically resolved.
+Error Information:
+"Parameter No. of Scaffold Bays Long has an invalid value."
+2024-04-29 04:34:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:34:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:34:57Z : Geometry working range changed to large (0.01, 1,000,000)
+2024-04-29 04:35:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:35:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:35:40Z : ViewExtensionCommandExecutive ( UniqueId: c5a666dc-c948-4d27-ab6e-34abc608437f, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-04-29 04:35:40Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf\Rotate Family.dyf
+2024-04-29 04:36:11Z : ViewExtensionCommandExecutive ( UniqueId: 04c1a597-2da5-4c36-8744-bdaccaf9830b, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-04-29 04:36:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:36:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:37:38Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:37:38Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:38:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:38:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn
+2024-04-29 04:39:15Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn ...
+2024-04-29 04:39:15Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\UniversalScaffolding_script.dyn

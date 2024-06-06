@@ -1,0 +1,1273 @@
+Dynamo log started 2024-03-17 00:56:09Z
+2024-03-17 00:56:09Z : Python template set to default.
+2024-03-17 00:56:10Z : launch darkly initalized
+2024-03-17 00:56:10Z : LD startup time: 751 
+2024-03-17 00:56:10Z : <<<<<InitDone>>>>>
+2024-03-17 00:56:10Z : feature flag exe starting
+2024-03-17 00:56:10Z : <<<<<Sod>>>>>
+2024-03-17 00:56:10Z : {"IsNewAppHomeEnabled":false,"graphics-primitive-instancing":false,"testFlag":false,"EasterEggIcon1":false,"EasterEggMessage1":"NA","IsTSplineNodesExperimentToggleVisible":false,"CER":false,"NodeAutocompleteMachineLearningIsBeta":true,"CER_v2":true}
+2024-03-17 00:56:10Z : <<<<<Eod>>>>>
+2024-03-17 00:56:10Z : EasterEggIcon1 is false FROM MODEL
+2024-03-17 00:56:10Z : EasterEggMessage1 is disabled FROM MODEL
+2024-03-17 00:56:11Z : Dynamo -- Build 2.18.1.5096
+2024-03-17 00:56:11Z : System.InvalidOperationException:
+2024-03-17 00:56:11Z : There already exists an AlsoKnownAs mapping for DSCoreNodesUI.Logic.If.
+2024-03-17 00:56:11Z : 
+2024-03-17 00:56:11Z : System.InvalidOperationException:
+2024-03-17 00:56:11Z : There already exists an AlsoKnownAs mapping for If.
+2024-03-17 00:56:11Z : 
+2024-03-17 00:56:11Z : Duplicate migration type registered for SunPathDirection
+2024-03-17 00:56:13Z : AnalyticalAutomation.dll,M:AnalyticalAutomation.AnalyticalElements.AnalyticalPanel.BySurface(Autodesk.DesignScript.Geometry.Surface,System.Boolean) {0} is missing some XML documentation tags.
+2024-03-17 00:56:13Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-03-17 00:56:13Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\definitions' does not exist
+2024-03-17 00:56:13Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\definitions' does not exist
+2024-03-17 00:56:13Z : Dynamo will use the package manager server at : https://www.dynamopackages.com
+2024-03-17 00:56:13Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-03-17 00:56:13Z : A package called DynamoPlayerExtension found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension includes dll files but none are defined in node libraries in the package manifest.  Ignoring it.
+2024-03-17 00:56:13Z : Exception encountered scanning the package directory at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+2024-03-17 00:56:13Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+   at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates):
+ Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension: 
+ "A package called Orchid found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension could not be verified to have signed dll files.  A dll file found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension\bin\OrchidRB.dll did not have a signed certificate.  Ignoring it."
+2024-03-17 00:56:13Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-03-17 00:56:13Z : Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+2024-03-17 00:56:13Z :    at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates)
+2024-03-17 00:56:13Z : Exception encountered scanning the package directory at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+2024-03-17 00:56:13Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+   at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates):
+ Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit: 
+ "A package called Orchid found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit could not be verified to have signed dll files.  A dll file found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit\bin\OrchidRB.dll did not have a signed certificate.  Ignoring it."
+2024-03-17 00:56:13Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-03-17 00:56:13Z : Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+2024-03-17 00:56:13Z :    at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates)
+2024-03-17 00:56:13Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\packages' does not exist
+2024-03-17 00:56:13Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\packages' does not exist
+2024-03-17 00:56:14Z : System.InvalidOperationException:
+2024-03-17 00:56:14Z : There already exists an AlsoKnownAs mapping for Select Rule Type.
+2024-03-17 00:56:14Z : 
+2024-03-17 00:56:27Z : Data-Shapes contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-03-17 00:56:28Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is added
+2024-03-17 00:56:31Z : Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf
+2024-03-17 00:56:31Z : notification:Dynamo.Exceptions.CustomNodePackageLoadException: Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf:
+ Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf: 
+ C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf cannot be loaded. 
+Installing it will conflict with one or more node definitions that already exist in C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf, which is currently loaded. 
+To install C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf, Dynamo needs to first uninstall C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf. 
+Restart Dynamo to complete the uninstall.
+2024-03-17 00:56:31Z : Dynamo.Exceptions.CustomNodePackageLoadException:
+2024-03-17 00:56:31Z : Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf
+2024-03-17 00:56:31Z : 
+2024-03-17 00:56:32Z : Modelical contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-03-17 00:56:33Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is added
+2024-03-17 00:56:39Z : System.InvalidOperationException:
+2024-03-17 00:56:39Z : There already exists an AlsoKnownAs mapping for Roof Types.
+2024-03-17 00:56:39Z : 
+2024-03-17 00:56:39Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension\dyf' does not exist
+2024-03-17 00:56:39Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is added
+2024-03-17 00:56:40Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign\dyf' does not exist
+2024-03-17 00:56:40Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Extension\dyf' does not exist
+2024-03-17 00:56:40Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is added
+2024-03-17 00:56:40Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Revit\dyf' does not exist
+2024-03-17 00:56:40Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is added
+2024-03-17 00:56:40Z : Backup files timer is started with an interval of 60000 milliseconds
+2024-03-17 00:56:40Z : SYSTEM:Environment Path:C:\Program Files\Autodesk\Revit 2024\AddIns\SteelConnections;C:\Program Files\Autodesk\Revit 2024\en-US;C:\Program Files\Autodesk\Revit 2024;C:\Program Files\Common Files\Autodesk Shared\RealDWG Shared 2024;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\ngrok\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\pyRevit-Master\bin;E:\OtherPrograms\scrcpy-win64-v2.4;C:\Program Files\pyRevit-Master\bin;;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\;C:\Users\Najwan S\AppData\Local\Microsoft\WindowsApps;C:\Users\Najwan S\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Najwan S\AppData\Roaming\npm;C:\Users\Najwan S\AppData\Local\spicetify;C:\Users\Najwan S\.dotnet\tools;C:\Users\Najwan S\AppData\Roaming\pyRevit-Master\bin;E:\OtherPrograms\scrcpy-win64-v2.4;C:\Program Files (x86)\Inno Setup 6;C:\gnu\global-6.6;C:\gnu\ctags-5.8;;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit
+2024-03-17 00:56:41Z : RENDER : Rendering Tier: 2
+2024-03-17 00:56:41Z : RENDER : Pixel Shader 3 Supported: True
+2024-03-17 00:56:41Z : RENDER : Pixel Shader 4 Supported: False
+2024-03-17 00:56:41Z : RENDER : Software Effect Rendering Supported: True
+2024-03-17 00:56:41Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-03-17 00:56:42Z : RENDER : Rendering Tier: 2
+2024-03-17 00:56:42Z : RENDER : Pixel Shader 3 Supported: True
+2024-03-17 00:56:42Z : RENDER : Pixel Shader 4 Supported: False
+2024-03-17 00:56:42Z : RENDER : Software Effect Rendering Supported: True
+2024-03-17 00:56:42Z : RENDER : Maximum hardware texture size: 16384,16384
+2024-03-17 00:56:43Z : Documentation Browser (id: 68B45FC0-0BD1-435C-BF28-B97CB03C71C8) view extension is added
+2024-03-17 00:56:43Z : DynamoManipulationExtension (id: 58B0496A-E3F8-43D9-86D2-94823D1D0F98) view extension is added
+2024-03-17 00:56:43Z : Properties (id: 28992e1d-abb9-417f-8b1b-05e053bee670) view extension is added
+2024-03-17 00:56:43Z : Graph Node Manager (id: F76F4274-537D-4782-B1E9-27E8FDE2186F) view extension is added
+2024-03-17 00:56:43Z : LibraryUI - WebView2 (id: 8b093acd-5656-4914-b6b0-c54b26ca6d0e) view extension is added
+2024-03-17 00:56:43Z : Graph Status (id: 3467481b-d20d-4918-a454-bf19fc5c25d7) view extension is added
+2024-03-17 00:56:43Z : Notifications (id: ef6cd025-514f-44cd-b6b1-69d9f5cce004) view extension is added
+2024-03-17 00:56:43Z : Package Details (id: C71CA1B9-BF9F-425A-A12C-53DF56770406) view extension is added
+2024-03-17 00:56:43Z : Data Shapes (id: bbc04877-69d5-48f0-a65b-34a702d92ac0) view extension is added
+2024-03-17 00:56:43Z : Inconsistent UniqueId for Data Shapes view extension. This may result in unexpected Dynamo behavior.
+2024-03-17 00:56:43Z : Rhythm View Extension (id: 5435824A-A3A1-4FC1-AF42-E5139041740F) view extension is added
+2024-03-17 00:56:43Z : Generative Design Tools (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) view extension is added
+2024-03-17 00:56:43Z : PackageManagerViewExtension (id: 100f5ec3-fde7-4205-80a7-c968b3a5a27b) view extension is added
+2024-03-17 00:56:43Z : Python Migration (id: 1f8146d0-58b1-4b3c-82b7-34a3fab5ac5d) view extension is added
+2024-03-17 00:56:43Z : Workspace References (id: A6706BF5-11C2-458F-B7C8-B745A77EF7FD) view extension is added
+2024-03-17 00:56:43Z : 
+Welcome to Dynamo!
+2024-03-17 00:56:43Z : 00:00:01.3235766 elapsed for loading Dynamo main window.
+2024-03-17 00:56:46Z : notification:Package Host Error:
+ Package targets a different host than current host application.: archi-lab.net: 
+ The package or one of its dependencies targets a different environment, such as Revit, Civil 3D, Advance Steel, Alias or FormIt. This can cause instability and unexpected problems.: archi-lab.net
+2024-03-17 00:56:46Z : notification:Package Host Error:
+ Package targets a different host than current host application.: bimorphNodes: 
+ The package or one of its dependencies targets a different environment, such as Revit, Civil 3D, Advance Steel, Alias or FormIt. This can cause instability and unexpected problems.: bimorphNodes
+2024-03-17 00:56:46Z : notification:Package Host Error:
+ Package targets a different host than current host application.: Genius Loci: 
+ The package or one of its dependencies targets a different environment, such as Revit, Civil 3D, Advance Steel, Alias or FormIt. This can cause instability and unexpected problems.: Genius Loci
+2024-03-17 00:56:46Z : EasterEggIcon1 is false from view
+2024-03-17 00:56:46Z : EasterEggMessage1 is disabled from view
+2024-03-17 00:56:47Z : Browser Loaded
+2024-03-17 00:56:47Z : WPF Render Mode: SoftwareOnly
+2024-03-17 00:56:47Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DynamoUtilities, Version=2.18.1.5096, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-03-17 00:56:47Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DesignScriptBuiltin, Version=2.18.1.5096, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-03-17 00:56:47Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-03-17 00:57:13Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\All Placed Family Types of Category.dyf
+2024-03-17 00:57:13Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Element.ElementType+.dyf
+2024-03-17 00:57:13Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\All Elements Of Category+.dyf
+2024-03-17 00:57:13Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\BuiltInCategory.FromInput.dyf
+2024-03-17 00:57:13Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\TreeView input.dyf
+2024-03-17 00:57:13Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\Slider Data.dyf
+2024-03-17 00:57:13Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\MultipleInputForm ++.dyf
+2024-03-17 00:57:13Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\All Family Types Of Category.dyf
+2024-03-17 00:57:13Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Data-Shapes\dyf\TextBox Data.dyf
+2024-03-17 00:57:15Z : Active view is now 3D MTH27 Copy 1
+2024-03-17 00:57:15Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-03-17 00:57:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 00:57:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 00:58:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 00:58:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 00:59:00Z : Clearing workspace...
+2024-03-17 00:59:07Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Document.LoadFamily.dyf
+2024-03-17 00:59:07Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\ReturnListOrSingleValue.dyf
+2024-03-17 00:59:07Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\TurnIntoList.dyf
+2024-03-17 00:59:07Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\UIMessenger.dyf
+2024-03-17 00:59:07Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\IfThenElse.dyf
+2024-03-17 00:59:08Z : Active view is now 3D MTH27 Copy 1
+2024-03-17 00:59:08Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-03-17 00:59:19Z : Active view is now 3D MTH27 Copy 1
+2024-03-17 00:59:19Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-03-17 00:59:41Z : Clearing workspace...
+2024-03-17 00:59:52Z : Active view is now 3D MTH27 Copy 1
+2024-03-17 00:59:52Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-03-17 01:00:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:00:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:01:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:01:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:02:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:02:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:03:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:03:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:04:32Z : ViewExtensionCommandExecutive ( UniqueId: 41c0c46a-330a-4c1e-8f33-ec1564603bf2, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:04:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:04:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:05:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:05:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:06:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:06:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:07:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:07:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:08:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:08:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:09:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:09:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:10:19Z : ViewExtensionCommandExecutive ( UniqueId: 2e9d27bf-ec7e-4576-8732-3252f152236f, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:10:27Z : ViewExtensionCommandExecutive ( UniqueId: 7a3563f2-9a8e-452f-8c97-3c5cf8258d07, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:10:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:10:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:11:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:11:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:32Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:12:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:12:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:12:58Z : ViewExtensionCommandExecutive ( UniqueId: 28e0415c-8da1-41c0-9bf8-771fc318162c, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:12:58Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Genius Loci\dyf\Level Plane.dyf
+2024-03-17 01:13:14Z : ViewExtensionCommandExecutive ( UniqueId: b75c737c-9ee3-4d11-a789-4529f84d0708, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:13:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:13:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:13:53Z : Saving E:\Revit\Dynamo\LATEST\SafetyLines_script.dyn ...
+2024-03-17 01:13:54Z : Clearing workspace...
+2024-03-17 01:14:01Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Surface.FilterByOrientation.dyf
+2024-03-17 01:14:01Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\AlmostZero.dyf
+2024-03-17 01:14:01Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Vector.ZAxisNegative.dyf
+2024-03-17 01:14:01Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Genius Loci\dyf\List Clean.dyf
+2024-03-17 01:14:03Z : Active view is now 3D MTH27 Copy 1
+2024-03-17 01:14:03Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-03-17 01:14:41Z : Clearing workspace...
+2024-03-17 01:14:47Z : Active view is now 3D MTH27 Copy 1
+2024-03-17 01:14:47Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-03-17 01:15:40Z : Clearing workspace...
+2024-03-17 01:15:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN ...
+2024-03-17 01:15:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\backup.DYN
+2024-03-17 01:15:51Z : Active view is now 3D MTH27 Copy 1
+2024-03-17 01:15:51Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-03-17 01:16:14Z : Clearing workspace...
+2024-03-17 01:16:22Z : Active view is now 3D MTH27 Copy 1
+2024-03-17 01:16:22Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-03-17 01:16:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:16:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:16:50Z : ViewExtensionCommandExecutive ( UniqueId: 46d861b8-7fc9-464e-baaa-f4cf7a1d10ec, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:17:01Z : ViewExtensionCommandExecutive ( UniqueId: d2371211-d06e-40fb-9311-16a3f99a8205, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:17:01Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Genius Loci\dyf\View Level.dyf
+2024-03-17 01:17:04Z : ViewExtensionCommandExecutive ( UniqueId: 23060c19-ae92-49d6-8785-4d7cbd48f550, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:17:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:17:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:18:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:18:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:19:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:19:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:19:54Z : Active view is now North
+2024-03-17 01:20:11Z : Active view is now 3D MTH27 Copy 1
+2024-03-17 01:20:26Z : ViewExtensionCommandExecutive ( UniqueId: 0fd9fd04-6ba8-4c00-95ee-068c73b4ece9, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:20:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:20:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:20:55Z : ViewExtensionCommandExecutive ( UniqueId: 594d3af1-0363-483a-bdd1-1a15cf764ec1, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:21:17Z : ViewExtensionCommandExecutive ( UniqueId: 08cd08e6-3083-4657-a028-9421b09736cf, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:21:17Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\ViewLevel.dyf
+2024-03-17 01:21:37Z : ViewExtensionCommandExecutive ( UniqueId: fbedf8e3-1e32-4204-9f23-e02d7ea05156, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:21:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:21:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:21:41Z : ViewExtensionCommandExecutive ( UniqueId: 61c0c5ea-68ad-4e68-ad9a-edbf7fb08881, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:22:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:22:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:23:09Z : ViewExtensionCommandExecutive ( UniqueId: 85f95082-1620-48c0-927c-3c36ff675523, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:23:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:23:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:24:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:24:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:25:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:25:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:26:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:26:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:27:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:27:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:27:48Z : ViewExtensionCommandExecutive ( UniqueId: 158d573b-f748-4e5a-8701-2697d1a4d901, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:28:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:28:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:28:45Z : ViewExtensionCommandExecutive ( UniqueId: 9f7c909a-1199-4f56-8aa0-68795cc7df01, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:29:30Z : ViewExtensionCommandExecutive ( UniqueId: 02743e4c-df26-451e-9836-3e5fb4103fe0, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:29:30Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\spring nodes\dyf\List.MinIndex.dyf
+2024-03-17 01:29:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:29:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:30:28Z : Active view is now North
+2024-03-17 01:30:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:30:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:31:20Z : Saving E:\Revit\Dynamo\LATEST\SafetyLines_script.dyn ...
+2024-03-17 01:31:22Z : Clearing workspace...
+2024-03-17 01:31:34Z : Active view is now North
+2024-03-17 01:31:34Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-03-17 01:32:04Z : Clearing workspace...
+2024-03-17 01:32:11Z : Active view is now North
+2024-03-17 01:32:11Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-03-17 01:32:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:32:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:33:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:33:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:34:06Z : ViewExtensionCommandExecutive ( UniqueId: ebca588b-83fd-4926-9195-a88226f9723c, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:34:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:34:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:00Z : !! Warning: There are identical instances in the same place. This will result in double counting in schedules.
+2024-03-17 01:35:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:35:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:36:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:36:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:37:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:37:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:38:31Z : ViewExtensionCommandExecutive ( UniqueId: c468e2d6-3973-41fe-815f-ea313466af51, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:38:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:38:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:39:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:39:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:40:02Z : ViewExtensionCommandExecutive ( UniqueId: b398bfde-7a68-4d8f-b8d3-edd6853ce9bd, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:40:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:40:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:41:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:41:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:41:56Z : Active view is now 3D MTH27 Copy 1
+2024-03-17 01:42:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:42:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:43:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:43:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:44:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:44:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:45:01Z : Active view is now North
+2024-03-17 01:45:12Z : Active view is now 3D MTH27 Copy 1
+2024-03-17 01:45:42Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:45:42Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:46:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:46:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:47:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:47:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:48:41Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:48:41Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:49:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:49:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:50:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:50:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:51:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:51:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:52:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:52:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:53:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:53:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:54:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:54:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:55:16Z : ViewExtensionCommandExecutive ( UniqueId: f89a368f-a9f3-4c7e-a731-72b8ea6f0b3e, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:55:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:55:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:56:26Z : Saving E:\Revit\Dynamo\LATEST\SafetyLines_script.dyn ...
+2024-03-17 01:56:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:56:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:57:28Z : Saving E:\Revit\Dynamo\LATEST\SafetyLines_script.dyn ...
+2024-03-17 01:57:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:57:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:57:57Z : Saving E:\Revit\Dynamo\LATEST\SafetyLines_script.dyn ...
+2024-03-17 01:57:59Z : Clearing workspace...
+2024-03-17 01:58:07Z : Active view is now 3D MTH27 Copy 1
+2024-03-17 01:58:07Z : notification:Python Migration:
+ This graph currently contains nodes that are using the old IronPython2 (Python 2) engine which has been deprecated. A new CPython3 (Python 3) has been implemented and is accessible inside the Python editor.: 
+ This graph currently contains python nodes that are using the old IronPython Engine which has been deprecated. Consider updating these nodes to use the new CPython 3.7 Engine.
+2024-03-17 01:58:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:58:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:59:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 01:59:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 01:59:44Z : ViewExtensionCommandExecutive ( UniqueId: 612687bd-19b6-48e9-9284-7b9c12f86db1, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:59:51Z : ViewExtensionCommandExecutive ( UniqueId: 1358c801-f246-4724-ad7c-5fba51dcbd08, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 01:59:59Z : ViewExtensionCommandExecutive ( UniqueId: cd16dfd6-0905-48f3-98b6-47b48c322b59, Name: LibraryUI - WebView2, commandTypeName: CreateNodeCommand )
+2024-03-17 02:00:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:00:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:01:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:01:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:02:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:02:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:03:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:03:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:04:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:04:40Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:05:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:05:41Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:06:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:06:41Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:07:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:07:41Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:08:41Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:08:41Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:09:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:09:41Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:10:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:10:41Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:11:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:11:41Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:12:40Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:12:41Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:13:41Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:13:41Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:14:41Z : Saving C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn ...
+2024-03-17 02:14:41Z : Backup file is saved: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\backup\SafetyLines_script.dyn
+2024-03-17 02:14:42Z : Saving E:\Revit\Dynamo\LATEST\SafetyLines_script.dyn ...
+2024-03-17 02:14:50Z : Clearing workspace...
+2024-03-17 02:14:56Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is removed
+2024-03-17 02:14:56Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is removed
+2024-03-17 02:14:56Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is removed
+2024-03-17 02:14:56Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is removed
+2024-03-17 02:14:56Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is removed
+2024-03-17 02:14:56Z : Goodbye

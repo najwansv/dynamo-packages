@@ -1,0 +1,24 @@
+<Workspace Version="0.8.0.950" X="199.636966905184" Y="238.713487828125" zoom="0.593767140625" Name="String.NumbersAsList" ID="e9a30220-7c77-458c-933c-16f6de3e1dfb" Description="Creates the numbers 0-9 as a list of strings" Category="Zebra.Core.String.Create">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Nodes.Output guid="08b24450-f5ae-4347-a522-193429b53e36" type="Dynamo.Nodes.Output" nickname="Output" x="598.497228711582" y="18.1620759790172" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <Symbol value="0-9" />
+    </Dynamo.Nodes.Output>
+    <Dynamo.Nodes.StringInput guid="9df2d145-a8e1-4d9a-8ae8-f25c00c407e5" type="Dynamo.Nodes.StringInput" nickname="String" x="-171.40972438243" y="25.0303997934586" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <System.String>0123456789</System.String>
+      <System.String value="0123456789" />
+    </Dynamo.Nodes.StringInput>
+    <Dynamo.Nodes.CodeBlockNodeModel guid="4d0c73e5-5b70-466c-847b-6726934c08bc" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="162.431528087286" y="86.85789317434" isVisible="true" isUpstreamVisible="true" lacing="Disabled" CodeText="0..(n-1);&#xA;1;" ShouldFocus="false" />
+    <Dynamo.Nodes.DSFunction guid="02f3d5bf-4fe6-4427-8dd8-d427faf75067" type="Dynamo.Nodes.DSFunction" nickname="String.Length" x="10" y="82.950197876111" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="DSCoreNodes.dll" function="DSCore.String.Length@string" />
+    <Dynamo.Nodes.DSFunction guid="fa36c74e-efcf-4181-825d-5f435c6c86a8" type="Dynamo.Nodes.DSFunction" nickname="String.Substring" x="397.486766941455" y="10" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="DSCoreNodes.dll" function="DSCore.String.Substring@string,int,int" />
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="9df2d145-a8e1-4d9a-8ae8-f25c00c407e5" start_index="0" end="02f3d5bf-4fe6-4427-8dd8-d427faf75067" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9df2d145-a8e1-4d9a-8ae8-f25c00c407e5" start_index="0" end="fa36c74e-efcf-4181-825d-5f435c6c86a8" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="4d0c73e5-5b70-466c-847b-6726934c08bc" start_index="0" end="fa36c74e-efcf-4181-825d-5f435c6c86a8" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="4d0c73e5-5b70-466c-847b-6726934c08bc" start_index="1" end="fa36c74e-efcf-4181-825d-5f435c6c86a8" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="02f3d5bf-4fe6-4427-8dd8-d427faf75067" start_index="0" end="4d0c73e5-5b70-466c-847b-6726934c08bc" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="fa36c74e-efcf-4181-825d-5f435c6c86a8" start_index="0" end="08b24450-f5ae-4347-a522-193429b53e36" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+</Workspace>

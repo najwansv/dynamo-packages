@@ -1,0 +1,242 @@
+Dynamo log started 2024-04-25 07:05:37Z
+2024-04-25 07:05:37Z : Python template set to default.
+2024-04-25 07:05:37Z : Dynamo -- Build 2.18.1.5096
+2024-04-25 07:05:37Z : System.InvalidOperationException:
+2024-04-25 07:05:37Z : There already exists an AlsoKnownAs mapping for DSCoreNodesUI.Logic.If.
+2024-04-25 07:05:37Z : 
+2024-04-25 07:05:37Z : System.InvalidOperationException:
+2024-04-25 07:05:37Z : There already exists an AlsoKnownAs mapping for If.
+2024-04-25 07:05:37Z : 
+2024-04-25 07:05:37Z : Duplicate migration type registered for SunPathDirection
+2024-04-25 07:05:37Z : launch darkly initalized
+2024-04-25 07:05:37Z : LD startup time: 498 
+2024-04-25 07:05:37Z : <<<<<InitDone>>>>>
+2024-04-25 07:05:37Z : feature flag exe starting
+2024-04-25 07:05:37Z : <<<<<Sod>>>>>
+2024-04-25 07:05:37Z : {"IsNewAppHomeEnabled":false,"graphics-primitive-instancing":false,"EasterEggIcon1":false,"EasterEggMessage1":"NA","IsTSplineNodesExperimentToggleVisible":false,"CER":false,"NodeAutocompleteMachineLearningIsBeta":true,"CER_v2":true,"IsMLDataIngestionPipelineinBeta":false}
+2024-04-25 07:05:37Z : <<<<<Eod>>>>>
+2024-04-25 07:05:37Z : EasterEggIcon1 is false FROM MODEL
+2024-04-25 07:05:37Z : EasterEggMessage1 is disabled FROM MODEL
+2024-04-25 07:05:38Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-04-25 07:05:38Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\definitions' does not exist
+2024-04-25 07:05:38Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\definitions' does not exist
+2024-04-25 07:05:38Z : Dynamo will use the package manager server at : https://www.dynamopackages.com
+2024-04-25 07:05:38Z : The folder 'C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-04-25 07:05:38Z : A package called DynamoPlayerExtension found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension includes dll files but none are defined in node libraries in the package manifest.  Ignoring it.
+2024-04-25 07:05:38Z : Exception encountered scanning the package directory at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+2024-04-25 07:05:38Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+   at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates):
+ Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension: 
+ "A package called Orchid found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension could not be verified to have signed dll files.  A dll file found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension\bin\OrchidRB.dll did not have a signed certificate.  Ignoring it."
+2024-04-25 07:05:38Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-04-25 07:05:38Z : Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid.Extension
+2024-04-25 07:05:38Z :    at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates)
+2024-04-25 07:05:38Z : Exception encountered scanning the package directory at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+2024-04-25 07:05:38Z : notification:Dynamo.Exceptions.LibraryLoadFailedException: Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+   at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates):
+ Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit: 
+ "A package called Orchid found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit could not be verified to have signed dll files.  A dll file found at C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit\bin\OrchidRB.dll did not have a signed certificate.  Ignoring it."
+2024-04-25 07:05:38Z : Dynamo.Exceptions.LibraryLoadFailedException:
+2024-04-25 07:05:38Z : Failed to load library: C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\Orchid_219_Revit
+2024-04-25 07:05:38Z :    at Dynamo.PackageManager.PackageLoader.CheckPackageNodeLibraryCertificates(String packageDirectoryPath, Package discoveredPkg)
+   at Dynamo.PackageManager.PackageLoader.ScanPackageDirectory(String directory, Boolean checkCertificates)
+2024-04-25 07:05:38Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\UIplusplus.dll\packages' does not exist
+2024-04-25 07:05:38Z : The folder 'C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\UI++\bin\Xceed.Wpf.Toolkit.dll\packages' does not exist
+2024-04-25 07:05:39Z : System.InvalidOperationException:
+2024-04-25 07:05:39Z : There already exists an AlsoKnownAs mapping for Select Rule Type.
+2024-04-25 07:05:39Z : 
+2024-04-25 07:05:41Z : Data-Shapes contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-04-25 07:05:41Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is added
+2024-04-25 07:05:41Z : Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf
+2024-04-25 07:05:41Z : notification:Dynamo.Exceptions.CustomNodePackageLoadException: Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf:
+ Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf: 
+ C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf cannot be loaded. 
+Installing it will conflict with one or more node definitions that already exist in C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf, which is currently loaded. 
+To install C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf, Dynamo needs to first uninstall C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\archi-lab.net\dyf. 
+Restart Dynamo to complete the uninstall.
+2024-04-25 07:05:41Z : Dynamo.Exceptions.CustomNodePackageLoadException:
+2024-04-25 07:05:41Z : Failed to load library: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\key schedule\dyf
+2024-04-25 07:05:41Z : 
+2024-04-25 07:05:42Z : Modelical contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-04-25 07:05:42Z : MonocleExtension (id: 53301BE8-BDA9-47CA-9EF0-2B70808B13A5) extension is added
+2024-04-25 07:05:42Z : System.InvalidOperationException:
+2024-04-25 07:05:42Z : There already exists an AlsoKnownAs mapping for View Family Types.
+2024-04-25 07:05:42Z : 
+2024-04-25 07:05:42Z : System.InvalidOperationException:
+2024-04-25 07:05:42Z : There already exists an AlsoKnownAs mapping for View Duplicate Options.
+2024-04-25 07:05:42Z : 
+2024-04-25 07:05:42Z : System.InvalidOperationException:
+2024-04-25 07:05:42Z : There already exists an AlsoKnownAs mapping for View Templates.
+2024-04-25 07:05:42Z : 
+2024-04-25 07:05:42Z : System.InvalidOperationException:
+2024-04-25 07:05:42Z : There already exists an AlsoKnownAs mapping for View Template Parameters.
+2024-04-25 07:05:42Z : 
+2024-04-25 07:05:42Z : System.InvalidOperationException:
+2024-04-25 07:05:42Z : There already exists an AlsoKnownAs mapping for Schedule Heading Orientations.
+2024-04-25 07:05:42Z : 
+2024-04-25 07:05:42Z : System.InvalidOperationException:
+2024-04-25 07:05:42Z : There already exists an AlsoKnownAs mapping for Schedule Sort Order.
+2024-04-25 07:05:42Z : 
+2024-04-25 07:05:42Z : System.InvalidOperationException:
+2024-04-25 07:05:42Z : There already exists an AlsoKnownAs mapping for Ceiling Types.
+2024-04-25 07:05:42Z : 
+2024-04-25 07:05:42Z : System.InvalidOperationException:
+2024-04-25 07:05:42Z : There already exists an AlsoKnownAs mapping for Group Types.
+2024-04-25 07:05:42Z : 
+2024-04-25 07:05:42Z : System.InvalidOperationException:
+2024-04-25 07:05:42Z : There already exists an AlsoKnownAs mapping for Roof Types.
+2024-04-25 07:05:42Z : 
+2024-04-25 07:05:42Z : System.InvalidOperationException:
+2024-04-25 07:05:42Z : There already exists an AlsoKnownAs mapping for Worksets.
+2024-04-25 07:05:42Z : 
+2024-04-25 07:05:42Z : System.InvalidOperationException:
+2024-04-25 07:05:42Z : There already exists an AlsoKnownAs mapping for Print Settings.
+2024-04-25 07:05:42Z : 
+2024-04-25 07:05:42Z : System.InvalidOperationException:
+2024-04-25 07:05:42Z : There already exists an AlsoKnownAs mapping for Print Range.
+2024-04-25 07:05:42Z : 
+2024-04-25 07:05:45Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is added
+2024-04-25 07:05:46Z : System.InvalidOperationException:
+2024-04-25 07:05:46Z : There already exists an AlsoKnownAs mapping for Roof Types.
+2024-04-25 07:05:46Z : 
+2024-04-25 07:05:46Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\DynamoPlayerExtension\dyf' does not exist
+2024-04-25 07:05:46Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is added
+2024-04-25 07:05:46Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign\dyf' does not exist
+2024-04-25 07:05:47Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Extension\dyf' does not exist
+2024-04-25 07:05:47Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is added
+2024-04-25 07:05:47Z : The folder 'C:\ProgramData\Autodesk\RVT 2024\Dynamo\2.18\packages\GenerativeDesign.Revit\dyf' does not exist
+2024-04-25 07:05:47Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is added
+2024-04-25 07:05:47Z : Backup files timer is started with an interval of 60000 milliseconds
+2024-04-25 07:05:47Z : SYSTEM:Environment Path:C:\Users\Najwan S\AppData\Local\python-3.9.12-embed-amd64;C:\Program Files\Autodesk\Revit 2024\AddIns\SteelConnections;C:\Program Files\Autodesk\Revit 2024\en-US;C:\Program Files\Autodesk\Revit 2024;C:\Program Files\Common Files\Autodesk Shared\RealDWG Shared 2024;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\ngrok\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\pyRevit-Master\bin;E:\OtherPrograms\scrcpy-win64-v2.4;C:\Program Files\pyRevit-Master\bin;;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Program Files (x86)\PuTTY\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Najwan S\AppData\Local\Programs\Python\Python310\;C:\Users\Najwan S\AppData\Local\Microsoft\WindowsApps;C:\Users\Najwan S\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Najwan S\AppData\Roaming\npm;C:\Users\Najwan S\AppData\Local\spicetify;C:\Users\Najwan S\.dotnet\tools;C:\Users\Najwan S\AppData\Roaming\pyRevit-Master\bin;E:\OtherPrograms\scrcpy-win64-v2.4;C:\Program Files (x86)\Inno Setup 6;C:\gnu\global-6.6;C:\gnu\ctags-5.8;;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit;C:\Program Files\Autodesk\Revit 2024\AddIns\DynamoForRevit
+2024-04-25 07:05:47Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DynamoUtilities, Version=2.18.1.5096, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-04-25 07:05:47Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DesignScriptBuiltin, Version=2.18.1.5096, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-04-25 07:05:47Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly OrchidRB, Version=2.19.1.6225, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency ProtoGeometry, Version=3.0.0.3331, Culture=neutral, PublicKeyToken=null was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+DynamoRevitDS, DynamoCore, DynamoCoreWpf, ProtoGeometry, DSCoreNodes, Tessellation, Analysis, GeometryColor, RevitNodes, LibG.ProtoInterface, GeometryUI, DSRevitNodesUI, BimorphNodes.Core, BimorphNodes, BimorphNodes.Geometry
+2024-04-25 07:05:47Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly OrchidRB, Version=2.19.1.6225, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-04-25 07:05:47Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Document.ElementClasses.dyf
+2024-04-25 07:05:47Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Clockwork for Dynamo 2.x\dyf\Element.Name+.dyf
+2024-04-25 07:05:47Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\UIMessenger.dyf
+2024-04-25 07:05:47Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\Najwan S\AppData\Roaming\Dynamo\Dynamo Revit\2.18\packages\Crumple\dyf\IfThenElse.dyf
+2024-04-25 07:05:47Z : Active view is now Project View
+2024-04-25 07:05:53Z : Active view is now Safety Equipment Items
+2024-04-25 07:06:46Z : Active view is now L1 - Architectural
+2024-04-25 07:06:48Z : Active view is now Safety Equipment Items
+2024-04-25 07:07:10Z : Active view is now L1 - Architectural
+2024-04-25 07:07:41Z : Active view is now View 1
+2024-04-25 07:07:41Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:09:27Z : Active view is now L1 - Architectural
+2024-04-25 07:09:35Z : Active view is now Vista 1
+2024-04-25 07:09:35Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:10:23Z : Active view is now L1 - Architectural
+2024-04-25 07:10:23Z : Active view is now L1 - Architectural
+2024-04-25 07:10:48Z : Active view is now View 1
+2024-04-25 07:10:48Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:10:50Z : Active view is now L1 - Architectural
+2024-04-25 07:11:00Z : Active view is now View 1
+2024-04-25 07:11:00Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:11:24Z : Active view is now Safety Equipment Items
+2024-04-25 07:11:25Z : Active view is now L1 - Architectural
+2024-04-25 07:11:55Z : Active view is now Safety Equipment Items
+2024-04-25 07:12:04Z : Active view is now L1 - Architectural
+2024-04-25 07:12:10Z : Active view is now Safety Equipment Items
+2024-04-25 07:12:13Z : Active view is now L1 - Architectural
+2024-04-25 07:12:18Z : Active view is now View 1
+2024-04-25 07:12:18Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:12:59Z : Active view is now L1 - Architectural
+2024-04-25 07:13:00Z : Active view is now L1 - Architectural
+2024-04-25 07:13:27Z : Active view is now Safety Equipment Items
+2024-04-25 07:13:31Z : Active view is now L1 - Architectural
+2024-04-25 07:13:37Z : Active view is now View 1
+2024-04-25 07:13:37Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:14:20Z : Active view is now View 1
+2024-04-25 07:14:20Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:14:32Z : Active view is now View 1
+2024-04-25 07:14:32Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:15:19Z : Active view is now L1 - Architectural
+2024-04-25 07:15:27Z : Active view is now Safety Equipment Items
+2024-04-25 07:15:44Z : Active view is now L1 - Architectural
+2024-04-25 07:16:03Z : Active view is now Safety Equipment Items
+2024-04-25 07:16:10Z : Active view is now L1 - Architectural
+2024-04-25 07:16:37Z : Active view is now Safety Equipment Items
+2024-04-25 07:16:40Z : Active view is now L1 - Architectural
+2024-04-25 07:17:05Z : Active view is now Safety Equipment Items
+2024-04-25 07:17:09Z : Active view is now L1 - Architectural
+2024-04-25 07:17:11Z : Active view is now View 1
+2024-04-25 07:17:11Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:17:13Z : Active view is now View 1
+2024-04-25 07:17:13Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:17:59Z : Active view is now L1 - Architectural
+2024-04-25 07:18:42Z : Active view is now Safety Equipment Items
+2024-04-25 07:18:48Z : Active view is now L1 - Architectural
+2024-04-25 07:19:34Z : Active view is now Safety Equipment Items
+2024-04-25 07:19:35Z : Active view is now View 1
+2024-04-25 07:19:35Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:19:36Z : Active view is now Safety Equipment Items
+2024-04-25 07:20:06Z : Active view is now L1 - Architectural
+2024-04-25 07:21:19Z : Active view is now Safety Equipment Items
+2024-04-25 07:21:27Z : Active view is now L1 - Architectural
+2024-04-25 07:21:37Z : Active view is now Safety Equipment Items
+2024-04-25 07:21:58Z : Active view is now L1 - Architectural
+2024-04-25 07:22:08Z : Active view is now Safety Equipment Items
+2024-04-25 07:23:05Z : Active view is now L1 - Architectural
+2024-04-25 07:23:07Z : Active view is now Safety Equipment Items
+2024-04-25 07:23:20Z : Active view is now L1 - Architectural
+2024-04-25 07:24:02Z : Active view is now Vista 1
+2024-04-25 07:24:02Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:24:10Z : Active view is now View 1
+2024-04-25 07:24:10Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:24:11Z : Active view is now View 1
+2024-04-25 07:24:11Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:24:12Z : Active view is now Safety Equipment Items
+2024-04-25 07:24:13Z : Active view is now L1 - Architectural
+2024-04-25 07:25:20Z : Active view is now View 1
+2024-04-25 07:25:20Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:25:22Z : Active view is now View 1
+2024-04-25 07:25:22Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:26:59Z : Active view is now L1 - Architectural
+2024-04-25 07:27:27Z : Active view is now Vista 1
+2024-04-25 07:27:27Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:27:28Z : Active view is now View 1
+2024-04-25 07:27:28Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:29:03Z : Active view is now Vista 1
+2024-04-25 07:29:03Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:29:23Z : Active view is now View 1
+2024-04-25 07:29:23Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:29:24Z : Active view is now View 1
+2024-04-25 07:29:24Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:29:25Z : Active view is now View 1
+2024-04-25 07:29:25Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:29:36Z : Active view is now Vista 1
+2024-04-25 07:29:36Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:29:50Z : Active view is now View 1
+2024-04-25 07:29:50Z : The RunButton is disabled because Dynamo is not bound to the current active document.
+2024-04-25 07:30:38Z : Active view is now L1 - Architectural
+2024-04-25 07:30:51Z : Active view is now Safety Equipment Items
+2024-04-25 07:31:01Z : Active view is now L1 - Architectural
+2024-04-25 07:31:16Z : Active view is now Safety Equipment Items
+2024-04-25 07:31:19Z : Active view is now L1 - Architectural
+2024-04-25 07:31:59Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is removed
+2024-04-25 07:31:59Z : MonocleExtension (id: 53301BE8-BDA9-47CA-9EF0-2B70808B13A5) extension is removed
+2024-04-25 07:31:59Z : RhythmExtension (id: CD7A123A-7121-4FA4-99D3-D941CD049EA5) extension is removed
+2024-04-25 07:31:59Z : Dynamo Player Extension (id: 3CD8E967-22D5-46C7-8E08-316BC53AEA1D) extension is removed
+2024-04-25 07:31:59Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is removed
+2024-04-25 07:31:59Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is removed
+2024-04-25 07:31:59Z : Goodbye
