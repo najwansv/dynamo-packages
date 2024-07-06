@@ -1,0 +1,165 @@
+{
+  "Uuid": "9421b7e9-4c31-43e8-94f4-a6e8406cd984",
+  "IsCustomNode": true,
+  "Category": "Modelical.Elements.Query",
+  "Description": "This node returns the number of runs of the selected stair.",
+  "Name": "Stair.NumberOfRuns",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\n#Load document reference\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\ndef toList(input):\r\n    \"\"\"Return iterable if available, a list of 1 otherwise\"\"\"\r\n    if hasattr(input, \"__iter__\") and not isinstance(input, basestring):\r\n        return input\r\n    else:\r\n        return [input]\r\n\r\nstairs = toList(UnwrapElement(IN[0]))\r\n\r\nrunsList = []\r\n\r\nfor s in stairs:\r\n\trunsList.append(len(s.GetStairsRuns()))\r\n\r\n\r\n\r\nOUT = runsList",
+      "VariableInputPorts": true,
+      "Id": "6ae05a16048d4f089e6a2438d0cd095b",
+      "Inputs": [
+        {
+          "Id": "01089e3566e84429a11e7e34099656eb",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "478f318b96ce469d9a473649ee94d6a3",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_stairs",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Stairs"
+      },
+      "Id": "ee2291382e1a4e87bd2296a4ef32819e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "59b954070b874e848e88f3cb49969bd0",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "_numOfRuns",
+      "Id": "bc5e3d2786f5481d81b3ea1cc2bb3f96",
+      "Inputs": [
+        {
+          "Id": "f937988257c54123af512a324d80aefb",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "478f318b96ce469d9a473649ee94d6a3",
+      "End": "f937988257c54123af512a324d80aefb",
+      "Id": "af09b57a8cdc47fc948c367289881617"
+    },
+    {
+      "Start": "59b954070b874e848e88f3cb49969bd0",
+      "End": "01089e3566e84429a11e7e34099656eb",
+      "Id": "3aa4a0996e414e7aa6b8da1f559d4dba"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "6ae05a16048d4f089e6a2438d0cd095b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 657.43410228786377,
+        "Y": 295.67380115234488
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "ee2291382e1a4e87bd2296a4ef32819e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 399.0,
+        "Y": 302.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "bc5e3d2786f5481d81b3ea1cc2bb3f96",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 891.0,
+        "Y": 304.0
+      }
+    ],
+    "Annotations": [],
+    "X": -1179.5701187434167,
+    "Y": -424.303139010425,
+    "Zoom": 2.2782360415619918
+  }
+}

@@ -1,0 +1,434 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DynaTools</name>
+    </assembly>
+    <members>
+        <member name="T:ViewTools.Views">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViewTools.Views.ViewportsCollector">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ViewTools.Sheets">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViewTools.Sheets.CreateSheets(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},Revit.Elements.Element)">
+            <summary>
+            
+            </summary>
+            <param name="viewNames"></param>
+            <param name="viewNumbers"></param>
+            <param name="titleBlock"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RebarTools.Query">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RebarTools.Query.getHostElement(System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            
+            </summary>
+            <param name="elements">List of rebars elements</param>
+            <returns></returns>
+        </member>
+        <member name="M:RebarTools.Query.getRebarCover(System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            
+            </summary>
+            <param name="elements">List of elements that can host rebars</param>
+            <returns></returns>
+        </member>
+        <member name="M:RebarTools.Query.getRebarProperties(System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            
+            </summary>
+            <param name="rebars"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RebarTools.Query.getRebarDiameter(System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            
+            </summary>
+            <param name="rebarBarType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RebarTools.Layout.setRebarDistributionType(System.Collections.Generic.List{Revit.Elements.Element},System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="rebars">List of rebars element</param>
+            <param name="distributionType">true = Varying Lenght /n false = Uniform</param>
+            <returns></returns>
+        </member>
+        <member name="T:CoordinationTools.Coordinators">
+            <summary>
+            Collection of tools to get quantities of elements and useful parameters values
+            </summary>
+        </member>
+        <member name="M:CoordinationTools.Coordinators.IntersectionByElementCategory(Revit.Elements.Category,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="category"></param>
+            <param name="refresh"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoordinationTools.Coordinators.IntersectionByElementCategoryFromLink(Revit.Elements.Category,Autodesk.Revit.DB.Document,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="category"></param>
+            <param name="document"></param>
+            <param name="refresh"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoordinationTools.Coordinators.IntersectionPointsByCategory(Revit.Elements.Category,Autodesk.Revit.DB.Document,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="category"></param>
+            <param name="refresh"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoordinationTools.Coordinators.IntersectionSolidsByCategory(Revit.Elements.Category,Autodesk.Revit.DB.Document,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="category"></param>
+            <param name="refresh"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DocumentTools.Documents">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DocumentTools.Documents.activeDocument">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentTools.Documents.linkedDocuments(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentTools.Documents.createNavisView(Autodesk.Revit.DB.Document)">
+            <summary>
+            
+            </summary>
+            <param name="filePath"></param>
+            <param name="detach"></param>
+            <param name="audit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentTools.Documents.openDocumentBackground(System.String,Autodesk.Revit.DB.OpenOptions)">
+            <summary>
+            
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentTools.Documents.closeDocumentBackground(Autodesk.Revit.DB.Document,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="document"></param>
+            <param name="save"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentTools.Documents.openDocumentOption(System.Boolean,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="audit"></param>
+            <param name="detachFromCentralOption">
+            0 = ClearTransmittedSaveAsNewCentral,
+            1 = DetachAndDiscardWorksets,
+            2 = DetachAndPreserveWorksets,
+            3 = DoNotDetach
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:ElementTools.Elements">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ElementTools.Elements.getAllElementsParameters(System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            This node get all paramaters (Type and Instance) for a list of elements.
+            To be used carefully due to the high amount of information retrieved.
+            </summary>
+            <param name="elements">List of elements</param>
+            <returns></returns>
+        </member>
+        <member name="M:ElementTools.Elements.copyIDToParameter(System.Collections.Generic.List{Revit.Elements.Element},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="elements">List of elements</param>
+            <param name="parameterName">Copy to parameter</param>
+        </member>
+        <member name="M:ElementTools.Elements.ElementByCategoryFromDocument(Autodesk.Revit.DB.Document,Revit.Elements.Category,System.Boolean)">
+            <summary>
+            This node allows to collect elements of category froma specified document
+            </summary>
+            <param name="doc">Document</param>
+            <param name="category">Category</param>
+            <param name="refresh"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ElementTools.Elements.ElementParametersByCategoryFromDocument(Autodesk.Revit.DB.Document,Revit.Elements.Category,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            This node allows to collect elements from a document and, at the same time,
+            collect a list of parameters value
+            </summary>
+            <param name="doc">Document</param>
+            <param name="category">Category</param>
+            <param name="parameters">List of Parameters</param>
+            <param name="refresh"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ElementTools.Parameters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ElementTools.Tools">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ElementTools.Tools.ChangeFittingsLevel(System.Collections.Generic.List{Revit.Elements.Element},Revit.Elements.Level)">
+            <summary>
+            
+            </summary>
+            <param name="elements"></param>
+            <param name="endLevel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ElementTools.Tools.CreateDuctInsulation(System.Collections.Generic.List{Revit.Elements.Element},Revit.Elements.Element,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="elements">List of Ducts</param>
+            <param name="ductInsulationType">Select the insulation type</param>
+            <param name="insulationThickness">In millimiters</param>
+            <returns></returns>
+        </member>
+        <member name="M:ElementTools.Tools.CreatePipeInsulation(System.Collections.Generic.List{Revit.Elements.Element},Revit.Elements.Element,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="elements">List of Pipes</param>
+            <param name="pipeInsulationType">Select the insulation type</param>
+            <param name="insulationThickness">In millimiters</param>
+            <returns></returns>
+        </member>
+        <member name="M:ElementTools.Tools.SplitPipeByPoints(Revit.Elements.Element,System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point})">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+            <param name="points"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ElementTools.Annotations">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SelectionTools.CategorySelectionFilter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DynaToolsFunctions.DynaFunctions.paramAsDouble(Autodesk.Revit.DB.Element,Autodesk.Revit.DB.BuiltInParameter)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynaToolsFunctions.DynaFunctions.paramAsValueString(Autodesk.Revit.DB.Element,Autodesk.Revit.DB.BuiltInParameter)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynaToolsFunctions.DynaFunctions.paramAsString(Autodesk.Revit.DB.Element,Autodesk.Revit.DB.BuiltInParameter)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynaToolsFunctions.DynaFunctions.dataGridCreateColumn(System.Windows.Controls.GridView,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="gridView"></param>
+            <param name="paramName"></param>
+        </member>
+        <member name="M:DynaToolsFunctions.DynaFunctions.executeSqlCommand(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="commandString"></param>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CollectorTools.Collectors">
+            <summary>
+            Collection of tools to get quantities of elements and useful parameters values
+            </summary>
+        </member>
+        <member name="M:CollectorTools.Collectors.CableTrayCollector(System.Boolean)">
+            <summary>
+            Collect all the cable trays in the active document and push some useful data
+            </summary>
+            <param name="refresh">Refresh the output</param>
+            <returns></returns>
+        </member>
+        <member name="M:CollectorTools.Collectors.DuctCollector(System.Boolean)">
+            <summary>
+            Collect all the ducts in the active document and push some useful data
+            </summary>
+            <param name="refresh">Refresh the output</param>
+            <returns></returns>
+        </member>
+        <member name="M:CollectorTools.Collectors.PipeCollector(System.Boolean)">
+            <summary>
+            Collect all the pipes in the active document and push some useful data
+            </summary>
+            <param name="refresh">Refresh the output</param>
+            <returns></returns>
+        </member>
+        <member name="T:SQLTools.Connect">
+            <summary>
+            Collection of nodes to manage SQL Server operations
+            </summary>
+        </member>
+        <member name="M:SQLTools.Connect.Server(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="serverName">SQL server name</param>
+            <param name="username">Username</param>
+            <param name="password">Password</param>
+            <returns></returns>
+        </member>
+        <member name="M:SQLTools.Connect.Database(System.String,System.String,System.String,System.String)">
+            <summary>
+            Connect to a specific database
+            </summary>
+            <param name="serverName">SQL server name</param>
+            <param name="dbName">Database name</param>
+            <param name="username">Username</param>
+            <param name="password">Password</param>
+            <returns></returns>
+        </member>
+        <member name="M:SQLTools.Create.Database(System.String,System.String)">
+            <summary>
+            Create a new Database
+            </summary>
+            <param name="connectionString">Connection string</param>
+            <param name="dbName">Database name</param>
+            <returns></returns>
+        </member>
+        <member name="M:SQLTools.Create.Table(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.String,System.String)">
+            <summary>
+            Create a table in a specific schema
+            </summary>
+            <param name="connectionString">Connection string</param>
+            <param name="tableName">Table name</param>
+            <param name="dbSchema">Database schema (default = dbo)</param>
+            <returns></returns>
+        </member>
+        <member name="M:SQLTools.Create.AddColumnsToTable(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            Add columns to a specific table
+            </summary>
+            <param name="connectionString">Connection string</param>
+            <param name="fieldNames">List of columns names</param>
+            <param name="fieldTypes">Type of fields</param>
+            <param name="tableName">Table name</param>
+            <param name="dbSchema">Database schema (default = dbo)</param>
+            <returns></returns>
+        </member>
+        <member name="M:SQLTools.Drop.Database(System.String,System.String)">
+            <summary>
+            Delete a database
+            </summary>
+            <param name="connectionString">Connection String</param>
+            <param name="dbName">Database name</param>
+            <returns></returns>
+        </member>
+        <member name="M:SQLTools.Drop.Table(System.String,System.String,System.String)">
+            <summary>
+            Delete a table from a specific schema
+            </summary>
+            <param name="connectionString">Connection string</param>
+            <param name="tableName">Table name</param>
+            <param name="dbSchema">Database schema (default = dbo)</param>
+            <returns></returns>
+        </member>
+        <member name="M:SQLTools.Drop.ColumnsFromTable(System.String,System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            Remove columns from a table
+            </summary>
+            <param name="connectionString">Connection string</param>
+            <param name="fieldNames">Columns names</param>
+            <param name="tableName">Table name</param>
+            <param name="dbSchema">Database schema (default = dbo)</param>
+            <returns></returns>
+        </member>
+        <member name="M:SQLTools.Select.ColumnFromTableByName(System.String,System.String,System.String,System.String)">
+            <summary>
+            Select the content from a column
+            </summary>
+            <param name="connectionString">Connection string</param>
+            <param name="tableName">Table name</param>
+            <param name="fieldName">Column name</param>
+            <param name="dbSchema">Database schema (default = dbo)</param>
+            <returns></returns>
+        </member>
+        <member name="M:SQLTools.Select.ColumnsNamesFromTable(System.String,System.String,System.String)">
+            <summary>
+            Select the names of columns
+            </summary>
+            <param name="connectionString">Connection string</param>
+            <param name="tableName">Table name</param>
+            <param name="dbSchema">Database schema (default = dbo)</param>
+            <returns></returns>
+        </member>
+        <member name="M:SQLTools.Insert.IntoTable(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Collections.Generic.List{System.String}},System.String,System.String)">
+            <summary>
+            Insert values in a table
+            </summary>
+            <param name="connectionString">Connection string</param>
+            <param name="fieldNames">Columns names</param>
+            <param name="values">List of values as string</param>
+            <param name="tableName">Table name</param>
+            <param name="dbSchema">Database schema (default = dbo)</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,774 @@
+{
+  "Uuid": "36c85ae0-b3ca-46bd-8cf9-0595bec33b46",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "test",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "4e5f904d-963c-4df8-b4d2-648c2816aa11-000f849c"
+      ],
+      "Id": "014e02de351d4df08a43ebe76c2ea3d1",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4a903840d2e94bc68ce1cb9ba0d9d4e9",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "2de8f2f3-06a8-464f-9546-b4da914d8a26",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "7673525404eb444bb98dc013193a54ce",
+      "Inputs": [
+        {
+          "Id": "e55f3b26f8594725a9a643302c15841e",
+          "Name": "PointcloudInstance",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "879be998f9bf4954aa3f8920b7ee0785",
+          "Name": "Scans",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "99f78a01a2274c4bb4d4d44525bfdb78",
+          "Name": "Origins",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4143f4b83074488f84999669404156bc",
+          "Name": "Regions",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "(Sastrugi_Pointcloud_Geometry) This node extracts Scan Names/Origins and Scan Region Names from within a Pointcloud Instance."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Application.Document.ActiveView",
+      "Id": "bc39c3e78df4415eb3805b2772594463",
+      "Inputs": [
+        {
+          "Id": "53337643b7b54cd5a361fdd7406e850a",
+          "Name": "document",
+          "Description": "Revit.Application.Document",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b739232cbba1451a91ea5443f36530e5",
+          "Name": "View",
+          "Description": "View",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the active view for the document\n\nDocument.ActiveView: View"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Application.Document.Current",
+      "Id": "838173a0117444d1be37364e89094f0f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "40669e23d7f44a9096a14288f00d4c77",
+          "Name": "Document",
+          "Description": "Document",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the current document\n\nDocument.Current: Document"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Test 2\";",
+      "Id": "51d03a1222e042e684f049a6b4af1904",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "899a20c0871e4256be5e10f4009e98b1",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"ground points\";",
+      "Id": "c49f66e97b4f48e5bf43e4a4bcc27580",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7e1f1395496142b3a230f9eb342f2b4d",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "06f0e14d-87ad-486a-834c-3b937401fe70",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "d8be22b5aaec4f79a30cc5c5d8ff748b",
+      "Inputs": [
+        {
+          "Id": "65fdc247cf8c49caaec8836a14f2d612",
+          "Name": "PointcloudInstance",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7b1ce345db624ec5b0856a77c923e9ab",
+          "Name": "PointcloudOverrideSettings",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a031be3841884a82a2383b63d20cd2a3",
+          "Name": "ViewList",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4c2fa392758f4bae9ae08d54c99e9a52",
+          "Name": "PointcloudInstance",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "(Sastrugi-Pointcloud_Graphics) Overrides the graphics for a Pointcloud instance in the specified views."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Color.ByARGB@int,int,int,int",
+      "Id": "1f748112da4c455ca2768283f4a97f8e",
+      "Inputs": [
+        {
+          "Id": "423d607fcf4e4f18b295040bd82759d6",
+          "Name": "alpha",
+          "Description": "Alpha value (between 0 and 255 inclusive)\n\nint\nDefault value : 255",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "045b0a7cb5474ac29f9f5954a2859853",
+          "Name": "red",
+          "Description": "Red value for RGB color model (between 0 and 255 inclusive)\n\nint\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e188b354ea524f1b838ff89c40b14ec6",
+          "Name": "green",
+          "Description": "Green value for RGB color model (between 0 and 255 inclusive)\n\nint\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8f3ac46482e24c2ab4be0ed7325eb076",
+          "Name": "blue",
+          "Description": "Blue value for RGB color model (between 0 and 255 inclusive)\n\nint\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c97a8dbaea3245168cf4cbd6b160a450",
+          "Name": "color",
+          "Description": "Color created from ARGB",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Construct a color by alpha, red, green, and blue components.\n\nColor.ByARGB (alpha: int = 255, red: int = 0, green: int = 0, blue: int = 0): Color"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "125;",
+      "Id": "a0befc0577844ec5a41a674899ab06a4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "677dbab81ca74ddd82496f7e4aa9da6f",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "43e9163b-bb13-4bca-a3ac-5d0257baae6e",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "4663faadbc3b4039ab2034f59053e699",
+      "Inputs": [
+        {
+          "Id": "a1600f20e8ac4eb3a04ee6ef84ef83f2",
+          "Name": "MinColor",
+          "Description": "Color\nDefault value : DSCore.Color.ByARGB(255, 0, 0, 255)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "441bbf34731344f4a4f90429b77c3242",
+          "Name": "MaxColor",
+          "Description": "Color\nDefault value : DSCore.Color.ByARGB(255, 255, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "af7aba82665740ffa524e8e34adc5906",
+          "Name": "OverrideSettings",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "(Sastrugi_Pointcloud_Graphics) Override settings for Pointcloud by Elevation."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "a4b96e46-1062-4755-963a-a76acc89b24b",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "acb64d602f4a4d5f9ecaa54b673e1d85",
+      "Inputs": [
+        {
+          "Id": "3471eaf8d1c54f64b8193d2b91e6c85c",
+          "Name": "FixedColor",
+          "Description": "Color\nDefault value : DSCore.Color.ByARGB(255, 255, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "29b3456e69bf46d9a1ecdb282cadfd30",
+          "Name": "OverrideSettings",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "(Sastrugi_Pointcloud_Graphics) Override settings for Pointcloud by Fixed Color."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "bb397892-6d6a-4bc0-a863-fde22c15b4fb",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "42d9dbaa93fe41ff9a56792c66d50872",
+      "Inputs": [
+        {
+          "Id": "554fd76cc418443cadb59ad7638ac19b",
+          "Name": "MinColor",
+          "Description": "Color\nDefault value : DSCore.Color.ByARGB(255, 0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d4cbce070ea44c56ac7687c40e0abac2",
+          "Name": "MaxColor",
+          "Description": "Color\nDefault value : DSCore.Color.ByARGB(255, 255, 255, 255)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a1d0d6b56aea49648148ac7d1afe6fc4",
+          "Name": "OverrideSettings",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "(Sastrugi_Pointcloud_Graphics) Override settings for Pointcloud by Intensity."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "866d569f-bb0b-4479-9c53-28f66ab10fa5",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "af8fdd9dbd0849169ee49f339a760041",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3419b2fac80b4b3598c8b45aedade853",
+          "Name": "OverrideSettings",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "(Sastrugi_Pointcloud_Graphics) Override settings for Pointcloud by Normals."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "d9577dd4-4465-4a7d-bc72-233c75275873",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "25d8803f2f9b47089a20430cb5d4eaf8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3d948e1c1af7451c8701b4793f43c8d5",
+          "Name": "OverrideSettings",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "(Sastrugi_Pointcloud_Graphics) Override settings for Pointcloud by No-Override."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "06c2068c-b793-43c5-ae09-272b2a856283",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "f7473051a3834c9ab422a376709df8b6",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cf93e10dc7d74775839bc65d6087f64f",
+          "Name": "OverrideSettings",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "(Sastrugi_Pointcloud_Graphics) Override settings to Show Scans/Regions."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "3a370ec2-87fe-476f-9b0e-77e4f09100ec",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "4e155149120d4729a0eec58ada3d5d3b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e7684ce3ca7942f79c9a06cb3d64dea8",
+          "Name": "OverrideSettings",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "(Sastrugi_Pointcloud_Graphics) Override settings to Hide Scans/Regions."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "4a903840d2e94bc68ce1cb9ba0d9d4e9",
+      "End": "e55f3b26f8594725a9a643302c15841e",
+      "Id": "04ed00f44ebf4daa894c4ecc3fd82fda",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "4a903840d2e94bc68ce1cb9ba0d9d4e9",
+      "End": "65fdc247cf8c49caaec8836a14f2d612",
+      "Id": "f639dd6e980d4a6bb275fd2095a15045",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b739232cbba1451a91ea5443f36530e5",
+      "End": "a031be3841884a82a2383b63d20cd2a3",
+      "Id": "069fbf2fd91949b49162e04cb7ddac07",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "40669e23d7f44a9096a14288f00d4c77",
+      "End": "53337643b7b54cd5a361fdd7406e850a",
+      "Id": "92a97a0a67ec4fdcbd2ef9b0055295df",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "677dbab81ca74ddd82496f7e4aa9da6f",
+      "End": "e188b354ea524f1b838ff89c40b14ec6",
+      "Id": "a2d5e6fea4cc447195f59a0391c687d8",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3d948e1c1af7451c8701b4793f43c8d5",
+      "End": "7b1ce345db624ec5b0856a77c923e9ab",
+      "Id": "cbe102e6c5b34bf084db463d3d545e6d",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "2de8f2f3-06a8-464f-9546-b4da914d8a26",
+    "06f0e14d-87ad-486a-834c-3b937401fe70",
+    "43e9163b-bb13-4bca-a3ac-5d0257baae6e",
+    "a4b96e46-1062-4755-963a-a76acc89b24b",
+    "bb397892-6d6a-4bc0-a863-fde22c15b4fb",
+    "866d569f-bb0b-4479-9c53-28f66ab10fa5",
+    "d9577dd4-4465-4a7d-bc72-233c75275873",
+    "06c2068c-b793-43c5-ae09-272b2a856283",
+    "3a370ec2-87fe-476f-9b0e-77e4f09100ec"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "SastrugiPointCloud",
+      "Version": "2.3.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "7673525404eb444bb98dc013193a54ce",
+        "d8be22b5aaec4f79a30cc5c5d8ff748b",
+        "4663faadbc3b4039ab2034f59053e699",
+        "acb64d602f4a4d5f9ecaa54b673e1d85",
+        "42d9dbaa93fe41ff9a56792c66d50872",
+        "af8fdd9dbd0849169ee49f339a760041",
+        "25d8803f2f9b47089a20430cb5d4eaf8",
+        "f7473051a3834c9ab422a376709df8b6",
+        "4e155149120d4729a0eec58ada3d5d3b"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "014e02de351d4df08a43ebe76c2ea3d1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 254.40000000000015,
+        "Y": 441.59999999999997
+      },
+      {
+        "Name": "❄_PC_Get_Scans_and_Regions",
+        "ShowGeometry": true,
+        "Id": "7673525404eb444bb98dc013193a54ce",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 582.80000000000007,
+        "Y": 446.39999999999981
+      },
+      {
+        "Name": "Document.ActiveView",
+        "ShowGeometry": true,
+        "Id": "bc39c3e78df4415eb3805b2772594463",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 312.14590925842163,
+        "Y": 251.17100085665345
+      },
+      {
+        "Name": "Document.Current",
+        "ShowGeometry": true,
+        "Id": "838173a0117444d1be37364e89094f0f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 37.645103857566824,
+        "Y": 255.07893175074202
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "51d03a1222e042e684f049a6b4af1904",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 624.0,
+        "Y": 294.0
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "c49f66e97b4f48e5bf43e4a4bcc27580",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 474.0,
+        "Y": 850.0
+      },
+      {
+        "Name": "❄_PC_Set_Graphics_Override",
+        "ShowGeometry": true,
+        "Id": "d8be22b5aaec4f79a30cc5c5d8ff748b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 955.04688234118316,
+        "Y": -116.42684934265864
+      },
+      {
+        "Name": "Color.ByARGB",
+        "ShowGeometry": true,
+        "Id": "1f748112da4c455ca2768283f4a97f8e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 34.961660992775876,
+        "Y": -354.04917932375531
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "a0befc0577844ec5a41a674899ab06a4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -147.25758328338452,
+        "Y": -276.10544740288179
+      },
+      {
+        "Name": "❄_PC_Graphics_Override_Settings_By_Elevation",
+        "ShowGeometry": true,
+        "Id": "4663faadbc3b4039ab2034f59053e699",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 887.15221818049235,
+        "Y": -492.658037341023
+      },
+      {
+        "Name": "❄_PC_Graphics_Override_Settings_By_Fixed_Color",
+        "ShowGeometry": true,
+        "Id": "acb64d602f4a4d5f9ecaa54b673e1d85",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 252.77283875425587,
+        "Y": -896.542781361982
+      },
+      {
+        "Name": "❄_PC_Graphics_Override_Settings_By_Intensity",
+        "ShowGeometry": true,
+        "Id": "42d9dbaa93fe41ff9a56792c66d50872",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 297.41819606248532,
+        "Y": -349.37758830530987
+      },
+      {
+        "Name": "❄_PC_Graphics_Override_Settings_By_Normals",
+        "ShowGeometry": true,
+        "Id": "af8fdd9dbd0849169ee49f339a760041",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -259.09137410521157,
+        "Y": -739.76489872145544
+      },
+      {
+        "Name": "❄_PC_Graphics_Override_Settings_No-Override",
+        "ShowGeometry": true,
+        "Id": "25d8803f2f9b47089a20430cb5d4eaf8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 866.38693571154818,
+        "Y": -666.0481459567045
+      },
+      {
+        "Name": "❄_PC_Graphics_Override_Settings_Visibility_Show",
+        "ShowGeometry": true,
+        "Id": "f7473051a3834c9ab422a376709df8b6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 103.26280497786001,
+        "Y": -598.56097793263689
+      },
+      {
+        "Name": "❄_PC_Graphics_Override_Settings_Visibilty_Hide",
+        "ShowGeometry": true,
+        "Id": "4e155149120d4729a0eec58ada3d5d3b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 284.95902658111913,
+        "Y": -751.18580407937475
+      }
+    ],
+    "Annotations": [],
+    "X": 173.7204557590436,
+    "Y": 596.43389209249619,
+    "Zoom": 0.4402887521539301
+  }
+}

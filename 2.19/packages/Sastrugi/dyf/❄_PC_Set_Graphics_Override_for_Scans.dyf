@@ -1,0 +1,415 @@
+{
+  "Uuid": "c6bd2bb6-bfd0-494c-90bf-76d4aeac0cfd",
+  "IsCustomNode": true,
+  "Category": "Sastrugi.Pointcloud Graphics",
+  "Description": "(Sastrugi-Pointcloud_Graphics) Overrides the graphics for Scan locations within a Pointcloud instance in the specified views.",
+  "Name": "❄_PC_Set_Graphics_Override_for_Scans",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "PointcloudInstance",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "8d0e14f1cc77414e9f24662092a42f4c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2af3f541bb3b417597c1a983cdb065da",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "PointcloudOverrideSettings",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Plese note that Scans within Pointcloud\nInstances can only be overriden with \na Fixed Color graphics style. "
+      },
+      "Id": "fa1be66a8e7f4402b6fbbd366505384d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "652d3d5666e346ce8521df2be2d0a601",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "ScanNames",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "8c478666deb54ae8959b71163c9246ab",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d1c81e4970234be08077f233240c5e93",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "PointcloudInstance",
+      "Id": "ae13bf6335f2403f84d347a506bfbc38",
+      "Inputs": [
+        {
+          "Id": "903685e49745463892b1dc2ce35628a2",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Python coding credit to Dynamo Forum user - @Ewan_Opie 2019\n# Sastrugi Package https://sites.google.com/view/sastrugi/home\n\nimport clr\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.Elements)\n\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\n\nfrom System.Collections.Generic import *\n\nclr.AddReference(\"RevitAPI\")\nimport Autodesk\nfrom Autodesk.Revit.DB import *\n\nfrom Autodesk.Revit import DB\n\nimport sys\npyt_path = r'C:\\Program Files (x86)\\IronPython 2.7\\Lib'\nsys.path.append(pyt_path)\n\nclr.ImportExtensions(Revit.GeometryConversion)\n\ndoc = DocumentManager.Instance.CurrentDBDocument\nuiapp = DocumentManager.Instance.CurrentUIApplication\napp = uiapp.Application\n\ndef tolist(obj1):\n\tif hasattr(obj1,\"__iter__\"): return obj1\n\telse: return [obj1]\t\n\t\ncloud = tolist(UnwrapElement(IN[0]))\n\npcORsettings = tolist(IN[1])\n\nname = tolist(IN[2])\n\nviews = tolist(UnwrapElement(IN[3]))\n\nerrorReport = []\n\nTransactionManager.Instance.EnsureInTransaction(doc)\n\ntry:\n\t\terrorReport = None\n\t\tif len(cloud)>1:\n\t\t\tfor c in cloud:\n\t\t\t\tfor v in views:\n\t\t\t\t\tpt_overrides = v.GetPointCloudOverrides()\n\t\t\t\tfor p1,n1 in zip(pcORsettings,name):\n\t\t\t\t\tfor p2,n2 in zip(p1,n1):\n\t\t\t\t\t\tpt_overrides.SetPointCloudScanOverrideSettings(c.Id, p2,n2,doc)\n\t\telse:\n\t\t\tfor c in cloud:\n\t\t\t\tfor v in views:\n\t\t\t\t\tpt_overrides = v.GetPointCloudOverrides()\n\t\t\t\tfor p,n in zip(pcORsettings,name):\n\t\t\t\t\t\tpt_overrides.SetPointCloudScanOverrideSettings(c.Id, p,n,doc)\nexcept:\n\t\timport traceback\n\t\terrorReport.append(str(traceback.format_exc()))\n\t\t\nTransactionManager.Instance.TransactionTaskDone()\n\nif errorReport == None:\n\tOUT = cloud\nelse:\n\tOUT = errorReport\n\n\t",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "adfafe86e3014170b69251a365663a70",
+      "Inputs": [
+        {
+          "Id": "e488dda4122d474bbbecda54da044319",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "76fca55e9b9d4b6199b650a4c685c9e9",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7d0d70c86b8a4822b438f366f041aa8c",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "faccae5dd15d46d897072086a27954f2",
+          "Name": "IN[3]",
+          "Description": "Input #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3e1e319ab6854510882d0a884f73a0da",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "ViewList",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "aceacd80c2ce432598dbe7e31a377754",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e048f91c86c0496d9fd87d7bede1d1d5",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "1038d54bc27049248bf7bb7b45850eb8",
+      "Inputs": [
+        {
+          "Id": "412c03811b4d463b8287429dd54de30b",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "42e60c0ea6ae4836854633c4ca538b3e",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "90d7c27e8c4c46e98b892fa1d2c7975b",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "0ce608cd6c864e398e44cc01bdfd0b80",
+      "Inputs": [
+        {
+          "Id": "0f4db9d601ca4d73be03ce66e355fcc4",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b249148aee34496abfc3e5dfeda527b1",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c68c79c53add4e2cbd652ef74dd13d2b",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "ea67c082f7e1412bbc777556496de9a1",
+      "Inputs": [
+        {
+          "Id": "55de46cf56ad4722b8b191832b2e63e6",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b5ad269505c8433f88db30e81950cfc3",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5f8795063b834ebda090dc6d23bcf825",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "f1c971a1e4ad4209be136c72204f883f",
+      "Inputs": [
+        {
+          "Id": "ec691d0870584c43b6b114103cab161b",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d0b8756ab27749fc899f2518f38fcb05",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8dd8f5399a104bc0b8f37e22e0d061d0",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "2af3f541bb3b417597c1a983cdb065da",
+      "End": "412c03811b4d463b8287429dd54de30b",
+      "Id": "5f2bf729a78a4504bbb987df7fb8e2e3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "652d3d5666e346ce8521df2be2d0a601",
+      "End": "0f4db9d601ca4d73be03ce66e355fcc4",
+      "Id": "3b9e252903fd48dd9a4a317145bdddc4",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d1c81e4970234be08077f233240c5e93",
+      "End": "55de46cf56ad4722b8b191832b2e63e6",
+      "Id": "ce07d051c9c44391a7e1e18014d0695d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3e1e319ab6854510882d0a884f73a0da",
+      "End": "903685e49745463892b1dc2ce35628a2",
+      "Id": "07b6f10836754260b6ac0ca9b0354003",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e048f91c86c0496d9fd87d7bede1d1d5",
+      "End": "ec691d0870584c43b6b114103cab161b",
+      "Id": "aca7f0681d664b02902a2f8887d7508f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "90d7c27e8c4c46e98b892fa1d2c7975b",
+      "End": "e488dda4122d474bbbecda54da044319",
+      "Id": "b208bf74ff024b52a248dd548570824f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c68c79c53add4e2cbd652ef74dd13d2b",
+      "End": "76fca55e9b9d4b6199b650a4c685c9e9",
+      "Id": "8ba9e28996714002b40072b0df109c87",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5f8795063b834ebda090dc6d23bcf825",
+      "End": "7d0d70c86b8a4822b438f366f041aa8c",
+      "Id": "acd9afde9e5546b5a7f5df7651d0012f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "8dd8f5399a104bc0b8f37e22e0d061d0",
+      "End": "faccae5dd15d46d897072086a27954f2",
+      "Id": "feba46574ae140629770f04378ed77c5",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": []
+}

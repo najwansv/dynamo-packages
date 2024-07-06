@@ -1,0 +1,266 @@
+{
+  "Uuid": "7d5fa88c-86b6-4fcd-8f5f-033fcc21a839",
+  "IsCustomNode": true,
+  "Category": "Modelical.Views.Actions",
+  "Description": "This node update the last revision to the selected sheets, changing it for the next one following the sequence.",
+  "Name": "Sheet.UpdateLastRevision",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Revit.Sheet": {
+        "Key": "Revit.Elements.Views.Sheet",
+        "Value": "RevitNodes.dll"
+      },
+      "DSCore.List": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "l[0];\nl[1];",
+      "Id": "7007a112137142c18144949fe3f61d47",
+      "Inputs": [
+        {
+          "Id": "6b33a29f9f37462dbb1443fee0ecfa47",
+          "Name": "l",
+          "Description": "l",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c0ad80946fd046409270fae3e192cd3b",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b5b3769b52574b899fa2810aad20fa83",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "/*It just works on MANUAL mode. */\r\n_sheets",
+      "Id": "29d70559a1314290b5a09b7f975041ed",
+      "Inputs": [
+        {
+          "Id": "f67b12edc0184ad2a19bac9073060cbb",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\n# www.modelical.com\n\nimport clr\nclr.AddReference('ProtoGeometry')\nfrom Autodesk.DesignScript.Geometry import *\n\nclr.AddReference('DScoreNodes')\nimport DSCore\nfrom DSCore import *\n\n#Load Dynamo wrappers\nclr.AddReference(\"RevitNodes\")\nimport Revit\nfrom Revit.Elements import *\nclr.ImportExtensions(Revit.GeometryConversion)\nclr.ImportExtensions(Revit.Elements)\n\n#Load Revit API\nclr.AddReference('RevitAPI')\nfrom Autodesk.Revit.DB import *\n\n#Load document reference\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\n\ndoc = DocumentManager.Instance.CurrentDBDocument\nuiapp = DocumentManager.Instance.CurrentUIApplication\napp = uiapp.Application\n\ndef toList(input):\n    \"\"\"Return iterable if available, a list of 1 otherwise\"\"\"\n    if hasattr(input, \"__iter__\") and not isinstance(input, basestring):\n        return input\n    else:\n        return [input]\n\n\nrevisions = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Revisions).WhereElementIsNotElementType().ToElements()\n\nrevSequence=[]\nfor rev in revisions:\t\n\trevSequence.append(rev.SequenceNumber)\n\nsheets = toList(UnwrapElement(IN[0]))\n\nfList=[]\nTransactionManager.Instance.EnsureInTransaction(doc)\nfor s in sheets:\n\t\tif doc.GetElement(s.GetCurrentRevision())== None:\n\t\t\tfList.append( s.Name + \": There aren't any revision to update\")\n\t\t\n\t\telif doc.GetElement(s.GetCurrentRevision()).SequenceNumber +1 not in revSequence:\n\t\t\tfList.append( s.Name + \": Last revision is already updated\")\n\t\t\t\n\t\telse:\n\t\t\tfor r in revisions:\n\t\t\t\tif doc.GetElement(s.GetCurrentRevision()).SequenceNumber +1 == r.SequenceNumber:\n\t\t\t\t\trlist = s.GetAdditionalRevisionIds()\n\t\t\t\t\trlist.Add(r.Id)\n\t\t\t\t\trlist.Remove(s.GetCurrentRevision())\n\t\t\t\t\ts.SetAdditionalRevisionIds(rlist)\n\t\t\t\t\tfList.append(s.Name + \": Last revision has been updated\")\n\t\t\t\t\nTransactionManager.Instance.TransactionTaskDone()\n\t\nOUT=[sheets,fList]",
+      "Engine": "IronPython2",
+      "VariableInputPorts": true,
+      "Id": "2a9c19b65d56470987d868d3bd3796e7",
+      "Inputs": [
+        {
+          "Id": "181b58472de14e5cb61c179c9324dad1",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "115aeb0a275b4e16bdcef2f1e3a6b3cc",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_sheets",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Sheets to update the revision. It just works on MANUAL mode. "
+      },
+      "Id": "d318975cf3f145249744dcc0e1b841a5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9a417e37138b4b36a69df736f8c4a205",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "/*It just works on MANUAL mode. */\r\n_info",
+      "Id": "3e0d65d0e94a430c8e6c794c2b837d6c",
+      "Inputs": [
+        {
+          "Id": "3a4a4ec7151346899fbc3214e90df51a",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "c0ad80946fd046409270fae3e192cd3b",
+      "End": "f67b12edc0184ad2a19bac9073060cbb",
+      "Id": "2e940e63f6e8458c86817d7237a9427f"
+    },
+    {
+      "Start": "b5b3769b52574b899fa2810aad20fa83",
+      "End": "3a4a4ec7151346899fbc3214e90df51a",
+      "Id": "adeea2a0d98c474c8b77cc567a89c8d5"
+    },
+    {
+      "Start": "115aeb0a275b4e16bdcef2f1e3a6b3cc",
+      "End": "6b33a29f9f37462dbb1443fee0ecfa47",
+      "Id": "51fd6ecc367042b3a792b575abd1acd5"
+    },
+    {
+      "Start": "9a417e37138b4b36a69df736f8c4a205",
+      "End": "181b58472de14e5cb61c179c9324dad1",
+      "Id": "5be8f79ad42248fdaed2ddf68b47c2ea"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.12.0.5650",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "7007a112137142c18144949fe3f61d47",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1082.5087516472463,
+        "Y": 64.274223386129961
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "29d70559a1314290b5a09b7f975041ed",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1217.2136067397353,
+        "Y": 45.726710442888233
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "2a9c19b65d56470987d868d3bd3796e7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 912.25231299419374,
+        "Y": 56.436047217146552
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "d318975cf3f145249744dcc0e1b841a5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 250.0,
+        "Y": 52.226048971056571
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "3e0d65d0e94a430c8e6c794c2b837d6c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1215.1017211758717,
+        "Y": 140.25511581113898
+      }
+    ],
+    "Annotations": [],
+    "X": -615.568918997457,
+    "Y": 139.87684974244956,
+    "Zoom": 1.171318357307646
+  }
+}

@@ -1,0 +1,34 @@
+<Workspace Version="0.8.1.1942" X="191" Y="140" zoom="1" Name="String.AddLeadingZeros" ID="317aa423-6074-45c8-8233-f5a94f31d251" Description="Takes an input of a series of numbers, finds the length of the maximum number and then adds leading zero's to any numbers of less digits til they all match.&#xD;&#xA;&#xD;&#xA;As an example if you feed in the numbers 1, 10 and 1000, it will give you the following 0001, 0010, 1000. Lists can be in any order as it searches for the maximum item." Category="Zebra.Core.String.Action">
+  <NamespaceResolutionMap />
+  <Elements>
+    <DSCoreNodesUI.StringNodes.FromObject guid="00407243-19b8-4c78-9841-6da44f4a817d" type="DSCoreNodesUI.StringNodes.FromObject" nickname="String from Object" x="250" y="3.49831747370666" isVisible="true" isUpstreamVisible="true" lacing="Disabled" />
+    <DSIronPythonNode.PythonNode guid="8acfdec8-3b54-40dd-a9e9-036608473477" type="DSIronPythonNode.PythonNode" nickname="Python Script" x="787.328299931618" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" inputcount="2">
+      <Script>import clr
+
+stringlist = IN[0]
+stringlength = IN[1]
+elementlist = list()
+for item in stringlist:
+	elementlist.append(item.zfill(stringlength))
+OUT = elementlist</Script>
+    </DSIronPythonNode.PythonNode>
+    <Dynamo.Nodes.DSFunction guid="0c07641d-6d30-48cf-a991-4bbddf04587f" type="Dynamo.Nodes.DSFunction" nickname="List.MaximumItem" x="579.125848134971" y="89.9177056798826" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="DSCoreNodes.dll" function="DSCore.List.MaximumItem@var[]" />
+    <Dynamo.Nodes.DSFunction guid="7c0fc78e-6c6d-46a7-bd7f-7fff75789ee2" type="Dynamo.Nodes.DSFunction" nickname="String.Length" x="434.954115852974" y="90.8662039185799" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="DSCoreNodes.dll" function="DSCore.String.Length@string" />
+    <Dynamo.Nodes.Symbol guid="bb25f4e6-2fb0-4415-b348-318e60af1828" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <Symbol value="Numbers" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Output guid="6a0cf011-9ea7-47a5-a19f-5943a2d5dc5f" type="Dynamo.Nodes.Output" nickname="Output" x="986.328299931618" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <Symbol value="Numbers" />
+    </Dynamo.Nodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="00407243-19b8-4c78-9841-6da44f4a817d" start_index="0" end="8acfdec8-3b54-40dd-a9e9-036608473477" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="00407243-19b8-4c78-9841-6da44f4a817d" start_index="0" end="7c0fc78e-6c6d-46a7-bd7f-7fff75789ee2" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="8acfdec8-3b54-40dd-a9e9-036608473477" start_index="0" end="6a0cf011-9ea7-47a5-a19f-5943a2d5dc5f" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="0c07641d-6d30-48cf-a991-4bbddf04587f" start_index="0" end="8acfdec8-3b54-40dd-a9e9-036608473477" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="7c0fc78e-6c6d-46a7-bd7f-7fff75789ee2" start_index="0" end="0c07641d-6d30-48cf-a991-4bbddf04587f" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="bb25f4e6-2fb0-4415-b348-318e60af1828" start_index="0" end="00407243-19b8-4c78-9841-6da44f4a817d" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+</Workspace>

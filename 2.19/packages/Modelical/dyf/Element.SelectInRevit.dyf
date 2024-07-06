@@ -1,0 +1,112 @@
+{
+  "Uuid": "73c7d4c3-4be5-475d-991b-cbc068e9a878",
+  "IsCustomNode": true,
+  "Category": "Modelical.Elements.Actions",
+  "Description": "This node allows to select Revit elements using the element ID or the element itself.",
+  "Name": "Element.SelectInRevit",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_elementsOrIDs",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Elements or IDs"
+      },
+      "Id": "e9ed44137ba743c2a614b47c98bf1d0a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "32a1577525414e05a07bbdaa9b48eaf8",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "/*Selected elements*/\r\n_elements",
+      "Id": "67013e27318e4049adc12d69043a6518",
+      "Inputs": [
+        {
+          "Id": "3b54e150b54c4785962f41330bb7a800",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Una función de salida, se debe utilizar con nodos personalizados"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\nclr.AddReference(\"RevitAPI\")\r\nfrom Autodesk.Revit.DB import *\r\n\r\nclr.AddReference(\"RevitAPIUI\")\r\nfrom Autodesk.Revit.UI import *\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\nfrom System.Collections.Generic import List\r\n\r\nuidoc = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\ndef toList(input):\r\n    if isinstance(input, list):\r\n        return input\r\n    else:\r\n        return [input]\r\n\r\n# Logic starts here\r\n\r\nelementsOrIDs = toList(UnwrapElement(IN[0]))\r\n\r\nelementIds = List[ElementId]()\r\nfList=[]\r\n\r\nfor elem in elementsOrIDs:\r\n    try:\r\n        int(elem)\r\n        elementIds.Add(ElementId(int(elem)))\r\n        fList.append(doc.GetElement(ElementId(int(elem))))\r\n    except:\r\n        elementIds.Add(elem.Id)\r\n        fList.append(elem)\r\nselection = uidoc.Selection.SetElementIds(elementIds)\r\n\r\n# Transactions\r\n\r\n# Output\r\nOUT = fList",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "602addbdbf094846a425003ed8ea6db8",
+      "Inputs": [
+        {
+          "Id": "c115168cb305423f93787bfde2a56aa9",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bbf35eeeac354e69b89e674f9c86ae96",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python incrustada."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "32a1577525414e05a07bbdaa9b48eaf8",
+      "End": "c115168cb305423f93787bfde2a56aa9",
+      "Id": "73544344a3b84d1dbad10e2a0c3c498c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "bbf35eeeac354e69b89e674f9c86ae96",
+      "End": "3b54e150b54c4785962f41330bb7a800",
+      "Id": "95d30fa80cb143f59e84eda2af851a28",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": []
+}

@@ -1,0 +1,16 @@
+<Workspace Version="0.8.0.950" X="-182.503471838945" Y="-238.289385760625" zoom="1.78359936238281" Name="String.AsciiCharactersAsString" ID="9fa28354-b021-44ae-9f2a-b5c69a21208d" Description="Creates the ASCII printable characters excluding letters and digits as string" Category="Zebra.Core.String.Create">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Nodes.StringInput guid="e3e65702-87a3-470b-9a0f-9cef9c4725c8" type="Dynamo.Nodes.StringInput" nickname="String" x="194" y="288.5" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <System.String> !"#$%&amp;'()*+,-./:;&lt;=&gt;?@{\}^_`{|}~</System.String>
+      <System.String value=" !&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?@{\}^_`{|}~" />
+    </Dynamo.Nodes.StringInput>
+    <Dynamo.Nodes.Output guid="104f7af6-45dd-4986-abac-c2b8498146cf" type="Dynamo.Nodes.Output" nickname="Output" x="495" y="288.5" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <Symbol value="ASCII" />
+    </Dynamo.Nodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="e3e65702-87a3-470b-9a0f-9cef9c4725c8" start_index="0" end="104f7af6-45dd-4986-abac-c2b8498146cf" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+</Workspace>
