@@ -1,0 +1,107 @@
+<Workspace Version="0.9.0.3067" X="-133" Y="169" zoom="1" Name="FillPattern.PresetBrick" Description="Creates a the string needed for a standard custom brick pattern. Change the height and width of brick to toggle the size of the pattern. Feed the output string into a FillPattern.ModelPatFile or FillPattern.DraftingPatFile node." ID="92446737-cf8d-4636-ae38-238a68806f2c" Category="Zebra.Revit">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="Autodesk.Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Autodesk.DesignScript.Geometry.Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Line" resolvedName="Autodesk.DesignScript.Geometry.Line" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Display" resolvedName="Display.Display" assemblyName="Display.dll" />
+    <ClassMap partialName="DSCore.Color" resolvedName="DSCore.Color" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="Vector" resolvedName="Autodesk.DesignScript.Geometry.Vector" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Math" resolvedName="DSCore.Math" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="List" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="Vector.ZAxis" resolvedName="Autodesk.DesignScript.Geometry.Vector" assemblyName="ProtoGeometry.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <DSCoreNodesUI.Input.DoubleSlider guid="c259ef8f-10dc-4abf-97a8-5a1a76843249" type="DSCoreNodesUI.Input.DoubleSlider" nickname="Number" x="253.602372324697" y="3.51282594758485" isVisible="false" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double>0</System.Double>
+      <Range min="0" max="360" step="1" />
+    </DSCoreNodesUI.Input.DoubleSlider>
+    <DSCoreNodesUI.Input.DoubleSlider guid="200be762-fd67-4abb-8053-1b14551d4af5" type="DSCoreNodesUI.Input.DoubleSlider" nickname="Angle" x="250" y="81.8853007984081" isVisible="false" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double>90</System.Double>
+      <Range min="0" max="360" step="1" />
+    </DSCoreNodesUI.Input.DoubleSlider>
+    <Dynamo.Nodes.Function guid="6f62bda5-a084-44b2-bf76-8a21d2cf5737" type="Dynamo.Nodes.Function" nickname="FillPattern.LinePatternCreation" x="798.001406415739" y="0" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="fc05a10a-2ab6-4e55-8ad6-7e41cb8c7bdd" />
+      <Name value="FillPattern.LinePatternCreation" />
+      <Description value="Creates and visualises the line pattern used in fill patterns. Part of the method of creating a Fill Pattern (.pat) file using the Zebra package." />
+      <Inputs>
+        <Input value="Angle" />
+        <Input value="Origin.X" />
+        <Input value="Origin.Y" />
+        <Input value="X Shift" />
+        <Input value="Y Shift" />
+        <Input value="Pen Down" />
+        <Input value="Pen Up" />
+      </Inputs>
+      <Outputs>
+        <Output value="LinePattern" />
+        <Output value="String" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.Function guid="95fbe208-ef48-4b2b-82a1-77b3ba90109a" type="Dynamo.Nodes.Function" nickname="FillPattern.LinePatternCreation" x="794.194272904565" y="254.688752280946" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="fc05a10a-2ab6-4e55-8ad6-7e41cb8c7bdd" />
+      <Name value="FillPattern.LinePatternCreation" />
+      <Description value="Creates and visualises the line pattern used in fill patterns. Part of the method of creating a Fill Pattern (.pat) file using the Zebra package." />
+      <Inputs>
+        <Input value="Angle" />
+        <Input value="Origin.X" />
+        <Input value="Origin.Y" />
+        <Input value="X Shift" />
+        <Input value="Y Shift" />
+        <Input value="Pen Down" />
+        <Input value="Pen Up" />
+      </Inputs>
+      <Outputs>
+        <Output value="LinePattern" />
+        <Output value="String" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.DSVarArgFunction guid="1b856f74-8ab8-4d6e-9398-6047b09439be" type="Dynamo.Nodes.DSVarArgFunction" nickname="String.Join" x="1083.54199043741" y="256.81629216756" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.String.Join@string,string[]" inputcount="3" />
+    <Dynamo.Nodes.StringInput guid="8372f494-73f3-4af0-b1be-d0745b7aaa79" type="Dynamo.Nodes.StringInput" nickname="String" x="931.21368811175" y="508.145853860026" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.String>
+</System.String>
+      <System.String value="&#xD;&#xA;" />
+    </Dynamo.Nodes.StringInput>
+    <Dynamo.Nodes.Symbol guid="b05a6008-9b6b-433e-8d9c-7e394f46fd55" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="Height" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Symbol guid="44ff7cfd-dba7-4e26-8848-f037841cca70" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="300" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="Width : var[]..[]" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Output guid="1f04de65-6e10-4a44-9d1f-1ca056e55ae8" type="Dynamo.Nodes.Output" nickname="Output" x="1263.54199043741" y="112" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="LinePattern" />
+    </Dynamo.Nodes.Output>
+    <Dynamo.Nodes.Output guid="5b16f1d3-ca62-4c7a-83f8-570ecd3a6c5e" type="Dynamo.Nodes.Output" nickname="Output" x="1273.54199043741" y="256" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="String" />
+    </Dynamo.Nodes.Output>
+    <DSCoreNodesUI.CreateList guid="6d4c1c47-6470-41f4-b8fe-b047969ca3c4" type="DSCoreNodesUI.CreateList" nickname="List.Create" x="1092.5" y="114.5" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" inputcount="2" />
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="c259ef8f-10dc-4abf-97a8-5a1a76843249" start_index="0" end="95fbe208-ef48-4b2b-82a1-77b3ba90109a" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c259ef8f-10dc-4abf-97a8-5a1a76843249" start_index="0" end="95fbe208-ef48-4b2b-82a1-77b3ba90109a" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c259ef8f-10dc-4abf-97a8-5a1a76843249" start_index="0" end="6f62bda5-a084-44b2-bf76-8a21d2cf5737" end_index="6" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c259ef8f-10dc-4abf-97a8-5a1a76843249" start_index="0" end="6f62bda5-a084-44b2-bf76-8a21d2cf5737" end_index="5" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c259ef8f-10dc-4abf-97a8-5a1a76843249" start_index="0" end="6f62bda5-a084-44b2-bf76-8a21d2cf5737" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c259ef8f-10dc-4abf-97a8-5a1a76843249" start_index="0" end="6f62bda5-a084-44b2-bf76-8a21d2cf5737" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c259ef8f-10dc-4abf-97a8-5a1a76843249" start_index="0" end="6f62bda5-a084-44b2-bf76-8a21d2cf5737" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c259ef8f-10dc-4abf-97a8-5a1a76843249" start_index="0" end="6f62bda5-a084-44b2-bf76-8a21d2cf5737" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="200be762-fd67-4abb-8053-1b14551d4af5" start_index="0" end="95fbe208-ef48-4b2b-82a1-77b3ba90109a" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="6f62bda5-a084-44b2-bf76-8a21d2cf5737" start_index="0" end="6d4c1c47-6470-41f4-b8fe-b047969ca3c4" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="6f62bda5-a084-44b2-bf76-8a21d2cf5737" start_index="1" end="1b856f74-8ab8-4d6e-9398-6047b09439be" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="95fbe208-ef48-4b2b-82a1-77b3ba90109a" start_index="0" end="6d4c1c47-6470-41f4-b8fe-b047969ca3c4" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="95fbe208-ef48-4b2b-82a1-77b3ba90109a" start_index="1" end="1b856f74-8ab8-4d6e-9398-6047b09439be" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="1b856f74-8ab8-4d6e-9398-6047b09439be" start_index="0" end="5b16f1d3-ca62-4c7a-83f8-570ecd3a6c5e" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="8372f494-73f3-4af0-b1be-d0745b7aaa79" start_index="0" end="1b856f74-8ab8-4d6e-9398-6047b09439be" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b05a6008-9b6b-433e-8d9c-7e394f46fd55" start_index="0" end="6f62bda5-a084-44b2-bf76-8a21d2cf5737" end_index="4" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b05a6008-9b6b-433e-8d9c-7e394f46fd55" start_index="0" end="95fbe208-ef48-4b2b-82a1-77b3ba90109a" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b05a6008-9b6b-433e-8d9c-7e394f46fd55" start_index="0" end="95fbe208-ef48-4b2b-82a1-77b3ba90109a" end_index="5" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b05a6008-9b6b-433e-8d9c-7e394f46fd55" start_index="0" end="95fbe208-ef48-4b2b-82a1-77b3ba90109a" end_index="6" portType="0" />
+    <Dynamo.Models.ConnectorModel start="44ff7cfd-dba7-4e26-8848-f037841cca70" start_index="0" end="95fbe208-ef48-4b2b-82a1-77b3ba90109a" end_index="4" portType="0" />
+    <Dynamo.Models.ConnectorModel start="6d4c1c47-6470-41f4-b8fe-b047969ca3c4" start_index="0" end="1f04de65-6e10-4a44-9d1f-1ca056e55ae8" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-39.25644543864" eyeY="2168.23352586589" eyeZ="196.864645819309" lookX="1.79665914274923" lookY="-1847.71368944011" lookZ="-149.317728857639" upX="0.0115057593211532" upY="0.292371690273285" upZ="-0.956235527992249" />
+  </Cameras>
+</Workspace>

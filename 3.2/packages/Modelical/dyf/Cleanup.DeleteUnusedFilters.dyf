@@ -1,0 +1,112 @@
+{
+  "Uuid": "a90fe231-1687-463b-a904-75cb468f8462",
+  "IsCustomNode": true,
+  "Category": "Modelical.Actions",
+  "Description": "This node deletes all unused filters in the project file.",
+  "Name": "Cleanup.DeleteUnusedFilters",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "_info",
+      "Id": "050d3887e943431bade2d123cb85858d",
+      "Inputs": [
+        {
+          "Id": "0ed013476b854b26a5c89f29cfe44396",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Una función de salida, se debe utilizar con nodos personalizados"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_bool",
+        "TypeName": "bool",
+        "TypeRank": 0,
+        "DefaultValue": "false",
+        "Description": "Set TRUE to delete unused Filters"
+      },
+      "Id": "32bbaba62da1430586d7390eca437d1e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "858a743632ce4c0c8e0a3ae673ae27ee",
+          "Name": "",
+          "Description": "Datos de entrada",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\n#Note: The methods used in this script has been taken from Paul Wintour's BVN package and reused to achieve the purpose of the same. https://parametricmonkey.com/2016/03/09/get-unused-filters/\r\n\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\nclr.AddReference(\"System.Core\")\r\nimport System.Linq\r\nclr.ImportExtensions(System.Linq)\r\n\r\nclr.AddReference(\"RevitAPI\")\r\nimport Autodesk.Revit\r\nfrom Autodesk.Revit.Exceptions import InvalidOperationException\r\nfrom Autodesk.Revit.DB import *\r\nfrom Autodesk.Revit.DB import ElementId\r\nfrom System.Collections.Generic import *\r\n\r\n# Import ToDSType(bool) extension method\r\nclr.AddReference(\"RevitNodes\")\r\nimport Revit\r\nclr.ImportExtensions(Revit.Elements)\r\n\r\n# Import DocumentManager\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\ndef GetFilterIds(view):\r\n  filterIds = None\r\n  try:\r\n    filterIds = view.GetFilters()\r\n  except InvalidOperationException as e:\r\n    filterIds = None\r\n  return filterIds\r\n\r\ndef GetUsedFilterIds(doc):\r\n    views = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Views).WhereElementIsNotElementType().ToElements()\r\n    usedFilterIds = []\r\n    for view in views:\r\n        viewFilterIds = []\r\n        try:\r\n            viewFilterIds = view.GetFilters()\r\n        except InvalidOperationException as e:\r\n            pass # this exception happens when a view doesn't support filters\r\n    \r\n        usedFilterIds.extend(viewFilterIds)\r\n    return usedFilterIds\r\n\r\ndef GetUnusedFilters(doc):\r\n    usedFilterIds = GetUsedFilterIds(doc)\r\n    allFilters = FilteredElementCollector(doc).OfClass(ParameterFilterElement).ToElements()\r\n    unusedFilters=[]\r\n    for f in allFilters:\r\n        if f.Id not in usedFilterIds:\r\n            unusedFilters.append(f)\r\n\r\n    return unusedFilters\r\n\r\n\r\n#The inputs to this node will be stored as a list in the IN variables.\r\n\r\nbool = IN[0]\r\noutput = \"Set TRUE to delete unused Filters\"\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\n\r\nif bool == True:\r\n    filters = GetUnusedFilters(doc)\r\n    if len(filters)!=0:\r\n        filters2 = UnwrapElement(filters)\r\n        filtersID = []\r\n        filtersNames = []\r\n\r\n        for f in filters2:\r\n                filtersID.append(f.Id)\r\n\r\n        t=Transaction(doc, \"Modelical.RemoveUnusedFilters\")\r\n        t.Start()\r\n        try:\r\n            output = str(len(filtersID)) + \" Filter/s have been deleted\"\r\n            \r\n            for f in filtersID:\r\n                doc.Delete(f)\r\n             \r\n            t.Commit()\r\n            \r\n        except Exception as ex:\r\n        \toutput=ex\r\n        finally:\r\n        \tt.Dispose()\r\n\r\n    else:\r\n        output = \"There are no unused Filters\"\r\n#Assign your output to the OUT variable.\r\nOUT = output\r\n",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "dfd6741c3ebc4d38ae49ee23c2d825c1",
+      "Inputs": [
+        {
+          "Id": "10ee131b6cad46268d330f7cca98af2c",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3a1ccd668ab948af91852ac6eb90b872",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python incrustada."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "858a743632ce4c0c8e0a3ae673ae27ee",
+      "End": "10ee131b6cad46268d330f7cca98af2c",
+      "Id": "495a377dd2954a52ba0ad389d8e538c2",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3a1ccd668ab948af91852ac6eb90b872",
+      "End": "0ed013476b854b26a5c89f29cfe44396",
+      "Id": "7e6b50a7f61f40fe9288c2e607993640",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": []
+}

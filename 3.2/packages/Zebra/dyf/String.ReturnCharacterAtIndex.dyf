@@ -1,0 +1,21 @@
+<Workspace Version="0.8.0.950" X="209.094753110141" Y="44.8584805121894" zoom="0.784369328044828" Name="String.ReturnCharacterAtIndex" ID="5cef59c9-27a3-458e-aa4e-41434fa84c08" Description="Returns the character in the given string at the specified index(s)" Category="Zebra.Core.String.Action">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Nodes.Symbol guid="4e440024-bf11-4d77-a61a-e66be09dabcd" type="Dynamo.Nodes.Symbol" nickname="Input" x="-171.882744866172" y="316.443618344997" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <Symbol value="String" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Symbol guid="17c15974-176e-48c2-9114-cad8e2b9efb0" type="Dynamo.Nodes.Symbol" nickname="Input" x="-167.882744866172" y="397.943618344997" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <Symbol value="Index" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.CodeBlockNodeModel guid="cecea0e3-bffb-490d-a4e1-be2640d85882" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="-34.8827448661718" y="323.943618344997" isVisible="true" isUpstreamVisible="true" lacing="Disabled" CodeText="str[x];" ShouldFocus="false" />
+    <Dynamo.Nodes.Output guid="a6fa6735-589d-4d22-9e7a-78c52830570e" type="Dynamo.Nodes.Output" nickname="Output" x="780" y="296.5" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <Symbol value="Characters" />
+    </Dynamo.Nodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="4e440024-bf11-4d77-a61a-e66be09dabcd" start_index="0" end="cecea0e3-bffb-490d-a4e1-be2640d85882" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="17c15974-176e-48c2-9114-cad8e2b9efb0" start_index="0" end="cecea0e3-bffb-490d-a4e1-be2640d85882" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="cecea0e3-bffb-490d-a4e1-be2640d85882" start_index="0" end="a6fa6735-589d-4d22-9e7a-78c52830570e" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+</Workspace>

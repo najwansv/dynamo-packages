@@ -1,0 +1,85 @@
+<Workspace Version="1.2.0.2654" X="-616.518273561112" Y="-543.906121341692" zoom="2.37004060791358" Name="Get Rhino Object Value by Key" Description="This node retrieves user string value by its key." ID="c81f4807-245c-4add-851f-8fdc826ce23c" Category="Archi-lab_MantisShrimp.Rhinoceros.Properties">
+  <NamespaceResolutionMap />
+  <Elements>
+    <PythonNodeModels.PythonNode guid="b800d8c3-6e81-4702-b657-a573bf3f9db9" type="PythonNodeModels.PythonNode" nickname="Python Script" x="590.218398077883" y="356.41558260643" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="2">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+      <Script># Copyright(c) 2016, Konrad Sobon
+# @arch_laboratory, http://archi-lab.net
+
+import clr
+import sys
+import System
+
+pyt_path = r'C:\Program Files (x86)\IronPython 2.7\Lib'
+sys.path.append(pyt_path)
+
+from os import path
+assemblies = System.AppDomain.CurrentDomain.GetAssemblies()
+msUIpath = [a.Location for a in assemblies if 'MantisShrimp,' in a.FullName][0]
+msPath = System.IO.Path.GetDirectoryName(msUIpath).rsplit('\\',1)[0]
+msPathExtra = '%s\\extra\\' %msPath
+msPathRh = '%s\\bin\\Rhino3dmIO.dll' %msPath
+sys.path.append(msPathExtra)
+clr.AddReferenceToFileAndPath(msPathRh)
+import Rhino as rc
+
+#The inputs to this node will be stored as a list in the IN variable.
+dataEnteringNode = IN
+
+if isinstance(IN[0], list):
+	rhObjects = IN[0]
+else:
+	rhObjects = [IN[0]]
+
+key = IN[1]
+
+def GetValue(obj, key):
+	try:
+		if obj.Attributes.HasUserData:
+			us = obj.Attributes.GetUserStrings()
+			return us.Item[key]
+	except:
+		pass
+
+def ProcessListArg(_func, _list, _arg):
+    return map( lambda x: ProcessListArg(_func, x, _arg) if type(x)==list else _func(x, _arg), _list )
+
+#extract user keys
+try:
+	errorReport = None
+	rhValues = ProcessListArg(GetValue, rhObjects, key)
+except:
+	# if error accurs anywhere in the process catch it
+	import traceback
+	errorReport = traceback.format_exc()
+
+#Assign your output to the OUT variable
+if errorReport == None:
+	OUT = rhValues
+else:
+	OUT = errorReport</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="a1e6b768-f5db-4b86-8f9e-47c20f3bd9dd" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="444.092928216819" y="341.304751758577" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="RhinoObject" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="6e000f0a-9c6f-42af-841b-095b3f3c69be" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="440.938508999134" y="406.747182457664" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="Key" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="e8e407ef-c211-4246-a470-04e8b9a61b6a" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="768.138008894189" y="353.962762722537" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+      <Symbol value="Value" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="b800d8c3-6e81-4702-b657-a573bf3f9db9" start_index="0" end="e8e407ef-c211-4246-a470-04e8b9a61b6a" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="a1e6b768-f5db-4b86-8f9e-47c20f3bd9dd" start_index="0" end="b800d8c3-6e81-4702-b657-a573bf3f9db9" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="6e000f0a-9c6f-42af-841b-095b3f3c69be" start_index="0" end="b800d8c3-6e81-4702-b657-a573bf3f9db9" end_index="1" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-8.19723415374756" eyeY="37.3580551147461" eyeZ="1.86107051372528" lookX="24.6858425140381" lookY="-21.0425701141357" lookZ="-35.6650199890137" upX="0.13286004960537" upY="0.972369909286499" upZ="-0.191950365900993" />
+  </Cameras>
+</Workspace>

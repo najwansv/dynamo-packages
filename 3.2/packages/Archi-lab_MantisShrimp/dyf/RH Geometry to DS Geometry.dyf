@@ -1,0 +1,117 @@
+<Workspace Version="1.2.0.2654" X="-351.045690755664" Y="-292.662969182578" zoom="1.78359936238281" Name="RH Geometry to DS Geometry" Description="This node will translate all of the compatible Rhino geometry into its equivalent in Design Script." ID="315c12a0-31c1-4c4c-ac72-32faf427435e" Category="Archi-lab_MantisShrimp.Rhinoceros.Geometry">
+  <NamespaceResolutionMap />
+  <Elements>
+    <PythonNodeModels.PythonNode guid="5253211e-d016-4f11-89bc-ca07b3a4d5a2" type="PythonNodeModels.PythonNode" nickname="Python Script" x="400.999999999997" y="254" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="1">
+      <PortInfo index="0" default="False" />
+      <Script># Copyright(c) 2016, Konrad Sobon
+# @arch_laboratory, http://archi-lab.net
+
+import clr
+import sys
+import System
+
+pyt_path = r'C:\Program Files (x86)\IronPython 2.7\Lib'
+sys.path.append(pyt_path)
+
+from os import path
+assemblies = System.AppDomain.CurrentDomain.GetAssemblies()
+msUIpath = [a.Location for a in assemblies if 'MantisShrimp,' in a.FullName][0]
+msPath = System.IO.Path.GetDirectoryName(msUIpath).rsplit('\\',1)[0]
+msPathExtra = '%s\\extra\\' %msPath
+msPathRh = '%s\\bin\\Rhino3dmIO.dll' %msPath
+sys.path.append(msPathExtra)
+clr.AddReferenceToFileAndPath(msPathRh)
+
+import Rhino as rc
+from mantisshrimp import rhLineToLine, rhPointToPoint, rhBrepToPolySurface, rhCurveToPolyCurve, rhMeshToMesh, rhNurbsSurfaceToSurface, rhArcToArc, rhSingleSpanNurbsCurveToCurve, rhEllipseToEllipse, rhCircleToCircle, rhPolyCurveToPolyCurve
+
+#The inputs to this node will be stored as a list in the IN variable.
+dataEnteringNode = IN
+
+if isinstance(IN[0], list):
+	rhObjects = IN[0]
+else:
+	rhObjects = [IN[0]]
+
+def GetGeometry(rhObj):
+	try:
+		geo = rhObj.Geometry
+		if geo.ToString() == "Rhino.Geometry.LineCurve":
+			return rhLineToLine(geo)
+		elif geo.ToString() == "Rhino.Geometry.ArcCurve" and geo.IsArc():
+			return rhArcToArc(geo)
+		elif geo.ToString() == "Rhino.Geometry.Point":
+			return rhPointToPoint(geo)
+		elif geo.ToString() == "Rhino.Geometry.NurbsCurve" and geo.IsClosed and geo.IsRational:
+			return rhEllipseToEllipse(geo)
+		elif geo.ToString() == "Rhino.Geometry.PolyCurve":
+			return rhPolyCurveToPolyCurve(geo)
+		elif geo.ToString() == "Rhino.Geometry.NurbsCurve":
+			return rhSingleSpanNurbsCurveToCurve(geo)
+		elif geo.ToString() == "Rhino.Geometry.Extrusion":
+			brep = geo.ToBrep()
+			return rhBrepToPolySurface(brep)
+		elif geo.ToString() == "Rhino.Geometry.PolylineCurve":
+			return rhCurveToPolyCurve(geo)
+		elif geo.ToString() == "Rhino.Geometry.Mesh":
+			return rhMeshToMesh(geo)
+	except:
+		try:
+			geo = rhObj.Geometry
+			if geo.ToString() == "Rhino.Geometry.Brep":
+				brepFaces = geo.Faces
+				faceList = []
+				for i in range(0, brepFaces.Count, 1):
+					rhSurface = brepFaces.Item[i].UnderlyingSurface()
+					if rhSurface.ToString() == "Rhino.Geometry.NurbsSurface":
+						faceList.append(rhNurbsSurfaceToSurface(rhSurface))
+					elif rhSurface.ToString() == "Rhino.Geometry.RevSurface":
+						faceList.append(rhNurbsSurfaceToSurface(rhSurface.ToNurbsSurface()))
+				return faceList
+			elif geo.ToString() == "Rhino.Geometry.ArcCurve" and geo.IsCircle():
+				return rhCircleToCircle(geo)
+		except:
+			try:
+				geo = rhObj.Geometry
+				if geo.ToString() == "Rhino.Geometry.Brep":
+					return rhBrepToPolySurface(geo)
+			except:
+				pass
+
+def ProcessList(_func, _list):
+	return map(lambda x: ProcessList(_func, x) if type(x) == list else _func(x) , _list)
+
+#convert rhino/gh geometry to ds geometry
+try:
+	errorReport = None
+	dsGeometry = ProcessList(GetGeometry, rhObjects)
+except:
+	# if error accurs anywhere in the process catch it
+	import traceback
+	errorReport = traceback.format_exc()
+	
+#Assign your output to the OUT variable
+if errorReport == None:
+	OUT = dsGeometry
+else:
+	OUT = errorReport</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="53cfda9d-85cd-4f86-b659-b2a6e8d507c0" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="242.793140594721" y="256.595163036591" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="RhinoObject" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="24cbd565-ad98-49c2-98e0-324373193909" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="561.810971616952" y="250.98852277258" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+      <Symbol value="Geometry" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="5253211e-d016-4f11-89bc-ca07b3a4d5a2" start_index="0" end="24cbd565-ad98-49c2-98e0-324373193909" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="53cfda9d-85cd-4f86-b659-b2a6e8d507c0" start_index="0" end="5253211e-d016-4f11-89bc-ca07b3a4d5a2" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="81.55339787635" eyeY="80.8788878275877" eyeZ="10.39639161709" lookX="-65.0647895160595" lookY="-64.5634028269773" lookZ="-44.2003410923784" upX="-0.37553405640074" upY="0.891006514461771" upZ="-0.255110838473003" />
+  </Cameras>
+</Workspace>

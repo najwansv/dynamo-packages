@@ -1,0 +1,622 @@
+{
+  "Uuid": "04bfa331-a259-410c-85c2-d9a281cdfc23",
+  "IsCustomNode": true,
+  "Category": "Modelical.Elements.Actions",
+  "Description": "This node modifies the visualization of the elements in the active view by selected parameter values. It allows controlling color range and reset modifications. It applies a solid fill pattern.",
+  "Name": "Element.OverrideColorInViewByParameter",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Color": {
+        "Key": "DSCore.Color",
+        "Value": "DSCoreNodes.dll"
+      },
+      "DSCore.Color": {
+        "Key": "DSCore.Color",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.ColorRange, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "64abf3640b274ba4a1b5f12f10e37044",
+      "Inputs": [
+        {
+          "Id": "89a5bac9870f42fd82d1b1db250cccf5",
+          "Name": "colors",
+          "Description": "Lista de colores que incluir en el rango.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "aceada5e6d144909837e063d5870fbb8",
+          "Name": "indices",
+          "Description": "Lista de valores entre 0,0 y 1,0 que coloca los colores de entrada a lo largo del rango.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f718a073ac8f4e5aae003d7dbb049454",
+          "Name": "value",
+          "Description": "Una lista de valores entre 0,0 y 1,0. Estos valores definen los colores seleccionados a lo largo de la gama de colores para crear la lista de colores.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5e1bc3db61334b6f9ecb6efbbaa75ba1",
+          "Name": "color",
+          "Description": "Colores seleccionados",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Obtiene un color según un rango de colores"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\nclr.AddReference(\"RevitNodes\")\r\nimport Revit\r\nclr.ImportExtensions(Revit.Elements)\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\nfrom System.Collections.Generic import *\r\n\r\nclr.AddReference(\"RevitAPI\")\r\nimport Autodesk\r\nfrom Autodesk.Revit.DB import *\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nuiapp = DocumentManager.Instance.CurrentUIApplication\r\napp = uiapp.Application\r\n\r\ninput = IN[0]\r\ndynColor = IN[1]\r\nbool = IN[2]\r\n\r\ndef toList(input):\r\n        if isinstance(input,list) == False:\r\n                return [input]\r\n        else:\r\n                return input\r\n\r\ndef flatten(x):\r\n    result = []\r\n    for el in x:\r\n        if hasattr(el, \"__iter__\") and not isinstance(el, str):\r\n            result.extend(flatten(el))\r\n        else:\r\n            result.append(el)\r\n    return result\r\n\r\nnotFound = flatten(toList(IN[3]))\r\n\r\nif notFound[0] == \"Parameter not found\":\r\n        OUT = \"Parameter not found\"\r\nelse:\r\n        items = flatten(toList(input))\r\n\r\n        fillPatterns = FilteredElementCollector(doc).OfClass(FillPatternElement).ToElements()\r\n        for f in fillPatterns:\r\n                if f.GetFillPattern().IsSolidFill:\r\n                        fillPat = f\r\n                        break\r\n\r\n        elements = []\r\n        for i in items:\r\n                elements.append(UnwrapElement(i))\r\n\r\n\r\n        if bool:\r\n                view = doc.ActiveView\r\n                override = OverrideGraphicSettings()\r\n\r\n                TransactionManager.Instance.EnsureInTransaction(doc)\r\n                for e in elements:\r\n                        view.SetElementOverrides(e.Id, override)\r\n                TransactionManager.Instance.TransactionTaskDone()\r\n                OUT = elements\r\n\r\n        else:\r\n                graphSettings = Autodesk.Revit.DB.OverrideGraphicSettings()\r\n                color = []\r\n                for d in dynColor:\r\n                        color.append(Autodesk.Revit.DB.Color(d.Red, d.Green, d.Blue))\r\n\r\n                TransactionManager.Instance.EnsureInTransaction(doc)\r\n\r\n                i = 0\r\n                for e in elements:\r\n                        if int(app.VersionNumber) < 2019:\r\n                                id = e.Id\r\n                                graphSettings.SetCutLineColor(color[i])\r\n                                graphSettings.SetCutFillColor(color[i])\r\n                                graphSettings.SetProjectionLineColor(color[i])\r\n                                graphSettings.SetProjectionFillColor(color[i])\r\n                                if fillPat:\r\n                                        graphSettings.SetCutFillPatternId(fillPat.Id)\r\n                                        graphSettings.SetProjectionFillPatternId(fillPat.Id)\r\n                                doc.ActiveView.SetElementOverrides(id, graphSettings)\r\n                                i = i + 1\r\n                        else:\r\n                                id = e.Id\r\n                                graphSettings.SetCutLineColor(color[i])\r\n                                graphSettings.SetCutForegroundPatternColor(color[i])\r\n                                graphSettings.SetCutBackgroundPatternColor(color[i])\r\n                                graphSettings.SetProjectionLineColor(color[i])\r\n                                graphSettings.SetSurfaceForegroundPatternColor(color[i])\r\n                                graphSettings.SetSurfaceBackgroundPatternColor(color[i])\r\n                                if fillPat:\r\n                                        graphSettings.SetCutForegroundPatternId(fillPat.Id)\r\n                                        graphSettings.SetCutBackgroundPatternId(fillPat.Id)\r\n                                        graphSettings.SetSurfaceForegroundPatternId(fillPat.Id)\r\n                                        graphSettings.SetSurfaceBackgroundPatternId(fillPat.Id)\r\n                                doc.ActiveView.SetElementOverrides(id, graphSettings)\r\n                                i = i + 1\r\n                TransactionManager.Instance.TransactionTaskDone()\r\n                OUT = elements",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "8317a6a4a85745cc8aea62206f2b4bdf",
+      "Inputs": [
+        {
+          "Id": "a10dfa1066ca4538b3f252d604e81d19",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "af8cab6bc9d04192828f3e49086f796d",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d6442315f4ce4aa3badcc3e7951da724",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e4a29f7e0fd44a05bace18c00b39c49c",
+          "Name": "IN[3]",
+          "Description": "Input #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "be148800f07b4f70a691386cebec8db4",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python incrustada."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "_elements",
+      "Id": "ba3e92c2c78f44dc811889c04a1f9887",
+      "Inputs": [
+        {
+          "Id": "0e26285f942944718205ebfffdcbf848",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Una función de salida, se debe utilizar con nodos personalizados"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_elements",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Elements to modify their color."
+      },
+      "Id": "0ac0b0e6dcd74eec99fa0832675af843",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a190200c2f6a4307b7ea78a19d1a9f57",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_parameter",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Parameter."
+      },
+      "Id": "8c03fcefc7c64de5bc5c06d59502c7a3",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6bf48e55a4184e158e4d4325ba25d64a",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_reset",
+        "TypeName": "bool",
+        "TypeRank": 0,
+        "DefaultValue": "false",
+        "Description": ""
+      },
+      "Id": "e4654856615f4f388e7d7b07225eca54",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "53fcf92378be469da8c59aecd9a3dd14",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_colors",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": "[DSCore.Color.ByARGB(255, 255, 100, 100), DSCore.Color.ByARGB(255, 255, 255, 0), DSCore.Color.ByARGB(255, 0, 255, 255)]",
+        "Description": "OPTIONAL list of colors."
+      },
+      "Id": "8354445640864053a136b878c0ddd21c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "09e08f0ba4d843d9966d0d18c1eeda0d",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_colorsIndices",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": "[0, 0.5, 1]",
+        "Description": "OPTIONAL list of colors indices."
+      },
+      "Id": "1e4f326023b84e54a7eb95e18ccd2162",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b5bc3f8085fb4082a63d20e9b672fd12",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\n#Load document reference\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n#Load Revit API\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\n\r\n#The inputs to this node will be stored as a list in the IN variables.\r\ninput = IN[0]\r\nparam = IN[1]\r\nminValue = IN[2]\r\nmaxValue = IN[3]\r\n\r\ndef toList(input):\r\n        if isinstance(input,list) == False:\r\n                return [input]\r\n        else:\r\n                return input\r\n\r\ndef flatten(x):\r\n    result = []\r\n    for el in x:\r\n        if hasattr(el, \"__iter__\") and not isinstance(el, str):\r\n            result.extend(flatten(el))\r\n        else:\r\n            result.append(el)\r\n    return result\r\n\r\nelementsInput = flatten(toList(input))\r\nelements = UnwrapElement(elementsInput)\r\n\r\nvalues = []\r\nindexes = []\r\nmapped = []\r\n\r\ndef map(value, min, max):\r\n        a = (value - min) / (max - min)\r\n        return a\r\n\r\ndef getValue(elem):\r\n        p = elem.LookupParameter(param)\r\n        if p == None:\r\n                elemTypeId = elem.GetTypeId()\r\n                elemType = doc.GetElement(elemTypeId)\r\n                p = elemType.LookupParameter(param)\r\n        if p == None:\r\n                return \"Parameter not found\"\r\n        else:\r\n                if p.StorageType == StorageType.Integer:\r\n                        return p.AsInteger()\r\n                elif p.StorageType == StorageType.Double:\r\n                        return p.AsDouble()\r\n                elif p.StorageType == StorageType.ElementId:\r\n                        return p.AsElementId()\r\n                else:\r\n                        return p.AsString()\r\n\r\nfor e in elements:\r\n        values.append(getValue(e))\r\n\r\ntry: 0 + values[0]\r\nexcept TypeError: isnumber=False\r\nelse: isnumber=True\r\n\r\nif isnumber:\r\n        valuesSorted = []\r\n        for v in values:\r\n                valuesSorted.append(v)\r\n        valuesSorted.sort()\r\n        if minValue == 0 and maxValue == 0:\r\n                min = valuesSorted[0]\r\n                max = valuesSorted[len(valuesSorted) - 1]*1.0\r\n        else:\r\n                min = minValue\r\n                max = maxValue\r\n        if len(values) > 1:\r\n                for v in values:\r\n                        mapped.append(list(map(v, min, max)))\r\n        else:\r\n                for v in values:\r\n                        mapped.append(min)\r\n\r\nelif not isnumber:\r\n        strValues = []\r\n        for v in values:\r\n                strValues.append(str(v))\r\n        uniqueValues = list(set(strValues))\r\n        uniqueValues.sort()\r\n        for v in strValues:\r\n                i = 0\r\n                for u in uniqueValues:\r\n                        if v == u:\r\n                                indexes.append(i)\r\n                                break\r\n                        i = i + 1\r\n        min = 0.0\r\n        max = len(uniqueValues)-1.0\r\n        if len(uniqueValues) > 1:\r\n                for i in indexes:\r\n                        mapped.append(list(map(i, min, max)))\r\n        else:\r\n                for i in indexes:\r\n                        mapped.append(min)\r\n\r\nif \"Parameter not found\" in values:\r\n        OUT = \"Parameter not found\"\r\nelse:\r\n        OUT = mapped",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "a1cc97f8815b4924b5cc318ee6eb087a",
+      "Inputs": [
+        {
+          "Id": "aee97530828b41c4acbf35b2db9e79c3",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8d0f242b128448ca84dc0616967ff79d",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9d8352d22792494b8ec926740d6c76c3",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "28527e6eb4b54f81a2e9dc0400ce35bc",
+          "Name": "IN[3]",
+          "Description": "Input #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f4ddc66d9e0544f5a366aa3623ffc527",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python incrustada."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.FilterByBoolMask@var[]..[],var[]..[]",
+      "Id": "ac27cfc491c946a085bf54646d9aaaed",
+      "Inputs": [
+        {
+          "Id": "5c104eec64c64cbbb08c1ecdc4f9e9b8",
+          "Name": "list",
+          "Description": "Lista que se debe filtrar.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3619b1a12bfb4c668c8e80347d7faf5f",
+          "Name": "mask",
+          "Description": "Lista de booleanos que representan una máscara.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "dd872f6bf552438f82301649ca3c3402",
+          "Name": "in",
+          "Description": "Elementos cuyo índice de máscara es True.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e77b3a70a88c4e218f5effb97d1daaf2",
+          "Name": "out",
+          "Description": "Elementos cuyo índice de máscara es False.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Filtra una secuencia mediante la búsqueda de los índices correspondientes en una lista separada de booleanos.\n\nList.FilterByBoolMask (list: var[]..[], mask: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Not@var[]..[]",
+      "Id": "d1c6d7f6a3db47c68c6fe4402ad33cc9",
+      "Inputs": [
+        {
+          "Id": "f5af0faffac543db830d9cb2c99a6a8c",
+          "Name": "x",
+          "Description": "Valor booleano que se invertirá.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7cd2d0885b5a40f88d3dec6027ee5274",
+          "Name": "bool",
+          "Description": "tipo var[]..[] (valor booleano inverso)",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Niega la entrada, p. ej., devuelve el valor \"false\" (falso) cuando la entrada es \"true\" (verdadera).\n\nNot (x: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Object.IsNull@var",
+      "Id": "85f1bde216ec4fe4978aa6ece1569566",
+      "Inputs": [
+        {
+          "Id": "79fa09cd047e41138246f1e9ae8af94a",
+          "Name": "object",
+          "Description": "Objeto que se debe probar.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b859c99b1b22458aa243afc2a643e712",
+          "Name": "bool",
+          "Description": "Si el objeto es o no nulo.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Determina si el objeto especificado es nulo.\n\nObject.IsNull (object: var): bool"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Parameter.ParameterByName@Revit.Elements.Element,string",
+      "Id": "e1d628f54e22489d9c7781fe25dbd937",
+      "Inputs": [
+        {
+          "Id": "694947a71f424d3db171187977154820",
+          "Name": "element",
+          "Description": "Elemento\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ea174ae3029240a788ce6027626a1f81",
+          "Name": "name",
+          "Description": "Nombre de parámetros\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "912eb2d05d4343bab758b3200d287ee4",
+          "Name": "Parameter",
+          "Description": "Parámetro",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Obtener parámetro de elemento por nombre\n\nParameter.ParameterByName (element: Element, name: string): Parameter"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0;",
+      "Id": "bebe3c3e7434498e9c889f9148b5455d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0c77f385aac74a3ab19995bcb46a96ec",
+          "Name": "",
+          "Description": "Valor de la expresión en la línea 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Permite creación directa de código de DesignScript"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "5e1bc3db61334b6f9ecb6efbbaa75ba1",
+      "End": "af8cab6bc9d04192828f3e49086f796d",
+      "Id": "00877ceab04745d29454f50d8d31ba10",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "be148800f07b4f70a691386cebec8db4",
+      "End": "0e26285f942944718205ebfffdcbf848",
+      "Id": "687828121db44a5fb130c84ba99d0c5a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a190200c2f6a4307b7ea78a19d1a9f57",
+      "End": "5c104eec64c64cbbb08c1ecdc4f9e9b8",
+      "Id": "7be1565c48e2463b99580600cef60de3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a190200c2f6a4307b7ea78a19d1a9f57",
+      "End": "694947a71f424d3db171187977154820",
+      "Id": "6f0bf41edb9843d48fae5b1ba20f910a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "6bf48e55a4184e158e4d4325ba25d64a",
+      "End": "8d0f242b128448ca84dc0616967ff79d",
+      "Id": "62a4b9561f6748fdaff5c146ed53489a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "6bf48e55a4184e158e4d4325ba25d64a",
+      "End": "ea174ae3029240a788ce6027626a1f81",
+      "Id": "6114d46b97454c959e394c4b2d2c046b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "53fcf92378be469da8c59aecd9a3dd14",
+      "End": "d6442315f4ce4aa3badcc3e7951da724",
+      "Id": "290f38a40d1a4684bde7aed95e59b24e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "09e08f0ba4d843d9966d0d18c1eeda0d",
+      "End": "89a5bac9870f42fd82d1b1db250cccf5",
+      "Id": "7b91948c5a21453ebac642faf1ed8ab4",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b5bc3f8085fb4082a63d20e9b672fd12",
+      "End": "aceada5e6d144909837e063d5870fbb8",
+      "Id": "1f820a68bbbc49b3bb10abeb2864b5d9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f4ddc66d9e0544f5a366aa3623ffc527",
+      "End": "f718a073ac8f4e5aae003d7dbb049454",
+      "Id": "01fa9cb8f15d45479043e3f8c7e31eb7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f4ddc66d9e0544f5a366aa3623ffc527",
+      "End": "e4a29f7e0fd44a05bace18c00b39c49c",
+      "Id": "1611a6de7d8c42e8b44c794187cc5619",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "dd872f6bf552438f82301649ca3c3402",
+      "End": "a10dfa1066ca4538b3f252d604e81d19",
+      "Id": "1fce362f3d674e4da82ba764fe811a0c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "dd872f6bf552438f82301649ca3c3402",
+      "End": "aee97530828b41c4acbf35b2db9e79c3",
+      "Id": "0421913b80694ee983ad60dfe5848a8d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7cd2d0885b5a40f88d3dec6027ee5274",
+      "End": "3619b1a12bfb4c668c8e80347d7faf5f",
+      "Id": "c8fa1f076de04dfdab66e89057e1c974",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b859c99b1b22458aa243afc2a643e712",
+      "End": "f5af0faffac543db830d9cb2c99a6a8c",
+      "Id": "d07bd1b7d0e54be882854ba1c0913e14",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "912eb2d05d4343bab758b3200d287ee4",
+      "End": "79fa09cd047e41138246f1e9ae8af94a",
+      "Id": "fb3268cc981d4293a62ead58eabe551a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0c77f385aac74a3ab19995bcb46a96ec",
+      "End": "9d8352d22792494b8ec926740d6c76c3",
+      "Id": "2e2147fc946e444f94d81be811fcac98",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0c77f385aac74a3ab19995bcb46a96ec",
+      "End": "28527e6eb4b54f81a2e9dc0400ce35bc",
+      "Id": "0b7cc1a58fdf4ab1aeb4384a36e928a9",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": []
+}

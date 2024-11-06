@@ -1,0 +1,375 @@
+{
+  "Uuid": "2de8f2f3-06a8-464f-9546-b4da914d8a26",
+  "IsCustomNode": true,
+  "Category": "Sastrugi.Pointcloud Geometry",
+  "Description": "(Sastrugi_Pointcloud_Geometry) This node extracts Scan Names/Origins and Scan Region Names from within a Pointcloud Instance.",
+  "Name": "❄_PC_Get_Scans_and_Regions",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "PointcloudInstance",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "3fd809cd68c34f8c8b3db8debf141b5b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8bd100101a734b65b954b2a04db1cd27",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Scans",
+      "Id": "aaae0ef3e920451f90edb1dc53ff878e",
+      "Inputs": [
+        {
+          "Id": "28795831f1dc492298d5ca066bc4a8b4",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Origins",
+      "Id": "fea01165e12140eeb654df908ef33ffd",
+      "Inputs": [
+        {
+          "Id": "a59db795841c4a22a9e32809e0c61e4d",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Regions",
+      "Id": "8afdc17743bc44cbb4ecfe3d10c03d16",
+      "Inputs": [
+        {
+          "Id": "738b5ebc9a234c2c925692bf7454fdc5",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Python coding credit to Dynamo Forum user - @Ewan_Opie 2019\n# Sastrugi Package https://sites.google.com/view/sastrugi/home\n\nimport clr\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.Elements)\nclr.ImportExtensions(Revit.GeometryConversion)\n\nclr.AddReference(\"RevitAPI\")\nimport Autodesk\nfrom Autodesk.Revit.DB import *\nfrom Autodesk.Revit.DB.PointClouds import *\n\nclr.AddReference('DSCoreNodes') \nimport DSCore\nfrom DSCore import *\n\ndef tolist(obj1):\n\tif hasattr(obj1,\"__iter__\"): return obj1\n\telse: return [obj1]\t\n\ncloud = tolist(UnwrapElement(IN[0]))\nscans = IN[1]\nscanL = []\nsc2 =[]\n\nif len(cloud)>1:\n\t\tfor sc,c in zip(scans,cloud):\n\t\t\tsca = []\n\t\t\tfor s in sc:\n\t\t\t\tpX = c.GetScanOrigin(s).X\n\t\t\t\tpY = c.GetScanOrigin(s).Y\n\t\t\t\tpZ = c.GetScanOrigin(s).Z\n\t\t\t\tsca.append(Point.Create(XYZ(pX,pY,pZ)).ToProtoType(True))\n\t\t\tsc2.append(sca)\n\t\tscanL.append(sc2)\nelse:\n\tfor c in cloud:\n\t\tscanFlat=DSCore.List.Flatten(scans,1)\n\t\tfor s in scanFlat:\n\t\t\tpX = c.GetScanOrigin(s).X\n\t\t\tpY = c.GetScanOrigin(s).Y\n\t\t\tpZ = c.GetScanOrigin(s).Z\n\t\t\tscanL.append(Point.Create(XYZ(pX,pY,pZ)).ToProtoType(True))\nOUT = scanL",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "2895735ff53944248e8358ce55f68606",
+      "Inputs": [
+        {
+          "Id": "b17e0db0d922442fb3a5da6cdfc402bc",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9948ad402d4247689be6830f0381496e",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d2dbe19a10804ad782730e52bd9d132f",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "9c3b483c63874ac29354a0470c011570",
+      "Inputs": [
+        {
+          "Id": "f97d193e59c74e7abdd7925283cf396d",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bd70a39530db41b39bdcc3fc3cf2e9ba",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1 (disabled)",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "dc3e5dda1774473b903281630d9642aa",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "1;",
+      "Id": "8045ba406735495cbda8a8431c3d8c12",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7dd04a03508640ea80076daf1317f268",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Python coding credit to Dynamo Forum user - @Ewan_Opie 2019\n# Sastrugi Package https://sites.google.com/view/sastrugi/home\n\nimport clr\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.Elements)\nclr.ImportExtensions(Revit.GeometryConversion)\n\nclr.AddReference(\"RevitAPI\")\nimport Autodesk\nfrom Autodesk.Revit.DB import *\nfrom Autodesk.Revit.DB.PointClouds import *\n\nclr.AddReference('DSCoreNodes') \nimport DSCore\nfrom DSCore import *\n\ndef tolist(obj1):\n\tif hasattr(obj1,\"__iter__\"): return obj1\n\telse: return [obj1]\t\n\ncloud = UnwrapElement(IN[0])\n\nscans = []\nscansF = []\n\nif len(cloud)>1:\n\tfor c in cloud:\n\t\tscans.append(c.GetScans())\nelse:\n\tfor c in cloud:\n\t\tscansF.append(c.GetScans())\n\t\tscans = DSCore.List.Flatten(scansF,1)\nOUT = scans",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "a8da808d7c1c4a51a3e4b95b6b060419",
+      "Inputs": [
+        {
+          "Id": "a1b78cdd050c4fed8f434d14f1bb7ad0",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "17ee7c01c59a4bd5a90997def7f195b8",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Python coding credit to Dynamo Forum user - @Ewan_Opie 2019\n# Sastrugi Package https://sites.google.com/view/sastrugi/home\n\nimport clr\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.Elements)\nclr.ImportExtensions(Revit.GeometryConversion)\n\nclr.AddReference(\"RevitAPI\")\nimport Autodesk\nfrom Autodesk.Revit.DB import *\nfrom Autodesk.Revit.DB.PointClouds import *\n\nclr.AddReference('DSCoreNodes') \nimport DSCore\nfrom DSCore import *\n\ndef tolist(obj1):\n\tif hasattr(obj1,\"__iter__\"): return obj1\n\telse: return [obj1]\t\n\ncloud = UnwrapElement(IN[0])\n\nregions = []\nregionsF = []\n\nif len(cloud)>1:\n\tfor c in cloud:\n\t\tregions.append(c.GetRegions())\nelse:\n\tfor c in cloud:\n\t\tregionsF.append(c.GetRegions())\n\t\tregions = DSCore.List.Flatten(regionsF,1)\nOUT = regions",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "967e03eb54ec4eb582d93b986d7d4839",
+      "Inputs": [
+        {
+          "Id": "c4b9fb8a65644f5f98c46c495c6a67ca",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7a85121fa6a843148ef214fc078c9b4b",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "4e439f34e45347bcba525f359ae4cc39",
+      "Inputs": [
+        {
+          "Id": "1fbf5968b466482098e14ef3443e5f0e",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b004684415044643b08bd3a5fc26bf95",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0f63aa4b42a2439a9f98c5bf7fe0e09b",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "8bd100101a734b65b954b2a04db1cd27",
+      "End": "1fbf5968b466482098e14ef3443e5f0e",
+      "Id": "ae8a7e46a49043b287647727e13d54e8",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d2dbe19a10804ad782730e52bd9d132f",
+      "End": "f97d193e59c74e7abdd7925283cf396d",
+      "Id": "4f89d28bc3064da98a938c9fece72bef",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "dc3e5dda1774473b903281630d9642aa",
+      "End": "a59db795841c4a22a9e32809e0c61e4d",
+      "Id": "39708002a0ba43a895cb98a72d1aff98",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7dd04a03508640ea80076daf1317f268",
+      "End": "bd70a39530db41b39bdcc3fc3cf2e9ba",
+      "Id": "543a0816d5264accabeb87b51a96db99",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "17ee7c01c59a4bd5a90997def7f195b8",
+      "End": "28795831f1dc492298d5ca066bc4a8b4",
+      "Id": "42b00ea1d0114fdba6e1d4b03d7764c3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "17ee7c01c59a4bd5a90997def7f195b8",
+      "End": "9948ad402d4247689be6830f0381496e",
+      "Id": "a9a753d987854c02bbd892ea1f87bd71",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7a85121fa6a843148ef214fc078c9b4b",
+      "End": "738b5ebc9a234c2c925692bf7454fdc5",
+      "Id": "0248fe9001184693ae691bf0a44a76d6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0f63aa4b42a2439a9f98c5bf7fe0e09b",
+      "End": "a1b78cdd050c4fed8f434d14f1bb7ad0",
+      "Id": "ff73494f8f9541ad91cce0b07ed96b1e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0f63aa4b42a2439a9f98c5bf7fe0e09b",
+      "End": "b17e0db0d922442fb3a5da6cdfc402bc",
+      "Id": "7ac1c4425484429196bdad676dd606b5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0f63aa4b42a2439a9f98c5bf7fe0e09b",
+      "End": "c4b9fb8a65644f5f98c46c495c6a67ca",
+      "Id": "08398fb548c84132bfe1a806ee1492cd",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": []
+}
