@@ -1,136 +1,215 @@
-<Workspace Version="0.8.2.2311" X="-215.691525387005" Y="-138.673042172418" zoom="1.703916824555" Name="Get Built In Parameter" Description="This node will take an input of a built in parameter name and element to return that parameters value. " ID="a1e64de5-460f-4dd3-8357-d9ec9980e47e" Category="Archi-lab_Grimshaw.Element Properties">
-  <NamespaceResolutionMap />
-  <Elements>
-    <DSIronPythonNode.PythonNode guid="4d3d9bd1-ef10-451d-8359-b125530014c3" type="DSIronPythonNode.PythonNode" nickname="Python Script" x="456.000000000001" y="270.000000000001" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" inputcount="2">
-      <Script>#Copyright(c) 2015, Konrad K Sobon
-# @arch_laboratory, http://archi-lab.net
-
-import clr
-import sys
-clr.AddReference('ProtoGeometry')
-from Autodesk.DesignScript.Geometry import *
-
-pyt_path = r'C:\Program Files (x86)\IronPython 2.7\Lib'
-sys.path.append(pyt_path)
-
-# Import Element wrapper extension methods
-clr.AddReference("RevitNodes")
-import Revit
-clr.ImportExtensions(Revit.Elements)
-
-# Import DocumentManager and TransactionManager
-clr.AddReference("RevitServices")
-import RevitServices
-from RevitServices.Persistence import DocumentManager
-from RevitServices.Transactions import TransactionManager
-
-doc = DocumentManager.Instance.CurrentDBDocument
-uiapp = DocumentManager.Instance.CurrentUIApplication
-app = uiapp.Application
-
-# Import RevitAPI
-clr.AddReference("RevitAPI")
-import Autodesk
-from Autodesk.Revit.DB import *
-import System
-
-#The inputs to this node will be stored as a list in the IN variable.
-dataEnteringNode = IN
-
-paramNames = IN[0]
-
-if isinstance(IN[1], list):
-	sheets = []
-	for i in IN[1]:
-		sheets.append(UnwrapElement(i))
-else:
-	sheets = IN[1]
-
-elements = []
-for i in sheets:
-	elements.append(UnwrapElement(i))
-
-def ProcessList(_func, _list):
-    return map( lambda x: ProcessList(_func, x) if type(x)==list else _func(x), _list )
-
-def ProcessListArg(_func, _list, _arg):
-    return map( lambda x: ProcessListArg(_func, x, _arg) if type(x)==list else _func(x, _arg), _list )
-
-def GetBuiltInParam(paramName):
-	builtInParams = System.Enum.GetValues(BuiltInParameter)
-	test = []
-	for i in builtInParams:
-		if i.ToString() == paramName:
-			test.append(i)
-			break
-		else:
-			continue
-	return test[0]
-
-def GetBipValue(element, bip):
-	doc = DocumentManager.Instance.CurrentDBDocument
-	value = None
-	try:
-		tempValue = element.get_Parameter(bip)
-	except:
-		tempValue = None
-		pass
-	if tempValue != None:
-		if element.get_Parameter(bip).StorageType == StorageType.String:
-			value = element.get_Parameter(bip).AsString()
-		elif element.get_Parameter(bip).StorageType == StorageType.Integer:
-			value  = element.get_Parameter(bip).AsInteger()
-		elif element.get_Parameter(bip).StorageType == StorageType.Double:
-			value = element.get_Parameter(bip).AsDouble()
-		elif element.get_Parameter(bip).StorageType == StorageType.ElementId:
-			id = element.get_Parameter(bip).AsElementId()
-			value = doc.GetElement(id)
-		return value
-	else:
-		return None
-
-try:
-	errorReport = None
-	paramValues = []
-	if isinstance(paramNames, list):
-		builtInParams = ProcessList(GetBuiltInParam, paramNames)
-		for i in builtInParams:
-			paramValues.append(ProcessListArg(GetBipValue, elements, i))
-	else:
-		builtInParams = GetBuiltInParam(paramNames)
-		if isinstance(sheets, list):
-			for sheet in sheets:
-				paramValues.append(GetBipValue(sheet, builtInParams))
-except:
-	# if error accurs anywhere in the process catch it
-	import traceback
-	errorReport = traceback.format_exc()
-
-#Assign your output to the OUT variable
-if errorReport == None:
-	OUT = paramValues
-else:
-	OUT = errorReport</Script>
-    </DSIronPythonNode.PythonNode>
-    <Dynamo.Nodes.Symbol guid="2ba279ab-b67b-4a79-8ce0-ba616237ba49" type="Dynamo.Nodes.Symbol" nickname="Input" x="205.134074280567" y="250.25303802958" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="ParameterNames" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.Symbol guid="94d5e38c-4cc8-4ef1-a467-5c77ec7fc4bf" type="Dynamo.Nodes.Symbol" nickname="Input" x="205.842455622957" y="307.896487201683" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="Elements" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.Output guid="e2f83cd5-fb5c-4a55-8074-db8299a512ae" type="Dynamo.Nodes.Output" nickname="Output" x="664.898649331298" y="271.966805066569" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
-      <Symbol value="OUT" />
-    </Dynamo.Nodes.Output>
-  </Elements>
-  <Connectors>
-    <Dynamo.Models.ConnectorModel start="4d3d9bd1-ef10-451d-8359-b125530014c3" start_index="0" end="e2f83cd5-fb5c-4a55-8074-db8299a512ae" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="2ba279ab-b67b-4a79-8ce0-ba616237ba49" start_index="0" end="4d3d9bd1-ef10-451d-8359-b125530014c3" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="94d5e38c-4cc8-4ef1-a467-5c77ec7fc4bf" start_index="0" end="4d3d9bd1-ef10-451d-8359-b125530014c3" end_index="1" portType="0" />
-  </Connectors>
-  <Notes />
-  <Annotations />
-  <Presets />
-  <Cameras>
-    <Camera Name="background_preview" eyeX="10" eyeY="15" eyeZ="10" lookX="-10" lookY="-10" lookZ="-10" />
-  </Cameras>
-</Workspace>
+{
+  "Uuid": "a1e64de5-460f-4dd3-8357-d9ec9980e47e",
+  "IsCustomNode": true,
+  "Category": "archilab.Revit.Parameter",
+  "Description": "This node will take an input of a built in parameter name and element to return that parameters value. ",
+  "Name": "Get Built In Parameter",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Copyright(c) 2015, Konrad K Sobon\n# @arch_laboratory, http://archi-lab.net\n\nimport clr\nimport sys\nclr.AddReference('ProtoGeometry')\nfrom Autodesk.DesignScript.Geometry import *\n\npyt_path = r'C:\\Program Files (x86)\\IronPython 2.7\\Lib'\nsys.path.append(pyt_path)\n\n# Import Element wrapper extension methods\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.Elements)\n\n# Import DocumentManager and TransactionManager\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\n\ndoc = DocumentManager.Instance.CurrentDBDocument\nuiapp = DocumentManager.Instance.CurrentUIApplication\napp = uiapp.Application\n\n# Import RevitAPI\nclr.AddReference(\"RevitAPI\")\nimport Autodesk\nfrom Autodesk.Revit.DB import *\nimport System\n\n#The inputs to this node will be stored as a list in the IN variable.\ndataEnteringNode = IN\n\nparamNames = IN[0]\n\nif isinstance(IN[1], list):\n\tsheets = []\n\tfor i in IN[1]:\n\t\tsheets.append(UnwrapElement(i))\nelse:\n\tsheets = IN[1]\n\nelements = []\nfor i in sheets:\n\telements.append(UnwrapElement(i))\n\ndef ProcessList(_func, _list):\n    return map( lambda x: ProcessList(_func, x) if type(x)==list else _func(x), _list )\n\ndef ProcessListArg(_func, _list, _arg):\n    return map( lambda x: ProcessListArg(_func, x, _arg) if type(x)==list else _func(x, _arg), _list )\n\ndef GetBuiltInParam(paramName):\n\tbuiltInParams = System.Enum.GetValues(BuiltInParameter)\n\ttest = []\n\tfor i in builtInParams:\n\t\tif i.ToString() == paramName:\n\t\t\ttest.append(i)\n\t\t\tbreak\n\t\telse:\n\t\t\tcontinue\n\treturn test[0]\n\ndef GetBipValue(element, bip):\n\tdoc = element.Document\n\tvalue = None\n\ttry:\n\t\ttempValue = element.get_Parameter(bip)\n\texcept:\n\t\ttempValue = None\n\t\tpass\n\tif tempValue != None and tempValue.HasValue:\n\t\tif element.get_Parameter(bip).StorageType == StorageType.String:\n\t\t\tvalue = element.get_Parameter(bip).AsString()\n\t\telif element.get_Parameter(bip).StorageType == StorageType.Integer:\n\t\t\tvalue  = element.get_Parameter(bip).AsInteger()\n\t\telif element.get_Parameter(bip).StorageType == StorageType.Double:\n\t\t\tvalue = element.get_Parameter(bip).AsDouble()\n\t\telif element.get_Parameter(bip).StorageType == StorageType.ElementId:\n\t\t\tid = element.get_Parameter(bip).AsElementId()\n\t\t\tvalue = doc.GetElement(id)\n\t\treturn value\n\telse:\n\t\treturn None\n\ntry:\n\terrorReport = None\n\tparamValues = []\n\tif isinstance(paramNames, list):\n\t\tbuiltInParams = ProcessList(GetBuiltInParam, paramNames)\n\t\tfor i in builtInParams:\n\t\t\tparamValues.append(ProcessListArg(GetBipValue, elements, i))\n\telse:\n\t\tbuiltInParams = GetBuiltInParam(paramNames)\n\t\tif isinstance(sheets, list):\n\t\t\tfor sheet in sheets:\n\t\t\t\tparamValues.append(GetBipValue(sheet, builtInParams))\nexcept:\n\t# if error accurs anywhere in the process catch it\n\timport traceback\n\terrorReport = traceback.format_exc()\n\n#Assign your output to the OUT variable\nif errorReport == None:\n\tOUT = paramValues\nelse:\n\tOUT = errorReport",
+      "VariableInputPorts": true,
+      "Id": "4d3d9bd1ef10451d8359b125530014c3",
+      "Inputs": [
+        {
+          "Id": "5ba0d0a852f0466fb31534860698c8de",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c43a66495e4b4752bdbee64eb4c0dbbf",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ecd40f39bd7b4a578ae7657be3f78773",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_parameterNames",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "2ba279abb67b4a798ce0ba616237ba49",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b11b8391f38b4b6d95af7d3cc96d3c66",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_elements",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "94d5e38c4cc84ef1a4675c77ec7fc4bf",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cc27c232186f4ad7ba63f30f1cdaf29e",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "_out",
+      "Id": "e2f83cd5fb5c4a558074db8299a512ae",
+      "Inputs": [
+        {
+          "Id": "8ce57ee792b847b8ba0cd8f3ee98feb4",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "ecd40f39bd7b4a578ae7657be3f78773",
+      "End": "8ce57ee792b847b8ba0cd8f3ee98feb4",
+      "Id": "04b6f6fbb8b64216a8be451bbf7a42ed"
+    },
+    {
+      "Start": "b11b8391f38b4b6d95af7d3cc96d3c66",
+      "End": "5ba0d0a852f0466fb31534860698c8de",
+      "Id": "351637ad439f47d880d390b2d8495ccc"
+    },
+    {
+      "Start": "cc27c232186f4ad7ba63f30f1cdaf29e",
+      "End": "c43a66495e4b4752bdbee64eb4c0dbbf",
+      "Id": "81d683275fbb4df89771b91852831145"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "Id": "4d3d9bd1ef10451d8359b125530014c3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 456.000000000001,
+        "Y": 270.000000000001
+      },
+      {
+        "Id": "2ba279abb67b4a798ce0ba616237ba49",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Input",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 205.134074280567,
+        "Y": 250.25303802958
+      },
+      {
+        "Id": "94d5e38c4cc84ef1a4675c77ec7fc4bf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Input",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 205.842455622957,
+        "Y": 307.896487201683
+      },
+      {
+        "Id": "e2f83cd5fb5c4a558074db8299a512ae",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Output",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 664.898649331298,
+        "Y": 271.966805066569
+      }
+    ],
+    "Annotations": [],
+    "X": -215.691525387005,
+    "Y": -138.673042172418,
+    "Zoom": 1.703916824555
+  }
+}

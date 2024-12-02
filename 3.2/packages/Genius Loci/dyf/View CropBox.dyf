@@ -13,7 +13,9 @@
     {
       "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
       "NodeType": "PythonScriptNode",
-      "Code": "#Alban de Chasteigner 2021\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n#https://github.com/albandechasteigner/GeniusLociForDynamo\n\nimport clr\nimport math\nclr.AddReference('RevitAPI')\nimport Autodesk\nfrom Autodesk.Revit.DB import *\nclr.AddReference('RevitServices')\nimport RevitServices\nfrom RevitServices.Transactions import TransactionManager\nclr.AddReference('RevitNodes')\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\n\nviews = UnwrapElement(IN[0]) if isinstance(IN[0],list) else [UnwrapElement(IN[0])]\n\ndef GetCropBox(view):\n\tprovider= ParameterValueProvider(ElementId(BuiltInParameter.ID_PARAM))\n\trule = FilterElementIdRule(provider, FilterNumericEquals(), view.Id )\n\tfilter= ElementParameterFilter(rule)\n\treturn doc.GetElement(FilteredElementCollector(doc).WherePasses(filter).ToElementIds().Find(lambda x: x.IntegerValue != view.Id.IntegerValue))\n\nelem,lines,box=[],[],[]\n\nfor view in views:\n\tdoc=view.Document\n\t# CropBox\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan :\n\t\telem.append(GetCropBox(view))\n\t\tshape=view.GetCropRegionShapeManager().GetCropShape()\n\t\tif len(shape) > 0:\n\t\t\tlines.append([s.ToProtoType() for s in shape[0]])\n\t\telse:lines.append(None)\n\t\t# Transform required for the scopeboxes \n\t\tbb = view.CropBox\n\t\ttransform = bb.Transform\n\t\tmin = transform.OfPoint(bb.Min)\n\t\tmax = transform.OfPoint(bb.Max)\n\t\tviewRange = view.GetViewRange()\r\n\r\n\t\ttopLevel = doc.GetElement(viewRange.GetLevelId(PlanViewPlane.TopClipPlane))\r\n\t\ttopOffset = viewRange.GetOffset(PlanViewPlane.TopClipPlane)\r\n\t\tbttmLevel = doc.GetElement(viewRange.GetLevelId(PlanViewPlane.BottomClipPlane))\r\n\t\tbttmOffset = viewRange.GetOffset(PlanViewPlane.BottomClipPlane)\r\n\t\tcutLevel = doc.GetElement(viewRange.GetLevelId(PlanViewPlane.CutPlane))\r\n\t\tcutOffset = viewRange.GetOffset(PlanViewPlane.CutPlane)\r\n\t\tif bttmLevel : newmin = XYZ(min.X, min.Y, bttmLevel.ProjectElevation + bttmOffset)\r\n\t\telse: newmin = XYZ(min.X, min.Y, cutLevel.ProjectElevation + bttmOffset)\r\n\t\tif topLevel : newmax = XYZ(max.X, max.Y, topLevel.ProjectElevation + topOffset)\r\n\t\telse: newmax = XYZ(max.X, max.Y, cutLevel.ProjectElevation + cutOffset)\r\n\t\tbb.Min = newmin\r\n\t\tbb.Max = newmax\n\t\tbox.append(bb.ToProtoType())\n\t# viewSection Marker\n\telif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\telem.append(GetCropBox(view))\n\t\tshape=view.GetCropRegionShapeManager().GetCropShape()\n\t\tif len(shape) > 0:\n\t\t\tlines.append([s.ToProtoType() for s in shape[0]])\n\t\telse:lines.append(None)\t\n\t\tbb = view.CropBox\n\t\ttransform = bb.Transform\n\t\tmin = transform.OfPoint(bb.Min)\n\t\tmax = transform.OfPoint(bb.Max)\n\t\tbb.Min = min\n\t\tbb.Max = max\n\t\tbox.append(bb.ToProtoType())\n\t# SectionBox\n\telif view.ViewType == ViewType.ThreeD:\n\t\telem.append(doc.GetElement(ElementId(view.Id.IntegerValue - 1)))\n\t\tlines.append(None)\n\t\tbb = view.GetSectionBox()\n\t\ttransform = bb.Transform\n\t\tmin = transform.OfPoint(bb.Min)\n\t\tmax = transform.OfPoint(bb.Max)\n\t\tbb.Min = min\n\t\tbb.Max = max\n\t\tbox.append(bb.ToProtoType())\n\nif isinstance(IN[0], list): OUT = elem, lines, box\nelse: OUT = elem[0], lines[0], box[0]",
+      "Code": "#Alban de Chasteigner 2021\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n#https://github.com/albandechasteigner/GeniusLociForDynamo\n\nimport clr\nimport math\nclr.AddReference('RevitAPI')\nimport Autodesk\nfrom Autodesk.Revit.DB import *\nclr.AddReference('RevitServices')\nimport RevitServices\nfrom RevitServices.Transactions import TransactionManager\nclr.AddReference('RevitNodes')\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\n\nviews = UnwrapElement(IN[0]) if isinstance(IN[0],list) else [UnwrapElement(IN[0])]\n\ndef GetCropBox(view):\n\tprovider= ParameterValueProvider(ElementId(BuiltInParameter.ID_PARAM))\n\trule = FilterElementIdRule(provider, FilterNumericEquals(), view.Id )\n\tfilter= ElementParameterFilter(rule)\n\treturn doc.GetElement(FilteredElementCollector(doc).WherePasses(filter).ToElementIds().Find(lambda x: x.IntegerValue != view.Id.IntegerValue))\n\nelem,lines,box=[],[],[]\n\nfor view in views:\n\tdoc=view.Document\n\t# CropBox\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan :\n\t\telem.append(GetCropBox(view))\n\t\tshape=view.GetCropRegionShapeManager().GetCropShape()\n\t\tif len(shape) > 0:\n\t\t\tlines.append([s.ToProtoType() for s in shape[0]])\n\t\telse:lines.append(None)\n\t\t# Transform required for the scopeboxes \n\t\tbb = view.CropBox\n\t\ttransform = bb.Transform\n\t\tmin = transform.OfPoint(bb.Min)\n\t\tmax = transform.OfPoint(bb.Max)\n\t\tviewRange = view.GetViewRange()\n\n\t\ttopLevel = doc.GetElement(viewRange.GetLevelId(PlanViewPlane.TopClipPlane))\n\t\ttopOffset = viewRange.GetOffset(PlanViewPlane.TopClipPlane)\n\t\tbttmLevel = doc.GetElement(viewRange.GetLevelId(PlanViewPlane.BottomClipPlane))\n\t\tbttmOffset = viewRange.GetOffset(PlanViewPlane.BottomClipPlane)\n\t\tcutLevel = doc.GetElement(viewRange.GetLevelId(PlanViewPlane.CutPlane))\n\t\tcutOffset = viewRange.GetOffset(PlanViewPlane.CutPlane)\n\t\tif bttmLevel : newmin = XYZ(min.X, min.Y, bttmLevel.ProjectElevation + bttmOffset)\n\t\telse: newmin = XYZ(min.X, min.Y, cutLevel.ProjectElevation + bttmOffset)\n\t\tif topLevel : newmax = XYZ(max.X, max.Y, topLevel.ProjectElevation + topOffset)\n\t\telse: newmax = XYZ(max.X, max.Y, cutLevel.ProjectElevation + cutOffset)\n\t\tnewbox = BoundingBoxXYZ()\n\t\tnewbox.Max = newmax\n\t\tnewbox.Min = newmin\n\t\tbox.append(newbox.ToProtoType())\n\t# viewSection Marker\n\telif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation or view.ViewType == ViewType.Detail :\n\t\telem.append(GetCropBox(view))\n\t\tshape=view.GetCropRegionShapeManager().GetCropShape()\n\t\tif len(shape) > 0:\n\t\t\tlines.append([s.ToProtoType() for s in shape[0]])\n\t\telse:lines.append(None)\t\n\t\tbb = view.CropBox\n\t\ttransform = bb.Transform\n\t\tnewmin = transform.OfPoint(bb.Min)\n\t\tnewmax = transform.OfPoint(bb.Max)\n\t\tnewbox = BoundingBoxXYZ()\n\t\tnewbox.Max = newmax\n\t\tnewbox.Min = newmin\n\t\tbox.append(newbox.ToProtoType())\n\t# SectionBox\n\telif view.ViewType == ViewType.ThreeD:\n\t\telem.append(doc.GetElement(ElementId(view.Id.IntegerValue - 1)))\n\t\tlines.append(None)\n\t\tbb = view.GetSectionBox()\n\t\ttransform = bb.Transform\n\t\tnewmin = transform.OfPoint(bb.Min)\n\t\tnewmax = transform.OfPoint(bb.Max)\n\t\tnewbox = BoundingBoxXYZ()\n\t\tnewbox.Max = newmax\n\t\tnewbox.Min = newmin\n\t\tbox.append(newbox.ToProtoType())\n\nif isinstance(IN[0], list): OUT = elem, lines, box\nelse: OUT = elem[0], lines[0], box[0]",
+      "Engine": "IronPython2",
+      "EngineName": "IronPython2",
       "VariableInputPorts": true,
       "Id": "833c2a8fc40e41bf81d6a837df279e97",
       "Inputs": [
@@ -39,7 +41,7 @@
         }
       ],
       "Replication": "Disabled",
-      "Description": "Exécute un script IronPython intégré."
+      "Description": "Exécute un script Python intégré."
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
@@ -183,38 +185,44 @@
     {
       "Start": "8ed770b414e248d38e7b6aecc36471e9",
       "End": "963857b8a860405aa4b7148e28fd6f18",
-      "Id": "d467eb8d8bcd45b59b1f6dc1b7b2d8aa"
+      "Id": "d467eb8d8bcd45b59b1f6dc1b7b2d8aa",
+      "IsHidden": "False"
     },
     {
       "Start": "24c43ed13fef434d9991474e75f2563e",
       "End": "8c07003e743f40718cecb5d14ba48a19",
-      "Id": "7df5b3eca63645a1aab0699850505730"
+      "Id": "7df5b3eca63645a1aab0699850505730",
+      "IsHidden": "False"
     },
     {
       "Start": "a513991f9332434eb3e896869a9555b0",
       "End": "8ebe6a9048b64aa49cb43e6909c4c31d",
-      "Id": "0955ed01eb674967a0ca9163dff377a5"
+      "Id": "0955ed01eb674967a0ca9163dff377a5",
+      "IsHidden": "False"
     },
     {
       "Start": "4ba47da37884475d9a6cd063a5064a17",
       "End": "b7933b59fe1643abbccaaefca46cd0e6",
-      "Id": "32f5e1bf66f44ee2b133a2c3a22de2d1"
+      "Id": "32f5e1bf66f44ee2b133a2c3a22de2d1",
+      "IsHidden": "False"
     },
     {
       "Start": "abffb957ba39444fab0e205a897f12b7",
       "End": "d1fbb5fc36414bb4ab880e5d1f501e41",
-      "Id": "e7ec6455644b48f499cc5fdb26b761a9"
+      "Id": "e7ec6455644b48f499cc5fdb26b761a9",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
   "NodeLibraryDependencies": [],
+  "Author": "None provided",
   "Bindings": [],
   "View": {
     "Dynamo": {
       "ScaleFactor": 1.0,
       "HasRunWithoutCrash": false,
       "IsVisibleInDynamoLibrary": true,
-      "Version": "2.6.1.8786",
+      "Version": "2.16.2.5624",
       "RunType": "Manual",
       "RunPeriod": "1000"
     },
@@ -230,63 +238,64 @@
       "UpY": 1.0,
       "UpZ": 0.0
     },
+    "ConnectorPins": [],
     "NodeViews": [
       {
+        "Name": "Python Script",
+        "ShowGeometry": true,
         "Id": "833c2a8fc40e41bf81d6a837df279e97",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Python Script",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 524.60000000000014,
         "Y": 407.22666666666703
       },
       {
+        "Name": "Input",
+        "ShowGeometry": true,
         "Id": "ca6da3102e2d40958f00c36791a8b448",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Input",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 315.4,
         "Y": 406.426666666667
       },
       {
+        "Name": "Code Block",
+        "ShowGeometry": true,
         "Id": "10cc4f42db71450eb3d18e27126b220e",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Code Block",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 703.4,
         "Y": 410.64
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "0f5d0a79ffea42849ee1d3a79e4d5ab3",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 894.6,
         "Y": 331.0
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "e703fb68d7b3485097ea9d8a9a146579",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 894.6,
         "Y": 424.0
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "d14abd378ba74779a2d7231c98281484",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 894.6,
         "Y": 517.0

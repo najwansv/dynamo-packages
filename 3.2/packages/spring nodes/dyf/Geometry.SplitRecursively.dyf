@@ -1,39 +1,319 @@
-<Workspace Version="0.8.2.2392" X="-17.3953075050831" Y="63.8107273397094" zoom="0.954042924882813" Name="Springs.Geometry.SplitRecursively" Description="Splits a surface or a solid recursively, using the resulting reduced geometry for every consecutive split. Select a point or another geometry to control the direction of the split." ID="aa362d48-4b0d-412d-abcf-0e3ac67b7e2b" Category="Springs.Geometry">
-  <NamespaceResolutionMap>
-    <ClassMap partialName="Circle" resolvedName="Autodesk.DesignScript.Geometry.Circle" assemblyName="ProtoGeometry.dll" />
-    <ClassMap partialName="Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
-    <ClassMap partialName="Autodesk.Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
-    <ClassMap partialName="Autodesk.DesignScript.Geometry.Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
-    <ClassMap partialName="Line" resolvedName="Autodesk.DesignScript.Geometry.Line" assemblyName="ProtoGeometry.dll" />
-    <ClassMap partialName="Color" resolvedName="DSCore.Color" assemblyName="DSCoreNodes.dll" />
-    <ClassMap partialName="List" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
-  </NamespaceResolutionMap>
-  <Elements>
-    <Dynamo.Nodes.CodeBlockNodeModel guid="441ab852-7cf4-447a-95ba-59dfdcf2e787" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="282.993396979989" y="529.435082896769" isVisible="false" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" CodeText="splitface1(face, tools,dir1);" ShouldFocus="false" />
-    <Dynamo.Nodes.CodeBlockNodeModel guid="a4167781-0e8a-41cd-a0e6-6204dcb9e7bb" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="273.059759080235" y="133.117700144991" isVisible="false" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="def splitface1(face, planes:var[],dir1){&#xA;return = [Imperative]{&#xA;	out1 = {};&#xA;	for (p in planes){&#xA;		s1 = face.Split(p);&#xA;		if(Count(s1) &lt; 2){&#xA;			face = s1[0];&#xA;			continue;&#xA;		}&#xA;		ind1 = SortIndexByValue(&#xA;			dir1.DistanceTo(s1) );&#xA;		s1 = Reorder(s1,ind1);&#xA;		face = s1[0];&#xA;		s2 = s1[1];&#xA;		out1 = List.AddItemToEnd(s2,out1);&#xA;	}&#xA;	out1 = List.AddItemToEnd(face,out1);&#xA;	return = List.Clean(out1, false);&#xA;}&#xA;};" ShouldFocus="false" />
-    <Dynamo.Nodes.Symbol guid="fc0129da-c04a-4d62-8a82-d3e809f6e6dd" type="Dynamo.Nodes.Symbol" nickname="Input" x="88.8243203482209" y="480.165110663796" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="geometry:var" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.Symbol guid="d8882ad4-1ccd-4eb6-960f-f1c3bf132f0f" type="Dynamo.Nodes.Symbol" nickname="Input" x="97.7913804135122" y="544.230785038087" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="tools:var[]" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.Symbol guid="5991023e-8be2-4c69-80a6-6884683b2059" type="Dynamo.Nodes.Symbol" nickname="Input" x="80.6045152883704" y="609.043714417818" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="pickPoint:var" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.Output guid="ba31a892-dba5-47b1-a551-8d48ff3dde2b" type="Dynamo.Nodes.Output" nickname="Output" x="622.254260564847" y="526.181775376262" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
-      <Symbol value="geometry[]" />
-    </Dynamo.Nodes.Output>
-  </Elements>
-  <Connectors>
-    <Dynamo.Models.ConnectorModel start="441ab852-7cf4-447a-95ba-59dfdcf2e787" start_index="0" end="ba31a892-dba5-47b1-a551-8d48ff3dde2b" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="fc0129da-c04a-4d62-8a82-d3e809f6e6dd" start_index="0" end="441ab852-7cf4-447a-95ba-59dfdcf2e787" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="d8882ad4-1ccd-4eb6-960f-f1c3bf132f0f" start_index="0" end="441ab852-7cf4-447a-95ba-59dfdcf2e787" end_index="1" portType="0" />
-    <Dynamo.Models.ConnectorModel start="5991023e-8be2-4c69-80a6-6884683b2059" start_index="0" end="441ab852-7cf4-447a-95ba-59dfdcf2e787" end_index="2" portType="0" />
-  </Connectors>
-  <Notes />
-  <Annotations />
-  <Presets />
-  <Cameras>
-    <Camera Name="background_preview" eyeX="-0.709565409066689" eyeY="17.4087472919208" eyeZ="12.2458974780632" lookX="-1.1142107205665" lookY="-16.9035340312702" lookZ="-10.6010076465203" />
-  </Cameras>
-</Workspace>
+{
+  "Uuid": "aa362d48-4b0d-412d-abcf-0e3ac67b7e2b",
+  "IsCustomNode": true,
+  "Category": "Springs.Geometry.Actions",
+  "Description": "Splits a surface or a solid recursively, using the resulting reduced geometry for every consecutive split. Select a point or another geometry to control the direction of the split.",
+  "Name": "ꟿ Geometry.SplitRecursively",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Circle": {
+        "Key": "Autodesk.DesignScript.Geometry.Circle",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.DesignScript.Geometry.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Line": {
+        "Key": "Autodesk.DesignScript.Geometry.Line",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Color": {
+        "Key": "DSCore.Color",
+        "Value": "DSCoreNodes.dll"
+      },
+      "List": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "face;\nplanes;\ndir1;\ngeom = [Imperative]{\noutp = [];\ni = 0;\nfor (p in planes){\n\ts1 = face.Split(p);\n\tif(Count(s1) < 2){\n\t\tface = s1[0];\n\t\tcontinue;\n\t}\n\tind1 = SortIndexByValue(\n\t\tdir1.DistanceTo(s1) );\n\ts1 = Reorder(s1,ind1);\n\tface = s1[0];\n\ts2 = s1[1];\n\toutp[i] = s1[1];\n\ti = i + 1;\n}\noutp[i] = face;\nreturn = outp;\n};",
+      "Id": "a41677810e8a41cda0e66204dcb9e7bb",
+      "Inputs": [
+        {
+          "Id": "eca42bdead9b4a8ca9633c9503d55632",
+          "Name": "face",
+          "Description": "face",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c8cd11d410f24c728a9d95a43b0b581b",
+          "Name": "planes",
+          "Description": "planes",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "57b5eb9f4672426287e6362b68fa65c9",
+          "Name": "dir1",
+          "Description": "dir1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c172e39be9a8438f8eaef16b771a8212",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5f515ee0ac5d461cbc7d8eef7a3db5a0",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "626a0c4a66754892bb66314a38eead5a",
+          "Name": "",
+          "Description": "Value of expression at line 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "65bbb4054b194850937c14d6d0ca6d7b",
+          "Name": "",
+          "Description": "geom",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "geometry",
+        "TypeName": "var",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "fc0129dac04a4d628a82d3e809f6e6dd",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a64eb2dea3d24a06aff6c907efef549e",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "tools",
+        "TypeName": "var",
+        "TypeRank": 1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "d8882ad41ccd4eb6960ff1c3bf132f0f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8457fdcc1ad94cc082d292cd8eb8d4a2",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "pickPoint",
+        "TypeName": "var",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "5991023e8be24c6980a66884683b2059",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cf41bc3ba6cf4d68815d9ddffb045be3",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "geometry",
+      "Id": "ba31a892dba547b1a5518d48ff3dde2b",
+      "Inputs": [
+        {
+          "Id": "3056f3bac608494f8e887545d4385ecc",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "65bbb4054b194850937c14d6d0ca6d7b",
+      "End": "3056f3bac608494f8e887545d4385ecc",
+      "Id": "d257dda57af949ca92039c3834232426"
+    },
+    {
+      "Start": "a64eb2dea3d24a06aff6c907efef549e",
+      "End": "eca42bdead9b4a8ca9633c9503d55632",
+      "Id": "3379a18e175348d5ae65e2507f550e00"
+    },
+    {
+      "Start": "8457fdcc1ad94cc082d292cd8eb8d4a2",
+      "End": "c8cd11d410f24c728a9d95a43b0b581b",
+      "Id": "8dc57663d55e40f4a16cf23e9d661a02"
+    },
+    {
+      "Start": "cf41bc3ba6cf4d68815d9ddffb045be3",
+      "End": "57b5eb9f4672426287e6362b68fa65c9",
+      "Id": "528bfd3d11f14704a33e4eb7dfe27803"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 20.116401672363281,
+      "EyeY": 17.506513595581055,
+      "EyeZ": 27.060199737548828,
+      "LookX": -1.1268378496170044,
+      "LookY": -6.3907303810119629,
+      "LookZ": -27.926593780517578,
+      "UpX": -0.00035182933788746595,
+      "UpY": 0.99996191263198853,
+      "UpZ": -0.0087194405496120453
+    },
+    "NodeViews": [
+      {
+        "Id": "a41677810e8a41cda0e66204dcb9e7bb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": false,
+        "Excluded": false,
+        "X": 314.539993482075,
+        "Y": 360.085020456944
+      },
+      {
+        "Id": "fc0129dac04a4d628a82d3e809f6e6dd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Input",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 102.911947126204,
+        "Y": 356.507053390387
+      },
+      {
+        "Id": "d8882ad41ccd4eb6960ff1c3bf132f0f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Input",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 111.879007191495,
+        "Y": 420.572727764678
+      },
+      {
+        "Id": "5991023e8be24c6980a66884683b2059",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Input",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 94.6921420663536,
+        "Y": 485.385657144409
+      },
+      {
+        "Id": "ba31a892dba547b1a5518d48ff3dde2b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Output",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 720.08500207862,
+        "Y": 389.21873725698
+      }
+    ],
+    "Annotations": [],
+    "X": -46.3469713489022,
+    "Y": -320.353063528023,
+    "Zoom": 1.27771698410772
+  }
+}

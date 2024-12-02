@@ -48,7 +48,9 @@
     {
       "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
       "NodeType": "PythonScriptNode",
-      "Code": "#Alban de Chasteigner 2020\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n\nimport clr\n# Import RevitAPI Classes\nclr.AddReference('RevitAPI')\nimport Autodesk\nfrom Autodesk.Revit.DB import *\n\n# Import DocumentManager\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\n\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\n#Import Collections\nfrom System.Collections.Generic import List\nimport System\n\nimport math\n\ndoc = DocumentManager.Instance.CurrentDBDocument\nactiveView = UnwrapElement(IN[0])\n\nfilters = List[ElementFilter]()\npvp = ParameterValueProvider(ElementId(BuiltInParameter.IMPORT_SYMBOL_NAME))\n\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"Rectangle\",False)))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"Markup Object Li\",False)))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"Markup Object Polyli\",False)))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"Ellipse\",False)))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"Ligne\",False)))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"Polyligne\",False)))\norFilter = LogicalOrFilter(filters)\n\ndwfMarkups = FilteredElementCollector(doc, activeView.Id).OfClass(ImportInstance).WhereElementIsNotElementType().WherePasses(orFilter).ToElements()\n\ndef pairwise(iterable, step=2):\n#\tIterate through items in pairs.\n\tif step == 1:\n\t\tfrom itertools import tee, izip\n\t\ta, b = tee(iterable)\n\t\tnext(b, None)\n\t\treturn izip(a, b)\n\telif step == 2:\n\t\ta = iter(iterable)\n\t\treturn zip(a, a)\n\ndef convert(coor):\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan:\n\t\tconv=[VC + XYZ((coor-BC).X * scale, (coor-BC).Y * scale, 0) for coor in coordinates]\n\telif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\tif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY):\n\t\t\tconv=[VC + XYZ((coor-BC).X * scale, 0, (coor-BC).Y * scale) for coor in coordinates]\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisY):\n\t\t\tconv=[VC + XYZ((BC-coor).X * scale, 0, (coor-BC).Y * scale) for coor in coordinates]\n\t\telif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX):\n\t\t\tconv=[VC + XYZ(0,(BC-coor).X * scale,(coor-BC).Y * scale) for coor in coordinates]\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisX):\n\t\t\tconv=[VC + XYZ(0,(coor-BC).X * scale,(coor-BC).Y * scale) for coor in coordinates]\n\treturn conv\n\ndef ellips(symbIns):\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan:\n\t\tellipse=Ellipse.CreateCurve(VC+(symbIns.Center-BC)* scale,symbIns.RadiusX* scale,symbIns.RadiusY* scale,symbIns.XDirection,symbIns.YDirection,0,2*math.pi)\n\telif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\tif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY):\n\t\t\tellipse=Ellipse.CreateCurve(VC + XYZ((symbIns.Center-BC).X * scale, 0, (symbIns.Center-BC).Y * scale),symbIns.RadiusX* scale,symbIns.RadiusY* scale,symbIns.XDirection, XYZ.BasisZ,0,2*math.pi)\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisY):\n\t\t\tellipse=Ellipse.CreateCurve(VC + XYZ((-symbIns.Center+BC).X * scale, 0, (symbIns.Center-BC).Y * scale),symbIns.RadiusX* scale,symbIns.RadiusY* scale,symbIns.XDirection,XYZ.BasisZ,0,2*math.pi)\n\t\telif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX):\n\t\t\tellipse=Ellipse.CreateCurve(VC + XYZ(0,(BC-symbIns.Center).X * scale, (symbIns.Center-BC).Y * scale),symbIns.RadiusX* scale,symbIns.RadiusY* scale, symbIns.YDirection, XYZ.BasisZ, 0,2*math.pi)\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisX):\n\t\t\tellipse=Ellipse.CreateCurve(VC + XYZ(0,(symbIns.Center-BC).X * scale,(symbIns.Center-BC).Y * scale),symbIns.RadiusX* scale,symbIns.RadiusY* scale,symbIns.YDirection,XYZ.BasisZ,0,2*math.pi)\n\treturn ellipse\n\ndef arc(symbIns):\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan:\n\t\tcircle=Ellipse.CreateCurve(VC+(symbIns.Center-BC)* scale,symbIns.Radius * scale,symbIns.Radius* scale, symbIns.XDirection, symbIns.YDirection,0,2*math.pi)\n\telif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\tif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY):\n\t\t\tcircle=Ellipse.CreateCurve(VC + XYZ((symbIns.Center-BC).X * scale, 0, (symbIns.Center-BC).Y * scale),symbIns.Radius* scale,symbIns.Radius* scale,symbIns.XDirection, XYZ.BasisZ,0,2*math.pi)\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisY):\n\t\t\tcircle=Ellipse.CreateCurve(VC + XYZ((-symbIns.Center+BC).X * scale, 0, (symbIns.Center-BC).Y * scale),symbIns.Radius* scale,symbIns.Radius* scale,symbIns.XDirection,XYZ.BasisZ,0,2*math.pi)\n\t\telif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX):\n\t\t\tcircle=Ellipse.CreateCurve(VC + XYZ(0,(BC-symbIns.Center).X * scale, (symbIns.Center-BC).Y * scale),symbIns.Radius* scale,symbIns.Radius* scale, symbIns.YDirection, XYZ.BasisZ, 0,2*math.pi)\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisX):\n\t\t\tcircle=Ellipse.CreateCurve(VC + XYZ(0,(symbIns.Center-BC).X * scale,(symbIns.Center-BC).Y * scale),symbIns.Radius* scale,symbIns.Radius* scale,symbIns.YDirection,XYZ.BasisZ,0,2*math.pi)\n\treturn circle\n\nTransactionManager.Instance.EnsureInTransaction(doc)\nviewports=[doc.GetElement(vip) for vip in activeView.GetAllViewports()]\t\nfor vp in viewports:\n\tview=doc.GetElement(vp.ViewId)\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan or view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\tscale=vp.get_Parameter(BuiltInParameter.VIEW_SCALE).AsInteger()\n\t\ttrans1 = SubTransaction(doc)\n\t\ttrans1.Start()\n\t\ttry:\n\t\t\tview.get_Parameter(BuiltInParameter.VIEWER_CROP_REGION).Set(1)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Sections),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_CLines),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Grids),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Levels),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Callouts),True)\n\t\texcept: pass\n\t\tBC = vp.GetBoxCenter()\n\t\tif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\t\tviewCenter = (view.CropBox.Min + view.CropBox.Max)/2\n\t\t\torigin = view.CropBox.Transform.Origin\n\t\t\tif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY):\n\t\t\t\tVC = origin + XYZ(viewCenter.X,0,viewCenter.Y)\n\t\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisY):\n\t\t\t\tVC = origin + XYZ(-viewCenter.X,0,viewCenter.Y)\n\t\t\telif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX):\n\t\t\t\tVC = origin + XYZ(0,-viewCenter.X, viewCenter.Y)\n\t\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisX):\n\t\t\t\tVC = origin + XYZ(0,viewCenter.X,viewCenter.Y)\n\t\telse:\n\t\t\tVC = (view.CropBox.Min + view.CropBox.Max)/2\n\t\ttrans1.RollBack()\n\nlineList,elementlist=[],[]\nfor dwf in dwfMarkups :\n\tgeoEle=dwf.get_Geometry(Options())\n\tif geoEle != None:\n\t\tfor geoInstance in geoEle:\n\t\t\tif isinstance(geoInstance, GeometryInstance):\n\t\t\t\tfor symbIns in geoInstance.GetInstanceGeometry():\n\t\t\t\t\tif isinstance(symbIns, Ellipse):\n\t\t\t\t\t\tlines,curvelist=[],[]\n\t\t\t\t\t\tellipse=ellips(symbIns)\n\t\t\t\t\t\ttry:\n\t\t\t\t\t\t\tcurvelist.append(doc.Create.NewDetailCurve(view, ellipse))\n\t\t\t\t\t\texcept:\n\t\t\t\t\t\t\tcurvelist.append(None)\n\t\t\t\t\t\tlines.append(ellipse.ToProtoType())\n\t\t\t\t\telif isinstance(symbIns, Arc):\n\t\t\t\t\t\tlines,curvelist=[],[]\n\t\t\t\t\t\tcircle=arc(symbIns)\n\t\t\t\t\t\ttry:\n\t\t\t\t\t\t\tcurvelist.append(doc.Create.NewDetailCurve(view, circle))\n\t\t\t\t\t\texcept:\n\t\t\t\t\t\t\tcurvelist.append(None)\n\t\t\t\t\t\tlines.append(circle.ToProtoType())\n\t\t\t\t\telif isinstance(symbIns, PolyLine) :\n\t\t\t\t\t\tlines,curvelist=[],[]\n\t\t\t\t\t\tcoordinates=symbIns.GetCoordinates()\n\t\t\t\t\t\t#Convert DWF sheet coordinates into model coordinates\n\t\t\t\t\t\tconv=convert(coordinates)\n\t\t\t\t\t\tfor xyz1, xyz2 in pairwise(conv, step=1):\n\t\t\t\t\t\t\t#Exception: Curve length is too small for Revit's tolerance (as identified by Application.ShortCurveTolerance).\n\t\t\t\t\t\t\ttry: line=Line.CreateBound(xyz1, xyz2)\n\t\t\t\t\t\t\texcept : pass\n\t\t\t\t\t\t\ttry:\n\t\t\t\t\t\t\t\tcurvelist.append(doc.Create.NewDetailCurve(view, line))\n\t\t\t\t\t\t\texcept:\n\t\t\t\t\t\t\t\tcurvelist.append(None)\n\t\t\t\t\t\t\tlines.append(line.ToProtoType())\n\t\telementlist.append(curvelist)\n\t\tlineList.append(lines)\n\t\tTransactionManager.Instance.TransactionTaskDone()\n\nOUT = dwfMarkups,elementlist,lineList",
+      "Code": "#Alban de Chasteigner 2020\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n\nimport clr\n# Import RevitAPI Classes\nclr.AddReference('RevitAPI')\nimport Autodesk\nfrom Autodesk.Revit.DB import *\n\n# Import DocumentManager\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\n\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\n#Import Collections\nfrom System.Collections.Generic import List\nimport System\n\nimport math\n\ndoc = DocumentManager.Instance.CurrentDBDocument\nactiveView = UnwrapElement(IN[0])\n\nfilters = List[ElementFilter]()\npvp = ParameterValueProvider(ElementId(BuiltInParameter.IMPORT_SYMBOL_NAME))\n\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"Rectangle\")))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"Markup Object Li\")))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"Markup Object Polyli\")))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"Ellipse\")))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"Ligne\")))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"Polyligne\")))\norFilter = LogicalOrFilter(filters)\n\ndwfMarkups = FilteredElementCollector(doc, activeView.Id).OfClass(ImportInstance).WhereElementIsNotElementType().WherePasses(orFilter).ToElements()\n\ndef pairwise(iterable, step=2):\n#\tIterate through items in pairs.\n\tif step == 1:\n\t\tfrom itertools import tee, izip\n\t\ta, b = tee(iterable)\n\t\tnext(b, None)\n\t\treturn izip(a, b)\n\telif step == 2:\n\t\ta = iter(iterable)\n\t\treturn zip(a, a)\n\ndef convert(coor):\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan:\n\t\tconv=[VC + XYZ((coor-BC).X * scale, (coor-BC).Y * scale, 0) for coor in coordinates]\n\telif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\tif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY):\n\t\t\tconv=[VC + XYZ((coor-BC).X * scale, 0, (coor-BC).Y * scale) for coor in coordinates]\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisY):\n\t\t\tconv=[VC + XYZ((BC-coor).X * scale, 0, (coor-BC).Y * scale) for coor in coordinates]\n\t\telif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX):\n\t\t\tconv=[VC + XYZ(0,(BC-coor).X * scale,(coor-BC).Y * scale) for coor in coordinates]\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisX):\n\t\t\tconv=[VC + XYZ(0,(coor-BC).X * scale,(coor-BC).Y * scale) for coor in coordinates]\n\treturn conv\n\ndef ellips(symbIns):\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan:\n\t\tellipse=Ellipse.CreateCurve(VC+(symbIns.Center-BC)* scale,symbIns.RadiusX* scale,symbIns.RadiusY* scale,symbIns.XDirection,symbIns.YDirection,0,2*math.pi)\n\telif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\tif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY):\n\t\t\tellipse=Ellipse.CreateCurve(VC + XYZ((symbIns.Center-BC).X * scale, 0, (symbIns.Center-BC).Y * scale),symbIns.RadiusX* scale,symbIns.RadiusY* scale,symbIns.XDirection, XYZ.BasisZ,0,2*math.pi)\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisY):\n\t\t\tellipse=Ellipse.CreateCurve(VC + XYZ((-symbIns.Center+BC).X * scale, 0, (symbIns.Center-BC).Y * scale),symbIns.RadiusX* scale,symbIns.RadiusY* scale,symbIns.XDirection,XYZ.BasisZ,0,2*math.pi)\n\t\telif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX):\n\t\t\tellipse=Ellipse.CreateCurve(VC + XYZ(0,(BC-symbIns.Center).X * scale, (symbIns.Center-BC).Y * scale),symbIns.RadiusX* scale,symbIns.RadiusY* scale, symbIns.YDirection, XYZ.BasisZ, 0,2*math.pi)\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisX):\n\t\t\tellipse=Ellipse.CreateCurve(VC + XYZ(0,(symbIns.Center-BC).X * scale,(symbIns.Center-BC).Y * scale),symbIns.RadiusX* scale,symbIns.RadiusY* scale,symbIns.YDirection,XYZ.BasisZ,0,2*math.pi)\n\treturn ellipse\n\ndef arc(symbIns):\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan:\n\t\tcircle=Ellipse.CreateCurve(VC+(symbIns.Center-BC)* scale,symbIns.Radius * scale,symbIns.Radius* scale, symbIns.XDirection, symbIns.YDirection,0,2*math.pi)\n\telif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\tif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY):\n\t\t\tcircle=Ellipse.CreateCurve(VC + XYZ((symbIns.Center-BC).X * scale, 0, (symbIns.Center-BC).Y * scale),symbIns.Radius* scale,symbIns.Radius* scale,symbIns.XDirection, XYZ.BasisZ,0,2*math.pi)\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisY):\n\t\t\tcircle=Ellipse.CreateCurve(VC + XYZ((-symbIns.Center+BC).X * scale, 0, (symbIns.Center-BC).Y * scale),symbIns.Radius* scale,symbIns.Radius* scale,symbIns.XDirection,XYZ.BasisZ,0,2*math.pi)\n\t\telif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX):\n\t\t\tcircle=Ellipse.CreateCurve(VC + XYZ(0,(BC-symbIns.Center).X * scale, (symbIns.Center-BC).Y * scale),symbIns.Radius* scale,symbIns.Radius* scale, symbIns.YDirection, XYZ.BasisZ, 0,2*math.pi)\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisX):\n\t\t\tcircle=Ellipse.CreateCurve(VC + XYZ(0,(symbIns.Center-BC).X * scale,(symbIns.Center-BC).Y * scale),symbIns.Radius* scale,symbIns.Radius* scale,symbIns.YDirection,XYZ.BasisZ,0,2*math.pi)\n\treturn circle\n\nTransactionManager.Instance.EnsureInTransaction(doc)\nviewports=[doc.GetElement(vip) for vip in activeView.GetAllViewports()]\t\nfor vp in viewports:\n\tview=doc.GetElement(vp.ViewId)\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan or view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\tscale=vp.get_Parameter(BuiltInParameter.VIEW_SCALE).AsInteger()\n\t\ttrans1 = SubTransaction(doc)\n\t\ttrans1.Start()\n\t\ttry:\n\t\t\tview.get_Parameter(BuiltInParameter.VIEWER_CROP_REGION).Set(1)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Sections),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_CLines),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Grids),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Levels),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Callouts),True)\n\t\texcept: pass\n\t\tBC = vp.GetBoxCenter()\n\t\tif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\t\tviewCenter = (view.CropBox.Min + view.CropBox.Max)/2\n\t\t\torigin = view.CropBox.Transform.Origin\n\t\t\tif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY):\n\t\t\t\tVC = origin + XYZ(viewCenter.X,0,viewCenter.Y)\n\t\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisY):\n\t\t\t\tVC = origin + XYZ(-viewCenter.X,0,viewCenter.Y)\n\t\t\telif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX):\n\t\t\t\tVC = origin + XYZ(0,-viewCenter.X, viewCenter.Y)\n\t\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisX):\n\t\t\t\tVC = origin + XYZ(0,viewCenter.X,viewCenter.Y)\n\t\telse:\n\t\t\tVC = (view.CropBox.Min + view.CropBox.Max)/2\n\t\ttrans1.RollBack()\n\nlineList,elementlist=[],[]\nfor dwf in dwfMarkups :\n\tgeoEle=dwf.get_Geometry(Options())\n\tif geoEle != None:\n\t\tfor geoInstance in geoEle:\n\t\t\tif isinstance(geoInstance, GeometryInstance):\n\t\t\t\tfor symbIns in geoInstance.GetInstanceGeometry():\n\t\t\t\t\tif isinstance(symbIns, Ellipse):\n\t\t\t\t\t\tlines,curvelist=[],[]\n\t\t\t\t\t\tellipse=ellips(symbIns)\n\t\t\t\t\t\ttry:\n\t\t\t\t\t\t\tcurvelist.append(doc.Create.NewDetailCurve(view, ellipse))\n\t\t\t\t\t\texcept:\n\t\t\t\t\t\t\tcurvelist.append(None)\n\t\t\t\t\t\tlines.append(ellipse.ToProtoType())\n\t\t\t\t\telif isinstance(symbIns, Arc):\n\t\t\t\t\t\tlines,curvelist=[],[]\n\t\t\t\t\t\tcircle=arc(symbIns)\n\t\t\t\t\t\ttry:\n\t\t\t\t\t\t\tcurvelist.append(doc.Create.NewDetailCurve(view, circle))\n\t\t\t\t\t\texcept:\n\t\t\t\t\t\t\tcurvelist.append(None)\n\t\t\t\t\t\tlines.append(circle.ToProtoType())\n\t\t\t\t\telif isinstance(symbIns, PolyLine) :\n\t\t\t\t\t\tlines,curvelist=[],[]\n\t\t\t\t\t\tcoordinates=symbIns.GetCoordinates()\n\t\t\t\t\t\t#Convert DWF sheet coordinates into model coordinates\n\t\t\t\t\t\tconv=convert(coordinates)\n\t\t\t\t\t\tfor xyz1, xyz2 in pairwise(conv, step=1):\n\t\t\t\t\t\t\t#Exception: Curve length is too small for Revit's tolerance (as identified by Application.ShortCurveTolerance).\n\t\t\t\t\t\t\ttry: line=Line.CreateBound(xyz1, xyz2)\n\t\t\t\t\t\t\texcept : pass\n\t\t\t\t\t\t\ttry:\n\t\t\t\t\t\t\t\tcurvelist.append(doc.Create.NewDetailCurve(view, line))\n\t\t\t\t\t\t\texcept:\n\t\t\t\t\t\t\t\tcurvelist.append(None)\n\t\t\t\t\t\t\tlines.append(line.ToProtoType())\n\t\telementlist.append(curvelist)\n\t\tlineList.append(lines)\n\t\tTransactionManager.Instance.TransactionTaskDone()\n\nOUT = dwfMarkups,elementlist,lineList",
+      "Engine": "IronPython2",
+      "EngineName": "IronPython2",
       "VariableInputPorts": true,
       "Id": "0872af0d958c44179664d5309a094de7",
       "Inputs": [
@@ -74,7 +76,7 @@
         }
       ],
       "Replication": "Disabled",
-      "Description": "Exécute un script IronPython intégré."
+      "Description": "Exécute un script Python intégré."
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
@@ -192,38 +194,44 @@
     {
       "Start": "8b2b5a9e94874b33a44612dd5571dc65",
       "End": "fa109bc6ed43407e943bd145ef5545cd",
-      "Id": "989a8220815243ffbc2b86102a2d116e"
+      "Id": "989a8220815243ffbc2b86102a2d116e",
+      "IsHidden": "False"
     },
     {
       "Start": "ba4399c8441a42718d80f9a03502114b",
       "End": "dd367e14c4e94325ad58f9708533e7f3",
-      "Id": "10b29ee59d4f478bb9f6ad6f75e4b913"
+      "Id": "10b29ee59d4f478bb9f6ad6f75e4b913",
+      "IsHidden": "False"
     },
     {
       "Start": "3a5c8008778d40d58668ed171fddc6ab",
       "End": "bf010993300647fc9e9788b7b235a9f8",
-      "Id": "2b28d6dd2c2d46c087b50744aea73280"
+      "Id": "2b28d6dd2c2d46c087b50744aea73280",
+      "IsHidden": "False"
     },
     {
       "Start": "0460b12b90c6477ca90d9a6dfd82bbf6",
       "End": "532219924a434245bf9c2b664128ec3f",
-      "Id": "3e655989f5eb457c8d53a463a38b0220"
+      "Id": "3e655989f5eb457c8d53a463a38b0220",
+      "IsHidden": "False"
     },
     {
       "Start": "8d3ff49084034503867c721a22cb8011",
       "End": "44f332a409a64e04abcbbab50247da0b",
-      "Id": "85d04ed09a144f7dac2b86c8213e896c"
+      "Id": "85d04ed09a144f7dac2b86c8213e896c",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
   "NodeLibraryDependencies": [],
+  "Author": "None provided",
   "Bindings": [],
   "View": {
     "Dynamo": {
       "ScaleFactor": 1.0,
       "HasRunWithoutCrash": false,
       "IsVisibleInDynamoLibrary": true,
-      "Version": "2.6.1.8786",
+      "Version": "2.16.2.5624",
       "RunType": "Manual",
       "RunPeriod": "1000"
     },
@@ -239,66 +247,67 @@
       "UpY": 1.0,
       "UpZ": 0.0
     },
+    "ConnectorPins": [],
     "NodeViews": [
       {
-        "ShowGeometry": true,
-        "Name": "Input",
         "Id": "4cf81eb3fcc0439da91df66583d06dca",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Input",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 232.4,
         "Y": 197.6
       },
       {
-        "ShowGeometry": true,
-        "Name": "Python Script",
         "Id": "0872af0d958c44179664d5309a094de7",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Python Script",
+        "ShowGeometry": true,
         "Excluded": false,
-        "X": 801.814579625782,
-        "Y": 199.147296078171
+        "X": 860.19277449221624,
+        "Y": 199.70862487496356
       },
       {
-        "ShowGeometry": true,
-        "Name": "Output",
         "Id": "bc1d981de31f467a913b6aa9f353a84e",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Output",
+        "ShowGeometry": true,
         "Excluded": false,
-        "X": 1147.21548824026,
-        "Y": 197.024032054299
+        "X": 1271.8304811282253,
+        "Y": 116.1926853161593
       },
       {
-        "ShowGeometry": true,
-        "Name": "Code Block",
         "Id": "e4a072ccbe964d66860870166eb5107a",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
         "Excluded": false,
-        "X": 954.804238541881,
-        "Y": 200.649848623504
+        "X": 1070.9992994779568,
+        "Y": 195.59788945237023
       },
       {
-        "ShowGeometry": true,
-        "Name": "Output",
         "Id": "d5103da7373a4d75acf5e6b4997c2599",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Output",
+        "ShowGeometry": true,
         "Excluded": false,
-        "X": 1146.45141022616,
-        "Y": 262.479128396323
+        "X": 1262.6464711622361,
+        "Y": 257.42716922518923
       },
       {
-        "ShowGeometry": true,
-        "Name": "Output",
         "Id": "6d50c7d9836a437a949316ef4071eb3d",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Output",
+        "ShowGeometry": true,
         "Excluded": false,
-        "X": 1144.33795033212,
-        "Y": 350.665351232567
+        "X": 1262.7783264553664,
+        "Y": 424.19942361240237
       }
     ],
     "Annotations": [],

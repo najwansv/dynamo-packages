@@ -61,7 +61,9 @@
     {
       "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
       "NodeType": "PythonScriptNode",
-      "Code": "#Alban de Chasteigner 2020\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n\nimport clr\n# Import RevitAPI Classes\nclr.AddReference('RevitAPI')\nimport Autodesk\nfrom Autodesk.Revit.DB import *\n\n# Import DocumentManager\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\n\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\n#Import Collections\nfrom System.Collections.Generic import List\nimport System\n\ndoc = DocumentManager.Instance.CurrentDBDocument\nactiveView = UnwrapElement(IN[0])\n\nfilters = List[ElementFilter]()\npvp = ParameterValueProvider(ElementId(BuiltInParameter.IMPORT_SYMBOL_NAME))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"nuage\",False)))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"cloud\",False)))\norFilter = LogicalOrFilter(filters)\n\nTransactionManager.Instance.EnsureInTransaction(doc)\nviewports=[doc.GetElement(vip) for vip in activeView.GetAllViewports()]\t\nfor vp in viewports:\n\tview=doc.GetElement(vp.ViewId)\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan or view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\tscale=vp.get_Parameter(BuiltInParameter.VIEW_SCALE).AsInteger()\n\t\ttrans1 = SubTransaction(doc)\n\t\ttrans1.Start()\n\t\ttry:\n\t\t\tview.get_Parameter(BuiltInParameter.VIEWER_CROP_REGION).Set(1)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Sections),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_CLines),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Grids),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Levels),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Callouts),True)\n\t\texcept:pass\n\t\tBC = vp.GetBoxCenter()\n\t\tif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\t\tviewCenter= (view.CropBox.Min + view.CropBox.Max)/2\n\t\t\torigin = view.CropBox.Transform.Origin\n\t\t\tif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY):\n\t\t\t\tVC = origin + XYZ(viewCenter.X,0,viewCenter.Y)\n\t\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisY):\n\t\t\t\tVC = origin + XYZ(-viewCenter.X,0,viewCenter.Y)\n\t\t\telif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX):\n\t\t\t\tVC = origin + XYZ(0,-viewCenter.X, viewCenter.Y)\n\t\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisX):\n\t\t\t\tVC = origin + XYZ(0,viewCenter.X,viewCenter.Y)\n\t\telse:\n\t\t\tVC = (view.CropBox.Min + view.CropBox.Max)/2\n\t\ttrans1.RollBack()\n\ndwfMarkups = FilteredElementCollector(doc, activeView.Id).OfClass(ImportInstance).WhereElementIsNotElementType().WherePasses(orFilter).ToElements()\n\nrevisionId = FilteredElementCollector(doc).OfClass(Revision).FirstElementId()\n\nrevisions=[]\nfor dwf in dwfMarkups:\n\tcomment=dwf.get_Parameter(BuiltInParameter.MARKUPS_HISTORY).AsString()\n\tcurves = List[Curve]()\n\tbbox=dwf.BoundingBox[activeView]\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan:\n\t\tpt1 = VC + XYZ((bbox.Min-BC).X * scale, (bbox.Min-BC).Y * scale, 0)\n\t\tpt2 = VC + XYZ((bbox.Min-BC).X * scale, (bbox.Max-BC).Y * scale, 0)\n\t\tpt3 = VC + XYZ((bbox.Max-BC).X * scale, (bbox.Max-BC).Y * scale, 0)\n\t\tpt4 = VC + XYZ((bbox.Max-BC).X * scale, (bbox.Min-BC).Y * scale, 0)\n\telif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\tif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY):\n\t\t\tpt1 = VC + XYZ((bbox.Min-BC).X * scale,0, (bbox.Min-BC).Y * scale)\n\t\t\tpt2 = VC + XYZ((bbox.Min-BC).X * scale,0, (bbox.Max-BC).Y * scale)\n\t\t\tpt3 = VC + XYZ((bbox.Max-BC).X * scale,0, (bbox.Max-BC).Y * scale)\n\t\t\tpt4 = VC + XYZ((bbox.Max-BC).X * scale,0, (bbox.Min-BC).Y * scale)\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisY):\n\t\t\tpt1 = VC + XYZ((-bbox.Min+BC).X * scale,0, (bbox.Min-BC).Y * scale)\n\t\t\tpt2 = VC + XYZ((-bbox.Min+BC).X * scale,0, (bbox.Max-BC).Y * scale)\n\t\t\tpt3 = VC + XYZ((-bbox.Max+BC).X * scale,0, (bbox.Max-BC).Y * scale)\n\t\t\tpt4 = VC + XYZ((-bbox.Max+BC).X * scale,0, (bbox.Min-BC).Y * scale)\n\t\telif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX):\n\t\t\tpt1 = VC + XYZ(0,(BC-bbox.Min).X * scale, (bbox.Min-BC).Y * scale)\n\t\t\tpt2 = VC + XYZ(0,(BC-bbox.Min).X * scale, (bbox.Max-BC).Y * scale)\n\t\t\tpt3 = VC + XYZ(0,(BC-bbox.Max).X * scale, (bbox.Max-BC).Y * scale)\n\t\t\tpt4 = VC + XYZ(0,(BC-bbox.Max).X * scale, (bbox.Min-BC).Y * scale)\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisX):\n\t\t\tpt1 = VC + XYZ(0,(bbox.Min-BC).X * scale, (bbox.Min-BC).Y * scale)\n\t\t\tpt2 = VC + XYZ(0,(bbox.Min-BC).X * scale, (bbox.Max-BC).Y * scale)\n\t\t\tpt3 = VC + XYZ(0,(bbox.Max-BC).X * scale, (bbox.Max-BC).Y * scale)\n\t\t\tpt4 = VC + XYZ(0,(bbox.Max-BC).X * scale, (bbox.Min-BC).Y * scale)\n\tcurves.Add(Line.CreateBound(pt1, pt2))\n\tcurves.Add(Line.CreateBound(pt2, pt3))\n\tcurves.Add(Line.CreateBound(pt3, pt4))\n\tcurves.Add(Line.CreateBound(pt4, pt1))\n\tcloud=RevisionCloud.Create(doc,view,revisionId,curves)\n\tcloudComments=cloud.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).Set(comment)\n\trevisions.append(cloud)\n\t\nTransactionManager.Instance.TransactionTaskDone()\n\nOUT = dwfMarkups,revisions",
+      "Code": "#Alban de Chasteigner 2020\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n\nimport clr\n# Import RevitAPI Classes\nclr.AddReference('RevitAPI')\nimport Autodesk\nfrom Autodesk.Revit.DB import *\n\n# Import DocumentManager\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\n\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\n#Import Collections\nfrom System.Collections.Generic import List\nimport System\n\ndoc = DocumentManager.Instance.CurrentDBDocument\nactiveView = UnwrapElement(IN[0])\n\nfilters = List[ElementFilter]()\npvp = ParameterValueProvider(ElementId(BuiltInParameter.IMPORT_SYMBOL_NAME))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"nuage\")))\nfilters.Add(ElementParameterFilter(FilterStringRule(pvp, FilterStringContains(),\"cloud\")))\norFilter = LogicalOrFilter(filters)\n\nTransactionManager.Instance.EnsureInTransaction(doc)\nviewports=[doc.GetElement(vip) for vip in activeView.GetAllViewports()]\t\nfor vp in viewports:\n\tview=doc.GetElement(vp.ViewId)\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan or view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\tscale=vp.get_Parameter(BuiltInParameter.VIEW_SCALE).AsInteger()\n\t\ttrans1 = SubTransaction(doc)\n\t\ttrans1.Start()\n\t\ttry:\n\t\t\tview.get_Parameter(BuiltInParameter.VIEWER_CROP_REGION).Set(1)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Sections),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_CLines),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Grids),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Levels),True)\n\t\t\tview.SetCategoryHidden(ElementId(BuiltInCategory.OST_Callouts),True)\n\t\texcept:pass\n\t\tBC = vp.GetBoxCenter()\n\t\tif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\t\tviewCenter= (view.CropBox.Min + view.CropBox.Max)/2\n\t\t\torigin = view.CropBox.Transform.Origin\n\t\t\tif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY):\n\t\t\t\tVC = origin + XYZ(viewCenter.X,0,viewCenter.Y)\n\t\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisY):\n\t\t\t\tVC = origin + XYZ(-viewCenter.X,0,viewCenter.Y)\n\t\t\telif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX):\n\t\t\t\tVC = origin + XYZ(0,-viewCenter.X, viewCenter.Y)\n\t\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisX):\n\t\t\t\tVC = origin + XYZ(0,viewCenter.X,viewCenter.Y)\n\t\telse:\n\t\t\tVC = (view.CropBox.Min + view.CropBox.Max)/2\n\t\ttrans1.RollBack()\n\ndwfMarkups = FilteredElementCollector(doc, activeView.Id).OfClass(ImportInstance).WhereElementIsNotElementType().WherePasses(orFilter).ToElements()\n\nrevisionId = FilteredElementCollector(doc).OfClass(Revision).FirstElementId()\n\nrevisions=[]\nfor dwf in dwfMarkups:\n\tcomment=dwf.get_Parameter(BuiltInParameter.MARKUPS_HISTORY).AsString()\n\tcurves = List[Curve]()\n\tbbox=dwf.BoundingBox[activeView]\n\tif view.ViewType == ViewType.FloorPlan or view.ViewType == ViewType.CeilingPlan or view.ViewType == ViewType.EngineeringPlan:\n\t\tpt1 = VC + XYZ((bbox.Min-BC).X * scale, (bbox.Min-BC).Y * scale, 0)\n\t\tpt2 = VC + XYZ((bbox.Min-BC).X * scale, (bbox.Max-BC).Y * scale, 0)\n\t\tpt3 = VC + XYZ((bbox.Max-BC).X * scale, (bbox.Max-BC).Y * scale, 0)\n\t\tpt4 = VC + XYZ((bbox.Max-BC).X * scale, (bbox.Min-BC).Y * scale, 0)\n\telif view.ViewType == ViewType.Section or view.ViewType == ViewType.Elevation :\n\t\tif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY):\n\t\t\tpt1 = VC + XYZ((bbox.Min-BC).X * scale,0, (bbox.Min-BC).Y * scale)\n\t\t\tpt2 = VC + XYZ((bbox.Min-BC).X * scale,0, (bbox.Max-BC).Y * scale)\n\t\t\tpt3 = VC + XYZ((bbox.Max-BC).X * scale,0, (bbox.Max-BC).Y * scale)\n\t\t\tpt4 = VC + XYZ((bbox.Max-BC).X * scale,0, (bbox.Min-BC).Y * scale)\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisY):\n\t\t\tpt1 = VC + XYZ((-bbox.Min+BC).X * scale,0, (bbox.Min-BC).Y * scale)\n\t\t\tpt2 = VC + XYZ((-bbox.Min+BC).X * scale,0, (bbox.Max-BC).Y * scale)\n\t\t\tpt3 = VC + XYZ((-bbox.Max+BC).X * scale,0, (bbox.Max-BC).Y * scale)\n\t\t\tpt4 = VC + XYZ((-bbox.Max+BC).X * scale,0, (bbox.Min-BC).Y * scale)\n\t\telif view.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX):\n\t\t\tpt1 = VC + XYZ(0,(BC-bbox.Min).X * scale, (bbox.Min-BC).Y * scale)\n\t\t\tpt2 = VC + XYZ(0,(BC-bbox.Min).X * scale, (bbox.Max-BC).Y * scale)\n\t\t\tpt3 = VC + XYZ(0,(BC-bbox.Max).X * scale, (bbox.Max-BC).Y * scale)\n\t\t\tpt4 = VC + XYZ(0,(BC-bbox.Max).X * scale, (bbox.Min-BC).Y * scale)\n\t\telif view.ViewDirection.IsAlmostEqualTo(XYZ.BasisX):\n\t\t\tpt1 = VC + XYZ(0,(bbox.Min-BC).X * scale, (bbox.Min-BC).Y * scale)\n\t\t\tpt2 = VC + XYZ(0,(bbox.Min-BC).X * scale, (bbox.Max-BC).Y * scale)\n\t\t\tpt3 = VC + XYZ(0,(bbox.Max-BC).X * scale, (bbox.Max-BC).Y * scale)\n\t\t\tpt4 = VC + XYZ(0,(bbox.Max-BC).X * scale, (bbox.Min-BC).Y * scale)\n\tcurves.Add(Line.CreateBound(pt1, pt2))\n\tcurves.Add(Line.CreateBound(pt2, pt3))\n\tcurves.Add(Line.CreateBound(pt3, pt4))\n\tcurves.Add(Line.CreateBound(pt4, pt1))\n\tcloud=RevisionCloud.Create(doc,view,revisionId,curves)\n\tcloudComments=cloud.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).Set(comment)\n\trevisions.append(cloud)\n\t\nTransactionManager.Instance.TransactionTaskDone()\n\nOUT = dwfMarkups,revisions",
+      "Engine": "IronPython2",
+      "EngineName": "IronPython2",
       "VariableInputPorts": true,
       "Id": "9f77133acf744a2dbd4a482c42ebb3a4",
       "Inputs": [
@@ -87,7 +89,7 @@
         }
       ],
       "Replication": "Disabled",
-      "Description": "Exécute un script IronPython intégré."
+      "Description": "Exécute un script Python intégré."
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
@@ -162,33 +164,38 @@
     {
       "Start": "21623e0c86114db3849e185b8e8e7a79",
       "End": "8405919032ed49d2aa5ba9f35dac338f",
-      "Id": "c790717af2ab4bcd91bb7991e975b27e"
+      "Id": "c790717af2ab4bcd91bb7991e975b27e",
+      "IsHidden": "False"
     },
     {
       "Start": "00e1a00e3d2c40e6b2ed6d3260e44be8",
       "End": "92c7fa3ad6174827a96c332a0bba072e",
-      "Id": "fa76f069b4774e4287e94a577376ed2a"
+      "Id": "fa76f069b4774e4287e94a577376ed2a",
+      "IsHidden": "False"
     },
     {
       "Start": "506240d0a1bc492d94831f2bba31b98a",
       "End": "6827c7c646e04a63b31bec888ab2cc10",
-      "Id": "e5e14d946e2b45ceaf63c127ebb66e44"
+      "Id": "e5e14d946e2b45ceaf63c127ebb66e44",
+      "IsHidden": "False"
     },
     {
       "Start": "02357d94369543ddac4ed0fbb42fb133",
       "End": "007a8b2195d3498aba13239e26e1f226",
-      "Id": "b197a15c8a8e474e860e8bb90424fcf7"
+      "Id": "b197a15c8a8e474e860e8bb90424fcf7",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
   "NodeLibraryDependencies": [],
+  "Author": "None provided",
   "Bindings": [],
   "View": {
     "Dynamo": {
       "ScaleFactor": 1.0,
       "HasRunWithoutCrash": false,
       "IsVisibleInDynamoLibrary": true,
-      "Version": "2.6.1.8786",
+      "Version": "2.16.2.5624",
       "RunType": "Manual",
       "RunPeriod": "1000"
     },
@@ -204,53 +211,54 @@
       "UpY": 1.0,
       "UpZ": 0.0
     },
+    "ConnectorPins": [],
     "NodeViews": [
       {
-        "ShowGeometry": true,
-        "Name": "Code Block",
         "Id": "e9a3431da0e4439998b6a6ce1e306d9a",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 1007.40774412013,
         "Y": 215.338682693816
       },
       {
-        "ShowGeometry": true,
-        "Name": "Python Script",
         "Id": "9f77133acf744a2dbd4a482c42ebb3a4",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Python Script",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 783.00774412013,
         "Y": 211.125349360483
       },
       {
-        "ShowGeometry": true,
-        "Name": "Input",
         "Id": "d0f4065f50664481aa3a66814b002e01",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Input",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 149.40774412013,
         "Y": 211.125349360483
       },
       {
-        "ShowGeometry": true,
-        "Name": "Output",
         "Id": "760954a14adb45f297ce8e8841cef929",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Output",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 1198.60774412013,
         "Y": 177.912016027149
       },
       {
-        "ShowGeometry": true,
-        "Name": "Output",
         "Id": "9292dcbc761a46df86d5d21edeec7c98",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Output",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 1198.60774412013,
         "Y": 261.912016027149

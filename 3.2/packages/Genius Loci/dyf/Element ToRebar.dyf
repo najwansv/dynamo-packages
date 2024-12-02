@@ -14,8 +14,8 @@
       "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
       "NodeType": "PythonScriptNode",
       "Code": "#Alban de Chasteigner 2023\r\n#twitter : @geniusloci_bim\r\n#geniusloci.bim@gmail.com\r\n#https://github.com/albandechasteigner/GeniusLociForDynamo\r\n \r\nimport clr\r\nclr.AddReference('RevitAPI')\r\nimport Autodesk\r\nfrom Autodesk.Revit.DB.Structure import *\r\n\r\nelements = UnwrapElement(IN[0]) if isinstance(IN[0],list) else [UnwrapElement(IN[0])]\r\nrebarsInHost=[]\r\n\r\nfor elem in elements:\r\n    rebarsInHost.append(RebarHostData.GetRebarHostData(elem).GetRebarsInHost())\r\n\r\nOUT = rebarsInHost",
-      "Engine": "CPython3",
-      "EngineName": "CPython3",
+      "Engine": "IronPython2",
+      "EngineName": "IronPython2",
       "VariableInputPorts": true,
       "Id": "9adc949607d245b1a6c4c5638e94db82",
       "Inputs": [
@@ -108,5 +108,64 @@
   "Dependencies": [],
   "NodeLibraryDependencies": [],
   "Author": "None provided",
-  "Bindings": []
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.2.5624",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Aperçu en arrière-plan",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "9adc949607d245b1a6c4c5638e94db82",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 0.0,
+        "Y": 0.0
+      },
+      {
+        "Id": "a9f0a104663e42469205bbeb130d8d3d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Input",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -299.10715472240179,
+        "Y": 2.0209942886648378
+      },
+      {
+        "Id": "557bdc639fc84ee2aaea62076e7472e7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Output",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 291.69684233063049,
+        "Y": 4.7156533402180116
+      }
+    ],
+    "Annotations": [],
+    "X": 139.37471694597545,
+    "Y": 106.59550229999999,
+    "Zoom": 0.59376714062500013
+  }
 }

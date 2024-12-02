@@ -4,6 +4,80 @@
         <name>WombatDynamo</name>
     </assembly>
     <members>
+        <member name="T:WombatDynamo.Area">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.Area.InternalSetElement(Autodesk.Revit.DB.Area)">
+            <summary>
+            Set the internal Element, ElementId, and UniqueId
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.Area.ByAreaPlanAndPoint(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point)">
+            <summary>
+            Create an Area by area plan view and point.
+            </summary>
+        </member>
+        <member name="P:WombatDynamo.Area.InternalRevitElement">
+            <summary>
+            Internal reference to the Revit Element
+            </summary>
+        </member>
+        <member name="P:WombatDynamo.Area.InternalElement">
+            <summary>
+            Reference to the Element
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.Area.#ctor(Autodesk.Revit.DB.Area)">
+            <summary>
+            Create from existing element
+            </summary>
+            <param name="Area"></param>
+        </member>
+        <member name="M:WombatDynamo.Area.#ctor(Autodesk.Revit.DB.ViewPlan,Autodesk.Revit.DB.XYZ)">
+            <summary>
+            Create a new Area by View and Point
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.Area.InitElement(Autodesk.Revit.DB.Area)">
+            <summary>
+            Set internal element
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.AreaPlanView.FromExisting(Autodesk.Revit.DB.ViewPlan,System.Boolean)">
+            <summary>
+            Create from existing Element
+            </summary>
+            <param name="plan"></param>
+            <param name="isRevitOwned"></param>
+        </member>
+        <member name="M:WombatDynamo.AreaPlanView.#ctor(Autodesk.Revit.DB.ViewPlan)">
+            <summary>
+            Private constructor
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.AreaPlanView.#ctor(Autodesk.Revit.DB.Level,System.String)">
+            <summary>
+            Private constructor
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.AreaPlanView.InitAreaPlanView(Autodesk.Revit.DB.ViewPlan)">
+            <summary>
+            Initialize a AreaPlanView element
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.AreaPlanView.InitAreaPlanView(Autodesk.Revit.DB.Level,System.String)">
+            <summary>
+            Initialize a AreaPlanView element
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.AreaPlanView.ByLevel(Revit.Elements.Level)">
+            <summary>
+            Create a Revit Area Plan at a given Level
+            </summary>
+            <param name="level"></param>
+            <returns></returns>
+        </member>
         <member name="M:WombatDynamo.BoundingBox.Evaluate(Autodesk.DesignScript.Geometry.BoundingBox,System.Double,System.Double,System.Double)">
             <summary>
             Evaluate a point in the box's UVW space - in a range from 0-1.
@@ -24,6 +98,17 @@
             Get the base coordinate system of a column element.
             </summary>
         </member>
+        <member name="M:WombatDynamo.CurtainGrid.#ctor(Autodesk.Revit.DB.CurtainGrid)">
+            <summary>
+            Create from existing element
+            </summary>
+            <param name="Roof"></param>
+        </member>
+        <member name="M:WombatDynamo.CurtainGrid.ByWall(Revit.Elements.Wall)">
+            <summary>
+            Get the CurtainGrid from a curtain wall element.
+            </summary>
+        </member>
         <member name="P:WombatDynamo.CurtainGrid.InternalRevitElement">
             <summary>
             Internal reference to the Revit Element
@@ -34,15 +119,16 @@
             Reference to the Element
             </summary>
         </member>
-        <member name="M:WombatDynamo.CurtainGrid.#ctor(Autodesk.Revit.DB.CurtainGrid)">
+        <member name="M:WombatDynamo.CurtainGrid.AddGridLine(WombatDynamo.CurtainGrid,Autodesk.DesignScript.Geometry.Point[],System.Boolean,System.Boolean,System.Boolean)">
             <summary>
-            Create from existing element
+            Add a new grid line to a Curtain Grid. Supply a point for each line - it should lie on the curtain wall's surface.
+            Set isUGrid to false for horizontal grid lines, and set oneSegmentOnly to true to insert a sub-segment in between
+            existing grid lines.
             </summary>
-            <param name="Roof"></param>
         </member>
-        <member name="M:WombatDynamo.CurtainGrid.ByWall(Revit.Elements.Wall)">
+        <member name="M:WombatDynamo.CurtainGrid.GetPanels(WombatDynamo.CurtainGrid)">
             <summary>
-            Get the CurtainGrid from a curtain wall element.
+            Get the individual curtain panels from a CurtainGrid.
             </summary>
         </member>
         <member name="M:WombatDynamo.Curve.SmartOffset(Autodesk.DesignScript.Geometry.Curve,System.Double)">
@@ -63,6 +149,11 @@
         <member name="M:WombatDynamo.Vector.Deconstruct(Autodesk.DesignScript.Geometry.Vector)">
             <summary>
             Get the XYZ components of a vector
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.Element.SetParameterValuesByNames(Revit.Elements.Element,System.String[],System.Object[])">
+            <summary>
+            Sets multiple parameter values by parameter name to supplied elements at once.
             </summary>
         </member>
         <member name="M:WombatDynamo.Element.Unpin(Revit.Elements.Element)">
@@ -87,7 +178,8 @@
         </member>
         <member name="M:WombatDynamo.Element.TryGetPropertyValue(Revit.Elements.Element,System.String)">
             <summary>
-            Attempts to retrieve the value of a RevitAPI property on an object. Use GetPropertyNames to find out what properties are accessible.
+            Attempts to retrieve the value of a RevitAPI property on an object. Use GetPropertyNames to find out what properties
+            are accessible.
             </summary>
         </member>
         <member name="M:WombatDynamo.Element.GetPropertyNames(Revit.Elements.Element)">
@@ -102,17 +194,21 @@
         </member>
         <member name="M:WombatDynamo.FamilyInstance.SetType(Revit.Elements.FamilyInstance,Revit.Elements.FamilyType)">
             <summary>
-            Change the family type of a family instance - can be used for instance 
+            Change the family type of a family instance - can be used for instance
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.FamilyInstance.Flip(Revit.Elements.FamilyInstance,System.Boolean,System.Boolean)">
+            <summary>
             </summary>
         </member>
         <member name="M:WombatDynamo.FamilyInstance.SetType(Revit.Elements.CurtainPanel,Revit.Elements.FamilyType)">
             <summary>
-            Change the family type of a family instance - can be used for instance 
+            Change the family type of a family instance - can be used for instance
             </summary>
         </member>
         <member name="M:WombatDynamo.FamilyInstance.SetType(Revit.Elements.CurtainPanel,Revit.Elements.WallType)">
             <summary>
-            Change the family type of a family instance - can be used for instance 
+            Change the family type of a family instance - can be used for instance
             </summary>
         </member>
         <member name="M:WombatDynamo.FamilyInstance.IsInPlace(Revit.Elements.FamilyInstance)">
@@ -145,11 +241,6 @@
             Retrieve a level by its name.
             </summary>
         </member>
-        <member name="T:WombatDynamo.List.Wrapper">
-            <summary>
-            Turn a list of objects into a single "wrapper" object
-            </summary>
-        </member>
         <member name="M:WombatDynamo.List.NullItem">
             <summary>
             Create a null object.
@@ -173,6 +264,27 @@
         <member name="M:WombatDynamo.List.FilterByName(System.Collections.Generic.IEnumerable{System.Object},System.String)">
             <summary>
             Filter a list of objects by their string representations. Supports wildcards like * and ?
+            </summary>
+        </member>
+        <member name="T:WombatDynamo.List.Wrapper">
+            <summary>
+            Turn a list of objects into a single "wrapper" object
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.Opening.InternalSetOpening(Autodesk.Revit.DB.Opening)">
+            <summary>
+            Set the InternalOpening property and the associated element id and unique id
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.Opening.ByPathTypeAndLevel(Autodesk.DesignScript.Geometry.PolyCurve,Revit.Elements.Level,Revit.Elements.Level)">
+            <summary>
+            Create an opening/shaft by profile.
+            </summary>
+            <returns>The opening</returns>
+        </member>
+        <member name="M:WombatDynamo.Opening.FromExisting(Autodesk.Revit.DB.Opening,System.Boolean)">
+            <summary>
+            Create a Opening from a user selected Element.
             </summary>
         </member>
         <member name="P:WombatDynamo.Opening.InternalOpening">
@@ -204,29 +316,6 @@
             <summary>
             Initialize a opening element
             </summary>
-        </member>
-        <member name="M:WombatDynamo.Opening.InternalSetOpening(Autodesk.Revit.DB.Opening)">
-            <summary>
-            Set the InternalOpening property and the associated element id and unique id
-            </summary>
-            <param name="opening"></param>
-        </member>
-        <member name="M:WombatDynamo.Opening.ByPathTypeAndLevel(Autodesk.DesignScript.Geometry.PolyCurve,Revit.Elements.Level,Revit.Elements.Level)">
-            <summary>
-            Create an opening/shaft by profile.
-            </summary>
-            <param name="path"></param>
-            <param name="openingType"></param>
-            <param name="level"></param>
-            <returns>The opening</returns>
-        </member>
-        <member name="M:WombatDynamo.Opening.FromExisting(Autodesk.Revit.DB.Opening,System.Boolean)">
-            <summary>
-            Create a Opening from a user selected Element.
-            </summary>
-            <param name="opening"></param>
-            <param name="isRevitOwned"></param>
-            <returns></returns>
         </member>
         <member name="P:WombatDynamo.Polyline.Vertices">
             <summary>
@@ -263,9 +352,40 @@
             Find the closest point on a polyline.
             </summary>
         </member>
+        <member name="M:WombatDynamo.Workset.InfoFromElement(Revit.Elements.Element)">
+            <summary>
+            Returns workset info for supplied element.
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.Workset.IdFromName(System.String)">
+            <summary>
+            Returns workset ID from workset name.
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.Workset.NameFromId(System.Int32)">
+            <summary>
+            Returns workset name from workset ID.
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.Workset.ByName(System.String)">
+            <summary>
+            Returns workset name from workset ID.
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.Workset.AssignToElement(WombatDynamo.Workset,Revit.Elements.Element)">
+            <summary>
+            Assigns supplied workset to supplied elements.
+            </summary>
+        </member>
+        <member name="M:WombatDynamo.Workset.SelectAll">
+            <summary>
+            Returns all user-defined worksets in the document.
+            </summary>
+        </member>
         <member name="M:WombatDynamo.String.Format(System.String,System.Object)">
             <summary>
-            Format a number or object with a format string. "{0}" in the format will be replaced with your inputs - supply format specifications after the 0 e.g. {0:0.00} for two decimal places.
+            Format a number or object with a format string. "{0}" in the format will be replaced with your inputs - supply format
+            specifications after the 0 e.g. {0:0.00} for two decimal places.
             </summary>
         </member>
         <member name="M:WombatDynamo.Wall.AllowDisallowJoins(Revit.Elements.Wall,System.Boolean)">
@@ -287,6 +407,19 @@
             <summary>
             Construct a wall by planar elevation profile.
             </summary>
+        </member>
+        <member name="M:BuildingPad.BuildingPad.InternalSetBuildingPad(Autodesk.Revit.DB.Architecture.BuildingPad)">
+            <summary>
+            Set the InternalBuildingPad property and the associated element id and unique id
+            </summary>
+            <param name="buildingPad"></param>
+        </member>
+        <member name="M:BuildingPad.BuildingPad.FromExisting(Autodesk.Revit.DB.Architecture.BuildingPad,System.Boolean)">
+            <summary>
+            Create a BuildingPad from a user selected Element.
+            </summary>
+            <param name="buildingPad"></param>
+            <param name="isRevitOwned"></param>
         </member>
         <member name="P:BuildingPad.BuildingPad.InternalBuildingPad">
             <summary>
@@ -318,21 +451,14 @@
             Initialize a buildingPad element
             </summary>
         </member>
-        <member name="M:BuildingPad.BuildingPad.InternalSetBuildingPad(Autodesk.Revit.DB.Architecture.BuildingPad)">
-            <summary>
-            Set the InternalBuildingPad property and the associated element id and unique id
-            </summary>
-            <param name="buildingPad"></param>
-        </member>
         <member name="M:BuildingPad.BuildingPad.ByOutlinesTypeAndLevel(Autodesk.DesignScript.Geometry.Curve[],BuildingPad.BuildingPadType,Revit.Elements.Level)">
+            <summary>
+            Create a building pad in topography based on multiple curve outlines.
+            </summary>
             <param name="outlineCurves"></param>
             <param name="buildingPadType"></param>
             <param name="level"></param>
             <returns>The buildingPad</returns>
-            
-            <summary>
-            Create a building pad in topography based on multiple curve outlines.
-            </summary>
         </member>
         <member name="M:BuildingPad.BuildingPad.ByOutlineTypeAndLevel(Autodesk.DesignScript.Geometry.PolyCurve,BuildingPad.BuildingPadType,Revit.Elements.Level)">
             <summary>
@@ -343,29 +469,19 @@
             <param name="level"></param>
             <returns>The buildingPad</returns>
         </member>
-        <member name="M:BuildingPad.BuildingPad.FromExisting(Autodesk.Revit.DB.Architecture.BuildingPad,System.Boolean)">
-            <summary>
-            Create a BuildingPad from a user selected Element.
-            </summary>
-            <param name="buildingPad"></param>
-            <param name="isRevitOwned"></param>
-            <returns></returns>
-        </member>
-        <member name="P:BuildingPad.BuildingPadType.InternalBuildingPadType">
-            <summary>
-            An internal reference to the BuildingPadType
-            </summary>
-        </member>
-        <member name="P:BuildingPad.BuildingPadType.InternalElement">
-            <summary>
-            Reference to the Element
-            </summary>
-        </member>
         <member name="M:BuildingPad.BuildingPadType.#ctor(Autodesk.Revit.DB.BuildingPadType)">
             <summary>
             Private constructor for the Element
             </summary>
             <param name="buildingPadType"></param>
+        </member>
+        <member name="P:BuildingPad.BuildingPadType.Name">
+            <summary>
+            The name of the BuildingPadType
+            </summary>
+            <summary>
+            Get the name of this BuildingPad Type
+            </summary>
         </member>
         <member name="M:BuildingPad.BuildingPadType.InitBuildingPadType(Autodesk.Revit.DB.BuildingPadType)">
             <summary>
@@ -379,20 +495,11 @@
             </summary>
             <param name="buildingPadType"></param>
         </member>
-        <member name="P:BuildingPad.BuildingPadType.Name">
-            <summary>
-            The name of the BuildingPadType
-            </summary>
-            <summary>
-            Get the name of this BuildingPad Type
-            </summary>
-        </member>
         <member name="M:BuildingPad.BuildingPadType.ByName(System.String)">
             <summary>
             Get a BuildingPad type by name
             </summary>
             <param name="name"></param>
-            <returns></returns>
         </member>
         <member name="M:BuildingPad.BuildingPadType.FromExisting(Autodesk.Revit.DB.BuildingPadType,System.Boolean)">
             <summary>
@@ -400,7 +507,21 @@
             </summary>
             <param name="buildingPadType"></param>
             <param name="isRevitOwned"></param>
-            <returns></returns>
+        </member>
+        <member name="P:BuildingPad.BuildingPadType.InternalBuildingPadType">
+            <summary>
+            An internal reference to the BuildingPadType
+            </summary>
+        </member>
+        <member name="P:BuildingPad.BuildingPadType.InternalElement">
+            <summary>
+            Reference to the Element
+            </summary>
+        </member>
+        <member name="M:Roof.FootPrintRoof.InternalSetElement(Autodesk.Revit.DB.FootPrintRoof)">
+            <summary>
+            Set the internal Element, ElementId, and UniqueId
+            </summary>
         </member>
         <member name="P:Roof.FootPrintRoof.InternalRevitElement">
             <summary>
@@ -416,38 +537,35 @@
             <summary>
             Create from existing element
             </summary>
-            <param name="Roof"></param>
         </member>
         <member name="M:Roof.FootPrintRoof.#ctor(Autodesk.Revit.DB.CurveArray,Autodesk.Revit.DB.Level,Autodesk.Revit.DB.RoofType)">
             <summary>
             Create a new Footprint Roof by Level and location
             </summary>
-            <param name="footprint"></param>
-            <param name="level"></param>
-            <param name="roofType"></param>
         </member>
         <member name="M:Roof.FootPrintRoof.InitElement(Autodesk.Revit.DB.FootPrintRoof)">
             <summary>
             Set internal element
             </summary>
         </member>
-        <member name="M:Roof.FootPrintRoof.InternalSetElement(Autodesk.Revit.DB.FootPrintRoof)">
-            <summary>
-            Set the internal Element, ElementId, and UniqueId
-            </summary>
-        </member>
         <member name="M:Roof.FootPrintRoof.ByFootprint(Autodesk.DesignScript.Geometry.PolyCurve,Revit.Elements.Level,Revit.Elements.RoofType)">
             <summary>
             Create a Footprint roof by footprint
             </summary>
-            <param name="footprint">Footprint for the roof</param>
-            <param name="level">Level the roof is hosted on</param>
-            <param name="roofType">Roof Type</param>
-            <returns></returns>
         </member>
         <member name="M:Roof.FootPrintRoof.ByEdgesAndSlopes(Autodesk.DesignScript.Geometry.Line[],System.Double[],Revit.Elements.Level,Revit.Elements.RoofType)">
             <summary>
             Create a Footprint Roof by edges and slope angles
+            </summary>
+        </member>
+        <member name="M:Roof.ExtrusionRoof.InternalSetElement(Autodesk.Revit.DB.ExtrusionRoof)">
+            <summary>
+            Set the internal Element, ElementId, and UniqueId
+            </summary>
+        </member>
+        <member name="M:Roof.ExtrusionRoof.ByProfile(Autodesk.DesignScript.Geometry.PolyCurve,Revit.Elements.ReferencePlane,Revit.Elements.Level,Revit.Elements.RoofType,System.Double,System.Double)">
+            <summary>
+            Create an Extrusion Roof by profile.
             </summary>
         </member>
         <member name="P:Roof.ExtrusionRoof.InternalRevitElement">
@@ -464,41 +582,32 @@
             <summary>
             Create from existing element
             </summary>
-            <param name="Roof"></param>
         </member>
         <member name="M:Roof.ExtrusionRoof.#ctor(Autodesk.Revit.DB.CurveArray,Autodesk.Revit.DB.ReferencePlane,Autodesk.Revit.DB.Level,Autodesk.Revit.DB.RoofType,System.Double,System.Double)">
             <summary>
             Create a new Roof by Level and location
             </summary>
-            <param name="level"></param>
-            <param name="refPlane"></param>
-            <param name="profile"></param>
-            <param name="roofType"></param>
-            <param name="extrusionStart"></param>
-            <param name="extrusionEnd"></param>
-            
         </member>
         <member name="M:Roof.ExtrusionRoof.InitElement(Autodesk.Revit.DB.ExtrusionRoof)">
             <summary>
             Set internal element
             </summary>
         </member>
-        <member name="M:Roof.ExtrusionRoof.InternalSetElement(Autodesk.Revit.DB.ExtrusionRoof)">
+        <member name="M:Railing.Railing.InternalSetRailing(Autodesk.Revit.DB.Architecture.Railing)">
             <summary>
-            Set the internal Element, ElementId, and UniqueId
+            Set the InternalRailing property and the associated element id and unique id
             </summary>
         </member>
-        <member name="M:Roof.ExtrusionRoof.ByProfile(Autodesk.DesignScript.Geometry.PolyCurve,Revit.Elements.ReferencePlane,Revit.Elements.Level,Revit.Elements.RoofType,System.Double,System.Double)">
+        <member name="M:Railing.Railing.ByPathTypeAndLevel(Autodesk.DesignScript.Geometry.PolyCurve,Railing.RailingType,Revit.Elements.Level)">
             <summary>
-            Create an Extrusion Roof by profile.
+            Create a railing by path, type, and level
             </summary>
-            <param name="profile">Profile for the extrusion</param>
-            <param name="refPlane">Reference Plane for the profile</param>
-            <param name="level">Base level for the roof</param>
-            <param name="roofType">Roof Type</param>
-            <param name="extrusionStart">Extrusion start distance</param>
-            <param name="extrusionEnd">Extrusion end distance</param>
-            <returns></returns>
+            <returns>The railing</returns>
+        </member>
+        <member name="M:Railing.Railing.FromExisting(Autodesk.Revit.DB.Architecture.Railing,System.Boolean)">
+            <summary>
+            Create a Railing from a user selected Element.
+            </summary>
         </member>
         <member name="P:Railing.Railing.InternalRailing">
             <summary>
@@ -530,64 +639,26 @@
             Initialize a railing element
             </summary>
         </member>
-        <member name="M:Railing.Railing.InternalSetRailing(Autodesk.Revit.DB.Architecture.Railing)">
-            <summary>
-            Set the InternalRailing property and the associated element id and unique id
-            </summary>
-            <param name="railing"></param>
-        </member>
-        <member name="M:Railing.Railing.ByPathTypeAndLevel(Autodesk.DesignScript.Geometry.PolyCurve,Railing.RailingType,Revit.Elements.Level)">
-            <summary>
-            Create a railing by path, type, and level
-            </summary>
-            <param name="path"></param>
-            <param name="railingType"></param>
-            <param name="level"></param>
-            <returns>The railing</returns>
-        </member>
-        <member name="M:Railing.Railing.FromExisting(Autodesk.Revit.DB.Architecture.Railing,System.Boolean)">
-            <summary>
-            Create a Railing from a user selected Element.
-            </summary>
-            <param name="railing"></param>
-            <param name="isRevitOwned"></param>
-            <returns></returns>
-        </member>
-        <member name="P:Railing.RailingType.InternalRailingType">
-            <summary>
-            An internal reference to the RailingType
-            </summary>
-        </member>
-        <member name="P:Railing.RailingType.InternalElement">
-            <summary>
-            Reference to the Element
-            </summary>
-        </member>
         <member name="M:Railing.RailingType.#ctor(Autodesk.Revit.DB.Architecture.RailingType)">
             <summary>
             Private constructor for the Element
             </summary>
-            <param name="railingType"></param>
+        </member>
+        <member name="P:Railing.RailingType.Name">
+            <summary>
+            Get the name of this RailingType
+            </summary>
         </member>
         <member name="M:Railing.RailingType.InitRailingType(Autodesk.Revit.DB.Architecture.RailingType)">
             <summary>
             Initialize a RailingType element
             </summary>
-            <param name="railingType"></param>
         </member>
         <member name="M:Railing.RailingType.InternalSetRailingType(Autodesk.Revit.DB.Architecture.RailingType)">
             <summary>
             Set the RailingType property, element id, and unique id
             </summary>
             <param name="railingType"></param>
-        </member>
-        <member name="P:Railing.RailingType.Name">
-            <summary>
-            The name of the RailingType
-            </summary>
-            <summary>
-            Get the name of this RailingType
-            </summary>
         </member>
         <member name="M:Railing.RailingType.ByName(System.String)">
             <summary>
@@ -600,9 +671,16 @@
             <summary>
             Create a RailingType from a user selected Element.
             </summary>
-            <param name="railingType"></param>
-            <param name="isRevitOwned"></param>
-            <returns></returns>
+        </member>
+        <member name="P:Railing.RailingType.InternalRailingType">
+            <summary>
+            An internal reference to the RailingType
+            </summary>
+        </member>
+        <member name="P:Railing.RailingType.InternalElement">
+            <summary>
+            Reference to the Element
+            </summary>
         </member>
     </members>
 </doc>

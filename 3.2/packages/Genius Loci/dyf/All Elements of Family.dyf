@@ -34,7 +34,9 @@
     {
       "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
       "NodeType": "PythonScriptNode",
-      "Code": "#Alban de Chasteigner 2020\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n#https://github.com/albandechasteigner/GeniusLociForDynamo\n\nimport clr\nclr.AddReference('RevitAPI')\nimport Autodesk\nfrom Autodesk.Revit.DB import FilteredElementCollector, ElementId, BuiltInCategory\n\nfamilies = UnwrapElement(IN[0]) if isinstance(IN[0],list) else [UnwrapElement(IN[0])]\n\ninstances=[FilteredElementCollector(fam.Document).OfCategoryId(fam.FamilyCategoryId).WhereElementIsNotElementType().ToElements().FindAll(lambda x : fam.Document.GetElement(x.GetTypeId()).Family.Id == fam.Id)  if fam.FamilyCategoryId != ElementId(BuiltInCategory.OST_DetailComponents) and fam.FamilyCategoryId != ElementId(BuiltInCategory.OST_StructuralFoundation) and fam.FamilyCategoryId != ElementId(BuiltInCategory.OST_BoundaryConditions) and fam.FamilyCategoryId != ElementId(BuiltInCategory.OST_Walls) and fam.FamilyCategoryId != ElementId(BuiltInCategory.OST_Floors) else None for fam in families]\n\nif isinstance(IN[0], list): OUT = instances\nelse: OUT = instances[0]",
+      "Code": "#Alban de Chasteigner 2020\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n#https://github.com/albandechasteigner/GeniusLociForDynamo\n\nimport clr\nclr.AddReference('RevitAPI')\nimport Autodesk\nfrom Autodesk.Revit.DB import FilteredElementCollector, ElementId, BuiltInCategory\n\nfamilies = UnwrapElement(IN[0]) if isinstance(IN[0],list) else [UnwrapElement(IN[0])]\n\ninstances=[FilteredElementCollector(fam.Document).OfCategoryId(fam.FamilyCategoryId).WhereElementIsNotElementType().ToElements().FindAll(lambda x : hasattr(fam.Document.GetElement(x.GetTypeId()), \"Family\") and fam.Document.GetElement(x.GetTypeId()).Family.Id == fam.Id) if fam.FamilyCategoryId != ElementId(BuiltInCategory.OST_DetailComponents) and fam.FamilyCategoryId != ElementId(BuiltInCategory.OST_StructuralFoundation) and fam.FamilyCategoryId != ElementId(BuiltInCategory.OST_BoundaryConditions) and fam.FamilyCategoryId != ElementId(BuiltInCategory.OST_Walls) and fam.FamilyCategoryId != ElementId(BuiltInCategory.OST_Floors) else None for fam in families]\n\nif isinstance(IN[0], list): OUT = instances\nelse: OUT = instances[0]",
+      "Engine": "IronPython2",
+      "EngineName": "IronPython2",
       "VariableInputPorts": true,
       "Id": "1645cd797ef5411ba5a9a6bd0b455515",
       "Inputs": [
@@ -60,7 +62,7 @@
         }
       ],
       "Replication": "Disabled",
-      "Description": "Exécute un script IronPython intégré."
+      "Description": "Exécute un script Python intégré."
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
@@ -93,23 +95,26 @@
     {
       "Start": "416a5ca6d6a246ea90d5185496845b0f",
       "End": "87d0b9da26014be0b965b513e4b92ca8",
-      "Id": "1aecc0a611404de9ae4e3435fd3464a1"
+      "Id": "1aecc0a611404de9ae4e3435fd3464a1",
+      "IsHidden": "False"
     },
     {
       "Start": "2366d26d4f7141b9943daac6bbdefd0e",
       "End": "08087eeaf4694c92850c8e8683fca4c0",
-      "Id": "ca8c4dc0a2ee46f5b05d5d303e376431"
+      "Id": "ca8c4dc0a2ee46f5b05d5d303e376431",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
   "NodeLibraryDependencies": [],
+  "Author": "None provided",
   "Bindings": [],
   "View": {
     "Dynamo": {
       "ScaleFactor": 1.0,
       "HasRunWithoutCrash": false,
       "IsVisibleInDynamoLibrary": true,
-      "Version": "2.6.1.8786",
+      "Version": "2.16.2.5624",
       "RunType": "Manual",
       "RunPeriod": "1000"
     },
@@ -125,10 +130,11 @@
       "UpY": 1.0,
       "UpZ": 0.0
     },
+    "ConnectorPins": [],
     "NodeViews": [
       {
-        "ShowGeometry": true,
         "Name": "Output",
+        "ShowGeometry": true,
         "Id": "567dd79c8f37404b8cfd18b59a058880",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
@@ -137,8 +143,8 @@
         "Y": 276.0
       },
       {
-        "ShowGeometry": true,
         "Name": "Python Script",
+        "ShowGeometry": true,
         "Id": "1645cd797ef5411ba5a9a6bd0b455515",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
@@ -147,14 +153,14 @@
         "Y": 276.0
       },
       {
-        "ShowGeometry": true,
         "Name": "Input",
+        "ShowGeometry": true,
         "Id": "de0eb6b4f6524e918be436363de798ed",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 233.4,
-        "Y": 276.0
+        "X": 81.53056067105436,
+        "Y": 275.00413482407248
       }
     ],
     "Annotations": [],

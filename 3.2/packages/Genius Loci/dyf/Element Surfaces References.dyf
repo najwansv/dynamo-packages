@@ -13,8 +13,9 @@
     {
       "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
       "NodeType": "PythonScriptNode",
-      "Code": "#Suggestion by Mark.Ackerley\n#Alban de Chasteigner 2019\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n\nimport clr\nclr.AddReference('RevitAPI')\nfrom Autodesk.Revit.DB import *\nimport Autodesk\n\nclr.AddReference('RevitNodes')\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\n\nitems  = UnwrapElement(IN[0]) if isinstance(IN[0],list) else [UnwrapElement(IN[0])]\n\nhorizontaldown,horizontalup,verticals,refDown,refUp,refVer,XAxisList, XAxisRef, _XAxisList, _XAxisRef,YAxisList, YAxisRef, _YAxisList, _YAxisRef = [],[],[],[],[],[],[],[],[],[],[],[],[],[]\nopt = Options()\nopt.ComputeReferences = True\n\nfor item in items:\n\t#System families\n\tif hasattr(item, \"FindInserts\") or isinstance(item, Extrusion):\n\t\tdownList,upList,vertical, XAxis, _XAxis, YAxis, _YAxis = [],[],[],[],[],[],[]\n\t\tdownArray,upArray,verArray, XAxisArray, _XAxisArray, YAxisArray, _YAxisArray = ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray()\n\t\tfor obj in item.get_Geometry(opt):\n\t\t\tfor face in obj.Faces:\n\t\t\t\tfaceNormal = face.FaceNormal\n\t\t\t\tif face.FaceNormal.IsAlmostEqualTo(XYZ(0,0,-1)):\n\t\t\t\t\tdownList.append(face.ToProtoType()[0])\n\t\t\t\t\tdownArray.Append(face.Reference)\n\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,0,1)):\n\t\t\t\t\tupList.append(face.ToProtoType()[0])\n\t\t\t\t\tupArray.Append(face.Reference)\n\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(1,0,0)):\n\t\t\t\t\tXAxis.append(face.ToProtoType()[0])\n\t\t\t\t\tXAxisArray.Append(face.Reference)\n\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(-1,0,0)):\n\t\t\t\t\t_XAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t_XAxisArray.Append(face.Reference)\n\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,1,0)):\n\t\t\t\t\tYAxis.append(face.ToProtoType()[0])\n\t\t\t\t\tYAxisArray.Append(face.Reference)\n\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,-1,0)):\n\t\t\t\t\t_YAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t_YAxisArray.Append(face.Reference)\n\t\t\t\telif faceNormal.Z >= (0 - 1.0e-09) and faceNormal.Z <= (0 + 1.0e-09):\n\t\t\t\t\tvertical.append(face.ToProtoType()[0])\n\t\t\t\t\tverArray.Append(face.Reference)\n\t\t\thorizontaldown.append(downList)\n\t\t\trefDown.append(downArray)\n\t\t\thorizontalup.append(upList)\n\t\t\trefUp.append(upArray)\n\t\t\tXAxisList.append(XAxis)\n\t\t\tXAxisRef.append(XAxisArray)\n\t\t\t_XAxisList.append(_XAxis)\n\t\t\t_XAxisRef.append(_XAxisArray)\n\t\t\tYAxisList.append(YAxis)\n\t\t\tYAxisRef.append(YAxisArray)\n\t\t\t_YAxisList.append(_YAxis)\n\t\t\t_YAxisRef.append(_YAxisArray)\n\t\t\tverticals.append(vertical)\n\t\t\trefVer.append(verArray)\n\telif isinstance(item, FamilyInstance) or isinstance(item, ImportInstance):\n\t\tdownList,upList,vertical, XAxis, _XAxis, YAxis, _YAxis = [],[],[],[],[],[],[]\n\t\tdownArray,upArray,verArray, XAxisArray, _XAxisArray, YAxisArray, _YAxisArray = ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray()\n\t\tfor obj in item.get_Geometry(opt):\n\t\t\tif isinstance(obj,Solid) and obj.Volume > 0 :\t\n\t\t\t\tfor face in obj.Faces:\n\t\t\t\t\tfaceNormal = face.FaceNormal\n\t\t\t\t\tif faceNormal.IsAlmostEqualTo(XYZ(0,0,-1)):\n\t\t\t\t\t\tdownList.append(face.ToProtoType()[0])\n\t\t\t\t\t\tdownArray.Append(face.Reference)\n\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,0,1)):\n\t\t\t\t\t\tupList.append(face.ToProtoType()[0])\n\t\t\t\t\t\tupArray.Append(face.Reference)\n\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(1,0,0)):\n\t\t\t\t\t\tXAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\tXAxisArray.Append(face.Reference)\n\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(-1,0,0)):\n\t\t\t\t\t\t_XAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\t_XAxisArray.Append(face.Reference)\n\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,1,0)):\n\t\t\t\t\t\tYAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\tYAxisArray.Append(face.Reference)\n\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,-1,0)):\n\t\t\t\t\t\t_YAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\t_YAxisArray.Append(face.Reference)\n\t\t\t\t\telif faceNormal.Z >= (0 - 1.0e-09) and faceNormal.Z <= (0 + 1.0e-09):\n\t\t\t\t\t\tvertical.append(face.ToProtoType()[0])\n\t\t\t\t\t\tverArray.Append(face.Reference)\n\t\t\t\thorizontaldown.append(downList)\n\t\t\t\trefDown.append(downArray)\n\t\t\t\thorizontalup.append(upList)\n\t\t\t\trefUp.append(upArray)\n\t\t\t\tXAxisList.append(XAxis)\n\t\t\t\tXAxisRef.append(XAxisArray)\n\t\t\t\t_XAxisList.append(_XAxis)\n\t\t\t\t_XAxisRef.append(_XAxisArray)\n\t\t\t\tYAxisList.append(YAxis)\n\t\t\t\tYAxisRef.append(YAxisArray)\n\t\t\t\t_YAxisList.append(_YAxis)\n\t\t\t\t_YAxisRef.append(_YAxisArray)\n\t\t\t\tverticals.append(vertical)\n\t\t\t\trefVer.append(verArray)\n\t\t\telif isinstance(obj, GeometryInstance) :\n\t\t\t\tfor symbIns in obj.GetInstanceGeometry() :\n\t\t\t\t\tif isinstance(symbIns,Solid) and symbIns.Volume > 0 :\n\t\t\t\t\t\tfor face in symbIns.Faces:\n\t\t\t\t\t\t\tfaceNormal = face.FaceNormal\n\t\t\t\t\t\t\tif faceNormal.IsAlmostEqualTo(XYZ(0,0,-1)):\n\t\t\t\t\t\t\t\tdownList.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\tdownArray.Append(face.Reference)\n\t\t\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,0,1)):\n\t\t\t\t\t\t\t\tupList.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\tupArray.Append(face.Reference)\n\t\t\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(1,0,0)):\n\t\t\t\t\t\t\t\tXAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\tXAxisArray.Append(face.Reference)\n\t\t\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(-1,0,0)):\n\t\t\t\t\t\t\t\t_XAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\t_XAxisArray.Append(face.Reference)\n\t\t\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,1,0)):\n\t\t\t\t\t\t\t\tYAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\tYAxisArray.Append(face.Reference)\n\t\t\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,-1,0)):\n\t\t\t\t\t\t\t\t_YAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\t_YAxisArray.Append(face.Reference)\n\t\t\t\t\t\t\telif faceNormal.Z >= (0 - 1.0e-09) and \tfaceNormal.Z <= (0 + 1.0e-09):\n\t\t\t\t\t\t\t\tvertical.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\tverArray.Append(face.Reference)\n\t\t\t\t\t\thorizontaldown.append(downList[0])\n\t\t\t\t\t\trefDown.append(downArray[0])\n\t\t\t\t\t\thorizontalup.append(upList[0])\n\t\t\t\t\t\trefUp.append(upArray[0])\n\t\t\t\t\t\tXAxisList.append(XAxis[0])\n\t\t\t\t\t\tXAxisRef.append(XAxisArray[0])\n\t\t\t\t\t\t_XAxisList.append(_XAxis[0])\n\t\t\t\t\t\t_XAxisRef.append(_XAxisArray[0])\n\t\t\t\t\t\tYAxisList.append(YAxis[0])\n\t\t\t\t\t\tYAxisRef.append(YAxisArray[0])\n\t\t\t\t\t\t_YAxisList.append(_YAxis[0])\n\t\t\t\t\t\t_YAxisRef.append(_YAxisArray[0])\n\t\t\t\t\t\tverticals.append(vertical)\n\t\t\t\t\t\trefVer.append(verArray)\t\t\n\telse:\n\t\tpass\n\t\t\nif isinstance(IN[0], list): OUT = horizontalup,refUp,horizontaldown,refDown,XAxisList, XAxisRef,_XAxisList, _XAxisRef,YAxisList, YAxisRef,_YAxisList,_YAxisRef,verticals,refVer\nelse: OUT = horizontalup[0],refUp[0],horizontaldown[0],refDown[0],XAxisList[0], XAxisRef[0],_XAxisList[0], _XAxisRef[0],YAxisList[0], YAxisRef[0],_YAxisList[0], _YAxisRef[0],verticals[0],refVer[0]",
+      "Code": "#Suggestion by Mark.Ackerley\n#Alban de Chasteigner 2019\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n\nimport clr\nclr.AddReference('RevitAPI')\nfrom Autodesk.Revit.DB import *\nimport Autodesk\n\nclr.AddReference('RevitNodes')\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\n\nitems  = UnwrapElement(IN[0]) if isinstance(IN[0],list) else [UnwrapElement(IN[0])]\n\nhorizontaldown,horizontalup,verticals,refDown,refUp,refVer,XAxisList, XAxisRef, _XAxisList, _XAxisRef,YAxisList, YAxisRef, _YAxisList, _YAxisRef = [],[],[],[],[],[],[],[],[],[],[],[],[],[]\nopt = Options()\nopt.ComputeReferences = True\n\nfor item in items:\n\t#System families\n\tif hasattr(item, \"FindInserts\") or isinstance(item, Extrusion):\n\t\tdownList,upList,vertical, XAxis, _XAxis, YAxis, _YAxis = [],[],[],[],[],[],[]\n\t\tdownArray,upArray,verArray, XAxisArray, _XAxisArray, YAxisArray, _YAxisArray = ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray()\n\t\tfor obj in item.get_Geometry(opt):\n\t\t\tfor face in obj.Faces:\n\t\t\t\tfaceNormal = face.FaceNormal\n\t\t\t\tif face.FaceNormal.IsAlmostEqualTo(XYZ(0,0,-1)):\n\t\t\t\t\tdownList.append(face.ToProtoType()[0])\n\t\t\t\t\tdownArray.Append(face.Reference)\n\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,0,1)):\n\t\t\t\t\tupList.append(face.ToProtoType()[0])\n\t\t\t\t\tupArray.Append(face.Reference)\n\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(1,0,0)):\n\t\t\t\t\tXAxis.append(face.ToProtoType()[0])\n\t\t\t\t\tXAxisArray.Append(face.Reference)\n\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(-1,0,0)):\n\t\t\t\t\t_XAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t_XAxisArray.Append(face.Reference)\n\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,1,0)):\n\t\t\t\t\tYAxis.append(face.ToProtoType()[0])\n\t\t\t\t\tYAxisArray.Append(face.Reference)\n\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,-1,0)):\n\t\t\t\t\t_YAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t_YAxisArray.Append(face.Reference)\n\t\t\t\telif faceNormal.Z >= (0 - 1.0e-09) and faceNormal.Z <= (0 + 1.0e-09):\n\t\t\t\t\tvertical.append(face.ToProtoType()[0])\n\t\t\t\t\tverArray.Append(face.Reference)\n\t\t\thorizontaldown.append(downList)\n\t\t\trefDown.append(downArray)\n\t\t\thorizontalup.append(upList)\n\t\t\trefUp.append(upArray)\n\t\t\tXAxisList.append(XAxis)\n\t\t\tXAxisRef.append(XAxisArray)\n\t\t\t_XAxisList.append(_XAxis)\n\t\t\t_XAxisRef.append(_XAxisArray)\n\t\t\tYAxisList.append(YAxis)\n\t\t\tYAxisRef.append(YAxisArray)\n\t\t\t_YAxisList.append(_YAxis)\n\t\t\t_YAxisRef.append(_YAxisArray)\n\t\t\tverticals.append(vertical)\n\t\t\trefVer.append(verArray)\n\telif isinstance(item, FamilyInstance) or isinstance(item, ImportInstance):\n\t\tdownList,upList,vertical, XAxis, _XAxis, YAxis, _YAxis = [],[],[],[],[],[],[]\n\t\tdownArray,upArray,verArray, XAxisArray, _XAxisArray, YAxisArray, _YAxisArray = ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray(),ReferenceArray()\n\t\tfor obj in item.get_Geometry(opt):\n\t\t\tif isinstance(obj,Solid) and obj.Volume > 0 :\t\n\t\t\t\tfor face in obj.Faces:\n\t\t\t\t\tfaceNormal = face.FaceNormal\n\t\t\t\t\tif faceNormal.IsAlmostEqualTo(XYZ(0,0,-1)):\n\t\t\t\t\t\tdownList.append(face.ToProtoType()[0])\n\t\t\t\t\t\tdownArray.Append(face.Reference)\n\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,0,1)):\n\t\t\t\t\t\tupList.append(face.ToProtoType()[0])\n\t\t\t\t\t\tupArray.Append(face.Reference)\n\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(1,0,0)):\n\t\t\t\t\t\tXAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\tXAxisArray.Append(face.Reference)\n\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(-1,0,0)):\n\t\t\t\t\t\t_XAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\t_XAxisArray.Append(face.Reference)\n\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,1,0)):\n\t\t\t\t\t\tYAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\tYAxisArray.Append(face.Reference)\n\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,-1,0)):\n\t\t\t\t\t\t_YAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\t_YAxisArray.Append(face.Reference)\n\t\t\t\t\telif faceNormal.Z >= (0 - 1.0e-09) and faceNormal.Z <= (0 + 1.0e-09):\n\t\t\t\t\t\tvertical.append(face.ToProtoType()[0])\n\t\t\t\t\t\tverArray.Append(face.Reference)\n\t\t\t\thorizontaldown.append(downList)\n\t\t\t\trefDown.append(downArray)\n\t\t\t\thorizontalup.append(upList)\n\t\t\t\trefUp.append(upArray)\n\t\t\t\tXAxisList.append(XAxis)\n\t\t\t\tXAxisRef.append(XAxisArray)\n\t\t\t\t_XAxisList.append(_XAxis)\n\t\t\t\t_XAxisRef.append(_XAxisArray)\n\t\t\t\tYAxisList.append(YAxis)\n\t\t\t\tYAxisRef.append(YAxisArray)\n\t\t\t\t_YAxisList.append(_YAxis)\n\t\t\t\t_YAxisRef.append(_YAxisArray)\n\t\t\t\tverticals.append(vertical)\n\t\t\t\trefVer.append(verArray)\n\t\t\telif isinstance(obj, GeometryInstance) :\n\t\t\t\tfor symbIns in obj.GetInstanceGeometry() :\n\t\t\t\t\tif isinstance(symbIns,Solid) and symbIns.Volume > 0 :\n\t\t\t\t\t\tfor face in symbIns.Faces:\n\t\t\t\t\t\t\tfaceNormal = face.FaceNormal\n\t\t\t\t\t\t\tif faceNormal.IsAlmostEqualTo(XYZ(0,0,-1)):\n\t\t\t\t\t\t\t\tdownList.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\tdownArray.Append(face.Reference)\n\t\t\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,0,1)):\n\t\t\t\t\t\t\t\tupList.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\tupArray.Append(face.Reference)\n\t\t\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(1,0,0)):\n\t\t\t\t\t\t\t\tXAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\tXAxisArray.Append(face.Reference)\n\t\t\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(-1,0,0)):\n\t\t\t\t\t\t\t\t_XAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\t_XAxisArray.Append(face.Reference)\n\t\t\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,1,0)):\n\t\t\t\t\t\t\t\tYAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\tYAxisArray.Append(face.Reference)\n\t\t\t\t\t\t\telif faceNormal.IsAlmostEqualTo(XYZ(0,-1,0)):\n\t\t\t\t\t\t\t\t_YAxis.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\t_YAxisArray.Append(face.Reference)\n\t\t\t\t\t\t\telif faceNormal.Z >= (0 - 1.0e-09) and \tfaceNormal.Z <= (0 + 1.0e-09):\n\t\t\t\t\t\t\t\tvertical.append(face.ToProtoType()[0])\n\t\t\t\t\t\t\t\tverArray.Append(face.Reference)\n\t\t\t\t\t\thorizontaldown.append(downList[0])\n\t\t\t\t\t\trefDown.append(downArray[0])\n\t\t\t\t\t\thorizontalup.append(upList[0])\n\t\t\t\t\t\trefUp.append(upArray[0])\n\t\t\t\t\t\tXAxisList.append(XAxis)\n\t\t\t\t\t\tXAxisRef.append(XAxisArray)\n\t\t\t\t\t\t_XAxisList.append(_XAxis)\n\t\t\t\t\t\t_XAxisRef.append(_XAxisArray)\n\t\t\t\t\t\tYAxisList.append(YAxis)\n\t\t\t\t\t\tYAxisRef.append(YAxisArray)\n\t\t\t\t\t\t_YAxisList.append(_YAxis)\n\t\t\t\t\t\t_YAxisRef.append(_YAxisArray)\n\t\t\t\t\t\tverticals.append(vertical)\n\t\t\t\t\t\trefVer.append(verArray)\t\t\n\telse:\n\t\tpass\n\t\t\nif isinstance(IN[0], list): OUT = horizontalup,refUp,horizontaldown,refDown,XAxisList, XAxisRef,_XAxisList, _XAxisRef,YAxisList, YAxisRef,_YAxisList,_YAxisRef,verticals,refVer\nelse: OUT = horizontalup[0],refUp[0],horizontaldown[0],refDown[0],XAxisList[0], XAxisRef[0],_XAxisList[0], _XAxisRef[0],YAxisList[0], YAxisRef[0],_YAxisList[0], _YAxisRef[0],verticals[0],refVer[0]",
       "Engine": "IronPython2",
+      "EngineName": "IronPython2",
       "VariableInputPorts": true,
       "Id": "58ff6b94bc6542a9bf45934e5c27ca37",
       "Inputs": [
@@ -514,82 +515,98 @@
     {
       "Start": "95e7bcdcde8a400b87704e28d697fdff",
       "End": "3cfbe05ffcfd454c90f270af34017554",
-      "Id": "6cbaa588df22456ea83dec483b46406e"
+      "Id": "6cbaa588df22456ea83dec483b46406e",
+      "IsHidden": "False"
     },
     {
       "Start": "5d138ffb8b5f4697ba3f15316bdc7a61",
       "End": "44e9a8670d4e42edb257c1cb8c433779",
-      "Id": "3168b9986c6943e697c5191b55b4f47f"
+      "Id": "3168b9986c6943e697c5191b55b4f47f",
+      "IsHidden": "False"
     },
     {
       "Start": "30d6f506bc4940b48ebe8fa45005b36c",
       "End": "47a281586dd5417fa03614849e6fc1a0",
-      "Id": "177814eb97294610a5939e509c493690"
+      "Id": "177814eb97294610a5939e509c493690",
+      "IsHidden": "False"
     },
     {
       "Start": "8ce4c4b2023a4508844d25ab23a46e12",
       "End": "a1e798476bf94e629e90c51ab8129a57",
-      "Id": "337711b015e34675bc671e0a819382dc"
+      "Id": "337711b015e34675bc671e0a819382dc",
+      "IsHidden": "False"
     },
     {
       "Start": "fd6944b5e88a412e88d4e66354637012",
       "End": "8706a4fe1e67403c8d1bc72048814097",
-      "Id": "6a4b998a2705462e981a617fccaeb0f8"
+      "Id": "6a4b998a2705462e981a617fccaeb0f8",
+      "IsHidden": "False"
     },
     {
       "Start": "99cf99838b2f421b8bd12e8a594e78b1",
       "End": "4d4cfa15782e4bf6956186ee447dc27d",
-      "Id": "2446455c9d3f4e3483af4c81181b9765"
+      "Id": "2446455c9d3f4e3483af4c81181b9765",
+      "IsHidden": "False"
     },
     {
       "Start": "61cf87dba7be47c68906ec71908f0be8",
       "End": "bd6452bf972c423e8e6c562705c05eef",
-      "Id": "d352e164ce2f46cb885cb7eb2bca66b3"
+      "Id": "d352e164ce2f46cb885cb7eb2bca66b3",
+      "IsHidden": "False"
     },
     {
       "Start": "7a707ba540ee41a1a242254595c7bd39",
       "End": "f1c69ba217e0444a9034767ce60eae63",
-      "Id": "453ce2459578454a826d5bacb1da8bff"
+      "Id": "453ce2459578454a826d5bacb1da8bff",
+      "IsHidden": "False"
     },
     {
       "Start": "c36ccebfbf6a4434b05a8dd1fff81c1e",
       "End": "12510bf9152c415bbb88947fc1fbfd68",
-      "Id": "1bcb193611bb40c98774e25f2dc19019"
+      "Id": "1bcb193611bb40c98774e25f2dc19019",
+      "IsHidden": "False"
     },
     {
       "Start": "b727f3c0fd324a04809e52dae59d79fc",
       "End": "51efd776f648425f90947ed7eed1c415",
-      "Id": "c68f0b41394b4d4080422e1f7258d769"
+      "Id": "c68f0b41394b4d4080422e1f7258d769",
+      "IsHidden": "False"
     },
     {
       "Start": "3c4f216985bd4cfc8217c3b775f5bd37",
       "End": "cb051f1d879542419e90c8c7b9d68c48",
-      "Id": "52c920a4496c49f2862ec21d6899562a"
+      "Id": "52c920a4496c49f2862ec21d6899562a",
+      "IsHidden": "False"
     },
     {
       "Start": "1474416cd46f4cba849ab584a5f2ed3c",
       "End": "11b79926f34644b0a68c47d48c03d8e2",
-      "Id": "9a1d9986112f435d86041022527bed8d"
+      "Id": "9a1d9986112f435d86041022527bed8d",
+      "IsHidden": "False"
     },
     {
       "Start": "363646f3191b4fcfb423d36678d41caa",
       "End": "ddbf2beea8164f4eaa835df24fbba0ba",
-      "Id": "8eead9d56e4c418a823949b4f010d548"
+      "Id": "8eead9d56e4c418a823949b4f010d548",
+      "IsHidden": "False"
     },
     {
       "Start": "5390667d13f741c287fbc8bd55b64c8a",
       "End": "fd599935635740088600c668624c6041",
-      "Id": "3aabdab7082040359da3bafed00b1c47"
+      "Id": "3aabdab7082040359da3bafed00b1c47",
+      "IsHidden": "False"
     },
     {
       "Start": "05329541fe1144538b0e57d9ba332093",
       "End": "8eaa13b6f64e4774a57d787970c4fe9f",
-      "Id": "b663ba407c9646f3ab0e37970233245c"
+      "Id": "b663ba407c9646f3ab0e37970233245c",
+      "IsHidden": "False"
     },
     {
       "Start": "1ac513ecd9c8488899d326475901b4ff",
       "End": "6c90041e125246bd9bbb75acf1eef0b0",
-      "Id": "47bf1a510bef4d5f8132601a5bc2e492"
+      "Id": "47bf1a510bef4d5f8132601a5bc2e492",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
@@ -601,189 +618,190 @@
       "ScaleFactor": 1.0,
       "HasRunWithoutCrash": false,
       "IsVisibleInDynamoLibrary": true,
-      "Version": "2.12.0.5650",
+      "Version": "2.16.2.5624",
       "RunType": "Manual",
       "RunPeriod": "1000"
     },
     "Camera": {
       "Name": "Aperçu en arrière-plan",
-      "EyeX": -2215.0874247241645,
-      "EyeY": 633.72576984174782,
-      "EyeZ": 1371.7299613344003,
-      "LookX": 386.91042277103941,
-      "LookY": -508.72576984174782,
-      "LookZ": -602.92100137346279,
-      "UpX": 0.21102771251663016,
-      "UpY": 0.9205049073928433,
-      "UpZ": -0.32884364133783345
+      "EyeX": -97.587080592891809,
+      "EyeY": 32.21317183058548,
+      "EyeZ": 112.60450430343244,
+      "LookX": 5.041864986202353,
+      "LookY": -20.888172021320344,
+      "LookZ": -56.611105637050606,
+      "UpX": 0.012036689557135105,
+      "UpY": 0.99074792861938477,
+      "UpZ": -0.13518069684505463
     },
+    "ConnectorPins": [],
     "NodeViews": [
       {
+        "Name": "Python Script",
+        "ShowGeometry": true,
         "Id": "58ff6b94bc6542a9bf45934e5c27ca37",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Python Script",
-        "ShowGeometry": true,
         "Excluded": false,
-        "X": 272.06622054371786,
-        "Y": 369.14834630921405
+        "X": 230.83715335927792,
+        "Y": 372.47327108215279
       },
       {
+        "Name": "Input",
+        "ShowGeometry": true,
         "Id": "c441a27685424c888e6f3678db87e340",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Input",
-        "ShowGeometry": true,
         "Excluded": false,
-        "X": 32.3135622358382,
-        "Y": 373.748582603248
+        "X": -44.824692496339765,
+        "Y": 370.42365783030925
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "a04f1dd0d66e4816af7588621381f4a3",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 753.91203494817489,
         "Y": -39.914842473278668
       },
       {
+        "Name": "Code Block",
+        "ShowGeometry": true,
         "Id": "a0dcb06799dd482b8b4610aa5982553a",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Code Block",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 445.113562235838,
         "Y": 377.961915936581
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "02b567ade396445eb8145ede66d8df25",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 753.91203494817489,
         "Y": 43.424290160097925
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "19e4871ccd4f44809877c3e9ad14a410",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 753.91203494817489,
         "Y": 126.76342279347452
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "7497e6b95de546169c93fa0f7529b28e",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 753.91203494817489,
         "Y": 210.1025554268511
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "b8bc4dd11c42491fbd1fcbe13c199c4a",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 753.91203494817489,
         "Y": 293.4416880602277
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "1cfd1930d9a6455ebd7a643dfccc9c6a",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 753.91203494817489,
         "Y": 376.78082069360431
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "2ec5354241c54de9be90b6e4f401e1a7",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 746.14455434006834,
         "Y": 460.11995332698092
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "b138f842423043dfa967495b8d025ef9",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 748.69350675706221,
         "Y": 543.45908596035747
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "2c0eab233fca4334bf4fe1e29b14c32b",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 754.11147521473856,
         "Y": 626.79821859373408
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "dbd447fb88da44a98769b4aa77bcbeea",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 755.69795299397208,
         "Y": 710.13735122711068
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "bc0e570d6ad4479c86016b5e5bf7a873",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 756.96751409893238,
         "Y": 793.47648386048729
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "9d9caeffc041444290f68010e8562e5c",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 758.40039980407562,
         "Y": 876.8156164938639
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "87241ab12de4481892cee0e59e687917",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 760.14940007756206,
         "Y": 960.15474912724051
       },
       {
+        "Name": "Output",
+        "ShowGeometry": true,
         "Id": "c8f15b636b6e42f8bcdc43bc183b00f0",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Name": "Output",
-        "ShowGeometry": true,
         "Excluded": false,
         "X": 756.62743250417373,
         "Y": 1043.4938817606171

@@ -251,8 +251,9 @@
     {
       "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
       "NodeType": "PythonScriptNode",
-      "Code": "#By GregX, David Dória and Alban de Chasteigner, 2018\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n\nimport clr\nclr.AddReference('RevitAPI')\nimport Autodesk\nfrom Autodesk.Revit.DB import *\nclr.AddReference('RevitServices')\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\nuiapp = DocumentManager.Instance.CurrentUIApplication\napp = uiapp.Application\nversion=int(app.VersionNumber)\n\ndef toList(obj):\n    if hasattr(obj, '__iter__'): return obj\n    else: return [obj]\n\ninputdoc = toList(UnwrapElement(IN[0]))[0]\nnames = toList(IN[1])\ncolors = toList(IN[2])\nsurfPat = toList(UnwrapElement(IN[3]))\nsurfPatCl = toList(IN[4])\ncutPat = toList(UnwrapElement(IN[5]))\ncutPatCl = toList(IN[6])\ntransparency = toList(IN[7])\nnewMaterials = []\n\ncol_len = len(colors) == 1\nsurfP_len = len(surfPat) == 1\nsurfC_len = len(surfPatCl) == 1\ncut_len = len(cutPat) == 1\ncutP_len = len(cutPatCl) == 1\ntrans_len = len(transparency) == 1\n\nif inputdoc == None :\n\tdoc = DocumentManager.Instance.CurrentDBDocument\nelse : doc = inputdoc\n\ndef ToRevitColor(dynamoColor):\n\treturn Color(dynamoColor.Red, dynamoColor.Green, dynamoColor.Blue)\ntar = FillPatternTarget.Drafting\n\nfillPattern = FilteredElementCollector(doc).OfClass(Autodesk.Revit.DB.FillPatternElement)\n\nTransactionManager.Instance.ForceCloseTransaction()\nTransactionManager.Instance.EnsureInTransaction(doc)\n#Iterate through the input names list\nfor i in xrange(len(names)):\n\tc = 0 if col_len else i\n\ts = 0 if surfP_len else i\n\tsc = 0 if surfC_len else i\n\tcp = 0 if cut_len else i\n\tcc = 0 if cutP_len else i\n\tt = 0 if trans_len else i\n\t#Check if the material with the specified name already exists\n\tif Material.IsNameUnique(doc,names[i]):\n\t\t#If name is unique, create material\n\t\tnew_mat_id = Material.Create(doc, names[i])\n\t\tnew_mat = doc.GetElement(new_mat_id)\n\t\tif colors[c] == None:\n\t\t\tpass\n\t\telse:\n\t\t\tnew_mat.Color = ToRevitColor(colors[c])\n\t\tif transparency[t] == None:\n\t\t\tpass\n\t\telse:\t\n\t\t\tnew_mat.Transparency = transparency[t]\n\t\tif version < 2019 :\n\t\t\tif surfPat[s] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tif surfPat[s].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\tspId=[elem for elem in fillPattern if elem.Name.lower() == surfPat[s].lower()][0].Id\n\t\t\t\t\tnew_mat.SurfacePatternId = spId\n\t\t\t\telse:\n\t\t\t\t\tnew_mat.SurfacePatternId = surfPat[s].Id\n\t\t\tif surfPatCl[sc] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tnew_mat.SurfacePatternColor = ToRevitColor(surfPatCl[sc])\n\t\t\tif cutPat[cp] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tif cutPat[cp].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\tnew_mat.CutPatternId = FillPatternElement.GetFillPatternElementByName(doc, FillPatternTarget.Drafting,cutPat[cp]).Id\n\t\t\t\telse:\n\t\t\t\t\tnew_mat.CutPatternId = cutPat[cp].Id\n\t\t\tif cutPatCl[cc] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tnew_mat.CutPatternColor = ToRevitColor(cutPatCl[cc])\n\t\telse:\n\t\t\tif surfPat[s] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tif surfPat[s].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\tspId=[elem for elem in fillPattern if elem.Name.lower() == surfPat[s].lower()][0].Id\n\t\t\t\t\tnew_mat.SurfaceForegroundPatternId = spId\n\t\t\t\telse:\n\t\t\t\t\tnew_mat.SurfaceForegroundPatternId = surfPat[s].Id\n\t\t\tif surfPatCl[sc] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tnew_mat.SurfaceForegroundPatternColor = ToRevitColor(surfPatCl[sc])\n\t\t\tif cutPat[cp] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tif cutPat[cp].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\tnew_mat.CutForegroundPatternId = FillPatternElement.GetFillPatternElementByName(doc, FillPatternTarget.Drafting,cutPat[cp]).Id\n\t\t\t\telse:\n\t\t\t\t\tnew_mat.CutForegroundPatternId = cutPat[cp].Id\n\t\t\tif cutPatCl[cc] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tnew_mat.CutForegroundPatternColor = ToRevitColor(cutPatCl[cc])\n\t\tnewMaterials.append(new_mat)\n\telse:\n\t\t#If it already exists, collect it and modify it\n\t\tnamePar = ParameterValueProvider(ElementId(BuiltInParameter.MATERIAL_NAME))\n\t\tfRule = FilterStringRule(namePar,FilterStringEquals(),names[i], True)\n\t\tfilter = ElementParameterFilter(fRule)\n\t\texist_mat = FilteredElementCollector(doc).OfClass(Material).WherePasses(filter).ToElements()\n\t\t#Iteration is necessary because the output of exist_mat is invariably a list\n\t\tfor em in exist_mat:\n\t\t\t#Modify the Material Properties and Parameters\n\t\t\tif colors[c] == None:\n\t\t\t\tpass\n\t\t\telse:\t\n\t\t\t\tem.Color = ToRevitColor(colors[c])\n\t\t\tif trans == None:\n\t\t\t\tpass\n\t\t\telse:\t\n\t\t\t\tem.Transparency = trans\n\t\t\tif version < 2019 :\n\t\t\t\tif surfPat[s]== None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tif surfPat[s].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\t\tspId=[elem for elem in fillPattern if elem.Name.lower() == surfPat[s].lower()][0].Id\n\t\t\t\t\t\tem.SurfacePatternId = spId\n\t\t\t\t\telse:\n\t\t\t\t\t\tem.SurfacePatternId = surfPat[s].Id\n\t\t\t\tif surfPatCl[sc] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tem.SurfacePatternColor = ToRevitColor(surfPatCl[sc])\n\t\t\t\tif cutPat[cp] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tif cutPat[cp].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\t\tem.CutPatternId = FillPatternElement.GetFillPatternElementByName(doc, FillPatternTarget.Drafting,cutPat[cp]).Id\n\t\t\t\t\telse:\n\t\t\t\t\t\tem.CutPatternId = cutPat[cp].Id\n\t\t\t\tif cutPatCl[cc] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tem.CutPatternColor = ToRevitColor(cutPatCl[cc])\n\t\t\telse:\t\n\t\t\t\tif surfPat[s] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tif surfPat[s].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\t\tspId=[elem for elem in fillPattern if elem.Name.lower() == surfPat[s].lower()][0].Id\n\t\t\t\t\t\tem.SurfaceForegroundPatternId = spId\n\t\t\t\t\telse:\n\t\t\t\t\t\tem.SurfaceForegroundPatternId = surfPat[s].Id\n\t\t\t\tif surfPatCl[sc] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tem.SurfaceForegroundPatternColor = ToRevitColor(surfPatCl[sc])\n\t\t\t\tif cutPat[cp] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tif cutPat[cp].GetType().ToString() == \"System.String\" :\n\t\t\t\t\t\tem.CutForegroundPatternId = FillPatternElement.GetFillPatternElementByName(doc, FillPatternTarget.Drafting,cutPat[cp]).Id\n\t\t\t\t\telse:\n\t\t\t\t\t\tem.CutForegroundPatternId = cutPat[cp].Id\n\t\t\t\tif cutPatCl[cc] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tem.CutForegroundPatternColor = ToRevitColor(cutPatCl[cc])\n\t\t\tnewMaterials.append(em)\nTransactionManager.Instance.TransactionTaskDone()\n\nif isinstance(IN[1], list): OUT = newMaterials\nelse: OUT = newMaterials[0]",
+      "Code": "#By GregX, David Dória and Alban de Chasteigner, 2018\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n\nimport clr\nclr.AddReference('RevitAPI')\nimport Autodesk\nfrom Autodesk.Revit.DB import *\nclr.AddReference('RevitServices')\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\nuiapp = DocumentManager.Instance.CurrentUIApplication\napp = uiapp.Application\nversion=int(app.VersionNumber)\n\ndef toList(obj):\n    if hasattr(obj, '__iter__'): return obj\n    else: return [obj]\n\ninputdoc = toList(UnwrapElement(IN[0]))[0]\nnames = toList(IN[1])\ncolors = toList(IN[2])\nsurfPat = toList(UnwrapElement(IN[3]))\nsurfPatCl = toList(IN[4])\ncutPat = toList(UnwrapElement(IN[5]))\ncutPatCl = toList(IN[6])\ntransparency = toList(IN[7])\nnewMaterials = []\n\ncol_len = len(colors) == 1\nsurfP_len = len(surfPat) == 1\nsurfC_len = len(surfPatCl) == 1\ncut_len = len(cutPat) == 1\ncutP_len = len(cutPatCl) == 1\ntrans_len = len(transparency) == 1\n\nif inputdoc == None :\n\tdoc = DocumentManager.Instance.CurrentDBDocument\nelse : doc = inputdoc\n\ndef ToRevitColor(dynamoColor):\n\treturn Color(dynamoColor.Red, dynamoColor.Green, dynamoColor.Blue)\ntar = FillPatternTarget.Drafting\n\nfillPattern = FilteredElementCollector(doc).OfClass(Autodesk.Revit.DB.FillPatternElement)\n\nTransactionManager.Instance.ForceCloseTransaction()\nTransactionManager.Instance.EnsureInTransaction(doc)\n#Iterate through the input names list\nfor i in xrange(len(names)):\n\tc = 0 if col_len else i\n\ts = 0 if surfP_len else i\n\tsc = 0 if surfC_len else i\n\tcp = 0 if cut_len else i\n\tcc = 0 if cutP_len else i\n\tt = 0 if trans_len else i\n\t#Check if the material with the specified name already exists\n\tif Material.IsNameUnique(doc,names[i]):\n\t\t#If name is unique, create material\n\t\tnew_mat_id = Material.Create(doc, names[i])\n\t\tnew_mat = doc.GetElement(new_mat_id)\n\t\tif colors[c] == None:\n\t\t\tpass\n\t\telse:\n\t\t\tnew_mat.Color = ToRevitColor(colors[c])\n\t\tif transparency[t] == None:\n\t\t\tpass\n\t\telse:\t\n\t\t\tnew_mat.Transparency = transparency[t]\n\t\tif version < 2019 :\n\t\t\tif surfPat[s] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tif surfPat[s].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\tspId=[elem for elem in fillPattern if elem.Name.lower() == surfPat[s].lower()][0].Id\n\t\t\t\t\tnew_mat.SurfacePatternId = spId\n\t\t\t\telse:\n\t\t\t\t\tnew_mat.SurfacePatternId = surfPat[s].Id\n\t\t\tif surfPatCl[sc] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tnew_mat.SurfacePatternColor = ToRevitColor(surfPatCl[sc])\n\t\t\tif cutPat[cp] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tif cutPat[cp].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\tnew_mat.CutPatternId = FillPatternElement.GetFillPatternElementByName(doc, FillPatternTarget.Drafting,cutPat[cp]).Id\n\t\t\t\telse:\n\t\t\t\t\tnew_mat.CutPatternId = cutPat[cp].Id\n\t\t\tif cutPatCl[cc] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tnew_mat.CutPatternColor = ToRevitColor(cutPatCl[cc])\n\t\telse:\n\t\t\tif surfPat[s] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tif surfPat[s].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\tspId=[elem for elem in fillPattern if elem.Name.lower() == surfPat[s].lower()][0].Id\n\t\t\t\t\tnew_mat.SurfaceForegroundPatternId = spId\n\t\t\t\telse:\n\t\t\t\t\tnew_mat.SurfaceForegroundPatternId = surfPat[s].Id\n\t\t\tif surfPatCl[sc] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tnew_mat.SurfaceForegroundPatternColor = ToRevitColor(surfPatCl[sc])\n\t\t\tif cutPat[cp] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tif cutPat[cp].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\tnew_mat.CutForegroundPatternId = FillPatternElement.GetFillPatternElementByName(doc, FillPatternTarget.Drafting,cutPat[cp]).Id\n\t\t\t\telse:\n\t\t\t\t\tnew_mat.CutForegroundPatternId = cutPat[cp].Id\n\t\t\tif cutPatCl[cc] == None:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\tnew_mat.CutForegroundPatternColor = ToRevitColor(cutPatCl[cc])\n\t\tnewMaterials.append(new_mat)\n\telse:\n\t\t#If it already exists, collect it and modify it\n\t\tnamePar = ParameterValueProvider(ElementId(BuiltInParameter.MATERIAL_NAME))\n\t\tfRule = FilterStringRule(namePar, FilterStringEquals(), names[i])\n\t\tfilter = ElementParameterFilter(fRule)\n\t\texist_mat = FilteredElementCollector(doc).OfClass(Material).WherePasses(filter).ToElements()\n\t\t#Iteration is necessary because the output of exist_mat is invariably a list\n\t\tfor em in exist_mat:\n\t\t\t#Modify the Material Properties and Parameters\n\t\t\tif colors[c] == None:\n\t\t\t\tpass\n\t\t\telse:\t\n\t\t\t\tem.Color = ToRevitColor(colors[c])\n\t\t\tif trans == None:\n\t\t\t\tpass\n\t\t\telse:\t\n\t\t\t\tem.Transparency = trans\n\t\t\tif version < 2019 :\n\t\t\t\tif surfPat[s]== None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tif surfPat[s].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\t\tspId=[elem for elem in fillPattern if elem.Name.lower() == surfPat[s].lower()][0].Id\n\t\t\t\t\t\tem.SurfacePatternId = spId\n\t\t\t\t\telse:\n\t\t\t\t\t\tem.SurfacePatternId = surfPat[s].Id\n\t\t\t\tif surfPatCl[sc] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tem.SurfacePatternColor = ToRevitColor(surfPatCl[sc])\n\t\t\t\tif cutPat[cp] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tif cutPat[cp].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\t\tem.CutPatternId = FillPatternElement.GetFillPatternElementByName(doc, FillPatternTarget.Drafting,cutPat[cp]).Id\n\t\t\t\t\telse:\n\t\t\t\t\t\tem.CutPatternId = cutPat[cp].Id\n\t\t\t\tif cutPatCl[cc] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tem.CutPatternColor = ToRevitColor(cutPatCl[cc])\n\t\t\telse:\t\n\t\t\t\tif surfPat[s] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tif surfPat[s].GetType().ToString()\t== \"System.String\" :\n\t\t\t\t\t\tspId=[elem for elem in fillPattern if elem.Name.lower() == surfPat[s].lower()][0].Id\n\t\t\t\t\t\tem.SurfaceForegroundPatternId = spId\n\t\t\t\t\telse:\n\t\t\t\t\t\tem.SurfaceForegroundPatternId = surfPat[s].Id\n\t\t\t\tif surfPatCl[sc] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tem.SurfaceForegroundPatternColor = ToRevitColor(surfPatCl[sc])\n\t\t\t\tif cutPat[cp] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tif cutPat[cp].GetType().ToString() == \"System.String\" :\n\t\t\t\t\t\tem.CutForegroundPatternId = FillPatternElement.GetFillPatternElementByName(doc, FillPatternTarget.Drafting,cutPat[cp]).Id\n\t\t\t\t\telse:\n\t\t\t\t\t\tem.CutForegroundPatternId = cutPat[cp].Id\n\t\t\t\tif cutPatCl[cc] == None:\n\t\t\t\t\tpass\n\t\t\t\telse:\n\t\t\t\t\tem.CutForegroundPatternColor = ToRevitColor(cutPatCl[cc])\n\t\t\tnewMaterials.append(em)\nTransactionManager.Instance.TransactionTaskDone()\n\nif isinstance(IN[1], list): OUT = newMaterials\nelse: OUT = newMaterials[0]",
       "Engine": "IronPython2",
+      "EngineName": "IronPython2",
       "VariableInputPorts": true,
       "Id": "58dbc31a39344e48994aa7b1ceab81da",
       "Inputs": [
@@ -348,47 +349,56 @@
     {
       "Start": "693c4323312d4045b7f2eb2b0e588c12",
       "End": "58560e47a1cd4963908bfdc662bbbc22",
-      "Id": "9ca27dfa24f94a74bd49149217fc4923"
+      "Id": "9ca27dfa24f94a74bd49149217fc4923",
+      "IsHidden": "False"
     },
     {
       "Start": "d25435ba8971433aba50f3eb242a5712",
       "End": "7e5bb6f6b01744e1854cfcc35413ccf2",
-      "Id": "d38c90e8bd474b0c9d820299dddcf568"
+      "Id": "d38c90e8bd474b0c9d820299dddcf568",
+      "IsHidden": "False"
     },
     {
       "Start": "1c99f14f212348298a36a2b2dbf615da",
       "End": "ab616bf0bdce4110b37ea4c607209b22",
-      "Id": "e16eb56ce93a464e8a5a7d0798639295"
+      "Id": "e16eb56ce93a464e8a5a7d0798639295",
+      "IsHidden": "False"
     },
     {
       "Start": "b9abf8a1b5b44374a4b69eefde3f4f75",
       "End": "bb741391f30742dab9acba91859fb5c7",
-      "Id": "e285163d144f42f8ad85147ed4d818e2"
+      "Id": "e285163d144f42f8ad85147ed4d818e2",
+      "IsHidden": "False"
     },
     {
       "Start": "6272305088c54640ab3f6a88cb8bf6d1",
       "End": "bb6e3865f14c42fcab23203aa0668a10",
-      "Id": "9ab8031ab10f45748d799ac672b7f0f0"
+      "Id": "9ab8031ab10f45748d799ac672b7f0f0",
+      "IsHidden": "False"
     },
     {
       "Start": "b86fcb15b641448ab1aed994353ee397",
       "End": "5a8cac3ff7b44500a90ee299157bd2a0",
-      "Id": "48035df9e8724ea298104e5c475d98d7"
+      "Id": "48035df9e8724ea298104e5c475d98d7",
+      "IsHidden": "False"
     },
     {
       "Start": "bdf8beb6f3254fc1bc63cce4f609c332",
       "End": "9e504e2eb59f48b180dca5ef0a64c63f",
-      "Id": "83a9290c3f3344259e23cd8e05af894a"
+      "Id": "83a9290c3f3344259e23cd8e05af894a",
+      "IsHidden": "False"
     },
     {
       "Start": "b696daf7b1fa41eca4a2ca5b42d160cc",
       "End": "40d28284847e4bb98bbe905349c7f6b2",
-      "Id": "c6c3c57b7d6b41079b6c4575c5e6cd40"
+      "Id": "c6c3c57b7d6b41079b6c4575c5e6cd40",
+      "IsHidden": "False"
     },
     {
       "Start": "6bf849a0452741c3a6ff1defc4f30290",
       "End": "cfa33b8488da4dceadb609277e0c26c1",
-      "Id": "eb8ca0b49199410d83c9e8edeee8c542"
+      "Id": "eb8ca0b49199410d83c9e8edeee8c542",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
@@ -400,7 +410,7 @@
       "ScaleFactor": 1.0,
       "HasRunWithoutCrash": false,
       "IsVisibleInDynamoLibrary": true,
-      "Version": "2.12.1.8246",
+      "Version": "2.16.2.5624",
       "RunType": "Manual",
       "RunPeriod": "1000"
     },
@@ -416,6 +426,7 @@
       "UpY": 1.0,
       "UpZ": 0.0
     },
+    "ConnectorPins": [],
     "NodeViews": [
       {
         "Id": "bebea84006cb49fd86db6f79ce89a706",
@@ -424,8 +435,8 @@
         "Name": "Output",
         "ShowGeometry": true,
         "Excluded": false,
-        "X": 357.56268873344965,
-        "Y": 516.70581046404936
+        "X": 407.16525026795983,
+        "Y": 509.52649234721241
       },
       {
         "Id": "52f09d84c95e4e95a65e7ff211118ae6",
@@ -445,7 +456,7 @@
         "ShowGeometry": true,
         "Excluded": false,
         "X": -444.44058953919324,
-        "Y": 257.52168934212028
+        "Y": 296.362343040918
       },
       {
         "Id": "dd0f9daa34a94facb01c17960e6496a7",
@@ -455,7 +466,7 @@
         "ShowGeometry": true,
         "Excluded": false,
         "X": -429.180452435274,
-        "Y": 338.841019125523
+        "Y": 413.562343040918
       },
       {
         "Id": "3a54266c87ec41bcbffdc32ada6ee79e",
@@ -465,7 +476,7 @@
         "ShowGeometry": true,
         "Excluded": false,
         "X": -428.292653437942,
-        "Y": 435.351757894081
+        "Y": 540.362343040918
       },
       {
         "Id": "fb15e3180b06400a932643653fd89d79",
@@ -475,7 +486,7 @@
         "ShowGeometry": true,
         "Excluded": false,
         "X": -432.713186550619,
-        "Y": 530.266792170061
+        "Y": 667.1623430409179
       },
       {
         "Id": "09047ba94d2d4e9885a457c42b3a0dad",
@@ -485,7 +496,7 @@
         "ShowGeometry": true,
         "Excluded": false,
         "X": -431.602447782062,
-        "Y": 617.393768543873
+        "Y": 793.96234304091786
       },
       {
         "Id": "ea94287faf9848a686ed86c32de76d17",
@@ -495,7 +506,7 @@
         "ShowGeometry": true,
         "Excluded": false,
         "X": -421.952790541862,
-        "Y": 715.202359558718
+        "Y": 920.76234304091781
       },
       {
         "Id": "07c7911cf64f4e14b22762c5d9a3ad3e",
@@ -505,7 +516,7 @@
         "ShowGeometry": true,
         "Excluded": false,
         "X": -423.111724316508,
-        "Y": 810.415246080987
+        "Y": 1047.5623430409178
       },
       {
         "Id": "58dbc31a39344e48994aa7b1ceab81da",
@@ -519,8 +530,8 @@
       }
     ],
     "Annotations": [],
-    "X": 525.33112703938036,
-    "Y": -35.479927784346387,
-    "Zoom": 0.67547428007389
+    "X": 371.0439283274668,
+    "Y": -79.550546261764055,
+    "Zoom": 0.61287157476433485
   }
 }

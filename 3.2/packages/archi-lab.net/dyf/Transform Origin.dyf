@@ -1,44 +1,163 @@
-<Workspace Version="0.9.0.2912" X="-276.629522203125" Y="-158.985835771733" zoom="1.545620359375" Name="Transform Origin" Description="This node will query an element for its Transform (Coordinate System) and then return its Origin point. " ID="87364ae6-955e-4fdc-b35a-3942a6cbb8ee" Category="Archi-lab_Grimshaw.Element Properties.Query">
-  <NamespaceResolutionMap />
-  <Elements>
-    <PythonNodeModels.PythonNode guid="d6a1f19d-aa58-48e3-8646-fa0e2cc65603" type="PythonNodeModels.PythonNode" nickname="Python Script" x="542" y="270" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" inputcount="1">
-      <Script># Copyright(c) 2015, Konrad K Sobon
-# @arch_laboratory, http://archi-lab.net
-
-import clr
-clr.AddReference('RevitAPI')
-from Autodesk.Revit.DB import *
-
-clr.AddReference("RevitNodes")
-import Revit
-clr.ImportExtensions(Revit.GeometryConversion)
-
-elements = UnwrapElement(IN[0])
-
-def ProcessList(_func, _list):
-    return map( lambda x: ProcessList(_func, x) if type(x)==list else _func(x), _list )
-
-def GetTransformOrigin(element):
-	try:
-		return element.GetTransform().Origin.ToPoint()
-	except:
-		return None
-		pass
-
-OUT = ProcessList(GetTransformOrigin, elements)</Script>
-    </PythonNodeModels.PythonNode>
-    <Dynamo.Nodes.Symbol guid="696071fa-2634-45ce-8912-f3f167cc4665" type="Dynamo.Nodes.Symbol" nickname="Input" x="395.070832562043" y="283.372196228601" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="Element" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.Output guid="e1d7780d-9fc1-42e0-bf53-c69c76217cd1" type="Dynamo.Nodes.Output" nickname="Output" x="701.096822146746" y="284.019185635757" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
-      <Symbol value="Origin" />
-    </Dynamo.Nodes.Output>
-  </Elements>
-  <Connectors>
-    <Dynamo.Models.ConnectorModel start="d6a1f19d-aa58-48e3-8646-fa0e2cc65603" start_index="0" end="e1d7780d-9fc1-42e0-bf53-c69c76217cd1" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="696071fa-2634-45ce-8912-f3f167cc4665" start_index="0" end="d6a1f19d-aa58-48e3-8646-fa0e2cc65603" end_index="0" portType="0" />
-  </Connectors>
-  <Notes />
-  <Annotations />
-  <Presets />
-</Workspace>
+{
+  "Uuid": "87364ae6-955e-4fdc-b35a-3942a6cbb8ee",
+  "IsCustomNode": true,
+  "Category": "archilab.Revit.Geometry",
+  "Description": "This node will query an element for its Transform (Coordinate System) and then return its Origin point. ",
+  "Name": "Transform Origin",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Copyright(c) 2015, Konrad K Sobon\n# @arch_laboratory, http://archi-lab.net\n\nimport clr\nclr.AddReference('RevitAPI')\nfrom Autodesk.Revit.DB import *\n\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\n\nelements = UnwrapElement(IN[0])\n\ndef ProcessList(_func, _list):\n    return map( lambda x: ProcessList(_func, x) if type(x)==list else _func(x), _list )\n\ndef GetTransformOrigin(element):\n\ttry:\n\t\treturn element.GetTransform().Origin.ToPoint()\n\texcept:\n\t\treturn None\n\t\tpass\n\nOUT = ProcessList(GetTransformOrigin, elements)",
+      "VariableInputPorts": true,
+      "Id": "d6a1f19daa5848e38646fa0e2cc65603",
+      "Inputs": [
+        {
+          "Id": "0f78b810643d4f9a970a5d6c41862b66",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4f5a85a0c6d340bdbe5bde9a14674e63",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_element",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "696071fa263445ce8912f3f167cc4665",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e084e36cb745417981b2815818ebd047",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "Symbol": "_origin",
+      "Id": "e1d7780d9fc142e0bf53c69c76217cd1",
+      "Inputs": [
+        {
+          "Id": "c3612002dfe94e10be5d45b0a9c381bd",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "4f5a85a0c6d340bdbe5bde9a14674e63",
+      "End": "c3612002dfe94e10be5d45b0a9c381bd",
+      "Id": "0befb9b4a8464a37a63acf3566cc829b"
+    },
+    {
+      "Start": "e084e36cb745417981b2815818ebd047",
+      "End": "0f78b810643d4f9a970a5d6c41862b66",
+      "Id": "1bea6b093f4547a2b6695ab40e7aae04"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.2.1.5175",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "d6a1f19daa5848e38646fa0e2cc65603",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 542.0,
+        "Y": 270.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "696071fa263445ce8912f3f167cc4665",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 395.070832562043,
+        "Y": 283.372196228601
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "e1d7780d9fc142e0bf53c69c76217cd1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 701.096822146746,
+        "Y": 284.019185635757
+      }
+    ],
+    "Annotations": [],
+    "X": -276.629522203125,
+    "Y": -158.985835771733,
+    "Zoom": 1.545620359375
+  }
+}

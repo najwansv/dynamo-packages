@@ -86,8 +86,9 @@
     {
       "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
       "NodeType": "PythonScriptNode",
-      "Code": "#Alban de Chasteigner 2021\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n#https://github.com/albandechasteigner/GeniusLociForDynamo\n \nimport clr\nclr.AddReference('RevitAPI')\nimport Autodesk\nfrom Autodesk.Revit.DB import *\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\n\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.Elements)\nfrom Revit.Elements import *\n\ndoc = DocumentManager.Instance.CurrentDBDocument\n\nElements = UnwrapElement(IN[0]) if isinstance(IN[0],list) else [UnwrapElement(IN[0])]\ninputdoc = (UnwrapElement(IN[1]) if isinstance(IN[1],list) else [UnwrapElement(IN[1])])[0]\nrooms=[]\n\nfor e in Elements:\n\tphase = doc.GetElement(e.CreatedPhaseId)\n\tloc = e.Location\n\tif type(loc) == LocationPoint:\n\t\tpt=loc.Point\n\telif type(loc) == LocationCurve:\n\t\tpt=loc.Curve.Evaluate(0.5, True)\n\t# sketch-based elements (ceiling, floor and roof)\n\telif isinstance(e, CeilingAndFloor) or isinstance(e,RoofBase) :\n\t\tfor ref in HostObjectUtils.GetTopFaces(e):\n\t\t\tgeomFace=e.GetGeometryObjectFromReference(ref)\n\t\t\t#Get UV BoundingBox\n\t\t\tbbox = geomFace.GetBoundingBox()\n\t\t\tuv=(bbox.Min+bbox.Max)/2\n\t\t\tpt=geomFace.Evaluate(uv)\n\tif not isinstance(inputdoc, RevitLinkInstance):\n\t\ttry:\n\t\t\tif isinstance (e, FamilyInstance):\n\t\t\t\trooms.append(e.Room[phase].ToDSType(True))\n\t\t\telse: \n\t\t\t\trooms.append(doc.GetRoomAtPoint(pt,phase).ToDSType(True))\n\t\texcept:rooms.append(None)\n\telif isinstance (inputdoc, RevitLinkInstance):\n\t\ttry:\n\t\t\tdoc2 = inputdoc.GetLinkDocument()\n\t\t\tphaseName = phase.Name\n\t\t\tphase2 = FilteredElementCollector(doc2).OfClass(Phase).ToElements().Find(lambda x : x.Name == phaseName)\n\t\t\ttransform = inputdoc.GetTotalTransform()\n\t\t\tlocationPoint = transform.Inverse.OfPoint(pt)\n\t\t\trooms.append(doc2.GetRoomAtPoint(locationPoint,phase2).ToDSType(True))\n\t\texcept:rooms.append(None)\n\telse:rooms.append(None)\n\t\nOUT = rooms",
+      "Code": "#Alban de Chasteigner 2021\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n#https://github.com/albandechasteigner/GeniusLociForDynamo\n \nimport clr\nclr.AddReference('RevitAPI')\nimport Autodesk\nfrom Autodesk.Revit.DB import *\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\n\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.Elements)\nfrom Revit.Elements import *\n\ndoc = DocumentManager.Instance.CurrentDBDocument\n\nElements = UnwrapElement(IN[0]) if isinstance(IN[0],list) else [UnwrapElement(IN[0])]\ninputdocs = UnwrapElement(IN[1]) if isinstance(IN[1],list) else [UnwrapElement(IN[1])]\n\ndef GetRoom(elements, inputdoc):\n\trooms=[]\n\tfor e in Elements:\n\t\tphase = doc.GetElement(e.CreatedPhaseId)\n\t\tloc = e.Location\n\t\tif type(loc) == LocationPoint:\n\t\t\tpt=loc.Point\n\t\telif type(loc) == LocationCurve:\n\t\t\tpt=loc.Curve.Evaluate(0.5, True)\n\t\t# sketch-based elements (ceiling, floor and roof)\n\t\telif isinstance(e, CeilingAndFloor) or isinstance(e,RoofBase) :\n\t\t\ttry:\n\t\t\t\tfor ref in HostObjectUtils.GetTopFaces(e):\n\t\t\t\t\tgeomFace=e.GetGeometryObjectFromReference(ref)\n\t\t\t\t\t#Get UV BoundingBox\n\t\t\t\t\tbbox = geomFace.GetBoundingBox()\n\t\t\t# Multi-faceted floor/ceiling/roof\n\t\t\texcept:\n\t\t\t\tbbox = e.get_BoundingBox(none)\n\t\t\tuv = (bbox.Min+bbox.Max) / 2\n\t\t\tpt = geomFace.Evaluate(uv)\n\t\tif not isinstance(inputdoc, RevitLinkInstance):\n\t\t\ttry:\n\t\t\t\tif isinstance(e, FamilyInstance):\n\t\t\t\t\trooms.append(e.Room[phase].ToDSType(True))\n\t\t\t\telse: \n\t\t\t\t\trooms.append(doc.GetRoomAtPoint(pt, phase).ToDSType(True))\n\t\t\texcept:rooms.append(None)\n\t\telif isinstance (inputdoc, RevitLinkInstance):\n\t\t\ttry:\n\t\t\t\tlinkDoc = inputdoc.GetLinkDocument()\n\t\t\t\tphaseName = phase.Name\n\t\t\t\tlinkPhase = FilteredElementCollector(linkDoc).OfClass(Phase).ToElements().Find(lambda x : x.Name == phaseName)\n\t\t\t\ttransform = inputdoc.GetTotalTransform()\n\t\t\t\tlocationPoint = transform.Inverse.OfPoint(pt)\n\t\t\t\trooms.append(linkDoc.GetRoomAtPoint(locationPoint, linkPhase).ToDSType(True))\n\t\t\texcept:rooms.append(None)\n\t\telse:rooms.append(None)\n\treturn rooms\n\nif isinstance(IN[1], list): OUT = [GetRoom(Elements, inputdoc) for inputdoc in inputdocs]\nelse: OUT = [GetRoom(Elements, inputdoc) for inputdoc in inputdocs][0]",
       "Engine": "IronPython2",
+      "EngineName": "IronPython2",
       "VariableInputPorts": true,
       "Id": "bf0134c8c4794b06ba9ea7fa0b15cb06",
       "Inputs": [
@@ -129,17 +130,20 @@
     {
       "Start": "5d9910e65f4544b4886f1007299ac26f",
       "End": "fa37a87c306f456a95f2c3031fbf6141",
-      "Id": "d62890da349542bfb44509d26da171c2"
+      "Id": "d62890da349542bfb44509d26da171c2",
+      "IsHidden": "False"
     },
     {
       "Start": "7423e57e4eb7482486c24aae7298c042",
       "End": "ecc791a97d984a74a5a8c66ef44fcfed",
-      "Id": "6efcb4b5c0ed4cffa3eda09b430d0ff7"
+      "Id": "6efcb4b5c0ed4cffa3eda09b430d0ff7",
+      "IsHidden": "False"
     },
     {
       "Start": "6df98deb937c46e49c6618b66f62fa40",
       "End": "3cd55dd01f83454a9918d1fa30d2949a",
-      "Id": "59c7022a011c4ad2b34a4d10de0dec43"
+      "Id": "59c7022a011c4ad2b34a4d10de0dec43",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
@@ -151,7 +155,7 @@
       "ScaleFactor": 1.0,
       "HasRunWithoutCrash": false,
       "IsVisibleInDynamoLibrary": true,
-      "Version": "2.12.1.8246",
+      "Version": "2.16.2.5624",
       "RunType": "Manual",
       "RunPeriod": "1000"
     },
@@ -167,40 +171,41 @@
       "UpY": 1.0,
       "UpZ": 0.0
     },
+    "ConnectorPins": [],
     "NodeViews": [
       {
-        "ShowGeometry": true,
         "Name": "Output",
+        "ShowGeometry": true,
         "Id": "cf2f553516c5407881c919559570bce8",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 452.513100556018,
-        "Y": 263.645314123432
+        "X": 547.24876534652878,
+        "Y": 273.96907246598772
       },
       {
-        "ShowGeometry": true,
         "Name": "Input",
+        "ShowGeometry": true,
         "Id": "8bcfaeff2b7e43079e4634bfff088ba3",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -44.6955987482069,
-        "Y": 238.834985781379
+        "X": -78.703273288390335,
+        "Y": 229.7257872438299
       },
       {
-        "ShowGeometry": true,
         "Name": "Input",
+        "ShowGeometry": true,
         "Id": "3c8a440bbaa846b2bae0493cae7e8f05",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -136.18230727373,
-        "Y": 319.242547890417
+        "X": -168.36814210640355,
+        "Y": 383.61421755576418
       },
       {
-        "ShowGeometry": true,
         "Name": "Python Script",
+        "ShowGeometry": true,
         "Id": "bf0134c8c4794b06ba9ea7fa0b15cb06",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,

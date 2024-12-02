@@ -14,8 +14,8 @@
       "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
       "NodeType": "PythonScriptNode",
       "Code": "#Alban de Chasteigner 2023\r\n#twitter : @geniusloci_bim\r\n#geniusloci.bim@gmail.com\r\n#https://github.com/albandechasteigner/GeniusLociForDynamo\r\n \r\nimport clr\r\nclr.AddReference('RevitAPI')\r\nimport Autodesk\r\nfrom Autodesk.Revit.DB.Structure import *\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\nelements = UnwrapElement(IN[0]) if isinstance(IN[0],list) else [UnwrapElement(IN[0])]\r\nshapes=[]\r\n\r\nfor elem in elements:\r\n    shapes.append(doc.GetElement(elem.GetShapeId()))\r\n\r\nOUT = shapes",
-      "Engine": "CPython3",
-      "EngineName": "CPython3",
+      "Engine": "IronPython2",
+      "EngineName": "IronPython2",
       "VariableInputPorts": true,
       "Id": "7d8302e873a446f1b55a48fe108ad1f1",
       "Inputs": [
@@ -108,5 +108,64 @@
   "Dependencies": [],
   "NodeLibraryDependencies": [],
   "Author": "None provided",
-  "Bindings": []
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.2.5624",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Aperçu en arrière-plan",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "7d8302e873a446f1b55a48fe108ad1f1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -35.470534662951195,
+        "Y": 136.2390990463349
+      },
+      {
+        "Id": "534e113fd8a24a049decd23b38432ee1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Input",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -322.459406026828,
+        "Y": 137.85139607646909
+      },
+      {
+        "Id": "351fccd0bb0a4ac28e868e79716008b7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Output",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 210.40476243250532,
+        "Y": 144.30058419700561
+      }
+    ],
+    "Annotations": [],
+    "X": 242.63658767643744,
+    "Y": 121.31829383821875,
+    "Zoom": 0.49618648738281262
+  }
 }

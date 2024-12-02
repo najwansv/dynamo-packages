@@ -10,7 +10,6 @@
             For further information visit: https://github.com/Autodesk/revit-ifc
             </summary>
             <returns name="watch">Add a watch node!</returns>
-            <search>ifc,export,autodesk,revit</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.Settings">
             <summary>
@@ -18,7 +17,6 @@
             For further information visit: https://github.com/Autodesk/revit-ifc
             </summary>
             <returns name="Setting">IFC export setting.</returns>
-            <search>ifc,export,autodesk,revit,setting,all</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.SettingByName(System.String)">
             <summary>
@@ -27,7 +25,6 @@
             </summary>
             <param name="name">IFC setting name.</param>
             <returns name="Setting">IFC export setting.</returns>
-            <search>ifc,export,autodesk,revit,setting,name</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.CreateSetting(System.String)">
             <summary>
@@ -36,7 +33,6 @@
             </summary>
             <param name="name">IFC setting name.</param>
             <returns name="Setting">IFC export setting.</returns>
-            <search>ifc,export,autodesk,revit,setting,create,new</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.DuplicateSetting(BIM.IFC.Export.UI.IFCExportConfiguration,System.String)">
             <summary>
@@ -46,7 +42,6 @@
             <param name="setting">IFC export setting.</param>
             <param name="name">New name for the IFC setting.</param>
             <returns name="Setting">IFC export setting.</returns>
-            <search>ifc,export,autodesk,revit,setting,duplicate,copy,create,new</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.ImportSetting(System.String)">
             <summary>
@@ -55,7 +50,6 @@
             </summary>
             <param name="file">Json file incl. path and extension.</param>
             <returns name="Setting">IFC export setting.</returns>
-            <search>ifc,export,autodesk,revit,setting,import,json</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.RenameSetting(BIM.IFC.Export.UI.IFCExportConfiguration,System.String)">
             <summary>
@@ -76,7 +70,6 @@
             </summary>
             <param name="name">IFC setting name.</param>
             <returns name="boolean">Boolean value if IFC export setting is deleted (if setting existed).</returns>
-            <search>ifc,export,autodesk,revit,setting,remove</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.SettingGeneral(BIM.IFC.Export.UI.IFCExportConfiguration,System.Object,System.Enum,System.Object,Revit.Elements.Element,System.Int32,System.Enum,System.Boolean,System.Boolean)">
             <summary>
@@ -93,7 +86,6 @@
             <param name="splitByLevel">Split walls, columns, ducts by level?</param>
             <param name="includeSteel">Include steel elements?</param>
             <returns name="Setting">IFC export setting.</returns>
-            <search>ifc,export,autodesk,revit,setting,general,generic</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.SettingAdditional(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Enum,System.Boolean,System.Boolean,System.Int32)">
             <summary>
@@ -107,7 +99,6 @@
             <param name="roomsInView">Export rooms in 3D views?</param>
             <param name="levelOfDetail">Level of detail (LOD) for some element geometry.</param>
             <returns name="Setting">IFC export setting.</returns>
-            <search>ifc,export,autodesk,revit,setting,additional</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.SettingProperty(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String)">
             <summary>
@@ -125,7 +116,6 @@
             <param name="parameterMapping">Export parameter mapping table?</param>
             <param name="parameterMappingFile">Mapping table file name incl. path.</param>
             <returns name="Setting">IFC export setting.</returns>
-            <search>ifc,export,autodesk,revit,setting,property</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.SettingAdvanced(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
@@ -145,7 +135,6 @@
             <param name="typeNameOnly">Use Type name only for IFCType name?</param>
             <param name="visibleRevitName">Use visible Revit name as the IFCEntity name?</param>
             <returns name="Setting">IFC export setting.</returns>
-            <search>ifc,export,autodesk,revit,setting,advanced</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.Version">
             <summary>
@@ -153,7 +142,6 @@
             For further information visit: https://github.com/Autodesk/revit-ifc
             </summary>
             <returns name="Enum">IFC version as enumeration type.</returns>
-            <search>ifc,export,autodesk,revit,version,all</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.VersionByName(System.String)">
             <summary>
@@ -162,7 +150,6 @@
             </summary>
             <param name="name">The IFC version name.</param>
             <returns name="Enum">IFC version as enumeration type.</returns>
-            <search>ifc,export,autodesk,revit,version,name</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.FileFormat">
             <summary>
@@ -170,7 +157,6 @@
             For further information visit: https://github.com/Autodesk/revit-ifc
             </summary>
             <returns name="Enum">IFC file format as enumeration type.</returns>
-            <search>ifc,export,autodesk,revit,file,type,format</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.FileFormatByName(System.String)">
             <summary>
@@ -179,7 +165,6 @@
             </summary>
             <param name="name">The IFC file format name.</param>
             <returns name="Enum">IFC file format as enumeration type.</returns>
-            <search>ifc,export,autodesk,revit,file,type,format,name</search>
         </member>
         <member name="M:Orchid.IfcExport.IFC.Export(Revit.Application.Document,BIM.IFC.Export.UI.IFCExportConfiguration,Revit.Elements.Views.View,System.String,System.Boolean)">
             <summary>
@@ -194,7 +179,6 @@
             <param name="file">The export file name incl. path.</param>
             <param name="overwrite">Overwrite existing file?</param>
             <returns name="watch">Add a watch node to verify the output.</returns>
-            <search>ifc,export,autodesk,revit</search>
         </member>
         <member name="T:Orchid.Resources.IfcNote">
             <summary>
