@@ -1,0 +1,121 @@
+{
+  "Uuid": "68ed3822-286b-4120-91de-9f16ed70a0da",
+  "IsCustomNode": true,
+  "Category": "Modelical.Elements.Actions",
+  "Description": "This node modifies the visualization of the elements in the active view by selecting color and fill pattern. Solid fill pattern will be applied by default.",
+  "Name": "Element.ResetOverrides",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Color": {
+        "Key": "DSCore.Color",
+        "Value": "DSCoreNodes.dll"
+      },
+      "DSCore.Color": {
+        "Key": "DSCore.Color",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "/*Selected elements*/\r\n_elements",
+      "Id": "ea22d443b6ff4070aa97969f681147dc",
+      "Inputs": [
+        {
+          "Id": "0433bda85e0d4814816d4a9f3a4240d1",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Una función de salida, se debe utilizar con nodos personalizados"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_elements",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Elements to reset override in active View."
+      },
+      "Id": "980b5f652afa42aea09d66cea5db0992",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "df5d4025621e4be6a242dedb7e5ea876",
+          "Name": "",
+          "Description": "Datos de entrada",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\nfrom System.Collections.Generic import *\r\n\r\nclr.AddReference(\"RevitAPI\")\r\nimport Autodesk\r\nfrom Autodesk.Revit.DB import *\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\ndef toList(input):\r\n    if isinstance(input, list):\r\n        return input\r\n    else:\r\n        return [input]\r\n\r\nelements = toList(UnwrapElement(IN[0]))\r\n\r\nview = doc.ActiveView\r\noverride = OverrideGraphicSettings()\r\n\r\nt=Transaction(doc, \"Modelical.ResetOverride\")\r\nt.Start()\r\ntry:\r\n    for e in elements:\r\n        view.SetElementOverrides(e.Id, override)\r\n    t.Commit()\r\n    OUT = elements\r\n    \r\nexcept exception as ex:\r\n    OUT = ex\r\nfinally:\r\n    t.Dispose()",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "a75ae34e07844d50a7091fa323953f47",
+      "Inputs": [
+        {
+          "Id": "5014e3cadebe4092805f3a270aad5d18",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fb7664849d0f491c9d613655fc8461de",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python incrustada."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "df5d4025621e4be6a242dedb7e5ea876",
+      "End": "5014e3cadebe4092805f3a270aad5d18",
+      "Id": "fe9b98a05767430cb8a3e8eba254f7e6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "fb7664849d0f491c9d613655fc8461de",
+      "End": "0433bda85e0d4814816d4a9f3a4240d1",
+      "Id": "6032d3dc6da4415780026ebf3ef972b1",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": []
+}

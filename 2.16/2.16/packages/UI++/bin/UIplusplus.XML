@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UIplusplus</name>
+    </assembly>
+    <members>
+        <member name="T:CollectionNode.CollectionWindow">
+            <summary>
+            Interaction logic for colorpickui.xaml
+            </summary>
+            <summary>
+            CollectionWindow
+            </summary>
+        </member>
+        <member name="M:CollectionNode.CollectionWindow.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CollectionNode.CollectionWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:DateTimeNode.DateTimePicker">
+            <summary>
+            Interaction logic for colorpickui.xaml
+            </summary>
+            <summary>
+            DateTimePicker
+            </summary>
+        </member>
+        <member name="M:DateTimeNode.DateTimePicker.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DateTimeNode.DateTimePicker.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:ColorNode.nColorPicker">
+            <summary>
+                Custom Color UI node.
+            </summary>
+        </member>
+        <member name="M:ColorNode.nColorPicker.#ctor">
+            <summary>
+                Node constructor.
+            </summary>
+        </member>
+        <member name="M:ColorNode.nColorPicker.SerializeCore(System.Xml.XmlElement,Dynamo.Graph.SaveContext)">
+            <summary>
+                Store color value when graph is saved.
+            </summary>
+            <param name="element"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:ColorNode.nColorPicker.DeserializeCore(System.Xml.XmlElement,Dynamo.Graph.SaveContext)">
+            <summary>
+                Restore stored value and set "scolor" to it.
+            </summary>
+            <param name="element"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:ColorNode.nColorPicker.BuildOutputAst(System.Collections.Generic.List{ProtoCore.AST.AssociativeAST.AssociativeNode})">
+            <summary>
+                AST Output.
+            </summary>
+            <param name="inputAstNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ColorNode.nColorPicker.ToString">
+            <summary>
+                Override string representation of color in watch node.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ColorNode.nColorPicker.ColorList">
+            <summary>
+                List of standard colors.
+            </summary>
+        </member>
+        <member name="P:ColorNode.nColorPicker.sColor">
+            <summary>
+                Color value.
+            </summary>
+        </member>
+        <member name="T:ColorNode.ColorPickerNodeViewCustomization">
+            <summary>
+                View customization.
+            </summary>
+        </member>
+        <member name="F:ColorNode.ColorPickerNodeViewCustomization.ColorpickuiC">
+            <summary>
+                WPF Control.
+            </summary>
+        </member>
+        <member name="M:ColorNode.ColorPickerNodeViewCustomization.CustomizeView(ColorNode.nColorPicker,Dynamo.Controls.NodeView)">
+            <summary>
+                Customize View.
+            </summary>
+            <param name="model"></param>
+            <param name="nodeView"></param>
+        </member>
+        <member name="M:ColorNode.ColorPickerNodeViewCustomization.Dispose">
+            <summary>
+                Dispose.
+            </summary>
+        </member>
+        <member name="T:ColorNode.Colorpickui">
+            <summary>
+                Interaction logic for colorpickui.xaml
+            </summary>
+            <summary>
+            Colorpickui
+            </summary>
+        </member>
+        <member name="M:ColorNode.Colorpickui.#ctor">
+            <summary>
+                Window constructor.
+            </summary>
+        </member>
+        <member name="M:ColorNode.Colorpickui.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CollectionNode.nCollectionControl">
+            <summary>
+                Date Time Picker node.
+            </summary>
+        </member>
+        <member name="M:CollectionNode.nCollectionControl.#ctor">
+            <summary>
+                Node constructor.
+            </summary>
+        </member>
+        <member name="M:CollectionNode.nCollectionControl.BuildOutputAst(System.Collections.Generic.List{ProtoCore.AST.AssociativeAST.AssociativeNode})">
+            <summary>
+                AST Output.
+            </summary>
+            <param name="inputAstNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CollectionNode.nCollectionControl.sDateTime">
+            <summary>
+                DateTime value.
+            </summary>
+        </member>
+        <member name="T:CollectionNode.ColorPickerNodeViewCustomization">
+            <summary>
+                View Customization.
+            </summary>
+        </member>
+        <member name="F:CollectionNode.ColorPickerNodeViewCustomization._CollectionWindow">
+            <summary>
+                WPF Control.
+            </summary>
+        </member>
+        <member name="M:CollectionNode.ColorPickerNodeViewCustomization.CustomizeView(CollectionNode.nCollectionControl,Dynamo.Controls.NodeView)">
+            <summary>
+                Customize View.
+            </summary>
+            <param name="model"></param>
+            <param name="nodeView"></param>
+        </member>
+        <member name="M:CollectionNode.ColorPickerNodeViewCustomization.Dispose">
+            <summary>
+                Dispose.
+            </summary>
+        </member>
+        <member name="T:DateTimeNode.nDateTimePicker">
+            <summary>
+                Date Time Picker node.
+            </summary>
+        </member>
+        <member name="M:DateTimeNode.nDateTimePicker.#ctor">
+            <summary>
+                Node constructor.
+            </summary>
+        </member>
+        <member name="M:DateTimeNode.nDateTimePicker.SerializeCore(System.Xml.XmlElement,Dynamo.Graph.SaveContext)">
+            <summary>
+                Store date and time value when graph is saved.
+            </summary>
+            <param name="element"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:DateTimeNode.nDateTimePicker.DeserializeCore(System.Xml.XmlElement,Dynamo.Graph.SaveContext)">
+            <summary>
+                Restore stored value and set "scolor" to it.
+            </summary>
+            <param name="element"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:DateTimeNode.nDateTimePicker.BuildOutputAst(System.Collections.Generic.List{ProtoCore.AST.AssociativeAST.AssociativeNode})">
+            <summary>
+                AST Output.
+            </summary>
+            <param name="inputAstNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DateTimeNode.nDateTimePicker.sDateTime">
+            <summary>
+                DateTime value.
+            </summary>
+        </member>
+        <member name="T:DateTimeNode.ColorPickerNodeViewCustomization">
+            <summary>
+                View Customization.
+            </summary>
+        </member>
+        <member name="F:DateTimeNode.ColorPickerNodeViewCustomization._DateTimePicker">
+            <summary>
+                WPF Control.
+            </summary>
+        </member>
+        <member name="M:DateTimeNode.ColorPickerNodeViewCustomization.CustomizeView(DateTimeNode.nDateTimePicker,Dynamo.Controls.NodeView)">
+            <summary>
+                Customize View.
+            </summary>
+            <param name="model"></param>
+            <param name="nodeView"></param>
+        </member>
+        <member name="M:DateTimeNode.ColorPickerNodeViewCustomization.Dispose">
+            <summary>
+                Dispose.
+            </summary>
+        </member>
+        <member name="T:UIplusplus.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:UIplusplus.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:UIplusplus.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:UIplusplus.Properties.Resources.ColorUISearchTags">
+            <summary>
+              Looks up a localized string similar to Color.
+            </summary>
+        </member>
+        <member name="P:UIplusplus.Properties.Resources.CustomNodeModelDescription">
+            <summary>
+              Looks up a localized string similar to Construct a colour using a user interface element..
+            </summary>
+        </member>
+        <member name="P:UIplusplus.Properties.Resources.DateTimeNodeModelDescription">
+            <summary>
+              Looks up a localized string similar to Construct a date time node using a user interface element..
+            </summary>
+        </member>
+        <member name="P:UIplusplus.Properties.Resources.DateTimeUISearchTags">
+            <summary>
+              Looks up a localized string similar to Date, Time.
+            </summary>
+        </member>
+    </members>
+</doc>

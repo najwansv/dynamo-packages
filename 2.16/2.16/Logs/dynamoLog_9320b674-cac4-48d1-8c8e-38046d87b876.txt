@@ -1,0 +1,78 @@
+Dynamo log started 2024-12-01 22:37:32Z
+2024-12-01 22:37:33Z : Python template set to default.
+2024-12-01 22:37:34Z : launch darkly initalized
+2024-12-01 22:37:34Z : LD startup time: 1088 
+2024-12-01 22:37:34Z : <<<<<InitDone>>>>>
+2024-12-01 22:37:34Z : Dynamo -- Build 2.16.4.10216
+2024-12-01 22:37:34Z : feature flag exe starting
+2024-12-01 22:37:34Z : <<<<<Sod>>>>>
+2024-12-01 22:37:34Z : {"IsDNADataIngestionPipelineinBeta":false,"IsDNAClusterPlacementEnabled":false,"IsNewPMWebsiteEnabled":false,"IsNewAppHomeEnabled":false,"graphics-primitive-instancing":false,"IsolatePackages":"","EasterEggIcon1":false,"EasterEggMessage1":"NA","IsTSplineNodesExperimentToggleVisible":false,"experimentalGlyphIsVisible":false,"CER":false,"NodeAutocompleteMachineLearningIsBeta":true,"CER_v2":true,"IsDynamoAppHomeEnabled":true,"IsMLDataIngestionPipelineinBeta":false}
+2024-12-01 22:37:34Z : <<<<<Eod>>>>>
+2024-12-01 22:37:34Z : EasterEggIcon1 is false FROM MODEL
+2024-12-01 22:37:34Z : EasterEggMessage1 is disabled FROM MODEL
+2024-12-01 22:37:34Z : System.InvalidOperationException:
+2024-12-01 22:37:34Z : There already exists an AlsoKnownAs mapping for DSCoreNodesUI.Logic.If.
+2024-12-01 22:37:34Z : 
+2024-12-01 22:37:34Z : System.InvalidOperationException:
+2024-12-01 22:37:34Z : There already exists an AlsoKnownAs mapping for If.
+2024-12-01 22:37:34Z : 
+2024-12-01 22:37:34Z : Duplicate migration type registered for SunPathDirection
+2024-12-01 22:37:35Z : AnalyticalAutomation.dll,M:AnalyticalAutomation.AnalyticalElements.AnalyticalPanel.BySurface(Autodesk.DesignScript.Geometry.Surface,System.Boolean) {0} is missing some XML documentation tags.
+2024-12-01 22:37:35Z : The folder 'C:\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-12-01 22:37:35Z : Dynamo will use the package manager server at : https://www.dynamopackages.com
+2024-12-01 22:37:35Z : The folder 'C:\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-12-01 22:37:36Z : The folder 'C:\ProgramData\Autodesk\RVT 2023\Dynamo\2.16\packages\GenerativeDesign\dyf' does not exist
+2024-12-01 22:37:36Z : The folder 'C:\ProgramData\Autodesk\RVT 2023\Dynamo\2.16\packages\GenerativeDesign.Extension\dyf' does not exist
+2024-12-01 22:37:36Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is added
+2024-12-01 22:37:36Z : The folder 'C:\ProgramData\Autodesk\RVT 2023\Dynamo\2.16\packages\GenerativeDesign.Revit\dyf' does not exist
+2024-12-01 22:37:36Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is added
+2024-12-01 22:37:36Z : Backup files timer is started with an interval of 60000 milliseconds
+2024-12-01 22:37:36Z : SYSTEM:Environment Path:C:\Program Files\Autodesk\Revit 2023\AddIns\SteelConnections;C:\Program Files\Autodesk\Revit 2023\en-GB;C:\Program Files\Autodesk\Revit 2023;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\pyRevit-Master\bin;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Users\USER\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit
+2024-12-01 22:37:36Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DesignScriptBuiltin, Version=2.16.4.10216, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"9fbd05c0-ec1f-4bd3-bf37-969a1552eab8"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"a4bbb066-e307-4314-8e5f-20af5d2d9bf0"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"928e40a7-91ac-45c3-8d59-4d899fc49b83"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"b409775c-5d88-4d47-96a3-5135c775d26a"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"65f93a80-674c-4a98-9d0c-db3a138287e5"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"a4bbb066-e307-4314-8e5f-20af5d2d9bf0"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"939a124a-d449-4df9-b79d-6b990857aa72"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"2ee81b88-e730-4ffa-a7a6-a89aaf327f47"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"7804e3b4-a95a-4ca5-a391-fd9d10566b40"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"56d07fb7-96c6-4441-9746-b818d2f37007"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"0dd4bbc7-3594-4c4f-8e7d-760421e4bc9b"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"928e40a7-91ac-45c3-8d59-4d899fc49b83"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"557b8803-4f27-44c8-ac3d-c6d8439c1e51"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"928e40a7-91ac-45c3-8d59-4d899fc49b83"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"4abff87f-8dad-41a9-bcf6-98784ac456eb"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"56d07fb7-96c6-4441-9746-b818d2f37007"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"56d07fb7-96c6-4441-9746-b818d2f37007"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"928e40a7-91ac-45c3-8d59-4d899fc49b83"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"56d07fb7-96c6-4441-9746-b818d2f37007"
+2024-12-01 22:37:36Z : Unable to create instance of custom node with id: \"e47339c8-2025-4f4d-a3d0-749f8ad6194b"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"9fbd05c0-ec1f-4bd3-bf37-969a1552eab8"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"a4bbb066-e307-4314-8e5f-20af5d2d9bf0"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"928e40a7-91ac-45c3-8d59-4d899fc49b83"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"b409775c-5d88-4d47-96a3-5135c775d26a"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"65f93a80-674c-4a98-9d0c-db3a138287e5"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"a4bbb066-e307-4314-8e5f-20af5d2d9bf0"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"939a124a-d449-4df9-b79d-6b990857aa72"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"2ee81b88-e730-4ffa-a7a6-a89aaf327f47"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"7804e3b4-a95a-4ca5-a391-fd9d10566b40"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"56d07fb7-96c6-4441-9746-b818d2f37007"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"0dd4bbc7-3594-4c4f-8e7d-760421e4bc9b"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"928e40a7-91ac-45c3-8d59-4d899fc49b83"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"557b8803-4f27-44c8-ac3d-c6d8439c1e51"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"928e40a7-91ac-45c3-8d59-4d899fc49b83"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"4abff87f-8dad-41a9-bcf6-98784ac456eb"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"56d07fb7-96c6-4441-9746-b818d2f37007"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"56d07fb7-96c6-4441-9746-b818d2f37007"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"928e40a7-91ac-45c3-8d59-4d899fc49b83"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"56d07fb7-96c6-4441-9746-b818d2f37007"
+2024-12-01 22:37:37Z : Unable to create instance of custom node with id: \"e47339c8-2025-4f4d-a3d0-749f8ad6194b"
+2024-12-01 22:37:50Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is removed
+2024-12-01 22:37:50Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is removed
+2024-12-01 22:37:50Z : Goodbye

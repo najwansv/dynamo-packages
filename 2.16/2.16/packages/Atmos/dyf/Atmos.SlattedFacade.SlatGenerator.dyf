@@ -1,0 +1,71 @@
+<Workspace Version="1.3.0.875" X="579.860131627362" Y="79.8294727076973" zoom="0.982642311367965" ScaleFactor="1" Name="Atmos.SlattedFacade.SlatGenerator" Description="This node will generate a randomised series of 'Slats' based on the following criteria: Slat Thickness, Offset Distance (Total depth), total Slat Amount and a Tool Amount. " ID="0c44ef4a-48ab-4d7e-b0f1-98a3a2cda321" Category="Atmos.Geometry.SlattedFacade">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="Surface" resolvedName="Autodesk.DesignScript.Geometry.Surface" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Line" resolvedName="Autodesk.DesignScript.Geometry.Line" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Math" resolvedName="DSCore.Math" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="Vector" resolvedName="Autodesk.DesignScript.Geometry.Vector" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Plane" resolvedName="Autodesk.DesignScript.Geometry.Plane" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Circle" resolvedName="Autodesk.DesignScript.Geometry.Circle" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="DSCore.List" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="Autodesk.Geometry.Solid" resolvedName="Autodesk.DesignScript.Geometry.Solid" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Autodesk.DesignScript.Geometry.Solid" resolvedName="Autodesk.DesignScript.Geometry.Solid" assemblyName="ProtoGeometry.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Base Operations" x="250" y="0" isVisible="false" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="//Inputs&#xA;srf = surface01;&#xA;slatThickness = sltThickness;&#xA;dist = offsetDistance;&#xA;sltAmt = slatAmount;&#xA;toolAmt = toolAmount;&#xA;maxToolRadius = dist - slatThickness;&#xA;//Offset Surface&#xA;srfOff = surface01.Offset(dist);&#xA;//Base Surface and Switcher&#xA;per0 = Flatten(srf.PerimeterCurves());&#xA;side1 = {per0[0],per0[2].Reverse()};&#xA;side2 = {per0[1],per0[3].Reverse()};&#xA;//Offset Surface and Switcher&#xA;per1 = Flatten(srfOff.PerimeterCurves());&#xA;side3 = {per1[0],per1[2].Reverse()};&#xA;side4 = {per1[1],per1[3].Reverse()};&#xA;toolPicker = side4;&#xA;//Curves Coming in the length of a slat&#xA;crv0 = side1.ExtendEnd(-sltThickness/2).ExtendStart(-sltThickness/2);&#xA;crv1 = side3.ExtendEnd(-sltThickness/2).ExtendStart(-sltThickness/2);" ShouldFocus="false">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+      <PortInfo index="2" default="False" />
+      <PortInfo index="3" default="False" />
+      <PortInfo index="4" default="False" />
+    </Dynamo.Graph.Nodes.CodeBlockNodeModel>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="755901ee-e409-4e43-9fb1-53ff56058ee5" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Vertical Slats" x="1108.64513396142" y="88.7827890311643" isVisible="false" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="spread = (0..1..#sltAmt);&#xA;points0 = crv0&lt;1&gt;.PointAtParameter(spread&lt;2&gt;);&#xA;points1 = crv1&lt;1&gt;.PointAtParameter(spread&lt;2&gt;);&#xA;//Creating the Base Slats&#xA;slatSrf = Surface.ByLoft(DSCore.List.Transpose(Line.ByStartPointEndPoint&#xA;(points0,points1)));&#xA;srfThicken = {Surface.Thicken(slatSrf,slatThickness,true)};&#xA;//Creating the Tooling Paths&#xA;toolSpread = (0..1..#toolAmt);&#xA;toolPoints = toolPicker&lt;1&gt;.PointAtParameter(toolSpread&lt;2&gt;);&#xA;//Creating Tooling Shapes&#xA;count0 = Count(Flatten(toolPoints));&#xA;toolRads = DSCore.List.Chop(DSCore.List.Shuffle(Math.Round(&#xA;(slatThickness..maxToolRadius..#count0))),count0/2);&#xA;vec0 = Vector.ByTwoPoints(DSCore.List.Shuffle(toolPoints[0]),&#xA;DSCore.List.Shuffle(toolPoints[1]));&#xA;//Creating our Planes to host our Tool Profiles&#xA;pln0 = Plane.ByOriginNormal(toolPoints,vec0).ToCoordinateSystem()&#xA;.XYPlane;&#xA;circ0 = Circle.ByPlaneRadius(pln0,toolRads);&#xA;profiles = DSCore.List.Transpose({DSCore.List.Shuffle(circ0[0]),circ0[1]});&#xA;solids = Autodesk.Geometry.Solid.ByLoft(profiles);&#xA;difference = Flatten(srfThicken.DifferenceAll(solids));" ShouldFocus="false">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+      <PortInfo index="2" default="False" />
+      <PortInfo index="3" default="False" />
+      <PortInfo index="4" default="False" />
+      <PortInfo index="5" default="False" />
+      <PortInfo index="6" default="False" />
+    </Dynamo.Graph.Nodes.CodeBlockNodeModel>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="7f51b8d5-289f-4c84-b019-726cba68ad35" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="2049.79068358937" y="411.655010335723" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+      <Symbol value="solids" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="8bedbceb-8e7d-42f7-98fe-aaedf4b25583" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="-198.550056265817" y="-27.3093351176126" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="//Input Surface.&#xD;&#xA;srf : Surface" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="7afde126-a637-4d7b-959b-26f670f8702f" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="-239.117418944525" y="67.0892057224492" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="//Slat Thickness.&#xD;&#xA;slatThickness : double = 50" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="3239fbb1-da47-4671-b928-a155ec0f4b57" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="-243.024029091468" y="154.014842343471" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="//Offset Distance.&#xD;&#xA;offsetDistance : double = 750" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="30fb294c-8385-4b22-b5e0-258897eb787c" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="-183.395908449616" y="259.690781782685" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="//Amount of Slats.&#xD;&#xA;slatAmount : int = 50" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="36a86b98-0e39-40e7-9d44-7f52779e9962" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="-195.183483094276" y="381.719887968357" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="//Amount of 'Cutting Tools'.&#xD;&#xA;toolAmount : int = 18" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" start_index="1" end="755901ee-e409-4e43-9fb1-53ff56058ee5" end_index="3" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" start_index="3" end="755901ee-e409-4e43-9fb1-53ff56058ee5" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" start_index="4" end="755901ee-e409-4e43-9fb1-53ff56058ee5" end_index="4" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" start_index="5" end="755901ee-e409-4e43-9fb1-53ff56058ee5" end_index="6" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" start_index="13" end="755901ee-e409-4e43-9fb1-53ff56058ee5" end_index="5" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" start_index="14" end="755901ee-e409-4e43-9fb1-53ff56058ee5" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" start_index="15" end="755901ee-e409-4e43-9fb1-53ff56058ee5" end_index="2" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="755901ee-e409-4e43-9fb1-53ff56058ee5" start_index="14" end="7f51b8d5-289f-4c84-b019-726cba68ad35" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="8bedbceb-8e7d-42f7-98fe-aaedf4b25583" start_index="0" end="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="7afde126-a637-4d7b-959b-26f670f8702f" start_index="0" end="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="3239fbb1-da47-4671-b928-a155ec0f4b57" start_index="0" end="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" end_index="2" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="30fb294c-8385-4b22-b5e0-258897eb787c" start_index="0" end="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" end_index="3" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="36a86b98-0e39-40e7-9d44-7f52779e9962" start_index="0" end="3df94c3f-cfe9-49cd-8f45-3b42f0f4557e" end_index="4" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-16514.2620485935" eyeY="8250.79575808684" eyeZ="-235.028398433065" lookX="5224.33663072148" lookY="-5377.76879376423" lookZ="9263.48291511717" upX="0.122534049868887" upY="0.968389960527805" upZ="0.217270087613744" />
+  </Cameras>
+</Workspace>

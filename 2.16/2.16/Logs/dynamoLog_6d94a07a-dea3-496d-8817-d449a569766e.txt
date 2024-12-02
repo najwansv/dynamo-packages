@@ -1,0 +1,53 @@
+Dynamo log started 2024-12-01 22:53:38Z
+2024-12-01 22:53:38Z : Python template set to default.
+2024-12-01 22:53:38Z : Dynamo -- Build 2.16.4.10216
+2024-12-01 22:53:38Z : System.InvalidOperationException:
+2024-12-01 22:53:38Z : There already exists an AlsoKnownAs mapping for DSCoreNodesUI.Logic.If.
+2024-12-01 22:53:38Z : 
+2024-12-01 22:53:38Z : System.InvalidOperationException:
+2024-12-01 22:53:38Z : There already exists an AlsoKnownAs mapping for If.
+2024-12-01 22:53:38Z : 
+2024-12-01 22:53:38Z : Duplicate migration type registered for SunPathDirection
+2024-12-01 22:53:38Z : launch darkly initalized
+2024-12-01 22:53:38Z : LD startup time: 471 
+2024-12-01 22:53:38Z : <<<<<InitDone>>>>>
+2024-12-01 22:53:38Z : feature flag exe starting
+2024-12-01 22:53:38Z : <<<<<Sod>>>>>
+2024-12-01 22:53:38Z : {"IsDNADataIngestionPipelineinBeta":false,"IsDNAClusterPlacementEnabled":false,"IsNewPMWebsiteEnabled":false,"IsNewAppHomeEnabled":false,"graphics-primitive-instancing":false,"IsolatePackages":"","EasterEggIcon1":false,"EasterEggMessage1":"NA","IsTSplineNodesExperimentToggleVisible":false,"experimentalGlyphIsVisible":false,"CER":false,"NodeAutocompleteMachineLearningIsBeta":true,"CER_v2":true,"IsDynamoAppHomeEnabled":true,"IsMLDataIngestionPipelineinBeta":false}
+2024-12-01 22:53:38Z : <<<<<Eod>>>>>
+2024-12-01 22:53:38Z : EasterEggIcon1 is false FROM MODEL
+2024-12-01 22:53:38Z : EasterEggMessage1 is disabled FROM MODEL
+2024-12-01 22:53:39Z : The folder 'C:\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-12-01 22:53:39Z : Dynamo will use the package manager server at : https://www.dynamopackages.com
+2024-12-01 22:53:39Z : The folder 'C:\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit\Built-In Packages\Packages' does not exist
+2024-12-01 22:53:39Z : System.InvalidOperationException:
+2024-12-01 22:53:39Z : There already exists an AlsoKnownAs mapping for Select Rule Type.
+2024-12-01 22:53:39Z : 
+2024-12-01 22:53:41Z : Data-Shapes contains the node library Package.customization, which has already been loaded by another package. This may cause inconsistent results when determining which package nodes from this node library are dependent on.
+2024-12-01 22:53:41Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is added
+2024-12-01 22:53:41Z : System.InvalidOperationException:
+2024-12-01 22:53:41Z : There already exists an AlsoKnownAs mapping for Roof Types.
+2024-12-01 22:53:41Z : 
+2024-12-01 22:53:42Z : The folder 'C:\ProgramData\Autodesk\RVT 2023\Dynamo\2.16\packages\GenerativeDesign\dyf' does not exist
+2024-12-01 22:53:42Z : The folder 'C:\ProgramData\Autodesk\RVT 2023\Dynamo\2.16\packages\GenerativeDesign.Extension\dyf' does not exist
+2024-12-01 22:53:42Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is added
+2024-12-01 22:53:42Z : The folder 'C:\ProgramData\Autodesk\RVT 2023\Dynamo\2.16\packages\GenerativeDesign.Revit\dyf' does not exist
+2024-12-01 22:53:42Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is added
+2024-12-01 22:53:42Z : Backup files timer is started with an interval of 60000 milliseconds
+2024-12-01 22:53:42Z : SYSTEM:Environment Path:C:\Users\USER\AppData\Local\python-3.9.12-embed-amd64;C:\Program Files\Autodesk\Revit 2023\AddIns\SteelConnections;C:\Program Files\Autodesk\Revit 2023\en-GB;C:\Program Files\Autodesk\Revit 2023;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\pyRevit-Master\bin;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\pyRevit-Master\bin;C:\Program Files\pyRevit-Master\bin;C:\Users\USER\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit;C:\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit;C:\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit
+2024-12-01 22:53:42Z : notification:System.IO.FileLoadException:
+ Dynamo has detected a conflict with a dependency and may be unstable. If any issues are detected, please uninstall addins or packages and contact the provider.: 
+ While loading assembly DesignScriptBuiltin, Version=2.16.4.10216, Culture=neutral, PublicKeyToken=null, Dynamo detected that the dependency System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a was already loaded with an incompatible version. It is likely that another Revit Addin has loaded this assembly, please try uninstalling other Addins, and starting Dynamo again. Dynamo may be unstable in this state.
+It is likely one of the following assemblies loaded the incompatible version:
+Autodesk.Extensions
+2024-12-01 22:53:42Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\USER\AppData\Roaming\Dynamo\Dynamo Revit\2.16\packages\Clockwork for Dynamo 2.x\dyf\Document.LoadFamily.dyf
+2024-12-01 22:53:42Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\USER\AppData\Roaming\Dynamo\Dynamo Revit\2.16\packages\Clockwork for Dynamo 2.x\dyf\ReturnListOrSingleValue.dyf
+2024-12-01 22:53:42Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\USER\AppData\Roaming\Dynamo\Dynamo Revit\2.16\packages\Clockwork for Dynamo 2.x\dyf\TurnIntoList.dyf
+2024-12-01 22:53:42Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\USER\AppData\Roaming\Dynamo\Dynamo Revit\2.16\packages\Crumple\dyf\UIMessenger.dyf
+2024-12-01 22:53:42Z : Loading node definition for "Dynamo.CustomNodeInfo" from: C:\Users\USER\AppData\Roaming\Dynamo\Dynamo Revit\2.16\packages\Crumple\dyf\IfThenElse.dyf
+2024-12-01 22:53:42Z : Active view is now Project View
+2024-12-01 22:53:43Z : Active view is now Project View
+2024-12-01 22:53:56Z : IronPythonExtension (id: D7B449D7-4D54-47EF-B742-30C7BEDFBE92) extension is removed
+2024-12-01 22:53:56Z : Generative Design (id: DFBD9CC0-DB40-457A-939E-8C8555555A9D) extension is removed
+2024-12-01 22:53:56Z : DynamoPackageManager (id: FCABC211-D56B-4109-AF18-F434DFE48139) extension is removed
+2024-12-01 22:53:56Z : Goodbye
