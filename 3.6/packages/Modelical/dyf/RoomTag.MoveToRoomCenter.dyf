@@ -1,0 +1,293 @@
+{
+  "Uuid": "38039f29-30a9-4fa4-982a-1ad304bd18ca",
+  "IsCustomNode": true,
+  "Category": "Modelical.Elements.Actions",
+  "Description": "This node moves the room tag location of the selected tags to the closest possible point to the associated room geometrical center.",
+  "Name": "RoomTag.MoveToRoomCenter",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_roomTags",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Tag(s) to move to room center."
+      },
+      "Id": "0ee2397fa6c64f61b87cf5bb1c131ab7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f7bd3006e6c84d129e8e8c2084d7c5f2",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "/*Moved to closest possible point to geometrical center.*/\r\n_movedTags",
+      "Id": "3d449ce852b147ef9d47257a89fb2256",
+      "Inputs": [
+        {
+          "Id": "7fc0376c1b6d490aa116300298a7eac6",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "/*Could not be moved*/\r\n_errorTags",
+      "Id": "3465ca450f6c410c893174c2cfe54b7a",
+      "Inputs": [
+        {
+          "Id": "393f660261b1426fbcc04f4b3bd6599c",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "l[0];",
+      "Id": "97b6fe88a98c431d9b891974b98d24bb",
+      "Inputs": [
+        {
+          "Id": "826cc4e77cb74d7c9c18f31ada393ecb",
+          "Name": "l",
+          "Description": "l",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c2a13d4388064ab186c2df9acea991f6",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "l[1];",
+      "Id": "57feb8fbde944556b5bd9f65a58fee3b",
+      "Inputs": [
+        {
+          "Id": "15e7c0ac7343416683cd3effacf0f6b3",
+          "Name": "l",
+          "Description": "l",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fe892325a5754f6ba223ebfc01d72cc7",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This bit is default. It is always used.\r\n# It connects with DesignScript and Dynamo internals and\r\n# Enable Python support and load DesignScript library.\r\nimport clr\r\nclr.AddReference(\"ProtoGeometry\")\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\n# This import let's us call / use Dynamo nodes from Python code\r\nclr.AddReference(\"DSCoreNodes\")\r\nfrom DSCore import *\r\n# General API and User Interface API DLL\r\n\r\nclr.AddReference(\"RevitAPI\")\r\nfrom Autodesk.Revit.DB import *\r\nfrom Autodesk.Revit.DB.Structure import *\r\n\r\nclr.AddReference(\"RevitAPIUI\")\r\nfrom Autodesk.Revit.UI import *\r\n\r\nclr.AddReference(\"RevitNodes\")\r\nimport Revit\r\nclr.ImportExtensions(Revit.GeometryConversion)\r\nclr.ImportExtensions(Revit.Elements)\r\n# This bit is needed to access revit documents (project and families) \r\n# and to use Transactions (when we need to WRITE data to the Revit database)\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\nuidoc = DocumentManager.Instance.CurrentUIApplication\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\napp = uidoc.Application\r\n\r\n# To be able to import Python Standard Library modules, we need to locate them\r\nimport sys\r\nsys.path.append(r\"C:\\Program Files (x86)\\IronPython 2.7\\Lib\")\r\n# Function Helpers\r\ndef Feet2m(value):\r\n\treturn value * 0.3048\r\n\t\r\ndef m2Feet(value):\r\n\treturn value / 0.3048\r\n\r\ndef toList(input):\r\n    \"\"\"Return iterable if available, a list of 1 otherwise\"\"\"\r\n    if hasattr(input, \"__iter__\") and not isinstance(input, basestring):\r\n        return iter(input)\r\n    else:\r\n        return [input]\r\n\r\ndef flatten(x):\r\n    result = []\r\n    for el in x:\r\n        if hasattr(el, \"__iter__\") and not isinstance(el, basestring):\r\n            result.extend(flatten(el))\r\n        else:\r\n            result.append(el)\r\n    return result\r\n\r\ndef dRange(start,final,step):\r\n\tn=start\r\n\tfList=[]\r\n\twhile n<=final:\r\n\t\tfList.append(n)\r\n\t\tn+=step\r\n\treturn fList\t\r\n\r\nresults = clr.Reference[IntersectionResultArray]()\r\n\r\nSBO=SpatialElementBoundaryOptions()\r\n\r\n\t\r\n#Get All Rooms\r\nrooms=[]\r\nfor ldoc in app.Documents:\r\n\tfor lr in FilteredElementCollector(ldoc).OfCategory(BuiltInCategory.OST_Rooms).WhereElementIsNotElementType().ToElements():\r\n\t\r\n\t\trooms.append(lr)\r\n\t\t\t\r\n#Get All tags\r\nselectedTags = toList(UnwrapElement(IN[0]))\r\ntags=[]\r\ntagsHostId=[]\r\n\r\nfor tag in selectedTags:\r\n\tif tag.GetType()==Architecture.RoomTag :\r\n\t\ttags.append(tag)\r\n\t\ttry:\r\n\t\t\ttagsHostId.append(tag.Room.Id)\r\n\t\texcept:\r\n\t\t\ttagsHostId.append(tag.TaggedRoomId.LinkedElementId)\r\n\r\ncList=[]\r\nmList=[]\r\neList=[]\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\n\r\n\r\n\r\n\r\nfor r in rooms :\r\n\tif r.Id in tagsHostId:\r\n\t\ttry:\t\r\n\t\t\tr.Location\r\n\t\t\trCurves=[]\r\n\t\t\tcLoops=[]\r\n\t\t#Geometry\r\n\t\t\tfor segGroup in r.GetBoundarySegments(SBO):\r\n\t\t\t\tpGroup=[]\r\n\t\t\t\tfor seg in segGroup:\r\n\t\t\t\t\tpGroup.append(seg.GetCurve().GetEndPoint(0).ToPoint())\r\n\t\t\t\tcLoops.append(PolyCurve.ByPoints(pGroup, True).ToRevitType())\r\n\t\t\r\n\t\t\tcSolid=GeometryCreationUtilities.CreateExtrusionGeometry(cLoops,XYZ(0,0,2),1)\r\n\t\t\t\r\n\t\t\tfor f in cSolid.Faces:\r\n\t\t\t\tif f.ComputeNormal(UV(0.5,0.5)).IsAlmostEqualTo(XYZ(0,0,-1)):\r\n\t\t\t\t\trp=f.ToProtoType()[0].PointAtParameter(0.5,0.5)\r\n\t\t\t\t\tp=rp.ToXyz()\r\n\t\t\t\t\t\r\n\t\t#Center is in Room\r\n\t\t\t#Search Center\r\n\t\t\t\t\tif f.Project(p)!=None:\r\n\t\t\t\t\t\ttry:\r\n\t\t\t\t\t\t\trTags=[]\t\t\t\t\t\t\r\n\t\t\t\t\t\t\tfor t in tags:\r\n\t\t\t\t\t\t\t\tif t.Room.Id == r.Id:\r\n\t\t\t\t\t\t\t\t\tt.Location.Point = p\r\n\t\t\t\t\t\t\t\t\trTags.append(t)\r\n\t\t\t\t\t\texcept:\r\n\t\t\t\t\t\t\trTags=[]\r\n\t\t\t\t\t\t\tfor t in tags:\r\n\t\t\t\t\t\t\t\tif t.TaggedRoomId.LinkedElementId ==r.Id:\r\n\t\t\t\t\t\t\t\t\tt.Location.Point = p\r\n\t\t\t\t\t\t\t\t\trTags.append(t)\r\n\t\t\t\t\t\tmList.append([r,rTags])\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t#Center isn't in Room\r\n\t\t\t\t\telse:\r\n\t\t\t\t\t\ttPoints=[]\r\n\t\t\t\t\t\tdPoints=[]\r\n\t\t\t\t\t\t\r\n\t\t\t#Testpoints\r\n\t\t\t\t\t\tfor n in dRange(0,1,0.1):\r\n\t\t\t\t\t\t\tfor m in dRange(0,1,0.1):\r\n\t\t\t\t\t\t\t\trtp=f.ToProtoType()[0].PointAtParameter(n,m)\r\n\t\t\t\t\t\t\t\ttp=rtp.ToXyz()\r\n\t\t\t\t\t\t\t\ttPoints.append(tp)\r\n\t\t\t\t\t\t\t\tdPoints.append(tp.DistanceTo(p))\r\n\t\t\t\t\t\t\t\t\r\n\t\t\t#Sort it by distance\t\t\r\n\t\t\t\t\t\tzList=sorted(zip(dPoints,tPoints))\r\n\t\t\t\t\t\tfor stp in zList:\r\n\t\t\t\t\t\t\r\n\t\t\t#Search nearest point to center\r\n\t\t\t\t\t\t\tif f.Project(stp[1])!=None:\r\n\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\ttry:\t\r\n\t\t\t\t\t\t\t\t\trTags=[]\r\n\t\t\t\t\t\t\t\t\tfor t in tags:\r\n\t\t\t\t\t\t\t\t\t\tif t.Room.Id ==r.Id:\r\n\t\t\t\t\t\t\t\t\t\t\tt.Location.Point = stp[1]\r\n\t\t\t\t\t\t\t\t\t\t\trTags.append(t)\r\n\t\t\t\t\t\t\t\texcept:\r\n\t\t\t\t\t\t\t\t\trTags=[]\r\n\t\t\t\t\t\t\t\t\tfor t in tags:\r\n\t\t\t\t\t\t\t\t\t\tif t.TaggedRoomId.LinkedElementId ==r.Id:\r\n\t\t\t\t\t\t\t\t\t\t\tt.Location.Point = stp[1]\r\n\t\t\t\t\t\t\t\t\t\t\trTags.append(t)\r\n\t\t\t\t\t\t\t\tbreak\r\n\t\t\t\t\t\tmList.append([r,rTags])\t\t\r\n\t\t\t\r\n\t\t\t\t\tbreak\t\r\n\t\t\t\r\n\t\texcept:\r\n\t\t\ttry:\t\r\n\t\t\t\trTags=[]\r\n\t\t\t\tfor t in tags:\r\n\t\t\t\t\tif t.Room.Id ==r.Id:\r\n\t\t\t\t\t\trTags.append(t)\r\n\t\t\texcept:\r\n\t\t\t\trTags=[]\r\n\t\t\t\tfor t in tags:\r\n\t\t\t\t\tif t.TaggedRoomId.LinkedElementId ==r.Id:\r\n\t\t\t\t\t\trTags.append(t)\r\n\t\t\teList.append([r,rTags])\r\nTransactionManager.Instance.TransactionTaskDone()\r\n\r\n# Output\r\nOUT =[mList,eList]\r\n",
+      "Engine": "IronPython2",
+      "VariableInputPorts": true,
+      "Id": "c63ff14f40e54262a2c12e0e23d2081e",
+      "Inputs": [
+        {
+          "Id": "14b457246d09463ab5d3de4b41da8733",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "752e6e0175ae47a696da40cbd9898645",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f7bd3006e6c84d129e8e8c2084d7c5f2",
+      "End": "14b457246d09463ab5d3de4b41da8733",
+      "Id": "a3eb366fa21542bb9bf6354f31a32a46"
+    },
+    {
+      "Start": "c2a13d4388064ab186c2df9acea991f6",
+      "End": "7fc0376c1b6d490aa116300298a7eac6",
+      "Id": "6b4718c77bba4190b8e302cdacfbf74a"
+    },
+    {
+      "Start": "fe892325a5754f6ba223ebfc01d72cc7",
+      "End": "393f660261b1426fbcc04f4b3bd6599c",
+      "Id": "073591bf9d924f4aa67e0044db9eee45"
+    },
+    {
+      "Start": "752e6e0175ae47a696da40cbd9898645",
+      "End": "826cc4e77cb74d7c9c18f31ada393ecb",
+      "Id": "8927d7e8b18c4923af9f2e03d85e7c3e"
+    },
+    {
+      "Start": "752e6e0175ae47a696da40cbd9898645",
+      "End": "15e7c0ac7343416683cd3effacf0f6b3",
+      "Id": "0ca6b760597742f284ee90dbe2c695a1"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.12.0.5650",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -18.2078857421875,
+      "EyeY": 24.000007629394531,
+      "EyeZ": 49.750091552734375,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "0ee2397fa6c64f61b87cf5bb1c131ab7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 36.190074965462657,
+        "Y": 347.18737975394271
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "3d449ce852b147ef9d47257a89fb2256",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 963.83291458158737,
+        "Y": 311.6261399373206
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "3465ca450f6c410c893174c2cfe54b7a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 971.4843732428501,
+        "Y": 435.20414140708812
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "97b6fe88a98c431d9b891974b98d24bb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 837.76652572896126,
+        "Y": 315.90119452373375
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "57feb8fbde944556b5bd9f65a58fee3b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 838.038777406287,
+        "Y": 439.65592134411906
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "RoomTag.MoveToRoomCenter",
+        "Id": "c63ff14f40e54262a2c12e0e23d2081e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 448.00389675382127,
+        "Y": 345.59629773013387
+      }
+    ],
+    "Annotations": [],
+    "X": 152.28639483606321,
+    "Y": 45.163280451509308,
+    "Zoom": 1.1118676036580002
+  }
+}

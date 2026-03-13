@@ -1,0 +1,272 @@
+{
+  "Uuid": "0047e789-528f-4798-9fc3-f948fea09189",
+  "IsCustomNode": true,
+  "Category": "Data-Shapes.UI.AutocadCivil3D",
+  "Description": "This input can be used in Civil 3D or in Autocad for object selection! ",
+  "Name": "SelectAutoCadObjects_Data",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "Code": "# Copyright (c) Data Shapes, 2026\n# Data-Shapes www.data-shapes.io, elayoubi.mostafa@data-shapes.io @data_shapes\n\nimport clr\nimport ctypes\nfrom ctypes import Structure, c_ulong, c_ushort, c_byte, c_void_p, byref, windll\nfrom System import IntPtr, Array, Object\nfrom System.Runtime.InteropServices import Marshal\nfrom System.Reflection import BindingFlags\n\nclr.AddReference('AutoCADNodes')\nfrom Autodesk.AutoCAD.DynamoNodes import SelectionByQuery\n\nclass _GUID(Structure):\n    _fields_ = [(\"Data1\", c_ulong), (\"Data2\", c_ushort), (\"Data3\", c_ushort), (\"Data4\", c_byte * 8)]\n\n_GET = BindingFlags.GetProperty | BindingFlags.Instance | BindingFlags.Public\n_CALL = BindingFlags.InvokeMethod | BindingFlags.Instance | BindingFlags.Public\n\ndef _get_active_object(progid):\n    clsid = _GUID()\n    hr = windll.ole32.CLSIDFromProgID(progid, byref(clsid))\n    if hr != 0:\n        raise OSError(\"COM class not found for '{}'\".format(progid))\n    punk = c_void_p()\n    hr = windll.oleaut32.GetActiveObject(byref(clsid), None, byref(punk))\n    if hr != 0:\n        raise OSError(\"No running instance of '{}'\".format(progid))\n    return Marshal.GetObjectForIUnknown(IntPtr.op_Explicit(punk.value))\n\ndef _com_prop(obj, name):\n    return obj.GetType().InvokeMember(name, _GET, None, obj, None)\n\ndef _com_call(obj, name, *args):\n    net_args = Array[Object](list(args)) if args else None\n    return obj.GetType().InvokeMember(name, _CALL, None, obj, net_args)\n\ndef _wrap(com_entities):\n    return [SelectionByQuery.GetObjectByObjectHandle(_com_prop(e, \"Handle\")) for e in com_entities]\n\n\nclass uiselectautocadelements():\n\n    def __init__(self, inputname, buttontext, multi):\n        self.inputname = inputname\n        self.buttontext = buttontext\n        self.multi = multi\n        self._input_type = 'uiselectautocadelements'\n\n    def __repr__(self):\n        return 'UI.SelectAutocadElements input'\n\n    def pickautocadobjects(self, sender, event):\n        try:\n            acadDoc = _com_prop(_get_active_object(\"AutoCAD.Application\"), \"ActiveDocument\")\n            _com_call(acadDoc, \"Activate\")\n            acadUser = _com_call(acadDoc, \"GetVariable\", \"users5\")\n            _com_call(acadDoc, \"SendCommand\", \"(and(princ\\042\" + sender.Text + \"\\042)(setq ss(ssget))(setvar\\042users5\\042\\042LinkDWGUIOK\\042)(command\\042_.Select\\042ss\\042\\042)) \")\n            selection_ = _com_prop(acadDoc, \"ActiveSelectionSet\")\n            _com_call(acadDoc, \"SendCommand\", \"(setq ss nil) \")\n            if _com_call(acadDoc, \"GetVariable\", \"users5\") == \"LinkDWGUIOK\" and selection_ is not None:\n                count = _com_prop(selection_, \"Count\")\n                sender.Tag = _wrap([_com_call(selection_, \"Item\", i) for i in range(count)])\n            _com_call(acadDoc, \"SetVariable\", \"users5\", acadUser)\n        except:\n            pass\n\n    def pickautocadobject(self, sender, event):\n        try:\n            acadDoc = _com_prop(_get_active_object(\"AutoCAD.Application\"), \"ActiveDocument\")\n            acadUser = _com_call(acadDoc, \"GetVariable\", \"users5\")\n            acadPickBox = _com_call(acadDoc, \"GetVariable\", \"pickbox\")\n            _com_call(acadDoc, \"SetVariable\", \"pickbox\", 5)\n            _com_call(acadDoc, \"Activate\")\n            _com_call(acadDoc, \"SendCommand\", \"(setq obj(car(entsel\\042\" + sender.Text + \"\\042))) \")\n            _com_call(acadDoc, \"SendCommand\", \"(and obj(setvar\\042users5\\042(cdr(assoc 5(entget obj))))(setq obj nil)) \")\n            selection_ = _com_call(acadDoc, \"GetVariable\", \"users5\")\n            _com_call(acadDoc, \"SetVariable\", \"pickbox\", acadPickBox)\n            _com_call(acadDoc, \"SetVariable\", \"users5\", acadUser)\n            sender.Tag = _wrap([_com_call(acadDoc, \"HandleToObject\", selection_)])[0]\n        except:\n            pass\n\n\nx = uiselectautocadelements(IN[0], IN[1], not IN[2])\n\nOUT = x\n",
+      "Engine": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "953eb7c37479474aa87599038cba93ca",
+      "NodeType": "PythonScriptNode",
+      "Inputs": [
+        {
+          "Id": "de0200506a1d403a9107b6614447ff76",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "84d140a186394f09a76cc1fffebc053c",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dc3b80160a324f79bda3fa0fae324e05",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d763925cef96485b94ad5dd9d1b650ed",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "Parameter": {
+        "Name": "InputName",
+        "TypeName": "string",
+        "TypeRank": 0,
+        "DefaultValue": "\"\"",
+        "Description": ""
+      },
+      "Id": "1a7550d145ce44a09e6dce99833209b8",
+      "NodeType": "InputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "64694e9ef4bc46769a4a1d3716b42673",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "Parameter": {
+        "Name": "ButtonText",
+        "TypeName": "string",
+        "TypeRank": 0,
+        "DefaultValue": "\"Select AutoCad Element(s)\"",
+        "Description": ""
+      },
+      "Id": "7ea8261329174d02a9161d8b59121edf",
+      "NodeType": "InputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9499a680d12141aa9a932194ed46710b",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "ElementResolver": null,
+      "Symbol": "SelectAutocadElements input",
+      "Id": "ebf63baf5fe646cd89059b45aaa6c643",
+      "NodeType": "OutputNode",
+      "Inputs": [
+        {
+          "Id": "ff74c3db857d47fb90b10cf378f9bd0c",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "Parameter": {
+        "Name": "SelectSingleElement",
+        "TypeName": "bool",
+        "TypeRank": 0,
+        "DefaultValue": "false",
+        "Description": ""
+      },
+      "Id": "3a9e85158a6e4be48f8a4ca824c7b6ad",
+      "NodeType": "InputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "989528d48eba4ca79bf26b564068938f",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "d763925cef96485b94ad5dd9d1b650ed",
+      "End": "ff74c3db857d47fb90b10cf378f9bd0c",
+      "Id": "cb0a612332a94161ad7c546ac70f8d6c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "64694e9ef4bc46769a4a1d3716b42673",
+      "End": "de0200506a1d403a9107b6614447ff76",
+      "Id": "47bf440ca9b44f4fbee8f0439e21085c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9499a680d12141aa9a932194ed46710b",
+      "End": "84d140a186394f09a76cc1fffebc053c",
+      "Id": "29f42005a0114bf0a1dbb5380d308aed",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "989528d48eba4ca79bf26b564068938f",
+      "End": "dc3b80160a324f79bda3fa0fae324e05",
+      "Id": "83ff4f3734354b83ad3660cd8b1c10b8",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "3.6.1.9956",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "953eb7c37479474aa87599038cba93ca",
+        "Name": "Python Script",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 465.0,
+        "Y": 38.666666666666686
+      },
+      {
+        "Id": "1a7550d145ce44a09e6dce99833209b8",
+        "Name": "Input",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": -6.0,
+        "Y": -76.66666666666669
+      },
+      {
+        "Id": "7ea8261329174d02a9161d8b59121edf",
+        "Name": "Input",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": -155.33333333333337,
+        "Y": 111.66666666666669
+      },
+      {
+        "Id": "ebf63baf5fe646cd89059b45aaa6c643",
+        "Name": "Output",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 702.0,
+        "Y": 29.0
+      },
+      {
+        "Id": "3a9e85158a6e4be48f8a4ca824c7b6ad",
+        "Name": "Input",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": -73.0,
+        "Y": 291.66666666666663
+      }
+    ],
+    "Annotations": [],
+    "X": 248.66666666666674,
+    "Y": 161.33333333333326,
+    "Zoom": 1.0
+  }
+}

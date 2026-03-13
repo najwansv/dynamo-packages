@@ -1,0 +1,515 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orchid</name>
+    </assembly>
+    <members>
+        <member name="T:JsonEditLocal">
+            <summary>
+            All needed references must be present, also global usings!
+            </summary>
+        </member>
+        <member name="T:JsonEditNuGet">
+            <summary>
+            All needed references must be present, also global usings!
+            </summary>
+        </member>
+        <member name="M:Orchid.Credentials.Credential.Initialize">
+            <summary>
+            Verifying that initializing is done
+            </summary>
+        </member>
+        <member name="M:Orchid.Credentials.Credential.IsRestrictedRegion">
+            <summary>
+            Verifying if region is restricted
+            </summary>
+        </member>
+        <member name="M:Orchid.Credentials.Credential.IsWhitelisted">
+            <summary>
+            Verify if usage of the package is valid!
+            This check is activated by ViewExtension.
+            </summary>
+        </member>
+        <member name="M:Orchid.Credentials.Credential.WhitelistedUser">
+            <summary>
+            Verifying if user is black listed
+            </summary>
+        </member>
+        <member name="M:Orchid.Credentials.Credential.WhitelistedDomain">
+            <summary>
+            Verifying if domain is white listed
+            </summary>
+        </member>
+        <member name="M:Orchid.Credentials.Credential.IsBlacklisted">
+            <summary>
+            Verify if usage of the package is valid!
+            This check is activated by ViewExtension.
+            </summary>
+        </member>
+        <member name="M:Orchid.Credentials.Credential.BlacklistedUser">
+            <summary>
+            Verifying if user is black listed
+            </summary>
+        </member>
+        <member name="M:Orchid.Credentials.Credential.BlacklistedDomain">
+            <summary>
+            Verifying if domain is black listed
+            </summary>
+        </member>
+        <member name="M:Orchid.Credentials.JsonServices.GetUser(System.String)">
+            <summary>
+            Get current user
+            </summary>
+        </member>
+        <member name="M:Orchid.Credentials.JsonServices.GetDomain(System.String)">
+            <summary>
+            Get current domain
+            </summary>
+        </member>
+        <member name="M:Orchid.Credentials.JsonServices.IsRestrictedVersion``1(``0)">
+            <summary>
+            If return value is true, then it is a restricted version!
+            </summary>
+        </member>
+        <member name="M:Orchid.Credentials.JsonServices.IsOverdueDate``1(``0)">
+            <summary>
+            If return value is true, then it is an overdue data!
+            </summary>
+        </member>
+        <member name="M:Orchid.Extensions.Extension.Startup(Dynamo.Extensions.StartupParams)">
+            <summary>
+            Action to be invoked when Dynamo begins to start up.
+            
+            This action is *not* guaranteed to be invoked unless the extension is 
+            already installed at startup. 
+            
+            Exceptions thrown from this method will be caught by Dynamo and 
+            logged.
+            </summary>
+        </member>
+        <member name="M:Orchid.Extensions.Extension.Ready(Dynamo.Extensions.ReadyParams)">
+            <summary>
+            Action to be invoked when the Dynamo has started up and is ready
+            for user interaction.
+            
+            This action is guaranteed to be called even if the extension is installed
+            after startup. 
+            
+            Exceptions thrown from this method will be caught by Dynamo and logged.
+            </summary>
+        </member>
+        <member name="M:Orchid.Extensions.Extension.Dispose">
+            <summary>
+            Method that is called for freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Orchid.Extensions.Extension.Shutdown">
+            <summary>
+            Action to be invoked when shutdown has begun.
+            </summary>
+        </member>
+        <member name="M:Orchid.Extensions.ViewExtension.Startup(Dynamo.Wpf.Extensions.ViewStartupParams)">
+            <summary>
+            Method that is called when Dynamo starts, but is not yet ready to be used.
+            </summary>
+            <param name="vsp">Parameters that provide references to Dynamo settings, version and extension manager.</param>
+        </member>
+        <member name="M:Orchid.Extensions.ViewExtension.Loaded(Dynamo.Wpf.Extensions.ViewLoadedParams)">
+            <summary>
+            Method that is called when Dynamo has finished loading and the UI is ready to be interacted with.
+            </summary>
+            <param name="viewLoadedParams">
+            Parameters that provide references to Dynamo commands, settings, events and
+            Dynamo UI items like menus or the background preview. This object is supplied by Dynamo itself.
+            </param>
+        </member>
+        <member name="M:Orchid.Extensions.ViewExtension.OnWorkspaceOpened(Dynamo.Graph.Workspaces.IWorkspaceModel)">
+            <summary>
+            Method that is called when Dynamo workspace is opened
+            </summary>
+            <param name="workspace">Current work space model</param>
+        </member>
+        <member name="M:Orchid.Extensions.ViewExtension.OnWorkspaceChange(Dynamo.Graph.Workspaces.IWorkspaceModel)">
+            <summary>
+            Method that is called when Dynamo workspace is changed
+            </summary>
+            <param name="workspace">Current work space model</param>
+        </member>
+        <member name="M:Orchid.Extensions.ViewExtension.Dispose">
+            <summary>
+            Method that is called for freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Orchid.Extensions.ViewExtension.Shutdown">
+            <summary>
+            Method that is called when the host Dynamo application is closed.
+            </summary>
+        </member>
+        <member name="T:Orchid.Resources.Notification">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.AssemblyNotFoundArgs">
+            <summary>
+              Looks up a localized string similar to Could not find {0} among the loaded assemblies..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.AssemblyTypeNotFoundArgs">
+            <summary>
+              Looks up a localized string similar to Could not find {0} in {1}..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.CategoryExistArgs">
+            <summary>
+              Looks up a localized string similar to The category {0} already exists in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.CategoryNotFound">
+            <summary>
+              Looks up a localized string similar to Category not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.CurveIsNotPlanar">
+            <summary>
+              Looks up a localized string similar to Curve ist not planar. Please supply a planar curve..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.DataStorageNotFound">
+            <summary>
+              Looks up a localized string similar to Schema DataStorage not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.DirectoryNotFoundArgs">
+            <summary>
+              Looks up a localized string similar to The directory could not be found at: {0}.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.DocumentCloudError">
+            <summary>
+              Looks up a localized string similar to The document is a cloud driven document, therefore no local path cane be returned!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.DocumentEqual">
+            <summary>
+              Looks up a localized string similar to It is not allowed that both document are the same..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.DocumentNullError">
+            <summary>
+              Looks up a localized string similar to Both input documents cant be set to null..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ElementLocationInvalid">
+            <summary>
+              Looks up a localized string similar to The location of the element is not valid..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ElementNotFound">
+            <summary>
+              Looks up a localized string similar to Element not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ElementTypeNotFound">
+            <summary>
+              Looks up a localized string similar to ElementType not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.EmptyElevationMarker">
+            <summary>
+              Looks up a localized string similar to ElevationMarker has no views.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.EnumInvalid">
+            <summary>
+              Looks up a localized string similar to Could not find the enumeration type and/or its value..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.EnumValueNotFound">
+            <summary>
+              Looks up a localized string similar to Enumeration value not found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.FamilyNotFound">
+            <summary>
+              Looks up a localized string similar to Family not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.FamilyTypeNotFound">
+            <summary>
+              Looks up a localized string similar to FamilyType not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.FileNameInvalidArgs">
+            <summary>
+              Looks up a localized string similar to &quot;{0}&quot; cannot contain any of the following characters: \ / : * ? &quot; &lt; &gt; |.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.FileNotFoundArgs">
+            <summary>
+              Looks up a localized string similar to The file could not be found at: {0}.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.FilterTypeInvalid">
+            <summary>
+              Looks up a localized string similar to FilterType is not valid or not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.GeometryConversionError">
+            <summary>
+              Looks up a localized string similar to One or more geometries have failed to convert due to this error: .
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.GeometryPolyCurveConversionError">
+            <summary>
+              Looks up a localized string similar to Revit does not support turning PolyCurves into ModelCurves. Try exploding your PolyCurve into multiple Curves..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidConversionArgs">
+            <summary>
+              Looks up a localized string similar to {0} have failed to convert due to this error:.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidDirectoryArgs">
+            <summary>
+              Looks up a localized string similar to the Directory {0} is read-only, or owned by someone else..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidFilePathArgs">
+            <summary>
+              Looks up a localized string similar to The file path &quot;{0}&quot; is not a valid filename, it is a directory!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidForgeTypeIdArgs">
+            <summary>
+              Looks up a localized string similar to The id string is not valid for object of type {0}..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidGroupTypeArgs">
+            <summary>
+              Looks up a localized string similar to {0} is not a valid GroupType..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidInput">
+            <summary>
+              Looks up a localized string similar to Input is not valid or missing..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidKeys">
+            <summary>
+              Looks up a localized string similar to One or more input types are not matching. Lists as keys are not supported..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidKeysLenght">
+            <summary>
+              Looks up a localized string similar to Number of items does not match the number of keys. href=InvalidKeysLenght.html.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidListLength">
+            <summary>
+              Looks up a localized string similar to Number of items are not the same in all lists..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidObject">
+            <summary>
+              Looks up a localized string similar to Object is not valid or not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidObjectArgs">
+            <summary>
+              Looks up a localized string similar to {0} named {1}, is not valid or not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidStringToNumber">
+            <summary>
+              Looks up a localized string similar to Not a valid number..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidType">
+            <summary>
+              Looks up a localized string similar to Type is not valid or not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.InvalidTypeArgs">
+            <summary>
+              Looks up a localized string similar to {0} is not valid or not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.LinkNotFoundArgs">
+            <summary>
+              Looks up a localized string similar to &quot;{0}&quot; cannot be found, please reload..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ListInvalid">
+            <summary>
+              Looks up a localized string similar to List is null, empty or not valid..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ListNotMatching">
+            <summary>
+              Looks up a localized string similar to Index or list containing index is not matching input..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ListToFewItems">
+            <summary>
+              Looks up a localized string similar to List must contain at least two items..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.MaterialSchemaInvalid">
+            <summary>
+              Looks up a localized string similar to Material schema is not valid or not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.NameExistArgs">
+            <summary>
+              Looks up a localized string similar to The name {0} already exists in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.NoActiveDocumentFound">
+            <summary>
+              Looks up a localized string similar to No active Revit document found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.None">
+            <summary>
+              Looks up a localized string similar to None.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.NotLightFamily">
+            <summary>
+              Looks up a localized string similar to Please run this command in a lighting fixtures document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.NotPlanView">
+            <summary>
+              Looks up a localized string similar to The provided input view is not a plan view..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.NotRevitFamily">
+            <summary>
+              Looks up a localized string similar to Please run this command in a family document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.NotRevitProject">
+            <summary>
+              Looks up a localized string similar to Please run this command in a project document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ParameterGroupNotFound">
+            <summary>
+              Looks up a localized string similar to ParameterGroup is not valid or not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ParameterNotFound">
+            <summary>
+              Looks up a localized string similar to Parameter not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ParameterStorageTypeArgs">
+            <summary>
+              Looks up a localized string similar to Parameter {0} has no storage type or value is null..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ParameterTypeNotFound">
+            <summary>
+              Looks up a localized string similar to ParameterType is not valid or not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.PrintMarginMismatch">
+            <summary>
+              Looks up a localized string similar to Margin need two double values as input..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.PrintSettingExist">
+            <summary>
+              Looks up a localized string similar to Print setting exist by this name, please provide a new name..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.SharedParameterFileNotFoundArgs">
+            <summary>
+              Looks up a localized string similar to No shared parameter file found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.SharedParameterGroupNotFound">
+            <summary>
+              Looks up a localized string similar to SharedParameter group not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.SharedParameterNotAllowed">
+            <summary>
+              Looks up a localized string similar to SharedParameter is not allowed!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.SharedParameterNotFound">
+            <summary>
+              Looks up a localized string similar to SharedParameter not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.SpatialBoundaryNotFound">
+            <summary>
+              Looks up a localized string similar to Spatial boundary not found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.SpatialTypeNotFound">
+            <summary>
+              Looks up a localized string similar to Spatial type not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.SystemTreeNodeNotFound">
+            <summary>
+              Looks up a localized string similar to SystemTree node not found or tree is empty..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.TypeNotFoundArgs">
+            <summary>
+              Looks up a localized string similar to {0} type not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.View3DCropboxError">
+            <summary>
+              Looks up a localized string similar to It doesn&apos;t make sense to rotate 3D View and Walkthrough view cropbox, move cropbox instead..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ViewDoesNotSupportAnnotations">
+            <summary>
+              Looks up a localized string similar to View does not support annotations..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ViewNotFound">
+            <summary>
+              Looks up a localized string similar to View not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ViewSheetSetNotFound">
+            <summary>
+              Looks up a localized string similar to ViewSheetSet not found in document..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ViewTemplateApplied">
+            <summary>
+              Looks up a localized string similar to View has a view template applied!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.ViewTypeNotMoved">
+            <summary>
+              Looks up a localized string similar to View type cannot be moved..
+            </summary>
+        </member>
+        <member name="P:Orchid.Resources.Notification.WorksetNotFound">
+            <summary>
+              Looks up a localized string similar to Workset not found in document..
+            </summary>
+        </member>
+    </members>
+</doc>

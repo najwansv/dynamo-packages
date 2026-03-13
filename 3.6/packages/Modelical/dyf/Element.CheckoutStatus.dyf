@@ -1,0 +1,112 @@
+{
+  "Uuid": "998b46b3-b847-4c88-9235-a8f0cef350fd",
+  "IsCustomNode": true,
+  "Category": "Modelical.Elements.Query",
+  "Description": "This node gets information 'About Creator:', 'Last update in central performed by' and 'Current Owner:' of an element in the active project file.",
+  "Name": "Element.CheckoutStatus",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_elements",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Element(s) to ask about creator, last update in central and current owner"
+      },
+      "Id": "0ee2397fa6c64f61b87cf5bb1c131ab7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f7bd3006e6c84d129e8e8c2084d7c5f2",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "_info",
+      "Id": "c18717992724485a9f19a158d1177167",
+      "Inputs": [
+        {
+          "Id": "24e90bbc1fab41a3be94b1080780c5b9",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Una función de salida, se debe utilizar con nodos personalizados"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\n\r\nclr.AddReference(\"RevitAPI\")\r\nfrom Autodesk.Revit.DB import *\r\nfrom Autodesk.Revit.DB.Structure import *\r\n\r\nclr.AddReference(\"RevitAPIUI\")\r\nfrom Autodesk.Revit.UI import *\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\n\r\ndef toList(input):\r\n    if isinstance(input, list):\r\n        return input\r\n    else:\r\n        return [input]\r\n\r\n# Logic starts here\r\nelements = toList(UnwrapElement(IN[0]))\r\nfList=[]\r\nfor e in elements:\r\n    creator= WorksharingUtils.GetWorksharingTooltipInfo(doc,e.Id).Creator +\" is the creator \"\r\n    lastChageBy=WorksharingUtils.GetWorksharingTooltipInfo(doc,e.Id).LastChangedBy+\" performed the last change\"\r\n\r\n    if WorksharingUtils.GetWorksharingTooltipInfo(doc,e.Id).Owner != \"\":\r\n        owner = WorksharingUtils.GetWorksharingTooltipInfo(doc,e.Id).Owner+ \" is the owner\"\r\n    else:\r\n        owner = \"It's free\"\r\n\r\n\r\n    fList.append([e,creator,lastChageBy,owner])\r\n\r\n# Output\r\nOUT =fList",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "93e8ed6966c742abb27969dcd3f5ad6b",
+      "Inputs": [
+        {
+          "Id": "d0f9f604563b43a9acfaea4e318a9242",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fdf11f0737d041cd8e0960d310debeda",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python incrustada."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f7bd3006e6c84d129e8e8c2084d7c5f2",
+      "End": "d0f9f604563b43a9acfaea4e318a9242",
+      "Id": "849cb835be4f40b3b23e9ce572df62e8",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "fdf11f0737d041cd8e0960d310debeda",
+      "End": "24e90bbc1fab41a3be94b1080780c5b9",
+      "Id": "4a9fa8aa8bd248e4abb1352f8bcee768",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": []
+}

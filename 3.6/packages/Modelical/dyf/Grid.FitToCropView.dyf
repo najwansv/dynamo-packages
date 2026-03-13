@@ -1,0 +1,254 @@
+{
+  "Uuid": "cb06eea6-0b3b-41eb-bf8a-30501fbcb970",
+  "IsCustomNode": true,
+  "Category": "Modelical.Elements.Actions",
+  "Description": "This node fit the grids to the crop view on the selected views.",
+  "Name": "Grid.FitToCropView",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Revit.Elements.Level": {
+        "Key": "Revit.Elements.Level",
+        "Value": "RevitNodes.dll"
+      },
+      "Revit.Elements.Grid": {
+        "Key": "Revit.Elements.Grid",
+        "Value": "RevitNodes.dll"
+      },
+      "Revit.Elements.Views": {
+        "Key": "archilab.Revit.Elements.Elements",
+        "Value": "archilab2021.dll"
+      },
+      "Revit.Elements": {
+        "Key": "archilab.Revit.Elements.Elements",
+        "Value": "archilab2021.dll"
+      },
+      "archilab.Revit.Elements.Elements.Views": {
+        "Key": "archilab.Revit.Elements.Elements",
+        "Value": "archilab2021.dll"
+      },
+      "Revit.Elements.View": {
+        "Key": "Revit.Elements.Views.View",
+        "Value": "RevitNodes.dll"
+      },
+      "Revit.Elements.Views.View": {
+        "Key": "Revit.Elements.Views.View",
+        "Value": "RevitNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_views",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Views to fit their grids to crop view."
+      },
+      "Id": "cb948e5fa90d4ddcac1111054bbee39e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "592c047874fe4893acf3d41b81af68f2",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_offset",
+        "TypeName": "double",
+        "TypeRank": 0,
+        "DefaultValue": "0",
+        "Description": "Optional gap between crop view and grid end points."
+      },
+      "Id": "7a73152d3e1842689567849be0e0f74f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "23f0a3ca48c64cd4bf72e834aa72f830",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "_views",
+      "Id": "c4b64d8068444d1ea4e6aabd04f5ce25",
+      "Inputs": [
+        {
+          "Id": "639fc9d052454b3bb100b6e2c5c4ba2d",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Una función de salida, se debe utilizar con nodos personalizados"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "l[0];\nl[1];",
+      "Id": "4755fcb64d0e469db18c9ea430c70a5e",
+      "Inputs": [
+        {
+          "Id": "552260407e97454292d0ef935643efe3",
+          "Name": "l",
+          "Description": "l",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "53e4a6bbcd4e459194d7299c061a7f26",
+          "Name": "",
+          "Description": "Valor de la expresión en la línea 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "72f56be7fa9e47ee8432a09564835fd9",
+          "Name": "",
+          "Description": "Valor de la expresión en la línea 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Permite creación directa de código de DesignScript"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "_errorViews",
+      "Id": "aaa71bf9c7bf4c3eafe186871cd36373",
+      "Inputs": [
+        {
+          "Id": "e0e7d0f93aa6448882f3bed87d338e4e",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Una función de salida, se debe utilizar con nodos personalizados"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\n\r\n\r\nclr.AddReference(\"RevitAPI\")\r\nfrom Autodesk.Revit.DB import *\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n# Function Helpers\r\ndef Feet2m(value):\r\n        return value * 0.3048\r\n\r\ndef M2Feet(value):\r\n        return value / 0.3048\r\n        \r\ndef toList(input):\r\n    if isinstance(input, list):\r\n        return input\r\n    else:\r\n        return [input]\r\n\r\n\r\n# Logic starts here\r\nviews= toList(UnwrapElement(IN[0]))\r\noffset=M2Feet(IN[1])\r\n# Transactions\r\n\r\nlistout=[]\r\nsize= 0.003\r\nfList=[]\r\neList=[]\r\n\r\nt=Transaction(doc, \"Grid.FitToCropView\")\r\nt.Start()\r\ntry:\r\n    for view in views:\r\n        viewGrids=[]\r\n    \r\n    \r\n        if view == None:\r\n            eList.append(view)\r\n            continue\r\n        try:\r\n            len(FilteredElementCollector(doc,view.Id).OfCategory(BuiltInCategory.OST_Grids).ToElements())\r\n        except:\r\n            eList.append(view)\r\n            continue\r\n    \r\n    \r\n        try:\r\n            cropLines=view.GetCropRegionShapeManager().GetCropShape()[0]\r\n        except:\r\n            eList.append(view)\r\n            continue\r\n        \r\n        if len(FilteredElementCollector(doc,view.Id).OfCategory(BuiltInCategory.OST_Grids).ToElements())!=0:\r\n            \r\n    \r\n            for grid in FilteredElementCollector(doc,view.Id).OfCategory(BuiltInCategory.OST_Grids).ToElements():\r\n    \r\n                gLine=grid.GetCurvesInView(DatumExtentType.ViewSpecific, view )[0]\r\n        \r\n                startPoint=gLine.GetEndPoint(0)\r\n                endPoint=gLine.GetEndPoint(1)\r\n     \r\n        \t\t\r\n                newStart = startPoint.Add( startPoint.Subtract(endPoint).Multiply(10))\r\n                newEnd = endPoint.Add(endPoint.Subtract(startPoint).Multiply(10))\r\n                newGLine= Line.CreateBound(newStart,newEnd)\r\n                \r\n                \r\n                intersectPoints=[]\r\n                \r\n        \r\n                for cropLine in cropLines:\r\n        \r\n                    zValue=newGLine.GetEndPoint(0).Z\r\n    \r\n                    proCropLine=Line.CreateBound(XYZ(cropLine.GetEndPoint(0).X,cropLine.GetEndPoint(0).Y,zValue),XYZ(cropLine.GetEndPoint(1).X,cropLine.GetEndPoint(1).Y,zValue))\r\n    \r\n                    if len(newGLine.ToProtoType().Intersect(proCropLine.ToProtoType())) > 0 :\r\n                       intersectPoints.append(newGLine.ToProtoType().Intersect(proCropLine.ToProtoType())[0])\r\n    \r\n                if len(intersectPoints) ==2:\r\n                    cSPoint=intersectPoints[0].ToXyz()\r\n                    cEPoint=intersectPoints[1].ToXyz()\r\n        \r\n                    newCSPoint = cSPoint.Add(cSPoint.Subtract(cEPoint).Normalize().Multiply(offset))\r\n                    newCEPoint = cEPoint.Add(cEPoint.Subtract(cSPoint).Normalize().Multiply(offset))\r\n                    newLine= Line.CreateBound(newCEPoint,newCSPoint)\r\n        \r\n                    gridBubble0=grid.IsBubbleVisibleInView(DatumEnds.End0,view)\r\n                    gridBubble1=grid.IsBubbleVisibleInView(DatumEnds.End1,view)\r\n                    \r\n                    try:\r\n                        a=grid.SetCurveInView( DatumExtentType.ViewSpecific , view, newLine)\r\n        \r\n                        if gridBubble0 == True:\r\n                            grid.ShowBubbleInView(DatumEnds.End0,view)\r\n                        else:\r\n                            grid.HideBubbleInView(DatumEnds.End0,view)\r\n    \r\n                        if gridBubble1 == True:\r\n                            grid.ShowBubbleInView(DatumEnds.End1,view)\r\n                        else:\r\n                            grid.HideBubbleInView(DatumEnds.End1,view)\r\n                    except:\r\n                        None\r\n    \r\n                \r\n                fList.append(view)\r\n    \r\n    t.Commit()\r\n    OUT=[fList,eList]\r\nexcept Exception as ex:\r\n    OUT=[ex,ex]\r\n    #t.RollBack()\r\nfinally:\r\n    t.Dispose()\r\n\r\n# Output\r\n\r\n\r\n",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "bb9ded2cf621470fa68797dab059805c",
+      "Inputs": [
+        {
+          "Id": "adf13630d590495b856f520687decc94",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c2191e08e1cf49c2998a45c5cf25bb4d",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1b55c762e91541fa9b5796a591214a76",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python incrustada."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "592c047874fe4893acf3d41b81af68f2",
+      "End": "adf13630d590495b856f520687decc94",
+      "Id": "5e1bf9fac89a4e88af0535560b73fcc5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "23f0a3ca48c64cd4bf72e834aa72f830",
+      "End": "c2191e08e1cf49c2998a45c5cf25bb4d",
+      "Id": "b7a813613d1c4e23ab000837beb76c22",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "53e4a6bbcd4e459194d7299c061a7f26",
+      "End": "639fc9d052454b3bb100b6e2c5c4ba2d",
+      "Id": "67a215cc927b4f73964e798d91304051",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "72f56be7fa9e47ee8432a09564835fd9",
+      "End": "e0e7d0f93aa6448882f3bed87d338e4e",
+      "Id": "59be8758ab054fad8f1f0b52d91fbc26",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "1b55c762e91541fa9b5796a591214a76",
+      "End": "552260407e97454292d0ef935643efe3",
+      "Id": "b31f54cccb2049339fb0bb6f25960ccc",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": []
+}

@@ -1,0 +1,79 @@
+{
+  "Uuid": "fba99936-adf5-4ba4-982a-0fe38618f322",
+  "IsCustomNode": true,
+  "Category": "Modelical.Help.Query",
+  "Description": "This node links you to our web site.",
+  "Name": "Help.AboutUs",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\nimport clr\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\nuidoc = DocumentManager.Instance.CurrentUIApplication\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\napp = uidoc.Application\r\n\r\n# To be able to import Python Standard Library modules, we need to locate them\r\nimport sys\r\nsys.path.append(r\"C:\\Program Files (x86)\\IronPython 2.7\\Lib\")\r\n# Function Helpers\r\nimport webbrowser\r\n# Logic starts here\r\n\r\nwebbrowser.open_new(\"https://www.modelical.com\")\t\r\n# Transactions\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\n# Your code\r\nTransactionManager.Instance.TransactionTaskDone()\r\n# Output\r\nOUT = \"Visit us at www.modelical.com\"",
+      "Engine": "IronPython2",
+      "VariableInputPorts": true,
+      "Id": "72ca2b8cd8294f03be83fce7c605891c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "558c6d82e6604200844adfbb380970b2",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python incrustada."
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.12.0.5650",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Vista preliminar en segundo plano",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "72ca2b8cd8294f03be83fce7c605891c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 717.0,
+        "Y": 417.0
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 1.0
+  }
+}

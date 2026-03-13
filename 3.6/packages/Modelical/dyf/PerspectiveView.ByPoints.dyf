@@ -1,0 +1,276 @@
+{
+  "Uuid": "968dd859-7b68-4d81-8bfa-7e3d5f5fdaa9",
+  "IsCustomNode": true,
+  "Category": "Modelical.Views.Create",
+  "Description": "This node creates a new perspective view given its camera location, targets location and name.",
+  "Name": "PerspectiveView.ByPoints",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.DesignScript.Geometry.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "//Perspective views\r\n_views",
+      "Id": "93d3e9bc30224aabb4a7a584937e5e41",
+      "Inputs": [
+        {
+          "Id": "abf531c850bc4effad2d801439367963",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Una función de salida, se debe utilizar con nodos personalizados"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_targetPointLocation",
+        "TypeName": "Autodesk.DesignScript.Geometry.Point",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Target location point"
+      },
+      "Id": "d2c30219325648f38136fc2a553441a4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3a5ba098af874170b1c3c9778388a528",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_cameraPointLocation",
+        "TypeName": "Autodesk.DesignScript.Geometry.Point",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Camera location point"
+      },
+      "Id": "2c27c5d7c5d24ff490510feffb0abd05",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "44894d4cd7cf42a8bda4edcff44024c6",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_viewName",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Name of the view"
+      },
+      "Id": "0709508e4c5944dbbed5ff5267b86d9e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6e82858636744ecab85da8715bda3fb8",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\nimport math\r\n\r\n#Load DesignScript DSCore to use functions like List.Flatten\r\nclr.AddReference('DSCoreNodes')\r\nimport DSCore\r\nfrom DSCore import *\r\n\r\n#Load Dynamo wrappers\r\nclr.AddReference(\"RevitNodes\")\r\nimport Revit\r\nfrom Revit.Elements import *\r\nclr.ImportExtensions(Revit.GeometryConversion)\r\nclr.ImportExtensions(Revit.Elements)\r\n\r\n#Load Revit API\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\nimport Autodesk\r\n\r\n#Load document reference\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\ndef toList(input):\r\n    \"\"\"Return iterable if available, a list of 1 otherwise\"\"\"\r\n    if hasattr(input, \"__iter__\") and not isinstance(input, basestring):\r\n        return input\r\n    else:\r\n        return [input]\r\n\r\ncameraPoints = toList(UnwrapElement(IN[0]))\r\ntargetPoints = toList(UnwrapElement(IN[1]))\r\nnames = toList(IN[2])\r\n\r\nthreedViewType = None\r\n\r\nviewFamilyTypes = FilteredElementCollector(doc).OfClass(ViewFamilyType).ToElements()\r\n\r\nallViews = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Views).ToElements()\r\n\r\nallViewNames=[]\r\nfor v in allViews:\r\n\tallViewNames.append(v.Name)\r\n\t\r\n\r\nfor vFT in viewFamilyTypes:\r\n\tif vFT.ViewFamily.ToString() == \"ThreeDimensional\":\r\n\t\tthreedViewType = vFT\r\n\r\nviews=[]\r\nindex = 0\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\nfor n in names:\r\n\t\r\n\tview3D = View3D.CreatePerspective(doc,threedViewType.Id)\r\n\teye = cameraPoints[index].ToXyz()\r\n\tforward = targetPoints[index].ToXyz()-cameraPoints[index].ToXyz()\r\n\tvecZ = XYZ(0,0,1)\r\n\tvecX = forward.CrossProduct(vecZ)\r\n\tup = vecX.CrossProduct(forward)\r\n\t\r\n\tview3D.SetOrientation(ViewOrientation3D(eye, up, forward))\r\n\t\r\n\twhile n in allViewNames:\r\n\t\tn+=\"_\"\r\n\tview3D.Name = n\r\n\t\r\n\t\r\n\tfarClip = view3D.get_Parameter(BuiltInParameter.VIEWER_BOUND_ACTIVE_FAR)\r\n\tfarClip.Set(False)\r\n\t\r\n\r\n\tindex+=1\r\n\tviews.append(view3D)\r\n\t\r\nTransactionManager.Instance.TransactionTaskDone()\t\r\n\r\nOUT = views\r\n",
+      "Engine": "IronPython2",
+      "VariableInputPorts": true,
+      "Id": "af869aaf2dc14cb889947733e27b26e2",
+      "Inputs": [
+        {
+          "Id": "323309a6d5754c06ae5e37fef1af093d",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b66b43dabd84407fa312a916c573f9e0",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0663f34dc30d46a795c068eb0b450bdc",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cb063646804e424e8876f12bf3a677d9",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python incrustada."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "3a5ba098af874170b1c3c9778388a528",
+      "End": "b66b43dabd84407fa312a916c573f9e0",
+      "Id": "7aeccfcfabd64bed96aa0e9230198b70"
+    },
+    {
+      "Start": "44894d4cd7cf42a8bda4edcff44024c6",
+      "End": "323309a6d5754c06ae5e37fef1af093d",
+      "Id": "68786b0bf1f94cb5ae2ade3c154ab9cb"
+    },
+    {
+      "Start": "6e82858636744ecab85da8715bda3fb8",
+      "End": "0663f34dc30d46a795c068eb0b450bdc",
+      "Id": "c7b713c1c7194fa3b53f8a955171076e"
+    },
+    {
+      "Start": "cb063646804e424e8876f12bf3a677d9",
+      "End": "abf531c850bc4effad2d801439367963",
+      "Id": "44b061250f3c48bdb97dd92f3ad43089"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.12.0.5650",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Vista preliminar en segundo plano",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "93d3e9bc30224aabb4a7a584937e5e41",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 930.0,
+        "Y": 430.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "d2c30219325648f38136fc2a553441a4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 72.366397790985843,
+        "Y": 454.12476776009925
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "2c27c5d7c5d24ff490510feffb0abd05",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 76.099774883378814,
+        "Y": 372.383540652058
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "0709508e4c5944dbbed5ff5267b86d9e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 360.13528041602751,
+        "Y": 603.49293558311138
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "af869aaf2dc14cb889947733e27b26e2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 711.205292693889,
+        "Y": 433.51349735379171
+      }
+    ],
+    "Annotations": [],
+    "X": -294.71179934299789,
+    "Y": -151.8471835112955,
+    "Zoom": 1.4264411938468204
+  }
+}

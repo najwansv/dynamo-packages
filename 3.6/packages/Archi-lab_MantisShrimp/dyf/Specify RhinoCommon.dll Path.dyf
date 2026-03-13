@@ -1,0 +1,53 @@
+<Workspace Version="1.0.0.1180" X="-307.22921726257" Y="-228.732283206915" zoom="1.545620359375" Name="Specify RhinoCommon.dll Path" Description="This node needs to be used to specify a valid RhinoCommon.dll path. After it was used for the first time, you will not have to use it again, unless a new version of Mantis Shrimp or Rhino is installed." ID="5b7ed48d-da9f-43af-8618-f60664366008" Category="Archi-lab_MantisShrimp.Grasshopper.Setup">
+  <NamespaceResolutionMap />
+  <Elements>
+    <PythonNodeModels.PythonNode guid="991992df-323a-4de0-8b8e-0de739d297b0" type="PythonNodeModels.PythonNode" nickname="Python Script" x="437" y="269" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="1">
+      <Script># Copyright(c) 2016, Konrad Sobon
+# @arch_laboratory, http://archi-lab.net
+
+import clr
+import sys
+
+pyt_path = r'C:\Program Files (x86)\IronPython 2.7\Lib'
+sys.path.append(pyt_path)
+
+import os
+import os.path
+appDataPath = os.getenv('APPDATA')
+
+rhDllPath = IN[0]
+txtFilePath = appDataPath + r"\Dynamo\Dynamo Revit\1.0\packages\Mantis Shrimp\extra\rhPath.txt"
+if not os.path.isfile(txtFilePath):
+	file = open(txtFilePath, 'w')
+	clr.AddReferenceToFileAndPath(rhDllPath)
+	file.write(rhDllPath)
+	file.close()
+	message = "You have successfully specified \nRhinoCommon.dll location."
+else:
+	file = open(txtFilePath, 'r+')
+	file.truncate(0)
+	clr.AddReferenceToFileAndPath(rhDllPath)
+	file.write(rhDllPath)
+	file.close()
+	message = "You have successfully overriden \nRhinoCommon.dll location."
+
+OUT = '\n'.join('{:^35}'.format(s) for s in message.split('\n'))</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="906ad17c-7eca-44bc-84a4-0d186db2314e" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="302.543097932439" y="271.20312959737" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="File Path" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="a792e90f-fae1-4e97-abfc-ae281f931d95" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="663.555105386307" y="267.554694396055" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <Symbol value="OUT" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="991992df-323a-4de0-8b8e-0de739d297b0" start_index="0" end="a792e90f-fae1-4e97-abfc-ae281f931d95" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="906ad17c-7eca-44bc-84a4-0d186db2314e" start_index="0" end="991992df-323a-4de0-8b8e-0de739d297b0" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>

@@ -1,0 +1,199 @@
+{
+  "Uuid": "ffe44181-cdc3-4e3f-a042-c0c305a949f2",
+  "IsCustomNode": true,
+  "Category": "Modelical.Elements.Actions",
+  "Description": "This node modifies the visualization of the elements in the active view by selecting color and fill pattern. Solid fill pattern will be applied by default.",
+  "Name": "Element.OverrideColorInViewFull",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Color": {
+        "Key": "DSCore.Color",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_elements",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Elements to override"
+      },
+      "Id": "980b5f652afa42aea09d66cea5db0992",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "bb50370baba542d7941349af78f65b60",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_colors",
+        "TypeName": "DSCore.Color",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Colors to be applied. You can use Color Range component"
+      },
+      "Id": "be43dce9d39a4babb6e78f50b6ecb778",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "fae2a4e51a864a65b63e69d10a781aca",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_fillPatternName",
+        "TypeName": "string",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Fill Pattern name (String).Solid Fill will be applied by default"
+      },
+      "Id": "703e9eb862354100be49f93c2281ec2f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "34549afee6e8456483f16a6266cba044",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "/*Selected elements*/\r\n_elements",
+      "Id": "ea22d443b6ff4070aa97969f681147dc",
+      "Inputs": [
+        {
+          "Id": "0433bda85e0d4814816d4a9f3a4240d1",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Una función de salida, se debe utilizar con nodos personalizados"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\nfrom System.Collections.Generic import *\r\n\r\nclr.AddReference(\"RevitAPI\")\r\nimport Autodesk\r\nfrom Autodesk.Revit.DB import *\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nuiapp = DocumentManager.Instance.CurrentUIApplication\r\napp = uiapp.Application\r\n\r\ndef toList(input):\r\n    if isinstance(input, list):\r\n        return input\r\n    else:\r\n        return [input]\r\n\r\nelements = toList(UnwrapElement(IN[0]))\r\ndynColor = toList(IN[1])\r\nname = IN[2]\r\n\r\n\r\n\r\n\r\nfillPatterns = FilteredElementCollector(doc).OfClass(FillPatternElement).ToElements()\r\nfor f in fillPatterns:\r\n    if f.GetFillPattern().Name ==name:\r\n        fillPat = f\r\n        break\r\n\r\ngraphSettings = Autodesk.Revit.DB.OverrideGraphicSettings()\r\ncolor = []\r\nfor d in dynColor:\r\n        color.append(Autodesk.Revit.DB.Color(d.Red, d.Green, d.Blue))\r\n\r\nfillPatDraft = FillPatternElement.GetFillPatternElementByName(doc, FillPatternTarget.Drafting, name)\r\nif fillPatDraft != None:\r\n        fillPat = fillPatDraft\r\n        \r\nt=Transaction(doc, \"Modelical.OverrideColor\")\r\nt.Start()\r\ntry:\r\n    \r\n    i = 0\r\n    for e in elements:\r\n        if int(app.VersionNumber) < 2019:\r\n            id = e.Id\r\n            if len(color)==1:\r\n                i = 0\r\n            graphSettings.SetCutLineColor(color[i])\r\n            graphSettings.SetCutFillColor(color[i])\r\n            graphSettings.SetProjectionLineColor(color[i])\r\n            graphSettings.SetProjectionFillColor(color[i])\r\n            graphSettings.SetCutFillPatternId(fillPat.Id)\r\n            graphSettings.SetProjectionFillPatternId(fillPat.Id)\r\n            doc.ActiveView.SetElementOverrides(id, graphSettings)\r\n        else:\r\n            id = e.Id\r\n            if len(color)==1:\r\n                i = 0\r\n            graphSettings.SetCutLineColor(color[i])\r\n            graphSettings.SetCutForegroundPatternColor(color[i])\r\n            graphSettings.SetCutBackgroundPatternColor(color[i])\r\n            graphSettings.SetProjectionLineColor(color[i])\r\n            graphSettings.SetSurfaceForegroundPatternColor(color[i])\r\n            graphSettings.SetSurfaceBackgroundPatternColor(color[i])\r\n            graphSettings.SetCutForegroundPatternId(fillPat.Id)\r\n            graphSettings.SetCutBackgroundPatternId(fillPat.Id)\r\n            graphSettings.SetSurfaceForegroundPatternId(fillPat.Id)\r\n            graphSettings.SetSurfaceBackgroundPatternId(fillPat.Id)\r\n            doc.ActiveView.SetElementOverrides(id, graphSettings)\r\n            i += 1\r\n            \r\n    t.Commit()\r\n    OUT = elements    \r\n    \r\n\r\nexcept Exception as ex:\r\n\tOUT=ex\r\n\t#t.RollBack()\r\nfinally:\r\n\tt.Dispose()\r\n\t",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "8097875aa55e4c8cb0d92d87d9eaa03a",
+      "Inputs": [
+        {
+          "Id": "99a42349a44f4ba8a2b023c587457642",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1b75247ba53e4617a86c22bc01f1b92e",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f6b5ca74e461419b8a28b70a56f9a668",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8e7c871910e54137b41b3af27a129dc7",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python incrustada."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "bb50370baba542d7941349af78f65b60",
+      "End": "99a42349a44f4ba8a2b023c587457642",
+      "Id": "c74eb1f7991246d2a7c02f3dc14df2eb",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "fae2a4e51a864a65b63e69d10a781aca",
+      "End": "1b75247ba53e4617a86c22bc01f1b92e",
+      "Id": "2caace4c3afb48cf873b4ea025afba12",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "34549afee6e8456483f16a6266cba044",
+      "End": "f6b5ca74e461419b8a28b70a56f9a668",
+      "Id": "1557383789574a80bbd307720deb6afc",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "8e7c871910e54137b41b3af27a129dc7",
+      "End": "0433bda85e0d4814816d4a9f3a4240d1",
+      "Id": "6e7c49fda83f4a2d9c7d3081a6afc397",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": []
+}

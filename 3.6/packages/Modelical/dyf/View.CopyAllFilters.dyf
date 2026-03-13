@@ -1,0 +1,336 @@
+{
+  "Uuid": "c4afe98d-f31b-4403-9b58-857b78012b9c",
+  "IsCustomNode": true,
+  "Category": "Modelical.Views.Actions",
+  "Description": "This node copies all the filters with their settings from a view to another one.",
+  "Name": "View.CopyAllFilters",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "View": {
+        "Key": "Revit.Elements.Views.View",
+        "Value": "RevitNodes.dll"
+      },
+      "String": {
+        "Key": "DSCore.String",
+        "Value": "DSCoreNodes.dll"
+      },
+      "DSCore.DateTime.List": {
+        "Key": "DSCore.DateTime",
+        "Value": "DSCoreNodes.dll"
+      },
+      "DSCore.DateTime": {
+        "Key": "DSCore.DateTime",
+        "Value": "DSCoreNodes.dll"
+      },
+      "DSCore.List.Empty": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      },
+      "DSCore.List": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      },
+      "Revit.Elements.Views.View": {
+        "Key": "Revit.Elements.Views.View",
+        "Value": "RevitNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_sourceView",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "The view that has the filters"
+      },
+      "Id": "8e823ba6970540d4b6990a5f989849c1",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "98a997d97e5a40729c0dc92082a996fe",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_targetViews",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Views to apply filters"
+      },
+      "Id": "f34630c0cf5f438786cb9ef97b11df6f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8153a5e297d24413b18a2695bcfe4091",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "_views",
+      "Id": "bcb6a47b21d541f88c0a2582151592ec",
+      "Inputs": [
+        {
+          "Id": "bd7705e2dd00408d88f29b545b472eaf",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "_errorviews",
+      "Id": "b68b45487490459d93f128243b6dfac4",
+      "Inputs": [
+        {
+          "Id": "9a2ba81368db442aa3f2c8c72f045ad6",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "l[0];\nl[1];",
+      "Id": "05c3d8874f3e4501bd8e1edb452e9fd1",
+      "Inputs": [
+        {
+          "Id": "82a67ba5b1014a29bc12c4b3066895a1",
+          "Name": "l",
+          "Description": "l",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "76607dd94b484216b3e205962ecdcd81",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "69f50bef77694d109221adb86e7c34d7",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\n\r\n#Load Revit API\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\nimport Autodesk\r\n\r\n#Load document reference\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\n\r\ndef toList(input):\r\n    \"\"\"Return iterable if available, a list of 1 otherwise\"\"\"\r\n    if hasattr(input, \"__iter__\") and not isinstance(input, basestring):\r\n        return input\r\n    else:\r\n        return [input]\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\t\t\r\nsourceView =UnwrapElement(IN[0])\r\ntargetViews =toList(UnwrapElement(IN[1]))\r\n\r\nsourceViewFiltersId = sourceView.GetFilters()\r\nsourceViewFilters = []\r\nfilters = []\r\nfiltersOverrides = []\r\nfiltersVisibility = []\r\nfList=[]\r\neList=[]\r\n\r\nfor id in sourceViewFiltersId:\r\n\tsourceViewFilters.append(doc.GetElement(id))\r\n\r\nfor sVF in sourceViewFilters:\r\n\tfilters.append(sVF.Id)\r\n\tfiltersOverrides.append(sourceView.GetFilterOverrides(sVF.Id))\r\n\tfiltersVisibility.append(sourceView.GetFilterVisibility(sVF.Id))\r\n\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\n\r\nfor tV in targetViews:\r\n\tcount = 0\r\n\r\n\ttry:\r\n\t\tif tV.IsTemplate:\r\n\t\t\teList.append(tV)\r\n\t\t\tcontinue\r\n\t\tfor f in filters:\r\n\t\t\ttry:\r\n\t\t\t\ttV.AddFilter(f)\r\n\t\t\texcept:\r\n\t\t\t\tNone\r\n\t\t\ttV.SetFilterOverrides(f,filtersOverrides[count])\r\n\t\t\ttV.SetFilterVisibility(f,filtersVisibility[count])\r\n\t\t\tcount+=1\r\n\t\tfList.append(tV)\r\n\texcept:\r\n\t\teList.append(tV)\r\n\r\nTransactionManager.Instance.TransactionTaskDone()\r\n\r\nOUT = [fList,eList]",
+      "Engine": "IronPython2",
+      "VariableInputPorts": true,
+      "Id": "32089c62face4b88aca0f372cf215e2c",
+      "Inputs": [
+        {
+          "Id": "bf35ee272da24f52a95984f2e5ba3417",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9d9c2f5b2ebb4ba8a57e2d796c6ece7b",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f2ca30333ea744008aa5a74102d49d5d",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "98a997d97e5a40729c0dc92082a996fe",
+      "End": "bf35ee272da24f52a95984f2e5ba3417",
+      "Id": "6f4f816f1f844b70bfd2c1e9eae378a6"
+    },
+    {
+      "Start": "8153a5e297d24413b18a2695bcfe4091",
+      "End": "9d9c2f5b2ebb4ba8a57e2d796c6ece7b",
+      "Id": "9b53330c1fba4ba8838eb62d25ea7cb8"
+    },
+    {
+      "Start": "76607dd94b484216b3e205962ecdcd81",
+      "End": "bd7705e2dd00408d88f29b545b472eaf",
+      "Id": "c1623e35c24348b2b92a7597e3875262"
+    },
+    {
+      "Start": "69f50bef77694d109221adb86e7c34d7",
+      "End": "9a2ba81368db442aa3f2c8c72f045ad6",
+      "Id": "6cb8d28dd2f84948a3f7907a999b611a"
+    },
+    {
+      "Start": "f2ca30333ea744008aa5a74102d49d5d",
+      "End": "82a67ba5b1014a29bc12c4b3066895a1",
+      "Id": "b5937d226a9c45868a05adc9bfc85ba7"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.12.0.5650",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -18.2078857421875,
+      "EyeY": 24.000007629394531,
+      "EyeZ": 49.750091552734375,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "8e823ba6970540d4b6990a5f989849c1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 187.60952815176313,
+        "Y": 253.60608915490175
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "f34630c0cf5f438786cb9ef97b11df6f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 185.994409698613,
+        "Y": 332.842591349222
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "bcb6a47b21d541f88c0a2582151592ec",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 930.449443614443,
+        "Y": 259.09886720170027
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "b68b45487490459d93f128243b6dfac4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 925.20633766701894,
+        "Y": 346.48396632543449
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "05c3d8874f3e4501bd8e1edb452e9fd1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 742.88304306133864,
+        "Y": 289.04596035050633
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "32089c62face4b88aca0f372cf215e2c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 585.39846066957375,
+        "Y": 283.61745966101728
+      }
+    ],
+    "Annotations": [],
+    "X": -56.906501840399756,
+    "Y": 76.439562917443254,
+    "Zoom": 1.1443598622964719
+  }
+}

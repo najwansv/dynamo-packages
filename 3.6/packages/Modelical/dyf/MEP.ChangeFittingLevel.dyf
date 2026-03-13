@@ -1,0 +1,158 @@
+{
+  "Uuid": "8d538492-bc0e-4b9b-b551-6219092ae71e",
+  "IsCustomNode": true,
+  "Category": "Modelical.Elements.Actions",
+  "Description": "This node allows to change the level of a pipe or a duct fitting, without modifying the position.",
+  "Name": "MEP.ChangeFittingLevel",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Revit.Elements.Level": {
+        "Key": "Revit.Elements.Level",
+        "Value": "RevitNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_ductOrPipeFittings",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Can include ducts or pipes. Their reference level will change"
+      },
+      "Id": "5fdb34f927194f61bb0b847850bed432",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ed2cc4a164774098a3f061394e9f5673",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_selectedLevel",
+        "TypeName": "Revit.Elements.Level",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Selected level or levels."
+      },
+      "Id": "d068a8f93c3f474c94e74c7d6fcbd0a8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0055e83d2436419196c65c65145cdeae",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "_elements",
+      "Id": "aa64d91a4acf47a29ab620559ff9ef6e",
+      "Inputs": [
+        {
+          "Id": "3bebea39f0b4421c9ae380f722d5ec36",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Una función de salida, se debe utilizar con nodos personalizados"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\n\r\n\r\nclr.AddReference(\"RevitAPI\")\r\nfrom Autodesk.Revit.DB import *\r\nfrom Autodesk.Revit.DB.Structure import *\r\n\r\nclr.AddReference(\"RevitAPIUI\")\r\nfrom Autodesk.Revit.UI import *\r\n\r\nclr.AddReference(\"RevitNodes\")\r\nimport Revit\r\nclr.ImportExtensions(Revit.GeometryConversion)\r\nclr.ImportExtensions(Revit.Elements)\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\nuidoc = DocumentManager.Instance.CurrentUIApplication\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\napp = uidoc.Application\r\n\r\n\r\n# Function Helpers\r\ndef toList(input):\r\n    if isinstance(input, list):\r\n        return input\r\n    else:\r\n        return [input]\r\n\r\n# Logic starts here\r\nelements = toList(UnwrapElement(IN[0]))\r\ndestinationLevels =toList(UnwrapElement(IN[1]))\r\n\r\n\r\n# Transactions\r\n\r\nt=Transaction(doc, \"Modelical.ChangeMEPReferenceLevel\")\r\nt.Start()\r\ntry:\r\n    \r\n    if int(app.VersionNumber) < 2020:\r\n        if len(destinationLevels) == 1:\r\n            for f in elements:\r\n                if f.Category.Name == str(Revit.Elements.Category.ById(ElementId(BuiltInCategory.OST_DuctCurves).IntegerValue)) or f.Category.Name == str(Revit.Elements.Category.ById(ElementId(BuiltInCategory.OST_PipeCurves).IntegerValue)):\r\n                        startLevel =f.get_Parameter(BuiltInParameter.RBS_START_LEVEL_PARAM).Set(destinationLevels[0].Id)\r\n                else:\r\n                    try:\r\n                        startLevelId = f.get_Parameter(BuiltInParameter.FAMILY_LEVEL_PARAM).AsElementId()\r\n                        startLevelElevation = doc.GetElement(startLevelId).Elevation\r\n                        startOffset = f.get_Parameter(BuiltInParameter.INSTANCE_FREE_HOST_OFFSET_PARAM).AsDouble()\r\n                        endLevelElevation = destinationLevels[0].Elevation\r\n                        endOffset = (startLevelElevation + startOffset) - endLevelElevation\r\n                        endLevelId = destinationLevels[0].Id\r\n    \r\n                        f.get_Parameter(BuiltInParameter.INSTANCE_FREE_HOST_OFFSET_PARAM).Set(endOffset)\r\n                        f.get_Parameter(BuiltInParameter.FAMILY_LEVEL_PARAM).Set(endLevelId)\r\n                        f.ToDSType(True)\r\n                    except:\r\n                        None\r\n        elif len(destinationLevels) > 1:\r\n                i = 0\r\n                for f in elements:\r\n                    if f.Category.Name == str(Revit.Elements.Category.ById(ElementId(BuiltInCategory.OST_DuctCurves).IntegerValue)) or f.Category.Name == str(Revit.Elements.Category.ById(ElementId(BuiltInCategory.OST_PipeCurves).IntegerValue)):\r\n    \r\n                        startLevel =f.get_Parameter(BuiltInParameter.RBS_START_LEVEL_PARAM).Set(destinationLevels[i].Id)\r\n                    else:\r\n                        try:\r\n                            startLevelId = f.get_Parameter(BuiltInParameter.FAMILY_LEVEL_PARAM).AsElementId()\r\n                            startLevelElevation = doc.GetElement(startLevelId).Elevation\r\n                            startOffset = f.get_Parameter(BuiltInParameter.INSTANCE_FREE_HOST_OFFSET_PARAM).AsDouble()\r\n                            endLevelElevation = destinationLevels[i].Elevation\r\n                            endOffset = (startLevelElevation + startOffset) - endLevelElevation\r\n                            endLevelId = destinationLevels[i].Id\r\n    \r\n                            f.get_Parameter(BuiltInParameter.INSTANCE_FREE_HOST_OFFSET_PARAM).Set(endOffset)\r\n                            f.get_Parameter(BuiltInParameter.FAMILY_LEVEL_PARAM).Set(endLevelId)\r\n                            f.ToDSType(True)\r\n                        except:\r\n                            None\r\n                    i+=1\r\n    \r\n    elif int(app.VersionNumber) >= 2020:\r\n            if len(destinationLevels) == 1:\r\n    \r\n                for f in elements:\r\n                    if f.Category.Name == str(Revit.Elements.Category.ById(ElementId(BuiltInCategory.OST_DuctCurves).IntegerValue)) or f.Category.Name == str(Revit.Elements.Category.ById(ElementId(BuiltInCategory.OST_PipeCurves).IntegerValue)):\r\n    \r\n                        startLevel =f.get_Parameter(BuiltInParameter.RBS_START_LEVEL_PARAM).Set(destinationLevels[0].Id)\r\n                    else:\r\n                        try:\r\n                            startLevelId = f.get_Parameter(BuiltInParameter.FAMILY_LEVEL_PARAM).AsElementId()\r\n                            startLevelElevation = doc.GetElement(startLevelId).Elevation\r\n                            startOffset = f.get_Parameter(BuiltInParameter.INSTANCE_ELEVATION_PARAM).AsDouble()\r\n                            endLevelElevation = destinationLevels[0].Elevation\r\n                            endOffset = (startLevelElevation + startOffset) - endLevelElevation\r\n                            endLevelId = destinationLevels[0].Id\r\n    \r\n                            f.get_Parameter(BuiltInParameter.FAMILY_LEVEL_PARAM).Set(endLevelId)\r\n                            f.get_Parameter(BuiltInParameter.INSTANCE_ELEVATION_PARAM).Set(endOffset)\r\n                            f.ToDSType(True)\r\n                        except:\r\n                            None\r\n    \r\n            elif len(destinationLevels) > 1:\r\n                i = 0\r\n                for f in elements:\r\n    \r\n                    if f.Category.Name == str(Revit.Elements.Category.ById(ElementId(BuiltInCategory.OST_DuctCurves).IntegerValue)) or f.Category.Name == str(Revit.Elements.Category.ById(ElementId(BuiltInCategory.OST_PipeCurves).IntegerValue)):\r\n    \r\n                        startLevel =f.get_Parameter(BuiltInParameter.RBS_START_LEVEL_PARAM).Set(destinationLevels[i].Id)\r\n    \r\n                    else:\r\n                        try:\r\n                            startLevelId = f.get_Parameter(BuiltInParameter.FAMILY_LEVEL_PARAM).AsElementId()\r\n                            test.append(startLevelId)\r\n    \r\n                            startLevelElevation = doc.GetElement(startLevelId).Elevation\r\n                            startOffset = f.get_Parameter(BuiltInParameter.INSTANCE_FREE_HOST_OFFSET_PARAM).AsDouble()\r\n                            endLevelElevation = destinationLevels[i].Elevation\r\n                            endOffset = (startLevelElevation + startOffset) - endLevelElevation\r\n                            endLevelId = destinationLevels[i].Id\r\n    \r\n                            f.get_Parameter(BuiltInParameter.FAMILY_LEVEL_PARAM).Set(endLevelId)\r\n                            f.get_Parameter(BuiltInParameter.INSTANCE_ELEVATION_PARAM).Set(endOffset)\r\n                            f.ToDSType(True)\r\n                        except:\r\n                            None\r\n                    i+=1\r\n                    \r\n    OUT = elements\r\n    t.Commit()\r\nexcept Exception as ex:\r\n    OUT=ex\r\n    #t.RollBack\r\nfinally:\r\n    t.Dispose()",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "0a78825f26914f559cc646062f65c897",
+      "Inputs": [
+        {
+          "Id": "ecd629fdf3df40c88a6661cd6dcf3f20",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "795fb1ecd641450db41405b0494dd4d9",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "626ad1b7bbba4e5598881055eda25365",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python incrustada."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "ed2cc4a164774098a3f061394e9f5673",
+      "End": "ecd629fdf3df40c88a6661cd6dcf3f20",
+      "Id": "0528ed5832b94971ba29b6c10703c121",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0055e83d2436419196c65c65145cdeae",
+      "End": "795fb1ecd641450db41405b0494dd4d9",
+      "Id": "673e7ee3e1e84a199ef7c2365b5f2aaa",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "626ad1b7bbba4e5598881055eda25365",
+      "End": "3bebea39f0b4421c9ae380f722d5ec36",
+      "Id": "db7b2bc14ff040359897a2e4c9a9b97f",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": []
+}

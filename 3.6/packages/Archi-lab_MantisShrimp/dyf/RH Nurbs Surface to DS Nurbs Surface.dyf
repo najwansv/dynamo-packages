@@ -1,0 +1,88 @@
+<Workspace Version="1.2.0.2654" X="146.511392820943" Y="297.212056978416" zoom="1.78359936238281" Name="RH Nurbs Surface to DS Nurbs Surface" Description="converts rhino nurbs surfaces to design script nurbs surfaces" ID="7a74837c-875a-405a-b26a-3af0d26685af" Category="Archi-lab_MantisShrimp.Rhinoceros.Geometry">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="9a6ca056-a1ea-4b3f-aafb-87d68a3e2ef7" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="RhinoObject" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="b530e9f0-ceb6-4604-a1dd-04966a540169" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="449" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+      <Symbol value="NurbsSurface" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+    <PythonNodeModels.PythonNode guid="6bbe869a-5bec-4cda-acf8-8d84eb70fbe5" type="PythonNodeModels.PythonNode" nickname="Python Script" x="225.008266579965" y="-2.45350130017006" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="1">
+      <PortInfo index="0" default="False" />
+      <Script># Copyright(c) 2016, Konrad Sobon
+# @arch_laboratory, http://archi-lab.net
+
+import clr
+import sys
+import System
+
+pyt_path = r'C:\Program Files (x86)\IronPython 2.7\Lib'
+sys.path.append(pyt_path)
+
+from os import path
+assemblies = System.AppDomain.CurrentDomain.GetAssemblies()
+msUIpath = [a.Location for a in assemblies if 'MantisShrimp,' in a.FullName][0]
+msPath = System.IO.Path.GetDirectoryName(msUIpath).rsplit('\\',1)[0]
+msPathExtra = '%s\\extra\\' %msPath
+msPathRh = '%s\\bin\\Rhino3dmIO.dll' %msPath
+sys.path.append(msPathExtra)
+clr.AddReferenceToFileAndPath(msPathRh)
+
+import Rhino as rc
+from mantisshrimp import rhNurbsSurfaceToSurface
+
+#The inputs to this node will be stored as a list in the IN variable.
+dataEnteringNode = IN
+
+if isinstance(IN[0], list):
+	rhObjects = IN[0]
+else:
+	rhObjects = [IN[0]]
+
+def GetNurbsSurfaces(rhObj):
+	try:
+		geo = rhObj.Geometry
+		if geo.ToString() == "Rhino.Geometry.Brep":
+			brepFaces = geo.Faces
+			faceList = []
+			for i in range(0, brepFaces.Count, 1):
+				rhSurface = brepFaces.Item[i].UnderlyingSurface()
+				if rhSurface.ToString() == "Rhino.Geometry.NurbsSurface":
+					faceList.append(rhNurbsSurfaceToSurface(rhSurface))
+				elif rhSurface.ToString() == "Rhino.Geometry.RevSurface":
+					faceList.append(rhNurbsSurfaceToSurface(rhSurface.ToNurbsSurface()))
+			return faceList
+	except:
+		pass
+
+def ProcessList(_func, _list):
+	return map(lambda x: ProcessList(_func, x) if type(x) == list else _func(x) , _list)
+
+#convert rhino/gh geometry to ds geometry
+try:
+	errorReport = None
+	dsNurbsSurfaces = ProcessList(GetNurbsSurfaces, rhObjects)
+except:
+	# if error accurs anywhere in the process catch it
+	import traceback
+	errorReport = traceback.format_exc()
+	
+#Assign your output to the OUT variable
+if errorReport == None:
+	OUT = dsNurbsSurfaces
+else:
+	OUT = errorReport</Script>
+    </PythonNodeModels.PythonNode>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="9a6ca056-a1ea-4b3f-aafb-87d68a3e2ef7" start_index="0" end="6bbe869a-5bec-4cda-acf8-8d84eb70fbe5" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="6bbe869a-5bec-4cda-acf8-8d84eb70fbe5" start_index="0" end="b530e9f0-ceb6-4604-a1dd-04966a540169" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="81.55339787635" eyeY="80.8788878275877" eyeZ="10.39639161709" lookX="-65.0647895160595" lookY="-64.5634028269773" lookZ="-44.2003410923784" upX="-0.37553405640074" upY="0.891006514461771" upZ="-0.255110838473003" />
+  </Cameras>
+</Workspace>

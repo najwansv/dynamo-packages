@@ -1,0 +1,244 @@
+{
+  "Uuid": "3f3bab50-6b82-4456-a8cb-89df18a372a6",
+  "IsCustomNode": true,
+  "Category": "Modelical.Elements.Actions",
+  "Description": "This node allows to modify grids at Z axis dimension, by selecting 2 levels and an offset.",
+  "Name": "Grid.SetElevation",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Revit.Elements.Level": {
+        "Key": "Revit.Elements.Level",
+        "Value": "RevitNodes.dll"
+      },
+      "Revit.Elements.Grid": {
+        "Key": "Revit.Elements.Grid",
+        "Value": "RevitNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_grids",
+        "TypeName": "Revit.Elements.Grid",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Grids to be modified"
+      },
+      "Id": "cb948e5fa90d4ddcac1111054bbee39e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "592c047874fe4893acf3d41b81af68f2",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_baseLevel",
+        "TypeName": "Revit.Elements.Level",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": "Inferior level"
+      },
+      "Id": "185d38a95cc34b6da9dca85ea95ea992",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "858d5db8084e4297ba62cb1f133a6fd8",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_topLevel",
+        "TypeName": "Revit.Elements.Level",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": "Superior level"
+      },
+      "Id": "fbef885a4ab34983be1b126a68663856",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b395f6c564064f5b9beecfa1d90f7916",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_offset",
+        "TypeName": "double",
+        "TypeRank": 0,
+        "DefaultValue": "0",
+        "Description": "Optional gap between level and extension"
+      },
+      "Id": "7a73152d3e1842689567849be0e0f74f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "23f0a3ca48c64cd4bf72e834aa72f830",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un parámetro de función, utilícelo con nodos personalizados.\r\n\r\nPuede especificar el tipo y el valor por defecto del parámetro. Por ejemplo,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "_grids",
+      "Id": "c4b64d8068444d1ea4e6aabd04f5ce25",
+      "Inputs": [
+        {
+          "Id": "639fc9d052454b3bb100b6e2c5c4ba2d",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Una función de salida, se debe utilizar con nodos personalizados"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\n\r\n#Load Revit API\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\nimport Autodesk\r\n#Load document reference\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nuidoc = DocumentManager.Instance.CurrentUIApplication\r\napp = uidoc.Application\r\n\r\ndef toList(input):\r\n    if isinstance(input, list):\r\n        return input\r\n    else:\r\n        return [input]\r\n\r\ngrids = toList(UnwrapElement(IN[0]))\r\nlevel0 = UnwrapElement(IN[1])\r\nlevel1 = UnwrapElement(IN[2])\r\ninGap = IN[3]\r\n\r\ndef toModelUnits(x):\r\n    if int(app.VersionNumber) <2020:\r\n        docLengthUnit = Document.GetUnits(doc).GetFormatOptions(UnitType.UT_Length).DisplayUnits\r\n        return UnitUtils.Convert(x,DisplayUnitType.DUT_DECIMAL_FEET,docLengthUnit)\r\n    elif int(app.VersionNumber) >=2020:\r\n        docLengthUnit = Document.GetUnits(doc).GetFormatOptions(SpecTypeId.Length).GetUnitTypeId()\r\n        return UnitUtils.Convert(x, docLengthUnit, UnitTypeId.FeetFractionalInches)\r\n\r\n\r\ngap=toModelUnits(inGap)\r\n\r\n\r\nif level0.Elevation < level1.Elevation:\r\n        min = level0.Elevation - gap\r\n        max = level1.Elevation + gap\r\nelse:\r\n        min = level1.Elevation - gap\r\n        max = level0.Elevation + gap\r\n\r\nt=Transaction(doc, \"Modelical.SetGridElevation\")\r\nt.Start()\r\ntry:\r\n    \r\n    for grid in grids:\r\n        grid.SetVerticalExtents(min,max)\r\n    \r\n    t.Commit()\r\n    OUT = grids\r\nexcept Exception as ex:\r\n    OUT=ex\r\n    #t.RolleBack()\r\nfinally:\r\n    t.Dispose()\r\n",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "d264d56518c4431b84c619a14d212c4f",
+      "Inputs": [
+        {
+          "Id": "1d308f63bed140d8844232acd84a052d",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2c85cb59788d40599e538cfc038e7ce4",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b354d114ab94419382b5eda57b014619",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ae9c15b93c654df397706efa18549712",
+          "Name": "IN[3]",
+          "Description": "Input #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "af7ad450a77243fdaa341aa96555a90b",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python incrustada."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "592c047874fe4893acf3d41b81af68f2",
+      "End": "1d308f63bed140d8844232acd84a052d",
+      "Id": "b10c790a1b8347c28e3469649a1e341e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "858d5db8084e4297ba62cb1f133a6fd8",
+      "End": "2c85cb59788d40599e538cfc038e7ce4",
+      "Id": "188b37f94ed84e28b0aef7b0ab2c813b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b395f6c564064f5b9beecfa1d90f7916",
+      "End": "b354d114ab94419382b5eda57b014619",
+      "Id": "039aedb356bd4f4b87159054cec7bf2e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "23f0a3ca48c64cd4bf72e834aa72f830",
+      "End": "ae9c15b93c654df397706efa18549712",
+      "Id": "7c55914f206b4c2cb153679d1df8cfae",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "af7ad450a77243fdaa341aa96555a90b",
+      "End": "639fc9d052454b3bb100b6e2c5c4ba2d",
+      "Id": "f88b4903b758498f8a83f6dfee6cc89b",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": []
+}
