@@ -1,0 +1,137 @@
+<Workspace Version="1.2.0.2654" X="181.881523837164" Y="214.934345139362" zoom="1.48486197725882" Name="Read GH File" Description="Reads the file exported from Grasshopper (serializes it back into relevant Rhino geometry such as surfaces, points etc)" ID="9648a159-7814-46f6-9097-16f1f9d27ec8" Category="Archi-lab_MantisShrimp.Grasshopper.ReadGH">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="23e6a7a9-90fa-4195-9ac3-1bff7bb3151a" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="FilePath" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="d2c0fb80-3f6c-4b96-a156-d977fde76b28" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="449" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+      <Symbol value="DS Object" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="7e901688-d758-4281-8689-20f21995faf3" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="-1.65761011231507" y="63.4049619012706" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="Import:bool=false" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <PythonNodeModels.PythonNode guid="95f7070a-fe33-4e8c-8a40-eb6aa85f6bf8" type="PythonNodeModels.PythonNode" nickname="Python Script" x="248.587735302011" y="-2.6496369357003" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="2">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+      <Script># Copyright(c) 2016, Konrad Sobon
+# @arch_laboratory, http://archi-lab.net
+
+import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+
+import sys
+pyt_path = r'C:\Program Files (x86)\IronPython 2.7\Lib'
+sys.path.append(pyt_path)
+
+import System
+from os import path
+assemblies = System.AppDomain.CurrentDomain.GetAssemblies()
+msUIpath = [a.Location for a in assemblies if 'MantisShrimp,' in a.FullName][0]
+msPath = System.IO.Path.GetDirectoryName(msUIpath).rsplit('\\',1)[0]
+msPathExtra = '%s\\extra\\' %msPath
+txtFilePath = '%s\\extra\\rhPath.txt' %msPath
+sys.path.append(msPathExtra)
+if not path.isfile(txtFilePath):
+	message = "Provide valid RhinoCommon.dll path."
+else:
+	file = open(txtFilePath, 'r+')
+	rhDllPath = file.readline()
+	clr.AddReferenceToFileAndPath(rhDllPath)
+	file.close()
+
+from System import Array
+from System.Collections.Generic import *
+import Rhino as rc
+import pickle
+from mantisshrimp import *
+
+#The inputs to this node will be stored as a list in the IN variable.
+dataEnteringNode = IN
+filePath = IN[0]
+_import = IN[1]
+
+class SerializeObjects(object):
+	def __init__(self, filePath, data = None):
+		self.filePath = filePath
+		self.data = data
+
+	def saveToFile(self):
+		with open(self.filePath, 'wb') as outf:
+			pickle.dump(self.data, outf)
+
+	def readFromFile(self):
+		with open(self.filePath, 'rb') as inf:
+			self.data = pickle.load(inf)
+
+if filePath != None:
+	if filePath.GetType() == System.IO.FileInfo:
+		filePath = filePath.FullName
+		
+serializer = SerializeObjects(filePath)
+serializer.readFromFile()
+
+def ProcessList(_func, _list):
+    return map( lambda x: ProcessList(_func, x) if type(x)==list else _func(x), _list)
+    
+def toDSObject(item):
+	if type(item) == MSPoint:
+		return item.toDSPoint()
+	elif type(item) == MSLine:
+		return item.toDSLine()
+	elif type(item) == MSPolyLine:
+		return item.toDSPolyCurve()
+	elif type(item) == MSEllipse:
+		return item.toDSEllipse()
+	elif type(item) == MSCircle:
+		return item.toDSCircle()
+	elif type(item) == MSArc:
+		return item.toDSArc()
+	elif type(item) == MSNurbsCurve:
+		return item.toDSNurbsCurve()
+	elif type(item) == MSMultiSpanNurbsCurve:
+		return item.toDSPolyCurve()
+	elif type(item) == MSPolyCurve:
+		return item.toDSPolyCurve()
+	elif type(item) == MSMesh:
+		return item.toDSMesh()
+	elif type(item) == MSNurbsSurface:
+		return item.toDSNurbsSurface()
+	elif type(item) == MSBrep:
+		return item.toDSPolySurface()
+	elif type(item) == MSData:
+		return item.data
+	else:
+		message = "Geometry type not yet supported"
+		return message
+
+message = None
+if _import:
+	serializedData = serializer.data
+	if type(serializedData) == MSData:
+		geometryOut = serializedData.data
+	else:
+		geometryOut = ProcessList(toDSObject, serializedData)
+else:
+	message = "Import set to false"
+
+#Assign your output to the OUT variable
+if message == None:
+	OUT = geometryOut
+else:
+	OUT = '\n'.join('{:^35}'.format(s) for s in message.split('\n'))</Script>
+    </PythonNodeModels.PythonNode>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="23e6a7a9-90fa-4195-9ac3-1bff7bb3151a" start_index="0" end="95f7070a-fe33-4e8c-8a40-eb6aa85f6bf8" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="7e901688-d758-4281-8689-20f21995faf3" start_index="0" end="95f7070a-fe33-4e8c-8a40-eb6aa85f6bf8" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="95f7070a-fe33-4e8c-8a40-eb6aa85f6bf8" start_index="0" end="d2c0fb80-3f6c-4b96-a156-d977fde76b28" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="81.5533981323242" eyeY="80.8788909912109" eyeZ="10.3963918685913" lookX="-65.0647888183594" lookY="-64.5634002685547" lookZ="-44.2003402709961" upX="-0.375534057617188" upY="0.891006529331207" upZ="-0.255110830068588" />
+  </Cameras>
+</Workspace>

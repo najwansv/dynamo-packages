@@ -1,0 +1,86 @@
+<Workspace Version="1.2.0.2654" X="-152.224380833668" Y="-233.594316780519" zoom="1.545620359375" Name="Get Rhino Object Type" Description="This node will return an object type (Brep, Extrusion etc)." ID="8ee920d4-60ba-49bc-89e8-235570fa6073" Category="Archi-lab_MantisShrimp.Rhinoceros.Properties">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="9ec9eb0f-0418-4e1c-9e61-f8d0e9c184e6" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="245.354157334608" y="301.234590988948" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="RhinoObject" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="1c3f65a6-2d41-4843-9d2b-25dd41af34bf" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="614.785108820583" y="290.882760474455" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+      <Symbol value="ObjectType" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+    <PythonNodeModels.PythonNode guid="07b13808-bf43-42b0-8048-840f751388fe" type="PythonNodeModels.PythonNode" nickname="Python Script" x="426.159360823746" y="293.765876995741" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="1">
+      <PortInfo index="0" default="False" />
+      <Script># Copyright(c) 2016, Konrad Sobon
+# @arch_laboratory, http://archi-lab.net
+
+import clr
+import sys
+import System
+
+pyt_path = r'C:\Program Files (x86)\IronPython 2.7\Lib'
+sys.path.append(pyt_path)
+
+from os import path
+assemblies = System.AppDomain.CurrentDomain.GetAssemblies()
+msUIpath = [a.Location for a in assemblies if 'MantisShrimp,' in a.FullName][0]
+msPath = System.IO.Path.GetDirectoryName(msUIpath).rsplit('\\',1)[0]
+msPathExtra = '%s\\extra\\' %msPath
+msPathRh = '%s\\bin\\Rhino3dmIO.dll' %msPath
+sys.path.append(msPathExtra)
+clr.AddReferenceToFileAndPath(msPathRh)
+import Rhino as rc
+
+#The inputs to this node will be stored as a list in the IN variable.
+dataEnteringNode = IN
+
+if isinstance(IN[0], list):
+	rhObjects = IN[0]
+else:
+	rhObjects = [IN[0]]
+
+def GetObjectType(obj):
+	try:
+		geo = obj.Geometry
+		if geo.ToString() == "Rhino.Geometry.ArcCurve" and geo.IsArc():
+			objType = "Arc"
+		elif geo.ToString() == "Rhino.Geometry.NurbsCurve" and geo.IsClosed and geo.IsRational:
+			objType = "Ellipse"
+		elif geo.ToString() == "Rhino.Geometry.ArcCurve" and geo.IsCircle():
+			objType = "Circle"
+		else:
+			objType = geo.ToString().split(".")[2]
+	except:
+		objType = "Unknown"
+		pass
+	return objType
+
+def ProcessList(_func, _list):
+	return map( lambda x: ProcessList(_func, x) if type(x)==list else _func(x), _list )
+
+#extract object type
+try:
+	errorReport = None
+	objectTypes = ProcessList(GetObjectType, rhObjects)
+except:
+	# if error accurs anywhere in the process catch it
+	import traceback
+	errorReport = traceback.format_exc()
+
+#Assign your output to the OUT variable
+if errorReport == None:
+	OUT = objectTypes
+else:
+	OUT = errorReport</Script>
+    </PythonNodeModels.PythonNode>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="9ec9eb0f-0418-4e1c-9e61-f8d0e9c184e6" start_index="0" end="07b13808-bf43-42b0-8048-840f751388fe" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="07b13808-bf43-42b0-8048-840f751388fe" start_index="0" end="1c3f65a6-2d41-4843-9d2b-25dd41af34bf" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-8.19723415374756" eyeY="37.3580551147461" eyeZ="1.86107051372528" lookX="24.6858425140381" lookY="-21.0425701141357" lookZ="-35.6650199890137" upX="0.13286004960537" upY="0.972369909286499" upZ="-0.191950365900993" />
+  </Cameras>
+</Workspace>

@@ -1,0 +1,2875 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        "TopologicDynamo"
+    </assembly>
+    <members>
+        <member name="M:Topologic.Utilities.WireUtility.RemoveCollinearEdges(Topologic.Wire,System.Double)">
+            <summary>
+Remove collinear edges in a Wire.
+</summary>
+            <param name="wire">A Wire</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Wire">A Wire with collinear edges removed</returns>
+        </member>
+        <member name="M:Topologic.Utilities.WireUtility.AdjacentCells(Topologic.Wire,Topologic.Topology)">
+            <summary>
+Returns a list of Cells that are the adjacent to the input Wire.
+</summary>
+            <param name="wire">A Wire</param>
+            <param name="parentTopology">A parent Topology</param>
+            <returns name="Cell[]">A list of Cells adjacent to the input Wire</returns>
+        </member>
+        <member name="M:Topologic.Utilities.WireUtility.AdjacentShells(Topologic.Wire,Topologic.Topology)">
+            <summary>
+Returns a list of Shells that are the adjacent to the input Wire.
+</summary>
+            <param name="wire">A Wire</param>
+            <param name="parentTopology">A parent Topology</param>
+            <returns name="Shell[]">A list of Shells adjacent to the input Wire</returns>
+        </member>
+        <member name="T:Topologic.Utilities.WireUtility">
+            <summary>
+WireUtility includes geometric methods relevant to a Wire.
+</summary>
+        </member>
+        <member name="P:Topologic.Aperture.BasicGeometry">
+            <summary>
+Creates a geometry from Aperture.
+</summary>
+            <returns>The created geometry</returns>
+        </member>
+        <member name="P:Topologic.Aperture.Topology">
+            <summary>
+Returns the underlying Topology.
+</summary>
+            <returns name="Topology">The underlying Topology</returns>
+        </member>
+        <member name="M:Topologic.Aperture.ByTopologyContext(Topologic.Topology,Topologic.Context)">
+            <summary>
+Creates an Aperture by a Topology and a Context.
+</summary>
+            <param name="topology">A Topology</param>
+            <param name="context">A Context</param>
+            <returns name="Aperture">An Aperture</returns>
+        </member>
+        <member name="T:Topologic.Aperture">
+            <summary>
+An Aperture is any designed opening in a building including but not limited to any door, gate, window, skylight, or hatch.
+</summary>
+        </member>
+        <member name="M:Topologic.Attributes.DoubleAttributeFactory.CheckType(System.Type)">
+            <summary>
+Checks the type of the value.
+</summary>
+            <param name="type">The type</param>
+            <returns name="bool">True if the value is of the correct type, otherwise false</returns>
+        </member>
+        <member name="M:Topologic.Attributes.DoubleAttributeFactory.Create(System.Object)">
+            <summary>
+Creates an Attribute from a key and a value.
+</summary>
+            <param name="value">A value</param>
+            <returns name="Attribute">The created Attribute</returns>
+        </member>
+        <member name="T:Topologic.Attributes.DoubleAttributeFactory">
+            <summary>
+(private) A factory class to create a double Attribute.
+</summary>
+        </member>
+        <member name="M:Topologic.About.Version">
+            <summary>
+Returns the current version of Topologic.
+</summary>
+            <returns>The current version of Topologic</returns>
+        </member>
+        <member name="T:Topologic.About">
+            <summary>
+The About class includes information about Topologic.
+</summary>
+        </member>
+        <member name="F:Topologic.CellComplex.m_pCoreCellComplex">
+            <summary />
+        </member>
+        <member name="M:Topologic.CellComplex.GetCoreTopologicalQuery">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Topologic.CellComplex.#ctor(std.shared_ptr&lt;TopologicCore.CellComplex&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+        </member>
+        <member name="M:Topologic.CellComplex.Type">
+            <summary>
+Returns the type associated to CellComplex.
+</summary>
+            <returns>The type associated to CellComplex</returns>
+        </member>
+        <member name="P:Topologic.CellComplex.BasicGeometry">
+            <summary>
+Creates a geometry from CellComplex.
+</summary>
+            <returns>The created geometry</returns>
+        </member>
+        <member name="P:Topologic.CellComplex.NonManifoldFaces">
+            <summary>
+Returns the non-manifold Faces of the CellComplex.
+</summary>
+            <returns name="Face[]">A list of the non-manifold Faces of the CellComplex.</returns>
+        </member>
+        <member name="P:Topologic.CellComplex.InternalBoundaries">
+            <summary>
+Returns the internal boundaries (Faces) of the CellComplex.
+</summary>
+            <returns name="Face[]">A list of the internal boundaries (Faces) of the CellComplex</returns>
+        </member>
+        <member name="P:Topologic.CellComplex.ExternalBoundary">
+            <summary>
+Returns the external boundary (Cell) of the CellComplex.
+</summary>
+            <returns name="Cell">The external boundary (Cell) of the CellComplex</returns>
+        </member>
+        <member name="P:Topologic.CellComplex.Vertices">
+            <summary>
+Returns the Vertices constituent to the CellComplex.
+</summary>
+            <returns name="Vertex[]">A list of Vertices constituent to the CellComplex</returns>
+        </member>
+        <member name="P:Topologic.CellComplex.Edges">
+            <summary>
+Returns the Edges constituent to the CellComplex.
+</summary>
+            <returns name="Edge[]">A list of Edges constituent to the CellComplex</returns>
+        </member>
+        <member name="P:Topologic.CellComplex.Wires">
+            <summary>
+Returns the Wires constituent to the CellComplex.
+</summary>
+            <returns name="Wire[]">A list of Wires constituent to the CellComplex</returns>
+        </member>
+        <member name="P:Topologic.CellComplex.Shells">
+            <summary>
+Returns the Shells constituent to the CellComplex.
+</summary>
+            <returns name="Shell[]">A list of Shells constituent to the CellComplex</returns>
+        </member>
+        <member name="P:Topologic.CellComplex.Faces">
+            <summary>
+Returns the Faces constituent to the CellComplex.
+</summary>
+            <returns name="Face[]">A list of Faces constituent to the CellComplex</returns>
+        </member>
+        <member name="P:Topologic.CellComplex.Cells">
+            <summary>
+Returns the Cells constituent to the CellComplex.
+</summary>
+            <returns name="Cell[]">A list of Cells constituent to the CellComplex</returns>
+        </member>
+        <member name="M:Topologic.CellComplex.ByFaces(System.Collections.Generic.IList`1{Topologic.Face},System.Double)">
+            <summary>
+Creates a CellComplex from the space enclosed by a set of Faces. Parts of the Faces which do not enclose any space will be discarded.
+</summary>
+            <param name="faces">A set of Faces</param>
+            <returns name="CellComplex">The created CellComplex</returns>
+        </member>
+        <member name="M:Topologic.CellComplex.ByCells(System.Collections.Generic.IList`1{Topologic.Cell})">
+            <summary>
+Creates a CellComplex by a set of Cells.
+</summary>
+            <param name="cells">A set of Cells</param>
+            <returns name="CellComplex">The created CellComplex</returns>
+        </member>
+        <member name="T:Topologic.CellComplex">
+            <summary>
+A CellComplex is a contiguous collection of Cells where adjacent Cells are connected by shared Faces. It is non-manifold.
+</summary>
+        </member>
+        <member name="M:Topologic.Utilities.VertexUtility.Distance(Topologic.Vertex,Topologic.Topology)">
+            <summary>
+Returns the distance between a Vertex and a Topology.
+</summary>
+            <param name="vertex">A Vertex</param>
+            <param name="topology">A Topology</param>
+            <returns>The distance between a Vertex and a Topology</returns>
+        </member>
+        <member name="M:Topologic.Utilities.VertexUtility.AdjacentEdges(Topologic.Vertex,Topologic.Topology)">
+            <summary>
+Returns a list of Edges that are the adjacent to the input Vertex.
+</summary>
+            <param name="vertex">A Vertex</param>
+            <param name="parentTopology">A parent Topology</param>
+            <returns name="Edge[]">A list of Edges adjacent to the input Vertex</returns>
+        </member>
+        <member name="T:Topologic.Utilities.VertexUtility">
+            <summary>
+VertexUtility includes geometric methods relevant to a Vertex.
+</summary>
+        </member>
+        <member name="M:Topologic.Utilities.TopologyUtility.AdjacentTopologies(Topologic.Topology,Topologic.Topology,System.Int32)">
+            <summary>
+Returns a list of Topologies that are the adjacent to the input Topology.
+</summary>
+            <param name="topology">A Topology</param>
+            <param name="parentTopology">A parent Topology</param>
+            <param name="typeFilter">The type of the context Topology</param>
+            <returns>A list of Topologies adjacent to the input Topology</returns>
+        </member>
+        <member name="M:Topologic.Utilities.TopologyUtility.Transform(Topologic.Topology,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+Transforms a Topology according to translation and rotation factors.
+</summary>
+            <param name="topology">A Topology</param>
+            <param name="translationX" />
+            <param name="translationY" />
+            <param name="translationZ" />
+            <param name="rotation11" />
+            <param name="rotation12" />
+            <param name="rotation13" />
+            <param name="rotation21" />
+            <param name="rotation22" />
+            <param name="rotation23" />
+            <param name="rotation31" />
+            <param name="rotation32" />
+            <param name="rotation33" />
+            <returns name="Topology" />
+        </member>
+        <member name="M:Topologic.Utilities.TopologyUtility.Scale(Topologic.Topology,Topologic.Vertex,System.Double,System.Double,System.Double)">
+            <summary>
+Scales a Topology according to an origin and XYZ factors.
+</summary>
+            <param name="topology">The Topology to be scaled</param>
+            <param name="origin">The origin</param>
+            <param name="xFactor">The X factor</param>
+            <param name="yFactor">The Y factor</param>
+            <param name="zFactor">The Z factor</param>
+            <returns name="Topology">The Topology after its scaling</returns>
+        </member>
+        <member name="M:Topologic.Utilities.TopologyUtility.Rotate(Topologic.Topology,Topologic.Vertex,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+Rotates a Topology given an origin, XYZ vectors and an angle.
+</summary>
+            <param name="topology">The Topology to be rotated</param>
+            <param name="origin">The origin</param>
+            <param name="xVector">The X vector</param>
+            <param name="yVector">The Y vector</param>
+            <param name="zVector">The Z vector</param>
+            <param name="degree">The angle in degrees</param>
+            <returns name="Topology">The Topology after its rotation</returns>
+        </member>
+        <member name="M:Topologic.Utilities.TopologyUtility.Translate(Topologic.Topology,System.Double,System.Double,System.Double)">
+            <summary>
+Translates (moves) a Topology a certain distance according to XYZ values.
+</summary>
+            <param name="topology">The Topology to be translated</param>
+            <param name="x">The x value</param>
+            <param name="y">The y value</param>
+            <param name="z">The z value</param>
+            <returns name="Topology">The Topology in its new location</returns>
+        </member>
+        <member name="T:Topologic.Utilities.TopologyUtility">
+            <summary>
+TopologyUtility includes geometric methods relevant to any Topology.
+</summary>
+        </member>
+        <member name="M:Topologic.Graph.Edge(Topologic.Vertex,Topologic.Vertex,System.Double)">
+            <summary>
+Returns the Edge, if one exists, that connects the two input Vertices.
+</summary>
+            <param name="vertex1">The first Vertex</param>
+            <param name="vertex2">The second Vertex</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Edge">The Edge connecting the two Vertices</returns>
+        </member>
+        <member name="M:Topologic.Graph.RemoveEdges(System.Collections.Generic.IList`1{Topologic.Edge},System.Double)">
+            <summary>
+Removes the input Edges from the Graph.
+</summary>
+            <param name="edges">The Edges to be removed</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Graph">The Graph after the Edges are removed</returns>
+        </member>
+        <member name="M:Topologic.Graph.RemoveVertices(System.Collections.Generic.IList`1{Topologic.Vertex})">
+            <summary>
+Removes the input Vertices from the Graph.
+</summary>
+            <param name="vertices">The Vertices to be removed</param>
+            <returns name="Graph">The Graph after the Vertices are removed</returns>
+        </member>
+        <member name="M:Topologic.Graph.IsErdoesGallai(System.Collections.Generic.IList`1{System.Int32})">
+            <summary>
+Returns True if the input sequence satisfies the Erdoes Gallai theorem. It returns False otherwise.
+</summary>
+            <param name="sequence">The input sequence</param>
+            <returns name="bool">True if the input sequence satisfies the Erdoes Gallai theorem, otherwise false</returns>
+        </member>
+        <member name="M:Topologic.Graph.TopologicalDistance(Topologic.Vertex,Topologic.Vertex,System.Double)">
+            <summary>
+Returns the number of Edges of the shortest path connecting the two input Vertices.
+</summary>
+            <param name="startVertex">The start Vertex</param>
+            <param name="endVertex">The end Vertex</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="int">The resulting topological distance</returns>
+        </member>
+        <member name="M:Topologic.Graph.ShortestPaths(Topologic.Vertex,Topologic.Vertex,System.String,System.String,System.Nullable`1{System.Int32})">
+            <summary>
+Returns all paths with the fewest number of Edges between the two input Vertices.
+</summary>
+            <param name="startVertex">The start Vertex</param>
+            <param name="endVertex">The end Vertex</param>
+            <param name="vertexKey">The key for the Vertex cost</param>
+            <param name="edgeKey">The key for the Edge cost</param>
+            <returns name="Wire[]">The shortest paths</returns>
+        </member>
+        <member name="M:Topologic.Graph.ShortestPath(Topologic.Vertex,Topologic.Vertex,System.String,System.String)">
+            <summary>
+Returns the path with the fewest number of Edges between the two input Vertices.
+</summary>
+            <param name="startVertex">The start Vertex</param>
+            <param name="endVertex">The end Vertex</param>
+            <param name="vertexKey">The key for the Vertex cost</param>
+            <param name="edgeKey">The key for the Edge cost</param>
+            <returns name="Wire">The shortest path</returns>
+        </member>
+        <member name="M:Topologic.Graph.Path(Topologic.Vertex,Topologic.Vertex)">
+            <summary>
+Returns the first Path found between the input Vertices.
+</summary>
+            <param name="startVertex">The start Vertex</param>
+            <param name="endVertex">The end Vertex</param>
+            <returns name="Wire">The path</returns>
+        </member>
+        <member name="M:Topologic.Graph.AllPaths(Topologic.Vertex,Topologic.Vertex,System.Nullable`1{System.Int32})">
+            <summary>
+Returns all paths it could find, within the input number of seconds, that connect the two input Vertices.
+</summary>
+            <param name="startVertex">The start Vertex</param>
+            <param name="endVertex">The end Vertex</param>
+            <param name="timeLimitInSeconds">Time limit in seconds</param>
+            <returns name="Wire[]">A list of paths</returns>
+        </member>
+        <member name="P:Topologic.Graph.Diameter">
+            <summary>
+Returns the number of Edges of the shortest path between the most distanced Vertices.
+</summary>
+            <returns name="int">The diameter of the Graph</returns>
+        </member>
+        <member name="P:Topologic.Graph.MaximumDelta">
+            <summary>
+Returns the maximum Vertex degree in a Graph.
+</summary>
+            <returns name="int">The maximum Vertex degree in a Graph</returns>
+        </member>
+        <member name="P:Topologic.Graph.MinimumDelta">
+            <summary>
+Returns the minimum Vertex degree in a Graph.
+</summary>
+            <returns name="int">The minimum Vertex degree in a Graph</returns>
+        </member>
+        <member name="P:Topologic.Graph.IsComplete">
+            <summary>
+Returns True if the Graph has a density of 1. Returns False otherwise.
+</summary>
+            <returns name="bool">True if the Graph has a density of 1, otherwise false</returns>
+        </member>
+        <member name="P:Topologic.Graph.Density">
+            <summary>
+Returns the ratio of the number of Edges to the total number of Edges the Graph could have.
+</summary>
+            <returns name="double">The Graph's density</returns>
+        </member>
+        <member name="P:Topologic.Graph.DegreeSequence">
+            <summary>
+Returns a list of Vertex degrees in a non-increasing order.
+</summary>
+            <returns name="int[]">A list of Vertex degrees in a non-increasing order</returns>
+        </member>
+        <member name="M:Topologic.Graph.ContainsEdge(Topologic.Edge,System.Double)">
+            <summary>
+Returns True if the input Graph contains the input Edge. Returns False otherwise.
+</summary>
+            <param name="edge">The input Edge</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="bool">True if the input Graph contains the input Edge, False otherwise</returns>
+        </member>
+        <member name="M:Topologic.Graph.ContainsVertex(Topologic.Vertex,System.Double)">
+            <summary>
+Returns True if the input Graph contains the input Vertex. Returns False otherwise.
+</summary>
+            <param name="vertex">The input Vertex</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="bool">True if the input Graph contains the input Vertex, False otherwise</returns>
+        </member>
+        <member name="M:Topologic.Graph.AdjacentVertices(Topologic.Vertex)">
+            <summary>
+Returns a list of Vertices that are connected to the input Vertex by an Edge.
+</summary>
+            <param name="vertex">The input Vertex</param>
+            <returns name="Vertex[]">A list of the Vertices adjacent to a Vertex</returns>
+        </member>
+        <member name="M:Topologic.Graph.VertexDegree(Topologic.Vertex)">
+            <summary>
+Returns the number of Edges connected to the input Vertex.
+</summary>
+            <param name="vertex">The input Vertex</param>
+            <returns name="int">The degree of a Vertex</returns>
+        </member>
+        <member name="M:Topologic.Graph.Connect(System.Collections.Generic.IList`1{Topologic.Vertex},System.Collections.Generic.IList`1{Topologic.Vertex},System.Double)">
+            <summary>
+Connects the two sets of input Vertices pairwise with an Edge.
+</summary>
+            <param name="vertices1">The first set of Vertices</param>
+            <param name="vertices2">The second set of Vertices</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Graph">The Graph after the Vertices are connected</returns>
+        </member>
+        <member name="M:Topologic.Graph.AddEdges(System.Collections.Generic.IList`1{Topologic.Edge},System.Double)">
+            <summary>
+Adds the list of Edges to the Graph. The Vertices of the Edges are merged with existing Vertices if they fall within the input tolerance. No new Edges will be added if they already exist. A zero or null tolerance means that the Vertices of the input Edges will be added to the Graph regardless of their overlap with existing Vertices.
+</summary>
+            <param name="edges">The Edges to be added</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Graph">The Graph after the Edges are added</returns>
+        </member>
+        <member name="M:Topologic.Graph.AddVertices(System.Collections.Generic.IList`1{Topologic.Vertex},System.Double)">
+            <summary>
+Adds the list of Vertices to the Graph. If a tolerance is specified, the Vertices will be merged with existing Vertices within the input tolerance distance. A zero or null tolerance means that the Vertices will be added to the Graph regardless of their overlap with existing Vertices.
+</summary>
+            <param name="vertices">The Vertices to be added</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Graph">The Graph after the Vertices are added</returns>
+        </member>
+        <member name="M:Topologic.Graph.VerticesAtCoordinates(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+Returns a list of Vertices in the Graph located at the input coordinates within the input tolerance distance.
+</summary>
+            <param name="x">The X coordinate</param>
+            <param name="y">The Y coordinate</param>
+            <param name="z">The Z coordinate</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Vertex[]">A list of the Vertices at the given coordinates</returns>
+        </member>
+        <member name="P:Topologic.Graph.Topology">
+            <summary>
+Returns the Topology of the Graph.
+</summary>
+            <returns name="Topology">The Topology of the Graph</returns>
+        </member>
+        <member name="M:Topologic.Graph.Edges(System.Collections.Generic.IList`1{Topologic.Vertex},System.Double)">
+            <summary>
+Returns all the Edges in the input Graph. If an optional list of Vertices is specified, this method will return only the Edges of which the input Vertices are constituents.
+</summary>
+            <param name="vertices">An optional list of Vertices that the returned Edgs should as constituents</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns>The resulting Edges</returns>
+        </member>
+        <member name="P:Topologic.Graph.IsolatedVertices">
+            <summary>
+Returns a list of Vertices that are not connected by Edges.
+</summary>
+            <returns name="Vertex[]">A list of the isolated Vertices in this Graph</returns>
+        </member>
+        <member name="P:Topologic.Graph.Vertices">
+            <summary>
+Returns a list of all the Vertices in a Graph.
+</summary>
+            <returns name="Vertex[]">A list of Vertices in this Graph</returns>
+        </member>
+        <member name="M:Topologic.Graph.ByTopology(Topologic.Topology,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Double)">
+            <summary>
+Creates a Graph from any Topology.
+</summary>
+            <param name="direct">Use the centroids of the Topologies</param>
+            <param name="viaSharedTopologies">Use shared Topologies</param>
+            <param name="viaSharedApertures">Use shared Apertures</param>
+            <param name="toExteriorTopologies">Use exterior Topologies</param>
+            <param name="toExteriorApertures">Use exterior Apertures</param>
+            <param name="useFaceInternalVertex">Use the Faces' internal Vertices. WARNING: This process can take considerable time.</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Graph">The created Graph</returns>
+        </member>
+        <member name="T:Topologic.Graph">
+            <summary>
+A Graph consists of a set of Vertices and a set of Edges that connect the Vertices. It is always a Cluster and it can be manifold or non-manifold.
+</summary>
+        </member>
+        <member name="F:TopologicCore.Edge.m_occtEdge">
+            <summary>
+The underlying OCCT edge.
+</summary>
+        </member>
+        <member name="M:TopologicCore.Edge.OcctShapeFix(TopoDS_Edge!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Fixes the input OCCT Edge.
+</summary>
+            <param name="rkOcctInputEdge">An input OCCT Edge</param>
+            <returns name="TopoDS_Edge">The fixed OCCT Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.IsContainerType">
+            <summary>
+Checks if the underlying Topology is a container type (Wire, Shell, CellComplex, Cluster).
+</summary>
+            <returns name="bool">True if the underlying Topology is a container type (Wire, Shell, CellComplex, Cluster), otherwise False</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.Type">
+            <summary>
+Returns the type of the Edge.
+</summary>
+            <returns name="int">The type of the Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.NonNormalizeParameter(System.Double!System.Runtime.CompilerServices.IsConst,System.Double!System.Runtime.CompilerServices.IsConst,System.Double!System.Runtime.CompilerServices.IsConst)">
+            <summary>
+Non-normalize the parameters. (OCCT uses non-normalized parameters, while Topologic uses normalized parameters)
+</summary>
+            <param name="kOcctFirstParameter">The first OCCT parameter</param>
+            <param name="kOcctLastParameter">The last OCCT parameter</param>
+            <param name="kNormalizedParameter">A normalized parameter</param>
+            <returns name="double">A non-normalized parameter</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.NormalizeParameter(System.Double!System.Runtime.CompilerServices.IsConst,System.Double!System.Runtime.CompilerServices.IsConst,System.Double!System.Runtime.CompilerServices.IsConst)">
+            <summary>
+Normalize the parameters. (OCCT uses non-normalized parameters, while Topologic uses normalized parameters)
+</summary>
+            <param name="kOcctFirstParameter">The first OCCT parameter</param>
+            <param name="kOcctLastParameter">The last OCCT parameter</param>
+            <param name="kNonNormalizedParameter">A non-normalized parameter</param>
+            <returns name="double">A normalized parameter</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.Throw(BRepBuilderAPI_EdgeError!System.Runtime.CompilerServices.IsConst)">
+            <summary>
+Throw an exception associated to an OCCT error.
+</summary>
+            <param name="occtEdgeError">An OCCT error</param>
+        </member>
+        <member name="M:TopologicCore.Edge.GetClassGUID">
+            <summary>
+Returns the class GUID.
+</summary>
+            <returns name="String">The class GUID</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.GetTypeAsString">
+            <summary>
+Returns the type of the Edge as a String.
+</summary>
+            <returns name="String">The type of the Edge as a String</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.GetType">
+            <summary>
+Returns the type associated to Edge.
+</summary>
+            <returns name="TopologyType">The type associated to Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.CenterOfMass(TopoDS_Edge!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Returns the center of mass of this an OCCT Edge.
+</summary>
+            <returns name="Vertex">The center of mass of this an OCCT Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.CenterOfMass">
+            <summary>
+Returns the center of mass of this Edge.
+</summary>
+            <returns name="Vertex">The center of mass of this Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.Curve(System.Double*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Double*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Returns the underlying OCCT Curve
+</summary>
+            <param name="rFirstParameter">The first parameter</param>
+            <param name="rSecondParameter">The second parameter</param>
+            <returns name="Geom_Curve">The underlying OCCT Curve</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.Curve">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Edge.SetOcctEdge(TopoDS_Edge!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Sets the underlying OCCT Edge.
+</summary>
+            <param name="rkOcctEdge">A new OCCT Edge</param>
+        </member>
+        <member name="M:TopologicCore.Edge.SetOcctShape(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Sets the underlying OCCT shape.
+</summary>
+            <param name="rkOcctShape">A new OCCT shape</param>
+        </member>
+        <member name="M:TopologicCore.Edge.GetOcctEdge">
+            <summary>
+Returns the underlying OCCT Edge.
+</summary>
+            <returns name="TopoDS_Edge">The underlying OCCT Edge</returns>
+            <summary>
+Returns the underlying OCCT Edge.
+</summary>
+            <returns name="TopoDS_Edge">The underlying OCCT Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.GetOcctShape">
+            <summary>
+Returns the underlying OCCT shape.
+</summary>
+            <returns name="TopoDS_Shape">The underlying OCCT shape</returns>
+            <summary>
+Returns the underlying OCCT shape.
+</summary>
+            <returns name="TopoDS_Shape">The underlying OCCT shape</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.Geometry(std.list&lt;opencascade.handle&lt;Geom_Geometry&gt;,std.allocator&lt;opencascade.handle&lt;Geom_Geometry&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Creates a geometry from Edge.
+</summary>
+            <param name="rOcctGeometries">The created geometry</param>
+        </member>
+        <member name="M:TopologicCore.Edge.IsManifold">
+            <summary>
+Returns True if this Edge is a manifold, otherwise a False.
+</summary>
+            <returns name="bool">True if this Edge is a manifold, otherwise a False</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.SharedVertices(std.shared_ptr&lt;TopologicCore.Edge&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.list&lt;std.shared_ptr&lt;TopologicCore.Vertex&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Vertex&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Returns the shared Vertices between two Edges.
+</summary>
+            <param name="kpAnotherEdge">Another Edge</param>
+            <param name="rSharedVertices">A list of shared Vertices between the two Edges</param>
+        </member>
+        <member name="M:TopologicCore.Edge.ByStartVertexEndVertex(std.shared_ptr&lt;TopologicCore.Vertex&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.shared_ptr&lt;TopologicCore.Vertex&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+            <summary>
+Creates a straight Edge by the startVertex and endVertex.
+</summary>
+            <param name="kpStartVertex">The start Vertex</param>
+            <param name="kpEndVertex">The end Vertex</param>
+            <param name="kCopyAttributes">If True, copy the dictionaries</param>
+            <returns name="Edge">The created Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.ByCurve(opencascade.handle&lt;Geom_Curve&gt;,System.Double!System.Runtime.CompilerServices.IsConst,System.Double!System.Runtime.CompilerServices.IsConst)">
+            <summary>
+Creates an Edge by an OCCT Curve and the minimum and maximum parameters.
+</summary>
+            <param name="pOcctCurve">The underlying Curve</param>
+            <param name="rkFirstParameter">The first parameter, ranging between 0 and 1.</param>
+            <param name="rkLastParameter">The second parameter, ranging between 0 and 1. Must be larger than rkFirstParameter, otherwise they will be swapped.</param>
+            <returns name="Edge">An Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.ByCurve(NCollection_Array1&lt;gp_Pnt&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_Array1&lt;System.Double&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_Array1&lt;System.Double&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_Array1&lt;System.Int32&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32!System.Runtime.CompilerServices.IsConst,System.Boolean!System.Runtime.CompilerServices.IsConst,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+            <summary>
+Creates an Edge by NURBS curve parameters
+</summary>
+            <param name="rkOcctPoles">The OCCT poles</param>
+            <param name="rkOcctWeights">The weights</param>
+            <param name="rkOcctKnots">The knots</param>
+            <param name="rkOcctMultiplicities">The knots' multiplicities</param>
+            <param name="kDegree">The degree</param>
+            <param name="kIsPeriodic">The curve's periodic status</param>
+            <param name="kIsRational">The curve's rational status</param>
+            <returns name="Edge">An Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.Faces(std.list&lt;std.shared_ptr&lt;TopologicCore.Face&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Face&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Returns the Faces incident to the Edge.
+</summary>
+            <param name="rFaces">A list of Faces incident to the Edge</param>
+        </member>
+        <member name="M:TopologicCore.Edge.Wires(std.list&lt;std.shared_ptr&lt;TopologicCore.Wire&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Wire&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Returns the Wires incident to the Edge.
+</summary>
+            <param name="rWires">A list of Wires incident to the Edge</param>
+        </member>
+        <member name="M:TopologicCore.Edge.Vertices(std.list&lt;std.shared_ptr&lt;TopologicCore.Vertex&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Vertex&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Returns the Vertices at the ends of the Edge.
+</summary>
+            <param name="rVertices">A list of Vertices at the ends of the Edge</param>
+        </member>
+        <member name="M:TopologicCore.Edge.EndVertex">
+            <summary>
+Returns the end Vertex of the Edge.
+</summary>
+            <returns name="Vertex">The end Vertex of the Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.EndVertex(TopoDS_Edge!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Returns the end OCCT Vertex of the OCCT Edge.
+</summary>
+            <param name="rkOcctEdge">An OCCT Edge</param>
+            <returns>The end OCCT Vertex of the OCCT Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.StartVertex(TopoDS_Edge!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Returns the start OCCT Vertex of the OCCT Edge.
+</summary>
+            <param name="rkOcctEdge">An OCCT Edge</param>
+            <returns name="TopoDS_Vertex">The start OCCT Vertex of the OCCT Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.StartVertex">
+            <summary>
+Returns the start Vertex of the Edge.
+</summary>
+            <returns name="Vertex">The start Vertex of the Edge</returns>
+        </member>
+        <member name="M:TopologicCore.Edge.AdjacentEdges(std.list&lt;std.shared_ptr&lt;TopologicCore.Edge&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Edge&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Returns the Edges adjacent to the Edge.
+</summary>
+            <param name="rAdjacentEdges">&gt;A list of Edges adjacent to the Edge</param>
+        </member>
+        <member name="F:TopologicCore.Vertex.m_occtVertex">
+            <summary>
+The underlying OCCT vertex.
+</summary>
+        </member>
+        <member name="M:TopologicCore.Vertex.GetTypeAsString">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Vertex.Point">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Vertex.SetOcctVertex(TopoDS_Vertex!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctVertex" />
+        </member>
+        <member name="M:TopologicCore.Vertex.GetOcctVertex">
+            <summary />
+            <returns />
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Vertex.SetOcctShape(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctShape" />
+        </member>
+        <member name="M:TopologicCore.Vertex.GetOcctShape">
+            <summary />
+            <returns />
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Vertex.Geometry(std.list&lt;opencascade.handle&lt;Geom_Geometry&gt;,std.allocator&lt;opencascade.handle&lt;Geom_Geometry&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Return the corresponding point of this vertex. The output list only contains one vertex.
+</summary>
+            <exception cref="T:std.runtime_error">Null OCCT vertex</exception>
+            <param name="rOcctGeometries">The output parameter, containing only one point corresponding to this vertex.</param>
+        </member>
+        <member name="M:TopologicCore.Vertex.IsManifold">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Vertex.Coordinates">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Vertex.Z">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Vertex.Y">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Vertex.X">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Vertex.Edges(std.list&lt;std.shared_ptr&lt;TopologicCore.Edge&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Edge&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Returns the list of edges of which this vertex is a constituent member.
+</summary>
+            <param name="rEdges">The edges containing this vertex as a constituent member</param>
+        </member>
+        <member name="M:TopologicCore.Vertex.ByCoordinates(System.Double!System.Runtime.CompilerServices.IsConst,System.Double!System.Runtime.CompilerServices.IsConst,System.Double!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="kX" />
+            <param name="kY" />
+            <param name="kZ" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Vertex.ByPoint(opencascade.handle&lt;Geom_Point&gt;)">
+            <summary>
+Creates a vertex by a point.
+</summary>
+            <param name="pOcctPoint">An OCCT point</param>
+            <returns>The created Topologic vertex.</returns>
+        </member>
+        <member name="M:TopologicCore.Vertex.#ctor(TopoDS_Vertex!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Creates a vertex by an OCCT vertex.
+</summary>
+            <param name="rkOcctVertex">An OCCT vertex</param>
+        </member>
+        <member name="T:TopologicCore.Vertex">
+            <summary>
+The representation of a topological vertex. This class wraps OCCT's TopoDS_Vertex.
+</summary>
+        </member>
+        <member name="M:Topologic.Attributes.IntAttributeFactory.CheckType(System.Type)">
+            <summary>
+Checks the type of the value.
+</summary>
+            <param name="type">The type</param>
+            <returns name="bool">True if the value is of the correct type, otherwise false</returns>
+        </member>
+        <member name="M:Topologic.Attributes.IntAttributeFactory.Create(System.Object)">
+            <summary>
+Creates an Attribute from a key and a value.
+</summary>
+            <param name="value">A value</param>
+            <returns name="Attribute">The created Attribute</returns>
+        </member>
+        <member name="T:Topologic.Attributes.IntAttributeFactory">
+            <summary>
+(private) A factory class to create an integer Attribute.
+</summary>
+        </member>
+        <member name="M:Topologic.Utilities.ShellUtility.ByLoft(System.Collections.Generic.IList`1{Topologic.Wire})">
+            <summary>
+Creates a Shell by lofting through a set of Wires.
+</summary>
+            <param name="wires">A set of Wires</param>
+            <returns name="Shell">The created Shell</returns>
+        </member>
+        <member name="T:Topologic.Utilities.ShellUtility">
+            <summary>
+ShellUtility includes geometric methods relevant to a Shell.
+</summary>
+        </member>
+        <member name="T:Topologic.Attributes.Attribute">
+            <summary>
+An Attribute to a Topology maps an ID to its value. 
+</summary>
+        </member>
+        <member name="M:Topologic.Attributes.StringAttributeFactory.CheckType(System.Type)">
+            <summary>
+Checks the type of the value.
+</summary>
+            <param name="type">The type</param>
+            <returns name="bool">True if the value is of the correct type, otherwise false</returns>
+        </member>
+        <member name="M:Topologic.Attributes.StringAttributeFactory.Create(System.Object)">
+            <summary>
+Creates an Attribute from a key and a value.
+</summary>
+            <param name="value">A value</param>
+            <returns name="Attribute">The created Attribute</returns>
+        </member>
+        <member name="T:Topologic.Attributes.StringAttributeFactory">
+            <summary>
+(private) A factory class to create a String Attribute.
+</summary>
+        </member>
+        <member name="T:Topologic.Attributes.AttributeFactoryManager">
+            <summary>
+An AttributeFactoryManager stores the subclasses of AttributeFactory, identified by their IDs. This class is used to identify the attribute type. The ID is in the GUID format, represented as a String. A user-created AttributeFactory must be registered with a unique ID to this class.
+</summary>
+        </member>
+        <member name="M:Topologic.Attributes.ListAttributeFactory.CheckType(System.Type)">
+            <summary>
+Checks the type of the value.
+</summary>
+            <param name="type">The type</param>
+            <returns name="bool">True if the value is of the correct type, otherwise false</returns>
+        </member>
+        <member name="M:Topologic.Attributes.ListAttributeFactory.Create(System.Object)">
+            <summary>
+Creates an Attribute from a key and a value.
+</summary>
+            <param name="value">A value</param>
+            <returns name="Attribute">The created Attribute</returns>
+        </member>
+        <member name="T:Topologic.Attributes.ListAttributeFactory">
+            <summary>
+(private) A factory class to create a list Attribute.
+</summary>
+        </member>
+        <member name="M:Topologic.Attributes.AttributeFactory.CheckType(System.Type)">
+            <summary>
+Checks the type of the value.
+</summary>
+            <param name="type">The type</param>
+            <returns name="bool">True if the value is of the correct type, otherwise false</returns>
+        </member>
+        <member name="M:Topologic.Attributes.AttributeFactory.Create(System.Object)">
+            <summary>
+Creates an Attribute from a key and a value.
+</summary>
+            <param name="value">A value</param>
+            <returns name="Attribute">The created Attribute</returns>
+        </member>
+        <member name="T:Topologic.Attributes.AttributeFactory">
+            <summary>
+A public abstract factory class to create an Attribute. This class should be inherited when new Attribute classes are implemented.
+</summary>
+        </member>
+        <member name="M:Topologic.Utilities.CellUtility.InternalVertex(Topologic.Cell,System.Double)">
+            <summary>
+Returns a Vertex inside the Cell.
+</summary>
+            <param name="cell">A Cell</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Vertex">A Vertex inside the Cell</returns>
+        </member>
+        <member name="M:Topologic.Utilities.CellUtility.GetMinMax(Topologic.Cell)">
+            <summary>
+Returns six values associated to the x, y, z coordinates of the bounding box of the Cell.
+</summary>
+            <param name="cell">The Cell</param>
+            <returns>Six values associated to the x, y, z coordinates of the bounding box of the topological entity</returns>
+        </member>
+        <member name="M:Topologic.Utilities.CellUtility.Contains(Topologic.Cell,Topologic.Vertex,System.Boolean,System.Double)">
+            <summary>
+Checks if a Vertex is contained in a Cell or not.
+</summary>
+            <param name="cell">The Cell</param>
+            <param name="vertex">The Vertex</param>
+            <param name="allowOnBoundary">Is the Vertex allowed on the Cell's boundary?</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns>True or false</returns>
+        </member>
+        <member name="M:Topologic.Utilities.CellUtility.Volume(Topologic.Cell)">
+            <summary>
+Returns the volume of a Cell.
+</summary>
+            <param name="cell">The Cell</param>
+            <returns>The volume of the Cell</returns>
+        </member>
+        <member name="M:Topologic.Utilities.CellUtility.ByTwoCorners(Topologic.Vertex,Topologic.Vertex)">
+            <summary>
+Creates an Axis-Aligned Bounding Box Cell by two Vertices at the minimum and maximum corners.
+</summary>
+            <param name="minVertex">The minimum Vertex</param>
+            <param name="maxVertex">The maximum Vertex</param>
+            <returns name="Cell">The created Cell</returns>
+        </member>
+        <member name="M:Topologic.Utilities.CellUtility.BySphere(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+Creates a Cell by a Sphere.
+</summary>
+            <param name="xCentroid">The X coordinate of the centroid</param>
+            <param name="yCentroid">The Y coordinate of the centroid</param>
+            <param name="zCentroid">The Z coordinate of the centroid</param>
+            <param name="radius">The radius of the Sphere</param>
+            <returns name="Cell">The created Cell</returns>
+        </member>
+        <member name="M:Topologic.Utilities.CellUtility.ByCuboid(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+Creates a Cell by a Cuboid.
+</summary>
+            <param name="xCentroid">The X coordinate of the centroid</param>
+            <param name="yCentroid">The Y coordinate of the centroid</param>
+            <param name="zCentroid">The Z coordinate of the centroid</param>
+            <param name="xDimension">The size along the X axis</param>
+            <param name="yDimension">The size along the Y axis</param>
+            <param name="zDimension">The size along the Z axis</param>
+            <param name="xNormal">The X component of the normal</param>
+            <param name="yNormal">The Y component of the normal</param>
+            <param name="zNormal">The Z component of the normal</param>
+            <param name="xAxisX">The X component of the X-axis</param>
+            <param name="yAxisX">The X component of the Y-axis</param>
+            <param name="ZAxisX">The X component of the Z-axis</param>
+            <returns name="Cell">The created Cell</returns>
+        </member>
+        <member name="M:Topologic.Utilities.CellUtility.ByLoft(System.Collections.Generic.IList`1{Topologic.Wire})">
+            <summary>
+Creates a Cell by lofting through a set of Wires.
+</summary>
+            <param name="wires">A set of Wires</param>
+            <returns name="Cell">The created Cell</returns>
+        </member>
+        <member name="T:Topologic.Utilities.CellUtility">
+            <summary>
+CellUtility includes geometric methods relevant to a Cell.
+</summary>
+        </member>
+        <member name="M:Topologic.Factories.ApertureFactory.Create(TopologicCore.TopologyPtr!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Creates an Aperture from a TopologicCore layer Topology.
+</summary>
+            <param name="kpTopology">A TopologicCore layer Topology</param>
+            <returns name="Topology">The created Aperture</returns>
+        </member>
+        <member name="T:Topologic.Factories.ApertureFactory">
+            <summary>
+(private) A factory class to create an Aperture.
+</summary>
+        </member>
+        <member name="M:Topologic.Factories.CellFactory.Create(TopologicCore.TopologyPtr!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Creates a Cell from a TopologicCore layer Topology.
+</summary>
+            <param name="kpTopology">A TopologicCore layer Topology</param>
+            <returns name="Topology">The created Cell</returns>
+        </member>
+        <member name="T:Topologic.Factories.CellFactory">
+            <summary>
+(private) A factory class to create a Cell.
+</summary>
+        </member>
+        <member name="M:Topologic.Factories.ShellFactory.Create(TopologicCore.TopologyPtr!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Creates a Shell from a TopologicCore layer Topology.
+</summary>
+            <param name="kpTopology">A TopologicCore layer Topology</param>
+            <returns name="Topology">The created Shell</returns>
+        </member>
+        <member name="T:Topologic.Factories.ShellFactory">
+            <summary>
+(private) A factory class to create a Shell.
+</summary>
+        </member>
+        <member name="M:Topologic.Factories.WireFactory.Create(TopologicCore.TopologyPtr!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Creates a Wire from a TopologicCore layer Topology.
+</summary>
+            <param name="kpTopology">A TopologicCore layer Topology</param>
+            <returns name="Topology">The created Wire</returns>
+        </member>
+        <member name="T:Topologic.Factories.WireFactory">
+            <summary>
+(private) A factory class to create a Wire.
+</summary>
+        </member>
+        <member name="M:Topologic.Factories.EdgeFactory.Create(TopologicCore.TopologyPtr!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Creates an Edge from a TopologicCore layer Topology.
+</summary>
+            <param name="kpTopology">A TopologicCore layer Topology</param>
+            <returns name="Topology">The created Edge</returns>
+        </member>
+        <member name="T:Topologic.Factories.EdgeFactory">
+            <summary>
+(private) A factory class to create an Edge.
+</summary>
+        </member>
+        <member name="M:Topologic.Factories.CellComplexFactory.Create(TopologicCore.TopologyPtr!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Creates a CellComplex from a TopologicCore layer Topology.
+</summary>
+            <param name="kpTopology">A TopologicCore layer Topology</param>
+            <returns name="Topology">The created CellComplex</returns>
+        </member>
+        <member name="T:Topologic.Factories.CellComplexFactory">
+            <summary>
+(private) A factory class to create a CellComplex.
+</summary>
+        </member>
+        <member name="M:Topologic.Factories.TopologyFactoryManager.GetDefaultFactory(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Returns the default TopologyFactory for a TopologicCore Topology.
+</summary>
+            <param name="topology">A TopologicCore layer Topology</param>
+            <returns name="TopologyFactory">The default TopologyFactory</returns>
+        </member>
+        <member name="M:Topologic.Factories.TopologyFactoryManager.Find(System.String)">
+            <summary>
+Returns the correct TopologyFactory given a key.
+</summary>
+            <param name="key">A key</param>
+            <returns name="TopologyFactory">The TopologyFactory</returns>
+        </member>
+        <member name="M:Topologic.Factories.TopologyFactoryManager.Add(System.String,Topologic.Factories.TopologyFactory)">
+            <summary>
+Adds a TopologyFactory associated to a key.
+</summary>
+            <param name="key">A key</param>
+            <param name="value">The TopologyFactory</param>
+        </member>
+        <member name="M:Topologic.Factories.TopologyFactoryManager.Add(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,Topologic.Factories.TopologyFactory)">
+            <summary>
+Adds a TopologyFactory with the key given by the Topology's ID.
+</summary>
+            <param name="topology">The Topology</param>
+            <param name="value">The TopologyFactory</param>
+        </member>
+        <member name="P:Topologic.Factories.TopologyFactoryManager.Instance">
+            <summary>
+Returns the instance of the TopologyFactoryManager.
+</summary>
+            <returns name="Topology">The TopologyFactoryManager's instance</returns>
+        </member>
+        <member name="T:Topologic.Factories.TopologyFactoryManager">
+            <summary>
+A TopologyFactoryManager stores the subclasses of TopologyFactory, identified by their IDs. This class is used to identify the Topology to be created from an OCCT shape. The ID is in the GUID format, represented as a String.  A user-created TopologyFactory must be registered with a unique ID to this class.
+</summary>
+        </member>
+        <member name="T:TopologicCore.TopologyPtr">
+            <summary>
+Used by TopologyFactory to pass smart pointers
+</summary>
+        </member>
+        <member name="M:TopologicCore.Topology.FixBooleanOperandFace(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_DataMap&lt;TopoDS_Shape,TopoDS_Shape,TopTools_ShapeMapHasher&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctShape" />
+            <param name="rMapFaceToFixedFace" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.FixBooleanOperandShell(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctShape" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.FixBooleanOperandCell(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctShape" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.TransferMakeShapeContents(BRepBuilderAPI_MakeShape*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_List&lt;TopoDS_Shape&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctMakeShape" />
+            <param name="rkOcctShapes" />
+        </member>
+        <member name="M:TopologicCore.Topology.TransferMakeShapeContents(BRepBuilderAPI_MakeShape*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.list&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctMakeShape" />
+            <param name="rkShapes" />
+        </member>
+        <member name="M:TopologicCore.Topology.PostprocessBooleanResult(TopoDS_Shape*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rOcctBooleanResult" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.RegularBooleanOperation(NCollection_List&lt;TopoDS_Shape&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_List&lt;TopoDS_Shape&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,BRepAlgoAPI_BooleanOperation*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctArgumentsA" />
+            <param name="rkOcctArgumentsB" />
+            <param name="rOcctBooleanOperation" />
+        </member>
+        <member name="M:TopologicCore.Topology.NonRegularBooleanOperation(NCollection_List&lt;TopoDS_Shape&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_List&lt;TopoDS_Shape&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,BOPAlgo_CellsBuilder*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctArgumentsA" />
+            <param name="rkOcctArgumentsB" />
+            <param name="rOcctCellsBuilder" />
+        </member>
+        <member name="M:TopologicCore.Topology.NonRegularBooleanOperation(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,BOPAlgo_CellsBuilder*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_List&lt;TopoDS_Shape&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_List&lt;TopoDS_Shape&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_DataMap&lt;TopoDS_Shape,TopoDS_Shape,TopTools_ShapeMapHasher&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_DataMap&lt;TopoDS_Shape,TopoDS_Shape,TopTools_ShapeMapHasher&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpOtherTopology" />
+            <param name="rOcctCellsBuilder" />
+            <param name="rOcctCellsBuildersOperandsA" />
+            <param name="rOcctCellsBuildersOperandsB" />
+            <param name="rOcctMapFaceToFixedFaceA" />
+            <param name="rOcctMapFaceToFixedFaceB" />
+        </member>
+        <member name="M:TopologicCore.Topology.AddBooleanOperands(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_List&lt;TopoDS_Shape&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_List&lt;TopoDS_Shape&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpOtherTopology" />
+            <param name="rOcctCellsBuildersOperandsA" />
+            <param name="rOcctCellsBuildersOperandsB" />
+        </member>
+        <member name="M:TopologicCore.Topology.AddBooleanOperands(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,BOPAlgo_CellsBuilder*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_List&lt;TopoDS_Shape&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_List&lt;TopoDS_Shape&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_DataMap&lt;TopoDS_Shape,TopoDS_Shape,TopTools_ShapeMapHasher&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_DataMap&lt;TopoDS_Shape,TopoDS_Shape,TopTools_ShapeMapHasher&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpOtherTopology" />
+            <param name="rOcctCellsBuilder" />
+            <param name="rOcctCellsBuildersOperandsA" />
+            <param name="rOcctCellsBuildersOperandsB" />
+            <param name="rOcctMapFaceToFixedFaceA" />
+            <param name="rOcctMapFaceToFixedFaceB" />
+        </member>
+        <member name="M:TopologicCore.Topology.Analyze(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="rkShape" />
+            <param name="kLevel" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.MakeCompSolid(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctShape" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.SubTopologies(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_List&lt;TopoDS_Shape&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkShape" />
+            <param name="rSubTopologies" />
+        </member>
+        <member name="M:TopologicCore.Topology.GetInstanceGUID">
+            <summary>
+Identifies the instance type by GUID. Used in the factory class system since GUID is easily extendable.
+</summary>
+            <returns>The GUID</returns>
+        </member>
+        <member name="M:TopologicCore.Topology.GetClassGUID">
+            <summary>
+                <para>
+Identifies the class type by GUID. Used in the factory class system since GUID is easily extendable.
+WARNING: Do not use this to identify the instance!
+</para>
+            </summary>
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.CenterOfMass">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.SelectSubtopology(std.shared_ptr&lt;TopologicCore.Vertex&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="kpSelector" />
+            <param name="kTypeFilter" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.ClosestSimplestSubshape(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpTopology" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.Members(std.list&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rMembers" />
+        </member>
+        <member name="M:TopologicCore.Topology.Members(NCollection_List&lt;TopoDS_Shape&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rOcctMembers" />
+        </member>
+        <member name="M:TopologicCore.Topology.IsSame(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpTopology" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.ReplaceSubentity(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctOriginalSubshape" />
+            <param name="rkOcctNewSubshape" />
+        </member>
+        <member name="M:TopologicCore.Topology.ReplaceSubentity(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOriginalSubshape" />
+            <param name="rkNewSubshape" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.CopyOcct(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctShape" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.ShallowCopy">
+            <summary>
+Copy the whole content/context hierarchy.
+</summary>
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.DeepCopy">
+            <summary>
+Copy the whole content/context hierarchy.
+</summary>
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.DownwardNavigation(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,TopAbs_ShapeEnum!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,NCollection_Map&lt;TopoDS_Shape,TopTools_ShapeMapHasher&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctShape" />
+            <param name="rkShapeEnum" />
+            <param name="rOcctMembers" />
+        </member>
+        <member name="M:TopologicCore.Topology.CellComplexes(std.list&lt;std.shared_ptr&lt;TopologicCore.CellComplex&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.CellComplex&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rCellComplexes" />
+        </member>
+        <member name="M:TopologicCore.Topology.Cells(std.list&lt;std.shared_ptr&lt;TopologicCore.Cell&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Cell&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rCells" />
+        </member>
+        <member name="M:TopologicCore.Topology.Wires(std.list&lt;std.shared_ptr&lt;TopologicCore.Wire&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Wire&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rWires" />
+        </member>
+        <member name="M:TopologicCore.Topology.Vertices(std.list&lt;std.shared_ptr&lt;TopologicCore.Vertex&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Vertex&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rVertices" />
+        </member>
+        <member name="M:TopologicCore.Topology.Faces(std.list&lt;std.shared_ptr&lt;TopologicCore.Face&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Face&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rFaces" />
+        </member>
+        <member name="M:TopologicCore.Topology.Edges(std.list&lt;std.shared_ptr&lt;TopologicCore.Edge&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Edge&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rEdges" />
+        </member>
+        <member name="M:TopologicCore.Topology.Shells(std.list&lt;std.shared_ptr&lt;TopologicCore.Shell&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Shell&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rShells" />
+        </member>
+        <member name="M:TopologicCore.Topology.GetTypeAsString">
+            <summary>
+Gets the type of this Topology as a String.
+</summary>
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.SubTopologies(std.list&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Returns all sub-entities that have no other parents than this topology, i.e. do not belong to other entities.
+</summary>
+            <param name="rSubTopologies">The sub-topologies</param>
+        </member>
+        <member name="M:TopologicCore.Topology.GetOcctShape">
+            <summary />
+            <returns />
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.Dimensionality">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.Analyze">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.BooleanSubTopologyContainment(TopoDS_Shape*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rOcctShape" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.Simplify(TopoDS_Shape*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rOcctShape" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.ByImportedBRep(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkFilePath" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.ExportToBRep(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkFilePath" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.IsManifold">
+            <summary>
+Returns True if this Topology is manifold, otherwise a False.
+</summary>
+            <returns name="bool">True if this Topology is manifold, otherwise a False.</returns>
+        </member>
+        <member name="M:TopologicCore.Topology.Contexts(std.list&lt;std.shared_ptr&lt;TopologicCore.Context&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Context&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.SubContents(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.list&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctShape" />
+            <param name="rSubContents" />
+        </member>
+        <member name="M:TopologicCore.Topology.SubContents(std.list&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rSubContents" />
+        </member>
+        <member name="M:TopologicCore.Topology.Apertures(std.list&lt;std.shared_ptr&lt;TopologicCore.Aperture&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Aperture&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rApertures" />
+        </member>
+        <member name="M:TopologicCore.Topology.Contents(std.list&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rContents" />
+        </member>
+        <member name="M:TopologicCore.Topology.Geometry(std.list&lt;opencascade.handle&lt;Geom_Geometry&gt;,std.allocator&lt;opencascade.handle&lt;Geom_Geometry&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rOcctGeometries" />
+        </member>
+        <member name="M:TopologicCore.Topology.TransferContents(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctShape1" />
+            <param name="kpTopology2" />
+        </member>
+        <member name="M:TopologicCore.Topology.Divide(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="kpTool" />
+            <param name="kTransferDictionary" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.XOR(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="kpOtherTopology" />
+            <param name="kTransferDictionary" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.Union(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="kpOtherTopology" />
+            <param name="kTransferDictionary" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.Slice(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="kpTool" />
+            <param name="kTransferDictionary" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.SelfMerge">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.Merge(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="kpOtherTopology" />
+            <param name="kTransferDictionary" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.Intersect(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="kpOtherTopology" />
+            <param name="kTransferDictionary" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.Imprint(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="kpTool" />
+            <param name="kTransferDictionary" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.Impose(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="kpTool" />
+            <param name="kTransferDictionary" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.Difference(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="kpOtherTopology" />
+            <param name="kTransferDictionary" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.OcctSewFaces(NCollection_List&lt;TopoDS_Shape&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Double!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="rkOcctFaces" />
+            <param name="kTolerance" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.SetDictionaries(std.list&lt;std.shared_ptr&lt;TopologicCore.Vertex&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Vertex&gt;&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.list&lt;std.map&lt;std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,std.shared_ptr&lt;TopologicCore.Attribute&gt;,std.less&lt;std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServ">
+            <summary />
+            <param name="rkSelectors" />
+            <param name="rkDictionaries" />
+            <param name="kTypeFilter" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.SharedTopologies(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32!System.Runtime.CompilerServices.IsConst,std.list&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpTopology" />
+            <param name="kFilterType" />
+            <param name="rSharedTopologies" />
+        </member>
+        <member name="M:TopologicCore.Topology.RemoveContexts(std.list&lt;std.shared_ptr&lt;TopologicCore.Context&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Context&gt;&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkContexts" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.RemoveContext(std.shared_ptr&lt;TopologicCore.Context&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkContext" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.AddContexts(std.list&lt;std.shared_ptr&lt;TopologicCore.Context&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Context&gt;&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkContexts" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.AddContext(std.shared_ptr&lt;TopologicCore.Context&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkContext" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.RemoveContents(std.list&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkTopologies" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.RemoveContent(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkTopology" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.AddContents(std.list&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="rkContentTopologies" />
+            <param name="kTypeFilter" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.AddContent(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="rkTopology" />
+            <param name="kTypeFilter" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.AddContent(std.shared_ptr&lt;TopologicCore.Topology&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkTopology" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.ByFaces(std.list&lt;std.shared_ptr&lt;TopologicCore.Face&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Face&gt;&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Double!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="rkFaces" />
+            <param name="kTolerance" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.ByVertexIndex(std.vector&lt;std.shared_ptr&lt;TopologicCore.Vertex&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Vertex&gt;&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.list&lt;std.list&lt;System.Int32,std.allocator&lt;System.Int32&gt;&gt;,std.allocator&lt;std.list&lt;System.Int32,std.allocator&lt;System.Int32&gt;&gt;&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.list&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;,std.allocator&lt;std.shared_ptr&lt;TopologicCore.Topology&gt;&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkVertices" />
+            <param name="rkVertexIndices" />
+            <param name="rTopologies" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.ByContext(std.shared_ptr&lt;TopologicCore.Context&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpContext" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.ByGeometry(opencascade.handle&lt;Geom_Geometry&gt;)">
+            <summary />
+            <param name="pGeometry" />
+            <returns />
+        </member>
+        <member name="M:TopologicCore.Topology.ByOcctShape(TopoDS_Shape!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="rkOcctShape" />
+            <param name="rkInstanceGuid" />
+            <returns />
+        </member>
+        <member name="T:TopologicCore.Topology">
+            <summary>
+A Topology is an abstract superclass that constructors, properties and methods used by other subclasses that extend it.
+</summary>
+        </member>
+        <member name="T:TopologicCore.TopologicalQuery">
+            <summary>
+The root class in the Topologic library
+</summary>
+        </member>
+        <member name="M:Topologic.Factories.VertexFactory.Create(TopologicCore.TopologyPtr!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Creates a Vertex from a TopologicCore layer Topology.
+</summary>
+            <param name="kpTopology">A TopologicCore layer Topology</param>
+            <returns name="Topology">The created Vertex</returns>
+        </member>
+        <member name="T:Topologic.Factories.VertexFactory">
+            <summary>
+(private) A factory class to create a Vertex.
+</summary>
+        </member>
+        <member name="M:Topologic.Utilities.Bitwise.NOT(System.Int32)">
+            <summary>
+Performs a bitwise NOT operation between the arguments (in their binary form).
+</summary>
+            <param name="argument">An argument</param>
+            <returns>The bitwise result</returns>
+        </member>
+        <member name="M:Topologic.Utilities.Bitwise.XOR(System.Collections.Generic.IList`1{System.Int32})">
+            <summary>
+Performs a bitwise XOR operation between the arguments (in their binary form).
+</summary>
+            <param name="arguments">A list of arguments</param>
+            <returns>The bitwise result</returns>
+        </member>
+        <member name="M:Topologic.Utilities.Bitwise.OR(System.Collections.Generic.IList`1{System.Int32})">
+            <summary>
+Performs a bitwise OR operation between the arguments (in their binary form).
+</summary>
+            <param name="arguments">A list of arguments</param>
+            <returns>The bitwise result</returns>
+        </member>
+        <member name="M:Topologic.Utilities.Bitwise.AND(System.Collections.Generic.IList`1{System.Int32})">
+            <summary>
+Performs a bitwise AND operation between the arguments (in their binary form).
+</summary>
+            <param name="arguments">A list of arguments</param>
+            <returns>The bitwise result</returns>
+        </member>
+        <member name="T:Topologic.Utilities.Bitwise">
+            <summary>
+Bitwise operators such as AND, OR, XOR and NOT are included in this class.
+</summary>
+        </member>
+        <member name="F:Topologic.Cluster.m_pCoreCluster">
+            <summary />
+        </member>
+        <member name="M:Topologic.Cluster.GetCoreTopologicalQuery">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Topologic.Cluster.#ctor(std.shared_ptr&lt;TopologicCore.Cluster&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpCoreCluster" />
+        </member>
+        <member name="M:Topologic.Cluster.Type">
+            <summary>
+Returns the type associated to Cluster.
+</summary>
+            <returns>The type associated to Cluster</returns>
+        </member>
+        <member name="P:Topologic.Cluster.CellComplexes">
+            <summary>
+Returns the CellComplexes constituent to the Cluster.
+</summary>
+            <returns name="CellComplex[]">A list of CellComplexes constituent to the Cluster</returns>
+        </member>
+        <member name="P:Topologic.Cluster.Cells">
+            <summary>
+Returns the Cells constituent to the Cluster.
+</summary>
+            <returns name="Cell[]">A list of Cells constituent to the Cluster</returns>
+        </member>
+        <member name="P:Topologic.Cluster.Vertices">
+            <summary>
+Returns the Vertices constituent to the Cluster.
+</summary>
+            <returns name="Vertex[]">A list of Vertices constituent to the Cluster</returns>
+        </member>
+        <member name="P:Topologic.Cluster.Edges">
+            <summary>
+Returns the Edges constituent to the Cluster.
+</summary>
+            <returns name="Edge[]">A list of Edges constituent to the Cluster</returns>
+        </member>
+        <member name="P:Topologic.Cluster.Wires">
+            <summary>
+Returns the Wires constituent to the Cluster.
+</summary>
+            <returns name="Wire[]">A list of Wires constituent to the Cluster</returns>
+        </member>
+        <member name="P:Topologic.Cluster.Faces">
+            <summary>
+Returns the Faces constituent to the Cluster.
+</summary>
+            <returns name="Face[]">A list of Faces constituent to the Cluster</returns>
+        </member>
+        <member name="P:Topologic.Cluster.Shells">
+            <summary>
+Returns the Shells constituent to the Cluster.
+</summary>
+            <returns name="Shell[]">A list of Shells constituent to the Cluster</returns>
+        </member>
+        <member name="P:Topologic.Cluster.BasicGeometry">
+            <summary>
+Creates a geometry from Cluster.
+</summary>
+            <returns>The created geometry</returns>
+        </member>
+        <member name="M:Topologic.Cluster.RemoveTopology(Topologic.Topology)">
+            <summary>
+Removes Topology from a Cluster and returns the resulting Topology.
+</summary>
+            <param name="topology">A Topology</param>
+            <returns>The created Topology</returns>
+        </member>
+        <member name="M:Topologic.Cluster.AddTopology(Topologic.Topology)">
+            <summary>
+Adds Topology to a Cluster and returns the resulting Topology.
+</summary>
+            <param name="topology">A Topology</param>
+            <returns>The created Topology</returns>
+        </member>
+        <member name="M:Topologic.Cluster.ByTopologies(System.Collections.Generic.IList`1{Topologic.Topology})">
+            <summary>
+Creates a Cluster by a set of Topologies. 
+</summary>
+            <param name="topologies">A set of Topologies</param>
+            <returns name="Cluster">The created Cluster</returns>
+        </member>
+        <member name="T:Topologic.Cluster">
+            <summary>
+A Cluster is a collection of any topologic entities. It may be contiguous or not and may be manifold or non-manifold. Clusters can be nested within other Clusters.
+</summary>
+        </member>
+        <member name="M:Topologic.Factories.ClusterFactory.Create(TopologicCore.TopologyPtr!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Creates a Cluster from a TopologicCore layer Topology.
+</summary>
+            <param name="kpTopology">A TopologicCore layer Topology</param>
+            <returns name="Topology">The created Cluster</returns>
+        </member>
+        <member name="T:Topologic.Factories.ClusterFactory">
+            <summary>
+(private) A factory class to create a Cluster.
+</summary>
+        </member>
+        <member name="M:Topologic.Utilities.EdgeUtility.AdjacentWires(Topologic.Edge,Topologic.Topology)">
+            <summary>
+Returns a list of Wires that are the adjacent to the input Edge.
+</summary>
+            <param name="edge">An Edge</param>
+            <param name="parentTopology">A parent Topology</param>
+            <returns name="Wire[]">A list of Wires adjacent to the input edge</returns>
+        </member>
+        <member name="M:Topologic.Utilities.EdgeUtility.VertexAtParameter(Topologic.Edge,System.Double)">
+            <summary>
+Returns the Vertex at a given parameter of the Edge.
+</summary>
+            <param name="edge">The Edge for which the parameter is given</param>
+            <param name="u">The U parametric coordinate of the Vertex on the Edge</param>
+            <returns>The Vertex at a given parameter of the Edge</returns>
+        </member>
+        <member name="M:Topologic.Utilities.EdgeUtility.ParameterAtVertex(Topologic.Edge,Topologic.Vertex)">
+            <summary>
+Returns the parameter at a given Vertex on the Edge.
+</summary>
+            <param name="edge">The Edge</param>
+            <param name="vertex">The Vertex at which the parameter is sought</param>
+            <returns>The parameter at a given Vertex on the Edge</returns>
+        </member>
+        <member name="M:Topologic.Utilities.EdgeUtility.ByNurbsCurve(System.Collections.Generic.IList`1{Topologic.Vertex},System.Collections.Generic.IList`1{System.Double},System.Collections.Generic.IList`1{System.Double},System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+Creates an Edge by a NURBS curve.
+</summary>
+            <param name="controlPoints">A list of control points</param>
+            <param name="knots">A list of knots</param>
+            <param name="weights">A list of weights</param>
+            <param name="degree">The degree</param>
+            <param name="isPeriodic">True if it is periodic, otherwise false</param>
+            <param name="isRational">True if it is rational, otherwise false</param>
+            <returns>The created Edge</returns>
+        </member>
+        <member name="M:Topologic.Utilities.EdgeUtility.ByEllipse(Topologic.Vertex,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+Creates an Edge by an ellipse.
+</summary>
+            <param name="centerPoint">The center point of the ellipse</param>
+            <param name="majorRadius">The major radius of the ellipse</param>
+            <param name="minorRadius">The minor radius of the ellipse</param>
+            <param name="xAxisX">The starting X value of the ellipse on the X axis</param>
+            <param name="xAxisY">The starting X value of the ellipse on the Y axis</param>
+            <param name="xAxisZ">The starting X value of the ellipse on the Z axis</param>
+            <param name="normalX">The X component of the ellipse's normal</param>
+            <param name="normalY">The Y component of the ellipse's normal</param>
+            <param name="normalZ">The Z component of the ellipse's normal</param>
+            <returns>The created Edge</returns>
+        </member>
+        <member name="M:Topologic.Utilities.EdgeUtility.ByCircle(Topologic.Vertex,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+Creates an Edge by a circle.
+</summary>
+            <param name="centerPoint">The center point of the circle</param>
+            <param name="radius">The radius of the circle</param>
+            <param name="xAxisX">The starting X value of the circle on the X axis</param>
+            <param name="xAxisY">The starting X value of the circle on the Y axis</param>
+            <param name="xAxisZ">The starting X value of the circle on the Z axis</param>
+            <param name="normalX">The X component of the circle's normal</param>
+            <param name="normalY">The Y component of the circle's normal</param>
+            <param name="normalZ">The Z component of the circle's normal</param>
+            <returns>The created Edge</returns>
+        </member>
+        <member name="M:Topologic.Utilities.EdgeUtility.ByVertices(System.Collections.Generic.IList`1{Topologic.Vertex})">
+            <summary>
+Creates an Edge (of any type) by a set of Vertices.
+</summary>
+            <param name="vertices">A set of Vertices</param>
+            <returns>The created Edge</returns>
+        </member>
+        <member name="T:Topologic.Utilities.EdgeUtility">
+            <summary>
+EdgeUtility includes geometric methods relevant to an Edge.
+</summary>
+        </member>
+        <member name="M:Topologic.Utilities.FaceUtility.IsInside(Topologic.Face,Topologic.Vertex,System.Double)">
+            <summary>
+Checks if a Vertex is located inside a Face within a tolerance value.
+</summary>
+            <param name="face">A Face</param>
+            <param name="vertex">A Vertex</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="bool">True if the Vertex is inside the Face within at tolerance value, otherwise False</returns>
+        </member>
+        <member name="M:Topologic.Utilities.FaceUtility.InternalVertex(Topologic.Face,System.Double)">
+            <summary>
+Returns a Vertex inside the Face.
+</summary>
+            <param name="face">A Face</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Vertex">A Vertex inside the Face</returns>
+        </member>
+        <member name="M:Topologic.Utilities.FaceUtility.AdjacentCells(Topologic.Face,Topologic.Topology)">
+            <summary>
+Returns a list of Cells that are the adjacent to the input Face.
+</summary>
+            <param name="face">A Face</param>
+            <param name="parentTopology">A parent Topology</param>
+            <returns name="Cell[]">A list of Cells adjacent to the input Face</returns>
+        </member>
+        <member name="M:Topologic.Utilities.FaceUtility.AdjacentShells(Topologic.Face,Topologic.Topology)">
+            <summary>
+Returns a list of Shells that are the adjacent to the input Face.
+</summary>
+            <param name="face">A Face</param>
+            <param name="parentTopology">A parent Topology</param>
+            <returns name="Shell[]">A list of Shells adjacent to the input Face</returns>
+        </member>
+        <member name="M:Topologic.Utilities.FaceUtility.Triangulate(Topologic.Face,System.Double)">
+            <summary>
+Triangulates a Face given a deflection value.
+</summary>
+            <param name="face">The Face to be triangulated</param>
+            <param name="deflection">The deflection value to be applied for triangulation</param>
+            <returns name="Face">The triangulated Face</returns>
+        </member>
+        <member name="M:Topologic.Utilities.FaceUtility.TrimByWire(Topologic.Face,Topologic.Wire,System.Boolean)">
+            <summary>
+Trims a Face with a Wire. The portion of the Face inside the Wire will be returned.
+</summary>
+            <param name="face">The Face to be trimmed</param>
+            <param name="wire">The Wire with which the Face will be trimmed</param>
+            <param name="reverseWire">If true, reverse the orientation of the wire</param>
+            <returns name="Face">The trimmed Face</returns>
+        </member>
+        <member name="M:Topologic.Utilities.FaceUtility.VertexAtParameters(Topologic.Face,System.Double,System.Double)">
+            <summary>
+Returns the Vertex at a given parameter of the Face.
+</summary>
+            <param name="face">A Face</param>
+            <param name="u">The U parameterof the Vertex on the Face</param>
+            <param name="v">The V parameter of the Vertex on the Face</param>
+            <returns name="Vertex">The Vertex at the given parameter of the Face</returns>
+        </member>
+        <member name="M:Topologic.Utilities.FaceUtility.NormalAtParameters(Topologic.Face,System.Double,System.Double)">
+            <summary>
+Returns the normal (vector) given the UV parameters of a Face.
+</summary>
+            <param name="face">A Face</param>
+            <param name="u">The U parameter of the Face</param>
+            <param name="v">The U parameter of the Face</param>
+            <returns>The normal (vector) at a parameter of a Face</returns>
+        </member>
+        <member name="M:Topologic.Utilities.FaceUtility.ParametersAtVertex(Topologic.Face,Topologic.Vertex)">
+            <summary>
+Returns the UV parameters at a given Vertex on a Face.
+</summary>
+            <param name="face">A Face</param>
+            <param name="vertex">A Vertex on a Face</param>
+            <returns name="UV">The UV parameters</returns>
+        </member>
+        <member name="M:Topologic.Utilities.FaceUtility.ByVertices(System.Collections.Generic.IList`1{System.Collections.Generic.IList`1{Topologic.Vertex}})">
+            <summary>
+Creates a Face (of any type) by a set of Vertices.
+</summary>
+            <param name="vertices">A Set of Vertices</param>
+            <returns name="Face">The created Face</returns>
+        </member>
+        <member name="M:Topologic.Utilities.FaceUtility.Area(Topologic.Face)">
+            <summary>
+Returns the area of a Face.
+</summary>
+            <param name="face">The Face</param>
+            <returns>The area of the Face</returns>
+        </member>
+        <member name="T:Topologic.Utilities.FaceUtility">
+            <summary>
+FaceUtility includes geometric methods relevant to a Face.
+</summary>
+        </member>
+        <member name="F:Topologic.Cell.m_pCoreCell">
+            <summary />
+        </member>
+        <member name="M:Topologic.Cell.GetCoreTopologicalQuery">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Topologic.Cell.ByCuboid(Autodesk.DesignScript.Geometry.Cuboid)">
+            <summary>
+Creates a Cell from a cuboid.
+</summary>
+            <param name="cuboid">A cuboid</param>
+            <returns name="Cell">The created Cell</returns>
+        </member>
+        <member name="M:Topologic.Cell.ByCone(Autodesk.DesignScript.Geometry.Cone)">
+            <summary>
+Creates a Cell from a cone.
+</summary>
+            <param name="cone">A cone</param>
+            <returns name="Cell">The created Cell</returns>
+        </member>
+        <member name="M:Topologic.Cell.ByCylinder(Autodesk.DesignScript.Geometry.Cylinder)">
+            <summary>
+Creates a Cell from a cylinder.
+</summary>
+            <param name="cylinder">A cylinder</param>
+            <returns name="Cell">The created Cell</returns>
+        </member>
+        <member name="M:Topologic.Cell.BySphere(Autodesk.DesignScript.Geometry.Sphere)">
+            <summary>
+Creates a Cell from a sphere.
+</summary>
+            <param name="sphere">A sphere</param>
+            <returns name="Cell">The created Cell</returns>
+        </member>
+        <member name="M:Topologic.Cell.BySolid(Autodesk.DesignScript.Geometry.Solid,System.Double)">
+            <summary>
+Creates a Cell from a solid.
+</summary>
+            <param name="solid">A solid</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Cell">The created Cell</returns>
+        </member>
+        <member name="M:Topologic.Cell.#ctor(std.shared_ptr&lt;TopologicCore.Cell&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpCoreCell" />
+        </member>
+        <member name="M:Topologic.Cell.Type">
+            <summary>
+Returns the type associated to Cell.
+</summary>
+            <returns name="int">The type associated to Cell</returns>
+        </member>
+        <member name="P:Topologic.Cell.BasicGeometry">
+            <summary>
+Creates a geometry from Cell.
+</summary>
+            <returns>The created geometry</returns>
+        </member>
+        <member name="P:Topologic.Cell.InternalBoundaries">
+            <summary>
+Returns the internal boundaries (Shells) of the Cell.
+</summary>
+            <returns name="Shell[]">A list of the internal boundaries (Shells) of the Cell</returns>
+        </member>
+        <member name="P:Topologic.Cell.ExternalBoundary">
+            <summary>
+Returns the external boundary (Shell) of the Cell.
+</summary>
+            <returns name="Shell">The external boundary (Shell) of the Cell</returns>
+        </member>
+        <member name="M:Topologic.Cell.SharedVertices(Topologic.Cell)">
+            <summary>
+Returns the shared Vertices between two Cells. 
+</summary>
+            <param name="cell">Another Cell</param>
+            <returns name="Vertex[]">A list of shared Vertices between two Cells</returns>
+        </member>
+        <member name="M:Topologic.Cell.SharedEdges(Topologic.Cell)">
+            <summary>
+Returns the shared Edges between two Cells. 
+</summary>
+            <param name="cell">Another Cell</param>
+            <returns name="Edge[]">A list of shared Edges between two Cells</returns>
+        </member>
+        <member name="M:Topologic.Cell.SharedFaces(Topologic.Cell)">
+            <summary>
+Returns the shared Faces between two Cells. 
+</summary>
+            <param name="cell">Another Cell</param>
+            <returns name="Face[]">A list of shared Faces between two Cells</returns>
+        </member>
+        <member name="P:Topologic.Cell.AdjacentCells">
+            <summary>
+Returns the Cells adjacent to the Cell.
+</summary>
+            <returns name="Cell[]">A list of Cells adjacent to the Cell</returns>
+        </member>
+        <member name="P:Topologic.Cell.Vertices">
+            <summary>
+Returns the Vertices constituent to the Cell.
+</summary>
+            <returns name="Vertex[]">A list of Vertices constituent to the Cell</returns>
+        </member>
+        <member name="P:Topologic.Cell.Edges">
+            <summary>
+Returns the Edges constituent to the Cell.
+</summary>
+            <returns name="Edge[]">A list of Edges constituent to the Cell</returns>
+        </member>
+        <member name="P:Topologic.Cell.Wires">
+            <summary>
+Returns the Wires constituent to the Cell.
+</summary>
+            <returns name="Wire[]">A list of Wires constituent to the Cell</returns>
+        </member>
+        <member name="P:Topologic.Cell.Faces">
+            <summary>
+Returns the Faces constituent to the Cell.
+</summary>
+            <returns name="Face[]">A list of Faces constituent to the Cell</returns>
+        </member>
+        <member name="P:Topologic.Cell.Shells">
+            <summary>
+Returns the Shells constituent to the Cell.
+</summary>
+            <returns name="Shell[]">A list of Shells constituent to the Cell</returns>
+        </member>
+        <member name="P:Topologic.Cell.CellComplexes">
+            <summary>
+Returns the CellComplexes which contain the Cell.
+</summary>
+            <returns name="CellComplex[]">A list of CellComplexes containing the Cell</returns>
+        </member>
+        <member name="M:Topologic.Cell.ByShell(Topologic.Shell)">
+            <summary>
+Creates a Cell from a Shell. The Shell must be closed, otherwise an exception is thrown.
+</summary>
+            <param name="shell">A Shell</param>
+            <returns name="Cell">The created Cell</returns>
+        </member>
+        <member name="M:Topologic.Cell.ByFaces(System.Collections.Generic.IList`1{Topologic.Face},System.Double)">
+            <summary>
+Creates a Cell by a set of Faces.
+</summary>
+            <param name="faces">A set of Faces</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Cell">The created Cell</returns>
+        </member>
+        <member name="T:Topologic.Cell">
+            <summary>
+A Cell is a three-dimensional region defined by a collection of closed Shells. It may be manifold or non-manifold.
+</summary>
+        </member>
+        <member name="F:Topologic.Shell.m_pCoreShell">
+            <summary />
+        </member>
+        <member name="M:Topologic.Shell.GetCoreTopologicalQuery">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Topologic.Shell.#ctor(std.shared_ptr&lt;TopologicCore.Shell&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpCoreShell" />
+        </member>
+        <member name="M:Topologic.Shell.Type">
+            <summary>
+Returns the type associated to Shell.
+</summary>
+            <returns>The type associated to Shell</returns>
+        </member>
+        <member name="P:Topologic.Shell.BasicGeometry">
+            <summary>
+Creates a geometry from Shell.
+</summary>
+            <returns>The created geometry</returns>
+        </member>
+        <member name="M:Topologic.Shell.ByFaces(System.Collections.Generic.IList`1{Topologic.Face},System.Double)">
+            <summary>
+Creates a Shell by a set of connected Faces.
+</summary>
+            <param name="faces">A set of Faces</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Shell">The created Shell</returns>
+        </member>
+        <member name="P:Topologic.Shell.IsClosed">
+            <summary>
+Checks if the Shell is closed.
+</summary>
+            <returns name="bool">True if the Shell is closed, otherwise false</returns>
+        </member>
+        <member name="P:Topologic.Shell.Vertices">
+            <summary>
+Returns the Vertices constituent to the Shell.
+</summary>
+            <returns name="Vertex[]">A list of the constituent Vertices</returns>
+        </member>
+        <member name="P:Topologic.Shell.Edges">
+            <summary>
+Returns the Edges constituent to the Shell.
+</summary>
+            <returns name="Edge[]">A list of the constituent Edges</returns>
+        </member>
+        <member name="P:Topologic.Shell.Wires">
+            <summary>
+Returns the Wires constituent to the Shell.
+</summary>
+            <returns name="Wire[]">A list of the constituent Wires</returns>
+        </member>
+        <member name="P:Topologic.Shell.Faces">
+            <summary>
+Returns the Faces constituent to the Shell. 
+</summary>
+            <returns name="Face[]">A list of the constituent Faces</returns>
+        </member>
+        <member name="P:Topologic.Shell.Cells">
+            <summary>
+Returns the Cells bounded by the Shell.
+</summary>
+            <returns name="Cell[]">A list of Cells bounded by the Shell</returns>
+        </member>
+        <member name="T:Topologic.Shell">
+            <summary>
+A Shell is a contiguous collection of Faces, where adjacent Faces are connected by shared Edges. It may be open or closed and may be manifold or non-manifold. 
+</summary>
+        </member>
+        <member name="F:Topologic.Wire.m_pCoreWire">
+            <summary />
+        </member>
+        <member name="M:Topologic.Wire.GetCoreTopologicalQuery">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Topologic.Wire.ByPolyCurve(Autodesk.DesignScript.Geometry.PolyCurve)">
+            <summary>
+Creates a Wire by a Dynamo polycurve (including a polygon).
+</summary>
+            <param name="polyCurve">The polycurve</param>
+            <returns name="Wire">The created Topologic wire</returns>
+        </member>
+        <member name="M:Topologic.Wire.#ctor(std.shared_ptr&lt;TopologicCore.Wire&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpCoreWire" />
+        </member>
+        <member name="M:Topologic.Wire.Type">
+            <summary>
+Returns the type associated to Wire.
+</summary>
+            <returns>The type associated to Wire</returns>
+        </member>
+        <member name="P:Topologic.Wire.BasicGeometry">
+            <summary>
+Creates a geometry from Wire.
+</summary>
+            <returns>The created geometry</returns>
+        </member>
+        <member name="P:Topologic.Wire.IsClosed">
+            <summary>
+Checks if the Wire is closed.
+</summary>
+            <returns name="bool">True if the Wire is closed, otherwise false</returns>
+        </member>
+        <member name="M:Topologic.Wire.GetNumberOfBranches">
+            <summary>
+Returns the number of branches of the Wire.
+</summary>
+            <returns>The number of branches</returns>
+        </member>
+        <member name="P:Topologic.Wire.Vertices">
+            <summary>
+Returns the Vertices constituent to the Wire. NOTE: This method will automatically identify its loop order property.
+</summary>
+            <returns name="Vertex[]">A list of Vertices constituent to the Wire</returns>
+        </member>
+        <member name="P:Topologic.Wire.Faces">
+            <summary>
+Returns the Faces containing the Wire.
+</summary>
+            <returns name="Face[]">A list of Faces containing the Wire</returns>
+        </member>
+        <member name="P:Topologic.Wire.Edges">
+            <summary>
+Returns the Edges constituent to the Wire. NOTE: This method will automatically identify its loop order property.
+</summary>
+            <returns name="Edge[]">A list of Edges constituent to the Wire</returns>
+        </member>
+        <member name="M:Topologic.Wire.ByEdges(System.Collections.Generic.IList`1{Topologic.Edge})">
+            <summary>
+Creates a Wire by a set of Edges.
+</summary>
+            <param name="edges">The set of Edges</param>
+            <exception cref="T:System.ArgumentException">Thrown if any of the arguments is not a Topologic Edge</exception>
+            <returns name="Wire">The created Wire</returns>
+        </member>
+        <member name="T:Topologic.Wire">
+            <summary>
+A Wire is a contiguous collection of Edges, where adjacent Edges are connected by shared Vertices. It may be open or closed and may be manifold or non-manifold. 
+</summary>
+        </member>
+        <member name="F:Topologic.Edge.m_pCoreEdge">
+            <summary />
+        </member>
+        <member name="M:Topologic.Edge.GetCoreTopologicalQuery">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Topologic.Edge.ByCurve(Autodesk.DesignScript.Geometry.Line)">
+            <summary>
+Creates an Edge by a Dynamo line.
+</summary>
+            <param name="pDynamoLine">A Dynamo line</param>
+            <returns>The created Topologic Edge</returns>
+        </member>
+        <member name="M:Topologic.Edge.ByCurve(Autodesk.DesignScript.Geometry.Circle)">
+            <summary>
+Creates an Edge by a Dynamo circle.
+</summary>
+            <param name="pDynamoCircle">A Dynamo circle</param>
+            <returns>The created Topologic Edge</returns>
+        </member>
+        <member name="M:Topologic.Edge.ByCurve(Autodesk.DesignScript.Geometry.NurbsCurve)">
+            <summary>
+Creates an Edge by a NurbsCurve. 
+</summary>
+            <param name="pDynamoNurbsCurve">A Dynamo NURBS curve</param>
+            <returns>The created Topologic Edge</returns>
+        </member>
+        <member name="M:Topologic.Edge.ByCurve(Autodesk.DesignScript.Geometry.Curve)">
+            <summary>
+Creates a curved Edge by a Dynamo curve.
+</summary>
+            <param name="curve">A Dynamo curve</param>
+            <returns name="Edge">The created Topologic Edge</returns>
+        </member>
+        <member name="M:Topologic.Edge.Curve(opencascade.handle&lt;Geom_Curve&gt;,System.Double!System.Runtime.CompilerServices.IsConst,System.Double!System.Runtime.CompilerServices.IsConst)">
+            <summary />
+            <param name="pOcctCurve" />
+            <returns />
+        </member>
+        <member name="M:Topologic.Edge.Curve">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Topologic.Edge.#ctor(std.shared_ptr&lt;TopologicCore.Edge&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpCoreEdge" />
+        </member>
+        <member name="M:Topologic.Edge.Type">
+            <summary>
+Returns the type associated to Edge.
+</summary>
+            <returns>The type associated to Edge</returns>
+        </member>
+        <member name="P:Topologic.Edge.BasicGeometry">
+            <summary>
+Creates a geometry from Edge.
+</summary>
+            <returns>The created geometry</returns>
+        </member>
+        <member name="M:Topologic.Edge.SharedVertices(Topologic.Edge)">
+            <summary>
+Returns the shared Vertices between two Edges.
+</summary>
+            <param name="edge">Another Edge</param>
+            <returns name="Vertex[]">A list of shared Vertices between the two Edges</returns>
+        </member>
+        <member name="P:Topologic.Edge.Wires">
+            <summary>
+Returns the Wires incident to the Edge.
+</summary>
+            <returns name="Wire[]">A list of Wires incident to the Edge</returns>
+        </member>
+        <member name="P:Topologic.Edge.Vertices">
+            <summary>
+Returns the Vertices at the ends of the Edge.
+</summary>
+            <returns name="Vertex[]">A list of Vertices at the ends of the Edge</returns>
+        </member>
+        <member name="P:Topologic.Edge.EndVertex">
+            <summary>
+Returns the end Vertex of the Edge.
+</summary>
+            <returns name="Vertex">The end Vertex of the Edge</returns>
+        </member>
+        <member name="P:Topologic.Edge.StartVertex">
+            <summary>
+Returns the start Vertex of the Edge.
+</summary>
+            <returns name="Vertex">The start Vertex of the Edge</returns>
+        </member>
+        <member name="P:Topologic.Edge.AdjacentEdges">
+            <summary>
+Returns the Edges adjacent to the Edge.
+</summary>
+            <returns name="Edge[]">A list of the Edges adjacent to the Edge</returns>
+        </member>
+        <member name="M:Topologic.Edge.ByStartVertexEndVertex(Topologic.Vertex,Topologic.Vertex)">
+            <summary>
+Creates a straight Edge by the startVertex and endVertex.
+</summary>
+            <param name="startVertex">The start Vertex</param>
+            <param name="endVertex">The end Vertex</param>
+            <returns name="Edge">The created Edge</returns>
+        </member>
+        <member name="T:Topologic.Edge">
+            <summary>
+An Edge is a one-dimensional entity defined by two vertices. It is important to note that while a topologic edge is made of two vertices, its geometry can be a curve with multiple control vertices.
+</summary>
+        </member>
+        <member name="F:Topologic.Vertex.m_pCoreVertex">
+            <summary />
+        </member>
+        <member name="M:Topologic.Vertex.ByPoint(Autodesk.DesignScript.Geometry.Point)">
+            <summary>
+Creates a Vertex by a point.
+</summary>
+            <param name="point">A Dynamo point</param>
+            <returns name="Vertex">The created Vertex</returns>
+        </member>
+        <member name="M:Topologic.Vertex.Type">
+            <summary>
+Returns the type associated to Vertex.
+</summary>
+            <returns>The type associated to Vertex</returns>
+        </member>
+        <member name="P:Topologic.Vertex.BasicGeometry">
+            <summary>
+Creates a geometry from Vertex.
+</summary>
+            <returns>The created geometry</returns>
+        </member>
+        <member name="P:Topologic.Vertex.Coordinates">
+            <summary>
+Returns the coordinates of the Vertex.
+</summary>
+            <returns name="double[]">The coordinates of the Vertex</returns>
+        </member>
+        <member name="P:Topologic.Vertex.Z">
+            <summary>
+Returns the Z coordinate of the Vertex.
+</summary>
+            <returns>The Z coordinate of the Vertex</returns>
+        </member>
+        <member name="P:Topologic.Vertex.Y">
+            <summary>
+Returns the Y coordinate of the Vertex.
+</summary>
+            <returns>The Y coordinate of the Vertex</returns>
+        </member>
+        <member name="P:Topologic.Vertex.X">
+            <summary>
+Returns the X coordinate of the Vertex.
+</summary>
+            <returns>The X coordinate of the Vertex</returns>
+        </member>
+        <member name="P:Topologic.Vertex.Edges">
+            <summary>
+Returns the Edges incident to the Vertex.
+</summary>
+            <returns name="Edge[]">A list of the Edges incident to the Vertex</returns>
+        </member>
+        <member name="M:Topologic.Vertex.ByCoordinates(System.Double,System.Double,System.Double)">
+            <summary>
+Creates a Vertex by XYZ coordinates.
+</summary>
+            <param name="x">The X coordinate</param>
+            <param name="y">The Y coordinate</param>
+            <param name="z">The Z coordinate</param>
+            <returns name="Vertex">The created Vertex</returns>
+        </member>
+        <member name="T:Topologic.Vertex">
+            <summary>
+A Vertex is a zero-dimensional entity equivalent to a geometry point.
+</summary>
+        </member>
+        <member name="F:Topologic.Face.m_pCoreFace">
+            <summary />
+        </member>
+        <member name="M:Topologic.Face.BySurface(Autodesk.DesignScript.Geometry.NurbsSurface,Autodesk.DesignScript.Geometry.Curve[])">
+            <summary>
+Initialises the face given a NurbsSurface argument. Called by the respective constructor.
+</summary>
+            <param name="pDynamoNurbsSurface">A Dynamo NURBS surface</param>
+            <returns />
+        </member>
+        <member name="M:Topologic.Face.BySurface(Autodesk.DesignScript.Geometry.Surface)">
+            <summary>
+Create a face by a surface.
+</summary>
+            <param name="surface">The surface</param>
+            <returns name="Face">The created face</returns>
+        </member>
+        <member name="M:Topologic.Face.TriangulatedMesh">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Topologic.Face.Surface">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Topologic.Face.GetCoreTopologicalQuery">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Topologic.Face.#ctor(std.shared_ptr&lt;TopologicCore.Face&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary />
+            <param name="kpCoreFace" />
+        </member>
+        <member name="M:Topologic.Face.Type">
+            <summary>
+Returns the type associated to Face.
+</summary>
+            <returns>The type associated to Face</returns>
+        </member>
+        <member name="P:Topologic.Face.BasicGeometry">
+            <summary>
+Creates a geometry from Face.
+</summary>
+            <returns>The created geometry</returns>
+        </member>
+        <member name="M:Topologic.Face.AddApertureDesign(Topologic.Face,System.Int32)">
+            <summary>
+Adds an Aperture design to a Face.
+</summary>
+            <param name="apertureDesign">The Aperture design (Topologic Face) to be added</param>
+            <param name="numEdgeSamples">The number of sample points along the Aperture Edges</param>
+            <returns name="Face">The new Face</returns>
+        </member>
+        <member name="M:Topologic.Face.AddInternalBoundaries(System.Collections.Generic.IList`1{Topologic.Wire})">
+            <summary>
+Adds internal boundaries (Wires) to a Face.
+</summary>
+            <param name="internalBoundaries">A list of internal Wires</param>
+            <returns name="Face">The new Face</returns>
+        </member>
+        <member name="P:Topologic.Face.InternalBoundaries">
+            <summary>
+Returns the internal boundaries (Wires) of the Face.
+</summary>
+            <returns name="Wire[]">A list of the internal Wires of the Face</returns>
+        </member>
+        <member name="P:Topologic.Face.ExternalBoundary">
+            <summary>
+Returns the external boundary (Wire) of the Face.
+</summary>
+            <returns name="Wire">The external Wire of the Face</returns>
+        </member>
+        <member name="M:Topologic.Face.SharedVertices(Topologic.Face)">
+            <summary>
+Returns the shared Vertices between two Faces.
+</summary>
+            <param name="face">Another Face</param>
+            <returns name="Vertex[]">A list of shared Vertices</returns>
+        </member>
+        <member name="M:Topologic.Face.SharedEdges(Topologic.Face)">
+            <summary>
+Returns the shared Edges between two Faces. 
+</summary>
+            <param name="face">Another Face</param>
+            <returns name="Edge[]">A list of shared Edges</returns>
+        </member>
+        <member name="M:Topologic.Face.ByEdges(System.Collections.Generic.IList`1{Topologic.Edge})">
+            <summary>
+Creates a Face by a list of Edges.
+</summary>
+            <param name="edges">A list of Edges</param>
+            <exception cref="T:System.ArgumentException">Thrown if any of the arguments is not a Topologic Edge</exception>
+            <returns name="Face">The created Face</returns>
+        </member>
+        <member name="M:Topologic.Face.ByExternalInternalBoundaries(Topologic.Wire,System.Collections.Generic.IList`1{Topologic.Wire})">
+            <summary>
+Creates a Face by an external boundary (Wire) and internal boundaries (Wires).
+</summary>
+            <param name="externalBoundary">An external Wire</param>
+            <param name="internalBoundaries">A set of internal Wires</param>
+            <returns name="Face">The created Face</returns>
+        </member>
+        <member name="M:Topologic.Face.ByWire(Topologic.Wire)">
+            <summary>
+Creates a Face by a closed planar Wire.
+</summary>
+            <param name="wire">A closed planar Wire</param>
+            <exception cref="T:System.ArgumentException">Thrown if any of the arguments is neither a Dynamo polygon nor a Topologic Wire</exception>
+            <returns name="Face">The created Face</returns>
+        </member>
+        <member name="P:Topologic.Face.Wires">
+            <summary>
+Returns the Wires constituent to the Face.
+</summary>
+            <returns name="Wire[]">A list of Wires constituent to the Face</returns>
+        </member>
+        <member name="P:Topologic.Face.Edges">
+            <summary>
+Returns the Edges constituent to the Face.
+</summary>
+            <returns name="Edge[]">A list of Edges constituent to the Face</returns>
+        </member>
+        <member name="P:Topologic.Face.Vertices">
+            <summary>
+Returns the Vertices constituent to the Face. 
+</summary>
+            <returns name="Vertex[]">A list of Vertices constituent to the Face</returns>
+        </member>
+        <member name="P:Topologic.Face.Shells">
+            <summary>
+Returns the Shells incident to the Face.
+</summary>
+            <returns name="Shell[]">A list of Shells incident to the Face</returns>
+        </member>
+        <member name="P:Topologic.Face.Cells">
+            <summary>
+Returns the Cells incident to the Face.
+</summary>
+            <returns name="Cell[]">A list of Cells incident to the Face</returns>
+        </member>
+        <member name="P:Topologic.Face.AdjacentFaces">
+            <summary>
+Returns the Faces adjacent to the Face.
+</summary>
+            <returns name="Face[]">A list of Faces adjacent to the Face</returns>
+        </member>
+        <member name="T:Topologic.Face">
+            <summary>
+A Face is a two-dimensional region defined by a collection of closed Wires. The geometry of a face can be flat or undulating.
+</summary>
+        </member>
+        <member name="M:Topologic.Factories.FaceFactory.Create(TopologicCore.TopologyPtr!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Creates a Face from a TopologicCore layer Topology.
+</summary>
+            <param name="kpTopology">A TopologicCore layer Topology</param>
+            <returns name="Topology">The created Face</returns>
+        </member>
+        <member name="T:Topologic.Factories.FaceFactory">
+            <summary>
+(private) A factory class to create a Face.
+</summary>
+        </member>
+        <member name="M:Topologic.Factories.TopologyFactory.Create(TopologicCore.TopologyPtr!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Creates a Topology from a TopologicCore layer Topology.
+</summary>
+            <param name="kpTopology">A TopologicCore layer Topology</param>
+            <returns name="Topology">The created Topology</returns>
+        </member>
+        <member name="T:Topologic.Factories.TopologyFactory">
+            <summary>
+A public abstract factory class to create a Topology. This class should be inherited when new topological classes are implemented.
+</summary>
+        </member>
+        <member name="P:Topologic.Topology.Dictionary">
+            <summary>
+Returns the dictionary of a Topology.
+</summary>
+            <returns name="Dictionary">The dictionary</returns>
+        </member>
+        <member name="M:Topologic.Topology.SetDictionaries(System.Collections.Generic.IList`1{Topologic.Vertex},System.Collections.Generic.IList`1{System.Collections.Generic.Dictionary`2{System.String,System.Object}},System.Int32)">
+            <summary>
+Sets a list of dictionaries for a Topology.
+</summary>
+            <param name="selectors" />
+            <param name="dictionaries">A list of dictionaries</param>
+            <param name="typeFilter" />
+            <returns name="Topology">The Topology with the dictionary</returns>
+        </member>
+        <member name="M:Topologic.Topology.SetDictionary(System.Collections.Generic.Dictionary`2{System.String,System.Object})">
+            <summary>
+Sets a dictionary for a Topology.
+</summary>
+            <returns name="Topology">The Topology with the dictionary</returns>
+        </member>
+        <member name="M:Topologic.Topology.Filter(System.Collections.Generic.IList`1{Topologic.Topology},System.Int32)">
+            <summary>
+Filters a list of Topologies by type. This methods returns a list of Topologies of the type specified in the typefilter.
+</summary>
+            <param name="topologies">A list of Topologies</param>
+            <param name="typeFilter">The type of the filtered Topologies</param>
+            <returns>The filtered opologies</returns>
+        </member>
+        <member name="P:Topologic.Topology.Type">
+            <summary>
+Returns the type associated to the Topology.
+</summary>
+            <returns>The type associated to the Topology</returns>
+        </member>
+        <member name="P:Topologic.Topology.TypeAsString">
+            <summary>
+Returns the instance type as a string.
+</summary>
+            <returns>The instance type as a string</returns>
+        </member>
+        <member name="M:Topologic.Topology.ShallowCopy">
+            <summary>
+Copies a Topology without its contents.
+</summary>
+            <returns>The copied Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.Copy``1">
+            <summary>
+Copies a Topology and its contents.
+</summary>
+            <returns>The copied Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.SelectSubtopology(Topologic.Vertex,System.Int32)">
+            <summary>
+Returns the sub-topology that is the closest to the selector Vertex and of a specific type.
+</summary>
+            <param name="selector">A Vertex</param>
+            <param name="typeFilter">The type of the filtered Topologies</param>
+            <returns>The closest sub-topology to the selector of the specified type</returns>
+        </member>
+        <member name="M:Topologic.Topology.ClosestSimplestSubshape(Topologic.Topology)">
+            <summary>
+Returns the sub-topology that is the closest to the selector and the simplest (i.e. has the lowest dimensionality).
+</summary>
+            <param name="selector">A Topology</param>
+            <returns>The closest and simplest sub-topology to the selector</returns>
+        </member>
+        <member name="M:Topologic.Topology.IsSame(Topologic.Topology)">
+            <summary>
+Checks if two Topologies are the same. NOTE: This is a pointer check, not a topological or a geometry one.
+</summary>
+            <param name="topology">Another Topology</param>
+            <returns>True if the Topologies are the same, otherwise false</returns>
+        </member>
+        <member name="P:Topologic.Topology.CellComplexes">
+            <summary>
+Returns the CellComplexes constituent to the Topology.
+</summary>
+            <returns name="CellComplex[]">A list of CellComplexes constituent to the Topology</returns>
+        </member>
+        <member name="P:Topologic.Topology.Cells">
+            <summary>
+Returns the Cells constituent to the Topology.
+</summary>
+            <returns name="Cell[]">A list of Cells constituent to the Topology</returns>
+        </member>
+        <member name="P:Topologic.Topology.Vertices">
+            <summary>
+Returns the Vertices constituent to the Topology.
+</summary>
+            <returns name="Vertex[]">A list of Vertices constituent to the Topology</returns>
+        </member>
+        <member name="P:Topologic.Topology.Edges">
+            <summary>
+Returns the Edges constituent to the Topology.
+</summary>
+            <returns name="Edge[]">A list of Edges constituent to the Topology</returns>
+        </member>
+        <member name="P:Topologic.Topology.Wires">
+            <summary>
+Returns the Wires constituent to the Topology.
+</summary>
+            <returns name="Wire[]">A list of Wires constituent to the Topology</returns>
+        </member>
+        <member name="P:Topologic.Topology.Faces">
+            <summary>
+Returns the Faces constituent to the Topology.
+</summary>
+            <returns name="Face[]">A list of Faces constituent to the Topology</returns>
+        </member>
+        <member name="P:Topologic.Topology.Shells">
+            <summary>
+Returns the Shells constituent to the Topology.
+</summary>
+            <returns name="Shell[]">A list of Shells constituent to the Topology</returns>
+        </member>
+        <member name="P:Topologic.Topology.SubTopologies">
+            <summary>
+Returns all sub-topologies (immediate constituent members) of a Topology.
+</summary>
+            <returns name="Topology[]">A list of the sub-topologies (immediate constituent members) of a Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.Analyze">
+            <summary>
+Prints the topological information of a Topology.
+</summary>
+            <returns name="String">The topological information of the input Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.ByImportedBRep(System.String)">
+            <summary>
+Imports a Topology from a BRep file (.brep).
+</summary>
+            <param name="filePath">The file to export the Topology to</param>
+            <returns name="Topology">The loaded Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.ExportToBRep(System.String)">
+            <summary>
+Exports a Topology to a BRep file (.brep).
+</summary>
+            <param name="filePath">The file to export the Topology to</param>
+            <returns name="bool">True if the BRep file is succesffully created, otherwise false</returns>
+        </member>
+        <member name="P:Topologic.Topology.Centroid">
+            <summary>
+Returns the centroid of any Topology.
+</summary>
+            <param name="topology">A Topology</param>
+            <returns name="Vertex">The centroid of the given Topology</returns>
+        </member>
+        <member name="P:Topologic.Topology.CenterOfMass">
+            <summary>
+Returns the center of mass of any Topology.
+</summary>
+            <param name="topology">A Topology</param>
+            <returns name="Vertex">The center of mass of the given Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.XOR(Topologic.Topology,System.Boolean)">
+            <summary>
+Performs an XOR operation between the input Topology and another Topology.
+</summary>
+            <param name="topology">Another Topology</param>
+            <param name="transferDictionary">If True, transfer Dictionaries from every original constituent member to the resulting members generated from the original member</param>
+            <returns name="Topology">The result of the XOR operation</returns>
+        </member>
+        <member name="M:Topologic.Topology.Union(Topologic.Topology,System.Boolean)">
+            <summary>
+Unions the input Topology and another Topology.
+</summary>
+            <param name="topology">Another Topology</param>
+            <param name="transferDictionary">If True, transfer Dictionaries from every original constituent member to the resulting members generated from the original member</param>
+            <returns name="Topology">The result of the Union operation</returns>
+        </member>
+        <member name="M:Topologic.Topology.Divide(Topologic.Topology,System.Boolean)">
+            <summary>
+Divides the input Topology with another Topology.
+</summary>
+            <param name="tool">Another Topology</param>
+            <param name="transferDictionary">If True, transfer Dictionaries from every original constituent member to the resulting members generated from the original member</param>
+            <returns name="Topology">The result of the Divide operation</returns>
+        </member>
+        <member name="M:Topologic.Topology.Slice(Topologic.Topology,System.Boolean)">
+            <summary>
+Slices the input Topology with another Topology.
+</summary>
+            <param name="tool">Another Topology</param>
+            <param name="transferDictionary">If True, transfer Dictionaries from every original constituent member to the resulting members generated from the original member</param>
+            <returns name="Topology">The result of the Slice operation</returns>
+        </member>
+        <member name="M:Topologic.Topology.SelfMerge">
+            <summary>
+Merges the sub-topologies of the input Topology.
+</summary>
+            <returns name="Topology">The result of the SelfMerge operation</returns>
+        </member>
+        <member name="M:Topologic.Topology.Merge(Topologic.Topology,System.Boolean)">
+            <summary>
+Merges the input Topology and another Topology.
+</summary>
+            <param name="topology">Another Topology</param>
+            <param name="transferDictionary">If True, transfer Dictionaries from every original constituent member to the resulting members generated from the original member</param>
+            <returns name="Topology">The result of the Merge operation</returns>
+        </member>
+        <member name="M:Topologic.Topology.Intersect(Topologic.Topology,System.Boolean)">
+            <summary>
+Performs the Intersection operation between the input Topology and another Topology.
+</summary>
+            <param name="topology">Another Topology</param>
+            <param name="transferDictionary">If True, transfer Dictionaries from every original constituent member to the resulting members generated from the original member</param>
+            <returns name="Topology">The result of the Intersection operation</returns>
+        </member>
+        <member name="M:Topologic.Topology.Imprint(Topologic.Topology,System.Boolean)">
+            <summary>
+Imprints another Topology on the input Topology.
+</summary>
+            <param name="tool">Another Topology</param>
+            <param name="transferDictionary">If True, transfer Dictionaries from every original constituent member to the resulting members generated from the original member</param>
+            <returns name="Topology">The result of the Imprint operation</returns>
+        </member>
+        <member name="M:Topologic.Topology.Impose(Topologic.Topology,System.Boolean)">
+            <summary>
+Imposes another Topology on the input Topology.
+</summary>
+            <param name="tool">Another Topology</param>
+            <param name="transferDictionary">If True, transfer Dictionaries from every original constituent member to the resulting members generated from the original member</param>
+            <returns name="Topology">The result of the Impose operation</returns>
+        </member>
+        <member name="M:Topologic.Topology.Difference(Topologic.Topology,System.Boolean)">
+            <summary>
+Performs the Difference operation between the input Topology and another Topology.
+</summary>
+            <param name="topology">Another Topology</param>
+            <param name="transferDictionary">If True, transfer Dictionaries from every original constituent member to the resulting members generated from the original member</param>
+            <returns name="Topology">The result of the Difference operation</returns>
+        </member>
+        <member name="M:Topologic.Topology.SharedTopologies(Topologic.Topology,System.Int32)">
+            <summary>
+Returns the shared Topologies between the input Topology and another Topology.
+</summary>
+            <param name="topology">Another Topology</param>
+            <param name="typeFilter">The type of the filtered Topologies</param>
+            <returns name="Topology[]">A list of shared Topologies between the input Topology and another Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.AddApertures(System.Collections.Generic.IList`1{Topologic.Topology})">
+            <summary>
+Adds Apertures to a Topology.
+</summary>
+            <param name="apertureTopologies">A list of Topologies associated to the apertures</param>
+            <returns name="Topology">The new Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.RemoveContents(System.Collections.Generic.IList`1{Topologic.Topology})">
+            <summary>
+Removes contents (non-constituent members) from a Topology.
+</summary>
+            <param name="contentTopologies">The Topologies of the contents</param>
+            <returns name="Topology">The new Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.RemoveContent(Topologic.Topology)">
+            <summary>
+Removes a content (non-constituent member) from a Topology.
+</summary>
+            <param name="contentTopology">The Topology of the content</param>
+            <returns name="Topology">The new Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.AddContents(System.Collections.Generic.IList`1{Topologic.Topology},System.Int32)">
+            <summary>
+Adds a list of Topologies as contents (non-constituent members) to another Topology of a specific type. If the type filter is 0, the contents will be added to the parent topology. Otherwise, the contents will be added to the closest sub-topology which matches the filter.
+</summary>
+            <param name="contentTopologies">The Topologies of the content</param>
+            <param name="typeFilter">The type of the context Topology</param>
+            <returns>The new Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.AddContent(Topologic.Topology,System.Int32)">
+            <summary>
+Adds a Topology as a content (non-constituent member) to another Topology of a specific type. If the type filter is 0, the contents will be added to the parent topology. Otherwise, the contents will be added to the closest sub-topology which matches the filter.
+</summary>
+            <param name="contentTopology">The Topology of the content</param>
+            <param name="typeFilter">The type of the context Topology</param>
+            <returns>The new Topology</returns>
+        </member>
+        <member name="P:Topologic.Topology.Contexts">
+            <summary>
+Returns the Topologies containing the input Topology as a content.
+</summary>
+            <returns name="Context[]">A list of the non-constituent members containing the input Topology</returns>
+        </member>
+        <member name="P:Topologic.Topology.SubContents">
+            <summary>
+Returns the sub-contents (contents of the constituent members) of a Topology.
+</summary>
+            <returns name="Topology[]">A list of the sub-contents (contents of the constituent members) of a Topology</returns>
+        </member>
+        <member name="P:Topologic.Topology.Apertures">
+            <summary>
+Returns the Apertures of the input Topology.
+</summary>
+            <returns name="Aperture[]">A list of Topologies contained in the input Topology as Apertures</returns>
+        </member>
+        <member name="P:Topologic.Topology.Contents">
+            <summary>
+Returns the contents (non-constituent members) of the input Topology.
+</summary>
+            <returns name="Topology[]">A list of Topologies contained in the input Topology as non-constituent members</returns>
+        </member>
+        <member name="M:Topologic.Topology.AddAttributesNoCopy(System.Collections.Generic.Dictionary`2{System.String,System.Object})">
+            <summary>
+Returns the original Topology with a dictionary. 
+</summary>
+            <param name="attributes">A dictionary</param>
+            <returns>The original Topology with a dictionary</returns>
+        </member>
+        <member name="P:Topologic.Topology.Geometry">
+            <summary>
+Creates a geometry from Topology.
+</summary>
+            <returns>The created geometry</returns>
+        </member>
+        <member name="P:Topologic.Topology.BasicGeometry">
+            <summary>
+Creates a geometry from the Topology.
+</summary>
+            <returns name="Geometry">The host geometry counterpart of the topological entity</returns>
+        </member>
+        <member name="P:Topologic.Topology.Dimensionality">
+            <summary>
+Returns the dimensionality of the Topology.
+</summary>
+            <returns name="int">The Topology's dimensionality</returns>
+        </member>
+        <member name="M:Topologic.Topology.ByVerticesIndices(System.Collections.Generic.IList`1{Topologic.Vertex},System.Collections.Generic.IList`1{System.Collections.Generic.IList`1{System.Int32}})">
+            <summary>
+Creates a Topology by a list of Vertices and a 2D list of indices of the Vertices in the first argument. An array of 1 index makes a Vertex. An array of 2 indices makes an Edge. An array of 3 indices either makes a Wire, or, when the array has at least 4 vertices and the first index is the same as the last index, a Face will be created instead. NOTE: This node currently can only create planar Faces.
+</summary>
+            <param name="vertices">A list of Vertices</param>
+            <param name="vertexIndices">A 2D list of the indices of the Vertices</param>
+            <returns name="Topology[]">A Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.ByFaces(System.Collections.Generic.IList`1{Topologic.Face})">
+            <summary>
+Creates a Shell or a Cluster by a set of connected Faces.
+</summary>
+            <param name="faces">A set of Faces</param>
+            <returns name="Topology">The created Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.ByPolySurface(Autodesk.DesignScript.Geometry.PolySurface)">
+            <summary>
+Creates a Shell by a polysurface [NOTE: This method is deleted].
+</summary>
+            <param name="polySurface">A polysurface</param>
+            <returns>The created Topology</returns>
+        </member>
+        <member name="M:Topologic.Topology.ByGeometry(Autodesk.DesignScript.Geometry.Geometry,System.Double)">
+            <summary>
+Creates a Topology by geometry.
+</summary>
+            <param name="geometry">A geometry</param>
+            <param name="tolerance">A positive tolerance value</param>
+            <returns name="Topology">The created Topology</returns>
+        </member>
+        <member name="T:Topologic.Topology">
+            <summary>
+A Topology is an abstract superclass that includes constructors, properties and methods used by other subclasses that extend it.
+</summary>
+        </member>
+        <member name="T:Topologic.TopologicalQuery">
+            <summary>
+TopologicalQuery is the base class for Topology and Context classes. 
+</summary>
+        </member>
+    </members>
+</doc>

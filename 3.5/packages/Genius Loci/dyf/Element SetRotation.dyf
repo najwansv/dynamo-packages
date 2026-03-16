@@ -1,0 +1,215 @@
+{
+  "Uuid": "b7d53942-f5f1-46b5-b32c-8da905c94724",
+  "IsCustomNode": true,
+  "Category": "GeniusLoci.Element",
+  "Description": "Set the angle of the element around its local Z-axis.\r\n(Same as the Rotate command in Revit)",
+  "Name": "Element SetRotation",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Element",
+      "Id": "f3a1c5ee8c884f48bff9a9fe80024312",
+      "Inputs": [
+        {
+          "Id": "114daf5a87b748d283cb53d199945562",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Sortie de fonction, utiliser avec les noeuds personnalisés"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "element",
+        "TypeName": "var",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "7472697e0a374333a33d598704217efc",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "259940dae2014edeb147a38dda665aff",
+          "Name": "",
+          "Description": "Symbole",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un paramètre de fonction, utiliser avec des noeuds personnalisés.\r\n\r\nVous pouvez spécifier le type et la valeur par défaut du paramètre. Par exemple,\r\n\r\nentrée: var[]..[]\r\nvaleur: bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "degree",
+        "TypeName": "var",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": "The angle around Z-axis"
+      },
+      "Id": "be71b5d926d641ad83db5e48ed51751c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c630a62eb18b4d33a0988e11d7e2084b",
+          "Name": "",
+          "Description": "Symbole",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Un paramètre de fonction, utiliser avec des noeuds personnalisés.\r\n\r\nVous pouvez spécifier le type et la valeur par défaut du paramètre. Par exemple,\r\n\r\nentrée: var[]..[]\r\nvaleur: bool = false"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Alban de Chasteigner 2020\n#twitter : @geniusloci_bim\n#geniusloci.bim@gmail.com\n#https://github.com/albandechasteigner/GeniusLociForDynamo\n\nimport clr\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\n\nclr.AddReference(\"RevitAPI\")\nimport Autodesk\nfrom Autodesk.Revit.DB import *\nimport math\n\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\ndoc = DocumentManager.Instance.CurrentDBDocument\n\nelements = UnwrapElement(IN[0]) if isinstance(IN[0],list) else [UnwrapElement(IN[0])]\nangles = [i* math.pi/180 for i in IN[1]] if isinstance(IN[1],list) else [IN[1]* math.pi/180]\n\ndef GetCropBox(view):\n\tprovider= ParameterValueProvider(ElementId(BuiltInParameter.ID_PARAM))\n\trule = FilterElementIdRule(provider, FilterNumericEquals(), view.Id )\n\tfilter= ElementParameterFilter(rule)\n\treturn doc.GetElement(FilteredElementCollector(view.Document).WherePasses(filter).ToElementIds().Find(lambda x: x.IntegerValue != view.Id.IntegerValue))\n\nTransactionManager.Instance.EnsureInTransaction(doc)\nfor angle, element in zip(angles, elements):\n\t#if angle>math.pi:\n\t\t#angle=abs(angle-2*math.pi)\n\t#else:angle\n\t#Get initial Rotation Angle using transform\n\t#transform=element.GetTransform()\n\t#vectorTran = transform.OfVector(transform.BasisX)\n\t#rot = transform.BasisX.AngleOnPlaneTo(vectorTran, transform.BasisZ) \n\t#rot = rot * (180 / math.pi)\n\tif element.Category != None and hasattr(element, \"Location\") and element.Category.CategoryType == CategoryType.Model :\n\t\tloc = element.Location\n\t\tif loc:\t\n\t\t\t# ImportInstance and linkInstance\n\t\t\tif hasattr(element, \"GetTotalTransform\"):\n\t\t\t\ttrans=element.GetTotalTransform()\n\t\t\t\tloca = trans.Origin\n\t\t\t\trot = -trans.BasisX.AngleOnPlaneTo(XYZ.BasisX, XYZ.BasisZ)\n\t\t\t# point-based elements (e.g. most loadable families)\n\t\t\telif isinstance(loc,LocationPoint):\n\t\t\t\tloca=loc.Point\n\t\t\t\tif hasattr(loc, \"Rotation\"):\n\t\t\t\t\trot=loc.Rotation\n\t\t\t\t# Group, assembly\n\t\t\t\telse:rot = 0\r\n\t\t\telif isinstance(element, MEPCurve):\r\n\t\t\t\tloca=loc.Curve.Evaluate(0.5,True)\r\n\t\t\t\tfor c in element.ConnectorManager.Connectors :\r\n\t\t\t\t\trot = math.asin(c.CoordinateSystem.Inverse.BasisY.X)\n\t\t\t# line-based elements (e.g. walls)\n\t\t\telif isinstance(loc, LocationCurve):\n\t\t\t\tloca=loc.Curve.Evaluate(0.5,True)\n\t\t\t\trot=loc.Curve.Direction.AngleTo(XYZ.BasisX)\n\t\t\telse:\n\t\t\t\tbox = element.get_BoundingBox(None)\n\t\t\t\tloca = (box.Min+box.Max)/2\n\t\t\t\trot = 0\n\t\t\t\t# sketch-based elements (ceiling, floor and roof)\n\t\t\t\tif hasattr(element, \"FindInserts\"):\n\t\t\t\t\tfor ref in HostObjectUtils.GetTopFaces(element):\n\t\t\t\t\t\tgeomFace=element.GetGeometryObjectFromReference(ref)\n\t\t\t\t\t\t#Get BoundingBox max UV point\n\t\t\t\t\t\tmaxUV = geomFace.GetBoundingBox().Max\n\t\t\t\t\t\t#Get transform\n\t\t\t\t\t\ttrans=geomFace.ComputeDerivatives(maxUV)\n\t\t\t\t\t\tif isinstance(element,Ceiling):\n\t\t\t\t\t\t\trot = abs(trans.BasisZ.AngleOnPlaneTo(XYZ.BasisX, XYZ.BasisZ)-2*math.pi)\n\t\t\t\t\t\telse:\n\t\t\t\t\t\t\trot = abs(trans.BasisY.AngleOnPlaneTo(XYZ.BasisX, XYZ.BasisZ)-math.pi)\n\t\t\t\telse : rot = 0\n\t\t\t\t\n\telif element.Category != None and element.Category.CategoryType == CategoryType.Annotation :\n\t\t# view specific elements (e.g. filled regions)\n\t\tif hasattr(element, \"OwnerViewId\") and element.OwnerViewId != ElementId.InvalidElementId :\n\t\t\tview=doc.GetElement(element.OwnerViewId)\n\t\t\tbox = element.BoundingBox[view]\n\t\t\tloca = (box.Min+box.Max)/2\n\t\t\trot = 0\n\t\t# SectionBox\n\t\telif ElementId(BuiltInCategory.OST_SectionBox) == element.Category.Id:\n\t\t\tbox = doc.GetElement(ElementId(element.Id.IntegerValue + 1)).GetSectionBox()\n\t\t\ttransform = box.Transform\n\t\t\tmin = transform.OfPoint(box.Min)\n\t\t\tmax = transform.OfPoint(box.Max)\n\t\t\tloca = (min+max)/2\n\t\t\trot = 0\n\t\telif isinstance(element,Grid):\n\t\t\tline=element.Curve\n\t\t\tstart=line.GetEndPoint(0)\n\t\t\tend=line.GetEndPoint(1)   \n\t\t\tbox=BoundingBoxXYZ()\n\t\t\tbox.Min = start\n\t\t\tbox.Max = end\n\t\t\tloca = (box.Min+box.Max)/2\n\t\t\trot = 0\t\t\t\n\t\telif isinstance(element,ReferencePlane):\n\t\t\tdoc=element.Document\n\t\t\tview = doc.ActiveView\n\t\t\tfor crv in element.GetCurvesInView(DatumExtentType.ViewSpecific,view):\n\t\t\t\tline = crv\n\t\t\tstart=line.GetEndPoint(0)\n\t\t\tend=line.GetEndPoint(1)   \n\t\t\tbox=BoundingBoxXYZ()\n\t\t\tbox.Min = start\n\t\t\tbox.Max = end\n\t\t\tloca = (box.Min+box.Max)/2\n\t\t\trot = 0\t\n\t\t# VolumOfInterest\n\t\telif hasattr(element, \"Location\"):\n\t\t\tbox = element.get_BoundingBox(None)\n\t\t\tloca = (box.Min+box.Max)/2\n\t\t\trot = 0\n\t\t\t\n\telif element.Category != None and element.Category.CategoryType == CategoryType.Internal :\n\t\t# ViewSection Marker\n\t\tif ElementId(BuiltInCategory.OST_Viewers) == element.Category.Id :\n\t\t\tviewSection = doc.GetElement(ElementId(element.Id.IntegerValue + 1))\n\t\t\tshape=viewSection.GetCropRegionShapeManager().GetCropShape()\n\t\t\t#Last line of the rectangle\n\t\t\tl=[s for s in shape[0]][3]\n\t\t\tloca = l.Evaluate(0.5, True)\n\t\t\t#loca = viewSection.Origin\n\t\t\trot = 0\n\t\t#PlanView, SectionView and 3D View\n\t\telif hasattr(element, \"CropBox\") :\n\t\t\tbox = element.CropBox\n\t\t\telement = GetCropBox(element)\n\t\t\ttransform = box.Transform\n\t\t\tmin = transform.OfPoint(box.Min)\n\t\t\tmax = transform.OfPoint(box.Max)\n\t\t\tloca = (min+max)/2\n\t\t\trot = 0\t\n\telse:\n\t\t# CropBox\n\t\tif element.Category == None :\n\t\t\tview=doc.GetElement(element.get_Parameter(BuiltInParameter.ID_PARAM).AsElementId())\n\t\t\tbox = view.CropBox\n\t\t\ttransform = box.Transform\n\t\t\tmin = transform.OfPoint(box.Min)\n\t\t\tmax = transform.OfPoint(box.Max)\n\t\t\tloca = (min+max)/2\n\t\t\trot = 0\n\t\t\t\n\tline = Line.CreateBound(loca, XYZ(loca.X,loca.Y,loca.Z+1))\n\t#Set Rotation\r\n\tAutodesk.Revit.DB.ElementTransformUtils.RotateElement(doc, element.Id, line, angle - rot)\nTransactionManager.Instance.TransactionTaskDone()\n\nif isinstance(IN[0], list): OUT = elements\nelse: OUT = elements[0]",
+      "VariableInputPorts": true,
+      "Id": "07d83af1d92a492997bf5fa217dc6883",
+      "Inputs": [
+        {
+          "Id": "0515361e1a82446c99cd0888dd403ad2",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d3748f170d77442abf78a1705ad4255e",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4f6a20837cc241699d0042b4cc4aa8f6",
+          "Name": "OUT",
+          "Description": "Résultat du script Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Exécute un script IronPython intégré."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "259940dae2014edeb147a38dda665aff",
+      "End": "0515361e1a82446c99cd0888dd403ad2",
+      "Id": "9bf944fd982f4645af25b75b7bec4020"
+    },
+    {
+      "Start": "c630a62eb18b4d33a0988e11d7e2084b",
+      "End": "d3748f170d77442abf78a1705ad4255e",
+      "Id": "cec9a1e2ed464378ab2a8ceaa46c0970"
+    },
+    {
+      "Start": "4f6a20837cc241699d0042b4cc4aa8f6",
+      "End": "114daf5a87b748d283cb53d199945562",
+      "Id": "b4941083a748401a8bc9835e7715b2bc"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.2.15705",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Aperçu en arrière-plan",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "f3a1c5ee8c884f48bff9a9fe80024312",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 484.8,
+        "Y": 334.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "7472697e0a374333a33d598704217efc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -76.4,
+        "Y": 305.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "be71b5d926d641ad83db5e48ed51751c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -76.4,
+        "Y": 389.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "07d83af1d92a492997bf5fa217dc6883",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 260.22406103458229,
+        "Y": 325.56152485046823
+      }
+    ],
+    "Annotations": [],
+    "X": 62.6069770811057,
+    "Y": -0.233245396953436,
+    "Zoom": 0.729950825270786
+  }
+}

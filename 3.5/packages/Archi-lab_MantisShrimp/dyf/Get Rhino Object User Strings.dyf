@@ -1,0 +1,102 @@
+<Workspace Version="1.2.0.2654" X="104.084737780691" Y="247.957611199412" zoom="1.74331992875497" Name="Get Rhino Object User Strings" Description="This node will query user strings attached to geometry." ID="ead4b6dd-e075-4170-8754-ece890e0404a" Category="Archi-lab_MantisShrimp.Rhinoceros.Properties">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="d1577358-785f-425b-a517-63105d1a6f7b" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="RhinoObject" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="9418254d-d687-463b-b752-c64c6e6ed4b3" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="430.579504801926" y="-19.4465610035039" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+      <Symbol value="Key" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="0dd6f80d-0ed5-415f-b610-7a4564a9bc68" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="430.855095856146" y="41.6065859618436" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+      <Symbol value="Value" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+    <PythonNodeModels.PythonNode guid="e47340ff-224b-4547-a9d1-e58b63a299bc" type="PythonNodeModels.PythonNode" nickname="Python Script" x="142.315741220687" y="0.0672185492070128" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="1">
+      <PortInfo index="0" default="False" />
+      <Script># Copyright(c) 2016, Konrad Sobon
+# @arch_laboratory, http://archi-lab.net
+
+import clr
+import sys
+import System
+
+pyt_path = r'C:\Program Files (x86)\IronPython 2.7\Lib'
+sys.path.append(pyt_path)
+
+from os import path
+assemblies = System.AppDomain.CurrentDomain.GetAssemblies()
+msUIpath = [a.Location for a in assemblies if 'MantisShrimp,' in a.FullName][0]
+msPath = System.IO.Path.GetDirectoryName(msUIpath).rsplit('\\',1)[0]
+msPathExtra = '%s\\extra\\' %msPath
+msPathRh = '%s\\bin\\Rhino3dmIO.dll' %msPath
+sys.path.append(msPathExtra)
+clr.AddReferenceToFileAndPath(msPathRh)
+import Rhino as rc
+
+#The inputs to this node will be stored as a list in the IN variable.
+dataEnteringNode = IN
+
+if isinstance(IN[0], list):
+	rhObjects = IN[0]
+else:
+	rhObjects = [IN[0]]
+
+def GetObjectKeys(obj):
+	try:
+		keys = []
+		if obj.Attributes.HasUserData:
+			for i in range(0, obj.Attributes.GetUserStrings().Keys.Count, 1):
+				key = obj.Attributes.GetUserStrings().Keys.Item[i]
+				keys.append(key)
+			return keys
+	except:
+		pass
+
+def GetObjectValues(obj):
+	try:
+		values = []
+		if obj.Attributes.HasUserData:
+			for i in range(0, obj.Attributes.GetUserStrings().Keys.Count, 1):
+				key = str(obj.Attributes.GetUserStrings().Keys.Item[i])
+				values.append(obj.Attributes.GetUserStrings().Item[key])
+			return values
+	except:
+		pass
+
+def ProcessList(_func, _list):
+	return map( lambda x: ProcessList(_func, x) if type(x)==list else _func(x), _list )
+
+#extract user keys
+try:
+	errorReport = None
+	rhKeys = ProcessList(GetObjectKeys, rhObjects)
+	rhValues = ProcessList(GetObjectValues, rhObjects)
+except:
+	# if error accurs anywhere in the process catch it
+	import traceback
+	errorReport = traceback.format_exc()
+
+#Assign your output to the OUT variable
+if errorReport == None:
+	OUT = rhKeys, rhValues
+else:
+	OUT = errorReport</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="825e7ab6-1f8e-4a3d-b8d6-3914595ea7c1" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="285.899607028618" y="4.30512140513798" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="IN[0];&#xA;IN[1];" ShouldFocus="false">
+      <PortInfo index="0" default="False" />
+    </Dynamo.Graph.Nodes.CodeBlockNodeModel>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="d1577358-785f-425b-a517-63105d1a6f7b" start_index="0" end="e47340ff-224b-4547-a9d1-e58b63a299bc" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="e47340ff-224b-4547-a9d1-e58b63a299bc" start_index="0" end="825e7ab6-1f8e-4a3d-b8d6-3914595ea7c1" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="825e7ab6-1f8e-4a3d-b8d6-3914595ea7c1" start_index="0" end="9418254d-d687-463b-b752-c64c6e6ed4b3" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="825e7ab6-1f8e-4a3d-b8d6-3914595ea7c1" start_index="1" end="0dd6f80d-0ed5-415f-b610-7a4564a9bc68" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-8.19723415374756" eyeY="37.3580551147461" eyeZ="1.86107051372528" lookX="24.6858425140381" lookY="-21.0425701141357" lookZ="-35.6650199890137" upX="0.13286004960537" upY="0.972369909286499" upZ="-0.191950365900993" />
+  </Cameras>
+</Workspace>

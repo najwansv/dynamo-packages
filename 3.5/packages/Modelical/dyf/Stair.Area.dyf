@@ -1,0 +1,167 @@
+{
+  "Uuid": "54657fef-50ec-4d76-9e5f-e7a04d545c9e",
+  "IsCustomNode": true,
+  "Category": "Modelical.Elements.Query",
+  "Description": "This node gets the horizontal area of the selected stair.",
+  "Name": "Stair.Area",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# This node has been made by Modelical\r\n# www.modelical.com\r\n\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\ndef flatten(x):\r\n    result = []\r\n    for el in x:\r\n        if hasattr(el, \"__iter__\") and not isinstance(el, basestring):\r\n            result.extend(flatten(el))\r\n        else:\r\n            result.append(el)\r\n    return result\r\n    \r\ndef toList(input):\r\n\t\"\"\"Return iterable if available, a list of 1 otherwise\"\"\"\r\n\tif hasattr(input, \"__iter__\") and not isinstance(input, basestring):\r\n\t\treturn input\r\n\telse:\r\n\t\treturn [input]  \r\n        \r\nstairs = toList(IN[0])\r\n\r\nstairsSrfs = []\r\nstairAreas = []\r\n\r\nfor st in stairs:\r\n\tsolids = st.Geometry()\r\n\ttempPSrf = []\r\n\tfor s in solids:\r\n\t\ttempPSrf.append(PolySurface.Surfaces(PolySurface.BySolid(s)))\r\n\tstairsSrfs.append(flatten(tempPSrf))\r\n\r\n\r\nfor sSrfs in stairsSrfs:\r\n\ttempSrf = []\r\n\tfor srf in sSrfs:\r\n\t\tif Surface.NormalAtParameter(srf, 0, 0).Z == 1:\r\n\t\t\ttempSrf.append(srf.Area)\r\n\tstairAreas.append(sum(map(float,tempSrf)))\t\r\n\r\nOUT = stairAreas\r\n",
+      "Engine": "IronPython2",
+      "VariableInputPorts": true,
+      "Id": "dec7dccb65444e8a878097dfdd3f72bf",
+      "Inputs": [
+        {
+          "Id": "dddcaee45cdc4739b4cd8bacf4f966b9",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8dcbaabab65549308f85609e0d8e3b22",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "_stairs",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Stair"
+      },
+      "Id": "4f0b3b068c194a4b96a3b932b9c264f3",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5cb22a3c75ec468e8636c30aaec733e9",
+          "Name": "",
+          "Description": "Símbolo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "_area",
+      "Id": "a62f4e1c9c2d4477bcb3f0fc29a3f8f7",
+      "Inputs": [
+        {
+          "Id": "092b0cdefb6845808d5e71c312364dc8",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "8dcbaabab65549308f85609e0d8e3b22",
+      "End": "092b0cdefb6845808d5e71c312364dc8",
+      "Id": "673bc4a4531643389d5833ecca500e90"
+    },
+    {
+      "Start": "5cb22a3c75ec468e8636c30aaec733e9",
+      "End": "dddcaee45cdc4739b4cd8bacf4f966b9",
+      "Id": "057508177a8a4bdd9981da9fd38bd2f2"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Author": "None provided",
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.12.0.5650",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "dec7dccb65444e8a878097dfdd3f72bf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -25.737955626718247,
+        "Y": -1.2658010963959612
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "4f0b3b068c194a4b96a3b932b9c264f3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -291.97811956867196,
+        "Y": -7.172872879577227
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "a62f4e1c9c2d4477bcb3f0fc29a3f8f7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 124.47044114560435,
+        "Y": -2.109668493993297
+      }
+    ],
+    "Annotations": [],
+    "X": 1163.4400366791428,
+    "Y": 353.72611483662507,
+    "Zoom": 4.0
+  }
+}
